@@ -1,0 +1,98 @@
+// -------------------------------------
+//   Custom Select
+// -------------------------------------
+// ----- Custom select styling 
+// -------------------------------------
+
+// .selectbox {
+// 	@extend %bare-style;          
+// 	position: relative;
+// 	display: inline-block;
+// 	vertical-align: middle;
+// 	&:before, &:after {
+// 		content: '';
+// 		position: absolute;
+// 		pointer-events: none;
+// 	}
+// 	&:after {
+// 		content: "\25BC";
+// 		top: 35%;
+// 		right: u(rem(10)); 
+// 		height: u(rem(15));   
+// 		@include font-size(12); 
+// 	}
+// 	&:before {
+// 		width: u(rem(30));
+// 		right: 0;
+// 		top: 0;
+// 		bottom: 0;
+// 		border-radius: 0 u(rem(3)) u(rem(3)) 0; 
+// 	}
+// 	// -- Nested Select
+// 	select {    
+// 	    background-color: $secondary;  
+// 	    color: $tertiary-lighter;
+// 	    font-size: inherit;
+// 	    padding: u(rem(10)); 
+// 	    border: 0;  
+// 	    margin: 0;
+// 	    border-radius: u(rem(3));  
+// 	    text-indent: 0.01px; 
+// 	    text-overflow: '';
+// 		cursor: pointer;
+// 	    -webkit-appearance: button;  
+// 	    &[disabled] {
+// 	    	color: rgba(0, 0, 0, 0.3);
+// 	    	&:after { 
+// 	    		color: rgba(0, 0, 0, 0.3);
+// 	    	}
+// 	    }
+// 	}
+// }
+
+// .selectbox::before,
+// .selectbox::after {
+//     content: ""; 
+//     position: absolute;
+//     pointer-events: none;
+// }
+
+// .selectbox::after {
+//     /*  Custom dropdown arrow */
+//     content: "\25BC";
+//     height: 1em;
+//     font-size: .625em;
+//     line-height: 1;
+//     right: 1.2em;
+//     top: 50%;
+//     margin-top: -.5em;
+// }
+
+// .selectbox::before {
+//     /*  Custom dropdown arrow cover */
+//     width: 2em;
+//     right: 0;
+//     top: 0;
+//     bottom: 0;
+//     border-radius: 0 3px 3px 0;
+// }
+
+// .selectbox select[disabled] {
+//     color: rgba(0, 0, 0, 0.3);
+// }
+
+// .selectbox select[disabled]::after {
+//     color: rgba(0, 0, 0, 0.1);
+// }
+
+// .selectbox::before {
+//     background-color: rgba(0, 0, 0, 0.15);
+// }
+
+// .selectbox::after {
+//     color: rgba(0, 0, 0, 0.4);
+// }
+
+// // -------------------------------------
+// //   States
+// // -------------------------------------

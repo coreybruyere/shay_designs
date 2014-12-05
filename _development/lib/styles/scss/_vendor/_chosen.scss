@@ -1,0 +1,55 @@
+// -------------------------------------
+//   Chosen Select
+// -------------------------------------
+// ----- Custom select styling OVER RIDE
+// -------------------------------------
+
+.woocommerce-checkout .form-row .chosen-container-single .chosen-single {
+    height: u(rem(35));
+    line-height: u(rem(35));
+}
+
+.woocommerce-checkout .form-row .chosen-container {
+    width: auto !important;
+    min-width: u(rem(240)); 
+}
+
+.woocommerce-checkout .form-row .chosen-container-single .chosen-single div b {
+    background-position: 0 u(rem(7)) !important;
+}
+
+.chosen-container-single .chosen-single {
+    background: none;
+    background-color: $tertiary-lighter;
+    box-shadow: none;
+    border: u(rem(1)) solid $alt-gray;
+    color: $tertiary;
+}
+
+.chosen-container-active .chosen-single {
+    border: u(rem(1)) solid $secondary;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single {
+    background: none;
+    background-color: $tertiary-lighter;
+    border: u(rem(1)) solid $alt-gray;
+    box-shadow: none;
+}
+
+.chosen-container .chosen-drop { 
+    border: u(rem(1)) solid $alt-gray;
+    // background: url('../../images/chosen-sprite.png') no-repeat 0px 2px;
+}
+
+.chosen-container .chosen-results li.highlighted {
+    background: none;
+    background-color: $secondary;
+}
+
+.chosen-search input {
+    min-height: 0;
+    min-width: 0;
+}
+
+

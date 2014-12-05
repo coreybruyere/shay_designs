@@ -1,0 +1,70 @@
+// -------------------------------------
+//   Button Bits
+// -------------------------------------
+// ----- Styles for buttons
+// -------------------------------------
+
+// -- Button Mixin
+@mixin button(
+	$btn-color: $secondary,
+	$btn-border-color: $secondary,
+	$btn-text-color: $tertiary-lighter,
+	$btn-font-size: 16,
+	$btn-padding: 6,
+	$btn-border-size: 1,
+	$btn-border-radius: $border-radius) {
+		display: inline-block; 
+		padding: u(rem($btn-padding)) u(rem($btn-padding - 1)) u(rem($btn-padding - 1));
+		background-color: $btn-color;
+		color: $btn-text-color;
+		border: u(rem($btn-border-size)) solid $btn-border-color;
+		border-radius: u(rem($btn-border-radius));
+		text-align: center;
+		text-decoration: none;
+		font: inherit;
+		font-weight: bold;
+		transition: all .5s ease-in-out;
+		@include font-size($btn-font-size);
+		&:hover {
+			color: $btn-text-color;  
+			background-color: $secondary-light; 
+			border-color: $secondary-light;
+		}
+		&:focus, &:active {
+			outline: 0;
+			color: $btn-text-color; 
+			border-color: $btn-border-color;
+		}
+}
+
+
+// -- Default   
+.button, button {
+	@include button();
+}
+
+// -- Secondary button
+.button--secondary {
+	@include button($l-gray, $secondary, $secondary, 16);  
+	&:hover, &:active {
+		background-color: $secondary-lighter;
+		border-color: $secondary-lighter; 
+		color: $tertiary-lighter;
+	}
+}
+
+// -- Bottom arrow on button 
+// .button--arrow {
+//   @include arrow("down", $primary-light, $primary, u(rem(8)));  
+// }
+
+// -- Button sizes
+.button--wide {
+	width: 100%;
+}
+
+
+// -------------------------------------
+//   Button States
+// -------------------------------------
+

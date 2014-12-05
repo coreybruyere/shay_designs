@@ -1,0 +1,124 @@
+// -------------------------------------
+//   Table Bits
+// -------------------------------------
+// ----- Styles for Tables, td, tr, th, tbody and so on..
+// -------------------------------------
+
+.table {
+	display: table;
+	border-collapse: separate;
+	border-spacing: 2px;
+	border-color: gray
+}
+
+.tr {
+	display: table-row;
+	vertical-align: middle;
+	border-color: inherit
+}
+
+.td {
+	display: table-cell;
+	padding: 0 u(rem(10));
+	vertical-align: inherit
+}
+
+table {
+	width: 100%;
+	text-align: left;
+	font-weight: bold;
+	border: u(rem(1)) solid $alt-gray;
+
+	td, th {
+		padding: u(rem(5));
+	}
+
+	tr {
+		background-color: rgba(255, 250, 250 ,.2);
+		border: u(rem(1)) solid $alt-gray;
+		border-top: 0;
+	}
+
+	thead {
+		padding: u(rem(3));
+		background-color: $tertiary-lighter; 
+	}
+
+	tfoot {
+		tr {
+			&:last-child {
+				background-color: rgba(255, 250, 250 ,.5); 
+			}
+		}
+	}
+}
+
+.table--rwd {
+	content: attr(data-th)": "; 
+	display: table;
+	width: 100%; 
+	font-weight: bold; 
+	// -- Min Width @ $mobile
+	@media #{$mobile} {
+		display: table;
+	}
+
+	th {
+		display: none;
+		// -- Min Width @ $mobile
+		@media #{$mobile} {
+			display: table-cell;
+			border-top: u(rem(1)) solid $alt-gray;
+			border-bottom: u(rem(2)) solid $alt-gray;
+		}
+	}
+
+	tr {
+		display: block;
+		// -- Min Width @ $mobile
+		@media #{$mobile} {
+			display: table-row;
+		}
+	}
+
+	td {
+		display: block;
+		// -- Min Width @ $mobile
+		@media #{$mobile} {
+			display: table-cell;
+		} 
+	}
+
+	td[data-th] {
+		display: block; 
+		&:before {
+			content: attr(data-th) ": ";
+			font-weight: bold;
+			width: 6.5em;
+			display: inline-block;
+		}
+		// -- Min Width @ $mobile
+		@media #{$mobile} {
+			display: table-cell;
+			&:before {
+				display: none;
+			} 
+		}
+	}
+}
+
+.table--bold {
+	@extend %section;
+	tfoot {
+		tr {
+			&:last-of-type {
+				border: u(rem(1)) solid $secondary;
+				border-top: u(rem(2)) solid $secondary;
+			}
+		}
+	}
+}
+
+// -------------------------------------
+//   Table States
+// -------------------------------------

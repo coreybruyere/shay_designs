@@ -1,0 +1,67 @@
+// -------------------------------------
+//   Alerts
+// -------------------------------------
+// ----- Alert messages
+// -------------------------------------
+
+%alert {
+	@extend .list-ui; 
+	position: relative;
+	width: 100%;
+	margin: u(rem($margin-top)) 0 u(rem($margin-bottom * 2));
+	padding: u(rem($padding-wrap-sm));
+	background-color: $tertiary-lighter;
+	border-top-width: u(rem(3));
+	border-top-style: solid;
+	border-radius: u(rem($border-radius));
+}
+
+%alert-icon {
+	width: u(rem(22));
+	height: u(rem(22));
+	padding-left: u(rem(1));
+	text-align: center;
+	color: $tertiary-lighter;
+	line-height: 1;
+	border-radius: 50%;
+	float: right;
+	cursor: pointer;
+	transition: background-color .5s ease-in-out; 
+	@include font-size(22);
+}
+
+.alert {
+	@extend %alert;
+	border-color: $alert-red;
+}
+
+.alert__icon {
+	@extend %alert-icon;
+	background-color: $alert-red;
+	&:hover, &:active {
+		background-color: lighten($alert-red, 5%); 
+	}
+}
+
+.alert--success {
+	@extend %alert;
+	border-color: $alert-green;
+}
+
+.alert--success__icon {
+	@extend %alert-icon;
+	background-color: $alert-green;
+	&:hover, &:active {
+		background-color: lighten($alert-green, 5%)
+	}
+}
+
+.alert--important { 
+	@extend %alert;
+	border-color: $alert-blue;
+}
+
+
+// -------------------------------------
+//   States
+// -------------------------------------

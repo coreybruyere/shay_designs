@@ -1,0 +1,104 @@
+// -------------------------------------
+//   Body Wrappers
+// -------------------------------------
+// ----- Body Layout Styles
+// -------------------------------------
+
+%section {
+	@extend %clearfix;
+	margin-top: u(rem($margin-top));  
+	margin-bottom: u(rem($margin-bottom));   
+}
+
+%section-region {
+	@extend %section;
+	margin-bottom: u(rem($margin-bottom * 2));
+	>*:first-child {
+		margin-top: 0 !important;                         
+	} 
+}
+
+%wrapper {
+	@extend %clearfix;
+	@include center( u(rem(1200)), u(rem($padding-wrap-sm)) );   
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		@include center( u(rem(1200)), u(rem($padding-wrap-lg)) );
+	}
+}
+
+%island {
+	padding: u(rem($padding)) u(rem($padding-wrap-sm));
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		padding: u(rem($padding)) u(rem($padding-wrap-lg));
+	}
+}
+
+%well {
+	margin-bottom: u(rem($margin-bottom));
+}
+
+.main {
+	@extend %clearfix;
+	padding-top: u(rem(35));
+	padding-bottom: u(rem(35));
+}
+
+.section { 
+	@extend %section;
+}
+
+.section-region {
+	@extend %section-region;
+}
+
+.island {
+	@extend %wrapper;
+	@extend %island;
+}
+
+.well {
+	@extend %clearfix;
+	@extend %well;
+}
+
+.wrapper {
+	@extend %wrapper;
+}
+
+.wrapper--bare {
+	@extend %wrapper;
+	padding: 0;
+}
+
+
+
+
+
+// -------------------------------------
+//   States
+// -------------------------------------
+ 
+.is-active-body {
+	&:after {
+		content: ''; 
+		position: absolute;
+		display: block;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		height: 100%;
+		background-color: $black;
+		opacity: .75;
+		// -- Min Width @ $tablet
+		@media #{$tablet} {
+			display: none;
+		}
+	}
+}
+
+
+

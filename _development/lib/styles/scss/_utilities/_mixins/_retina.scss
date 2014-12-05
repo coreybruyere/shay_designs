@@ -1,0 +1,38 @@
+// -- Retina Images
+// example: @include retina("logo",png, 100, 50);
+@mixin retina($file, $type, $width, $height) {
+  background-image: url('../../images/min/' + $file + '.' + $type);
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), 
+    only screen and (-moz-min-device-pixel-ratio: 2),
+    only screen and (-o-min-device-pixel-ratio: 2/1),
+    only screen and (min-device-pixel-ratio: 2),
+    only screen and (min-resolution: 192dpi),
+    only screen and (min-resolution: 2dppx){
+    & {
+      background-image: url('../../images/min/' + $file + '@2x.' + $type);
+      -webkit-background-size: u(rem($width)) u(rem($height));
+      -moz-background-size: u(rem($width)) u(rem($height));
+      -o-background-size: u(rem($width)) u(rem($height));
+      background-size: u(rem($width)) u(rem($height));
+    }
+  }
+}
+
+
+// -- Retina Background with svg support. Modernizr dependent 
+$image-path: '../../img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false){
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if($size){
+        background-size: $size;
+    }
+    .no-svg &{
+        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+          background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+        }
+    }
+}

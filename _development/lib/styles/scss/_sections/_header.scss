@@ -1,0 +1,75 @@
+// -------------------------------------
+//   Header Layout
+// -------------------------------------
+// ----- Header Layout Styles - Nav items should be styled in nav.scss
+// -------------------------------------
+
+.header[role="banner"] {
+	@extend %clearfix;  
+	@extend %dotted-border;
+	position: relative; 
+	background-color: $primary;
+	@include fadeInDown;
+	&:after {
+		top: u(rem(106));
+	}
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		margin-top: u(rem(15));
+	}
+}
+
+.header__burger {
+	@extend %padding-mq;
+	@extend .float-r;
+	padding-top: u(rem(42));
+	padding-bottom: u(rem(42));
+	cursor: pointer;
+	vertical-align: middle;
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		display: none;
+	}
+}
+
+.header__burger-icon {
+	@include burger();  
+}
+
+.header__logo {
+	@extend %wrapper;
+	@extend .float-l;
+	position: absolute;
+	z-index: 100;
+	display: inline-block;
+	width: u(rem(115));
+	margin: 0;
+	margin-top: u(rem(15)); 
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		width: u(rem(225)); 
+		margin-top: u(rem(-28)); 
+	}
+	// width: u(rem(210)); 
+	// margin-top: u(rem(-30)); 
+	// color: $tertiary-lighter; 
+	// background-image: url('../../images/svg/header-logo.svg'); 
+}
+
+.header__text {
+	@extend %site-icon; 
+	@extend %section;
+	display: block;
+	@include font-size(34); 
+}
+
+
+ 
+
+// -------------------------------------
+//   States 
+// -------------------------------------
+
+.is-active-icon {
+	@include burger-to-cross;  
+}

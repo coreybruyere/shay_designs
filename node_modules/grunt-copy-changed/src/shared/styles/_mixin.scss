@@ -1,0 +1,102 @@
+$default-box-shadow-h-offset: 1px;
+$default-box-shadow-v-offset: 1px;
+$default-box-shadow-blur: 3px;
+$default-box-shadow-color: #999;
+
+$br_value: 3px;
+
+$point-pc: 960px;
+$point-tablet-1: 641px;
+$point-tablet-2: 959px;
+$point-sp: 640px;
+
+// mediaquery
+@mixin pc($point-pc) {
+  @media screen and (min-width: $point-pc) { @content; }
+}
+@mixin tablet($point-tablet-1,$point-tablet-2) {
+  @media screen and (min-width: $point-tablet-1) and (max-width: $point-tablet-2) { @content; }
+}
+@mixin sp($point-sp) {
+  @media screen and (max-width: $point-sp) { @content; }
+}
+
+@mixin inline-block { display: inline-block; }
+
+@mixin flex {
+  display:-webkit-box;
+  -webkit-box-pack : start;
+  -webkit-box-align : end;
+  display:flex;
+  justify-content : flex-start;
+  align-items : flex-end;
+}
+@mixin flex-center {
+  display:-webkit-box;
+  -webkit-box-pack : center;
+  -webkit-box-align : center;
+  display:flex;
+  justify-content : center;
+  align-items : center;
+}
+// table-cell
+@mixin table_cell {
+  display: table-cell;
+  vertical-align: middle;
+  *display: inline;
+  *zoom: 1;
+}
+
+// border-radius
+@mixin br_r($br_value) {
+  border-radius: $br_value;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+@mixin br_b($br_value) {
+  border-radius: $br_value;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+@mixin br_l($br_value) {
+  border-radius: $br_value;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+@mixin br_t($br_value) {
+  border-radius: $br_value;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+@mixin br_tl($br_value) {
+  border-radius: 0;
+  border-top-left-radius: $br_value;
+}
+@mixin br_tr($br_value) {
+  border-radius: 0;
+  border-top-right-radius: $br_value;
+}
+@mixin br_br($br_value) {
+  border-radius: 0;
+  border-bottom-right-radius: $br_value;
+}
+@mixin br_bl($br_value) {
+  border-radius: 0;
+  border-bottom-left-radius: $br_value;
+}
+
+@mixin sprite-bg($name, $sprite, $ratio: 1, $w: "false") {
+  background-image: sprite-url($sprite);
+  background-repeat: no-repeat;
+  overflow: hidden;
+  @if $w == "false" {
+    $w : image-width(sprite-file($sprite, $name)) / $ratio;
+  }
+  $h : image-height(sprite-file($sprite, $name)) / $ratio;
+  $ypos: round(nth(sprite-position($sprite, $name), 2) / $ratio);
+  width: $w;
+  height: $h;
+  background-position: 0 $ypos;
+  margin-top: -$h / $ratio;
+  @include background-size(ceil(image-width(sprite-path($sprite)) / $ratio) auto);
+}

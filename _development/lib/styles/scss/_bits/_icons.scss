@@ -1,0 +1,63 @@
+// -------------------------------------
+//   Icons
+// -------------------------------------
+// ----- Custom SVG icons
+// -------------------------------------
+
+%icon-small {
+  width: u(rem(22));
+  height: u(rem(22));
+  vertical-align: top;
+}
+
+%icon-large {
+  width: u(rem(28));
+  height: u(rem(28));  
+  vertical-align: top;
+}
+
+.icon-svg {
+  @extend %icon-small;
+  position: relative;
+  display: inline-block;
+  margin-right: u(rem(5));
+  float: left;
+  fill: $tertiary-light; 
+  transition: all .5s ease-in-out; 
+  &:hover, &:active {
+    fill: $primary; 
+  }
+  &:last-of-type {
+    margin-right: 0;
+  }
+  &:after {
+    content: '';
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.icon-svg--lrg {
+  @extend %icon-large;
+  position: relative;
+  display: inline-block;
+  margin: 0 u(rem(5));
+  fill: $tertiary;  
+  transition: all .5s ease-in-out; 
+  &:hover, &:active {
+    fill: $primary;
+  }
+  .footer & {
+    fill: $tertiary-lighter;
+    &:hover, &:active {
+      opacity: .75;
+    }
+  }
+}
+
+
+
+

@@ -1,0 +1,151 @@
+@charset "UTF-8";/*　*/
+
+/* reset ------------ */
+
+/**
+ * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
+ * http://cssreset.com
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.bold {
+  font-weight: bold !important;
+}
+.normal {
+  font-weight: normal !important;
+}
+
+.center {
+  text-align:center !important;
+}
+.left {
+  text-align:left !important;
+}
+.right {
+  text-align:right !important;
+}
+.baseline {
+  vertical-align: baseline !important;
+}
+.top {
+  vertical-align: top !important;
+}
+.middle {
+  vertical-align: middle !important;
+}
+.bottom {
+  vertical-align: bottom !important;
+}
+
+.fl {
+  float:left !important;
+}
+.fr {
+  float:right !important;
+}
+.fc {
+  float:none !important;
+  clear:both !important;
+}
+
+.inline {
+  display:inline !important;
+}
+.block {
+  display:block !important;
+}
+.inline_block {
+  display:inline-block !important;
+  *display:inline !important;
+  *zoom: 1;
+}
+
+.mt0p5em  { margin-top: 0.5em !important; }
+.mt0p7em  { margin-top: 0.7em !important; }
+.mt1em  { margin-top: 1em !important; }
+.mt1p5em { margin-top: 1.5em !important; }
+.mt2em  { margin-top: 2em !important; }
+.mt2p5em  { margin-top: 2.5em !important; }
+.mt3em  { margin-top: 3em !important; }
+.mt3p5em  { margin-top: 3.5em !important; }
+.mt4em  { margin-top: 4em !important; }
+.mt4p5em  { margin-top: 4.5em !important; }
+.mt5em  { margin-top: 5em !important; }
+
+.mb0p5em  { margin-bottom: 0.5em !important; }
+.mb0p7em  { margin-bottom: 0.7em !important; }
+.mb1em  { margin-bottom: 1em !important; }
+.mb1p5em { margin-bottom: 1.5em !important; }
+.mb2em  { margin-bottom: 2em !important; }
+.mb2p5em  { margin-bottom: 2.5em !important; }
+.mb3em  { margin-bottom: 3em !important; }
+.mb3p5em  { margin-bottom: 3.5em !important; }
+.mb4em  { margin-bottom: 4em !important; }
+.mb4p5em  { margin-bottom: 4.5em !important; }
+.mb5em  { margin-bottom: 5em !important; }
+
+.pt0p5em  { padding-top: 0.5em !important; }
+.pt0p7em  { padding-top: 0.7em !important; }
+.pt1em  { padding-top: 1em !important; }
+.pt1p5em { padding-top: 1.5em !important; }
+.pt2em  { padding-top: 2em !important; }
+.pt2p5em  { padding-top: 2.5em !important; }
+.pt3em { padding-top: 3em !important; }
+.pt3p5em  { padding-top: 3.5em !important; }
+.pt4em  { padding-top: 4em !important; }
+.pt4p5em { padding-top: 4.5em !important; }
+.pt5em  { padding-top: 5em !important; }
+
+.pb0p5em  { padding-bottom: 0.5em !important; }
+.pb0p7em { padding-bottom: 0.7em !important; }
+.pb1em  { padding-bottom: 1em !important; }
+.pb1p5em  { padding-bottom: 1.5em !important; }
+.pb2em { padding-bottom: 2em !important; }
+.pb2p5em  { padding-bottom: 2.5em !important; }
+.pb3em  { padding-bottom: 3em !important; }
+.pb3p5em { padding-bottom: 3.5em !important; }
+.pb4em  { padding-bottom: 4em !important; }
+.pb4p5em  { padding-bottom: 4.5em !important; }
+.pb5em  { padding-bottom: 5em !important; }

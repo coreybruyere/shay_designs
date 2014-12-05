@@ -1,0 +1,58 @@
+// 余白調整用のクラス
+@for $i from 0 through 10
+  .m#{$i * 5}
+    margin: 5px * $i !important
+  .ml#{$i * 5}
+    margin-left: 5px * $i !important
+  .mr#{$i * 5}
+    margin-right: 5px * $i !important
+  .mt#{$i * 5}
+    margin-top: 5px * $i !important
+  .mb#{$i * 5}
+    margin-bottom: 5px * $i !important
+  .pt#{$i * 5}
+    padding-top: 5px * $i !important
+  .pl#{$i * 5}
+    padding-left: 5px * $i !important
+  .pr#{$i * 5}
+    padding-right: 5px * $i !important
+  .pb#{$i * 5}
+    padding-bottom: 5px * $i !important
+
+// 幅クラス
+@for $i from 0 through 40 
+  .w#{$i * 5}
+    width: 5px * $i !important
+
+// インデント
+@for $i from 1 through 10
+  .indent#{$i}
+    text-indent: -1em * $i
+    padding-left: 1em * $i
+
+/* clearfix */
+.clearfix 
+  &:after
+    content: "."
+    display: block
+    clear: both
+    height: 0
+    visibility: hidden
+
+.row
+  width: 100%
+  box-sizing: border-box
+
+  &:after
+    box-sizing: border-box
+    content: " "
+    display: table
+    clear: both
+
+  > * 
+    box-sizing: border-box
+    float: left
+
+@for $i from 1 through 12
+  .col#{$i}
+    width: ($i / 12)*100%

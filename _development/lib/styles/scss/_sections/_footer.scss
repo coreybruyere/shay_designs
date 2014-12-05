@@ -1,0 +1,34 @@
+// -------------------------------------
+//   Footer Layout
+// -------------------------------------
+// ----- Footer Layout Styles
+// -------------------------------------
+
+.footer[role="contentinfo"] {
+	position: relative;
+	margin-top: u(rem(4));
+	padding-top: u(rem(30));
+	padding-bottom: u(rem(30 * 2));
+	text-align: center;
+	color: $tertiary-lighter;
+	background-color: $primary;
+	background-image: url('../../images/min/footer_bg.png'); 
+	background-repeat: no-repeat;
+	background-position: 0 185%;  
+	&:before {
+		position: absolute;
+		top: u(rem(-4));
+		left: 0;
+		content: '';
+		width: 100%;
+		height: u(rem(2));
+		background-color: $primary;
+	}
+}
+
+.footer__text {
+	@extend %site-icon;
+	@include font-size(36);
+}
+
+

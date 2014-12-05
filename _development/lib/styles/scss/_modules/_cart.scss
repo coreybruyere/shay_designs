@@ -1,0 +1,153 @@
+// -------------------------------------
+//   Cart Module
+// -------------------------------------
+// ----- Styles for Cart modules
+// -------------------------------------
+
+%cart-number {
+    position: absolute;
+    display: block;
+    width: u(rem(20));
+    height: u(rem(18)); 
+    min-height: 0;
+    padding: 0; 
+    padding-left: u(rem(2));
+    text-align: center;
+    line-height: .75;
+    vertical-align: text-top;
+    text-decoration: none; 
+    overflow: visible;
+    cursor: pointer;
+    color: $tertiary;
+    border-radius: u(rem(2));
+    border: u(rem(1)) solid $tertiary-light; 
+    &:focus, &:active {
+        border-color: $tertiary-light;
+    }
+}
+
+.cart {
+    // background-color: $tertiary-lighter;
+}
+
+.cart__item {
+    padding-bottom: u(rem(25));
+    border-bottom: u(rem(1)) solid $alt-gray;
+}
+
+.cart--table {
+    width: 100%;
+    margin: 0 u(rem(1)) u(rem(24)) 0;
+    border: u(rem(1)) solid $alt-gray; 
+    text-align: left;
+    border-collapse: collapse;
+    border-radius: u(rem(2));
+    // -- Min Width @ $mobile
+    @media #{$mobile} {
+        border-collapse: separate;
+    }
+}
+
+.cart--table__cell {
+    padding: u(rem(6)) u(rem(12));
+    vertical-align: middle;
+    // -- Min Width @ $mobile
+    @media #{$mobile} {
+        // border-top: u(rem(1)) solid $alt-gray;
+        border-bottom: u(rem(1)) solid $alt-gray;
+        text-align: right;
+    }
+}
+
+.cart--table__remove {
+    display: block;
+    width: u(rem(25));
+    height: u(rem(25));
+    text-align: center;
+    line-height: 1;
+    border-radius: 50%;
+    background-color: $tertiary-lighter;
+    @include font-size(25);
+    &:hover, &:active {
+        background-color: $tertiary-light;
+    }
+    // -- Min Width @ $mobile
+    @media #{$mobile} {
+        background-color: transparent;
+        &:hover, &:active {
+            background-color: $tertiary-lighter;
+        }
+    }
+}
+
+.cart--table__image {
+    img {
+        width: auto;
+        border-radius: u(rem($border-radius));
+        // -- Min Width @ $mobile
+        @media #{$mobile} {
+            display: block;
+            width: u(rem(45));
+        }
+    }
+}
+
+.cart--count {
+    position: relative;
+    display: inline-block;
+    width: u(rem(60));
+    margin-bottom: u(rem(-5));
+    overflow: hidden;
+    zoom: 1;
+    // -- Min Width @ $mobile
+    @media #{$mobile} {
+        margin: 0 auto;
+        float: right; 
+    }
+}
+
+.cart--count__qty {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+    width: u(rem(40));
+    height: u(rem(35));
+    min-height: 0;
+    float: left; 
+    text-align: center;
+    border: u(rem(1)) solid $tertiary-light;
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: u(rem(2));
+    border-bottom-left-radius: u(rem(2));
+}
+
+.cart--count__minus {
+    @extend %cart-number;
+    bottom: 0;
+    right: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.cart--count__plus { 
+    @extend %cart-number;
+    top: 0;
+    right: 0;
+    border-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.cart--total {
+    width: auto;
+    min-width: u(rem(420));
+    text-align: left;
+}
+
+// -------------------------------------
+//   States
+// -------------------------------------

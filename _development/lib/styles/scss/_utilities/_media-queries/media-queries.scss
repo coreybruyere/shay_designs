@@ -1,0 +1,28 @@
+// -------------------------------------
+//   Media Queries
+// -------------------------------------
+// ----- 
+// -------------------------------------
+
+// -- Breakpoints
+$baby:     u(rem(321)) !default; 
+$mama:     u(rem(550)) !default;
+$uncle:    u(rem(730)) !default;
+$papa:     u(rem(890)) !default;
+$grandma:  u(rem(1200)) !default;
+$grandpa:  u(rem(1600)) !default;
+
+
+// -- Media Queries
+$screen: "only screen" !default;
+$small-mobile: "only screen and (min-width:"#{$baby}")" !default;
+$mobile: "only screen and (min-width:"#{$mama}")" !default;
+$tablet: "only screen and (min-width:"#{$uncle}")" !default;
+$small-desktop: "only screen and (min-width:"#{$papa}")" !default;
+$desktop: "only screen and (min-width:"#{$grandma}")" !default;
+$large-desktop: "only screen and (min-width:"#{$grandpa}")" !default;
+$landscape: "only screen and (orientation: landscape)" !default;
+$portrait: "only screen and (orientation: portrait)" !default;
+
+
+

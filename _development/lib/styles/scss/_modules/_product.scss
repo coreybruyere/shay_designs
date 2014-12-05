@@ -1,0 +1,41 @@
+// -------------------------------------
+//   Product Module
+// -------------------------------------
+// ----- Styles for PDP and Product Lists
+// -------------------------------------
+
+.product {
+	position: relative;
+	margin-bottom: u(rem(35));   
+}
+
+.product__label {
+	position: absolute;
+	top: 0; 
+	left: 0; 
+	height: u(rem(40));
+	width: u(rem(40));
+	margin: u(rem(5));
+	padding: 0 u(rem(6));
+	text-align: center; 
+	background-color: $tertiary-lighter;    
+	border-radius: 50%;  
+	line-height: 4.25;
+	@include font-size(10); 
+}
+
+.product__title {
+	padding-top: u(rem(15));
+	min-height: u(rem(90));
+	max-height: u(rem(90));
+}
+
+.product__sub-title {
+	@extend .section;
+	color: $tertiary;
+}
+
+
+// -------------------------------------
+//   States
+// -------------------------------------

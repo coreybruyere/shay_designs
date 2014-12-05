@@ -1,0 +1,82 @@
+// -------------------------------------
+//   Base 
+// -------------------------------------
+// ----- Custom Reset
+// -------------------------------------
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: $serif;
+    @include font-size($base-font-size);
+}
+
+body {
+    min-height: 100%;
+    overflow: auto;
+    color: $text-color;
+    background-color: $l-gray; 
+    line-height: $body-line-height;
+    font-weight: 700;
+    font-family: $serif;
+    text-size-adjust: 100%;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    @include retina(whitey,png, 300, 300); 
+}
+
+img {
+    @extend .img--responsive;
+}
+
+hr {
+    margin: u(rem(25)) 20%;
+    border: 0;
+    border-top: u(rem(1)) solid $alt-gray;
+    text-align: center;
+    &:after {
+        position: relative;
+        top: u(rem(-14));
+        width: u(rem(25));
+        height: u(rem(25));
+        padding-left: u(rem(3));
+        content: '§';
+        display: inline-block;
+        color: $tertiary-light;
+        transform: rotate(87deg);
+        @include font-size(20);
+    }
+}
+
+figure {
+    margin: 0;
+}
+
+blockquote {
+    // @extend %section;
+    margin: u(rem(24)) u(rem(20));
+    padding-left: u(rem(20));
+    border-left: u(rem(5)) solid $tertiary;
+}
+
+abbr[title] {
+    @extend %required;
+}
+
+mark {
+    background-color: $alert-yellow;
+}
+
+// -------------------------------------
+//   States -- ARIA states
+// -------------------------------------
+
+[aria-hidden="true"] {
+    display: none !important;
+}
+
+[aria-hidden="false"] {
+    display: block !important;
+}

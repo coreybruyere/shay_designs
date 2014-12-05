@@ -1,0 +1,191 @@
+// -------------------------------------
+//   Sidebar Layout
+// -------------------------------------
+// ----- Sidebar Layout Styles
+// -------------------------------------
+
+.sidebar[role="complementary"] { 
+	padding: u(rem(2));
+	border: u(rem(2)) solid $secondary-lighter;
+	border-radius: u(rem($border-radius + 3));
+	@include column(1);
+	@include fadeInRight;    
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+	  @include column(31/100); 
+	}
+}
+
+.sidebar__inner {
+	@extend %clearfix;
+	margin: 0 u(rem(2));  
+	padding: u(rem($padding)); 
+	text-align: center;
+	background-color: rgba($secondary-light, .35); 
+	border-radius: u(rem($border-radius));
+	// // -- Min Width @ $tablet
+	// @media #{$tablet} {
+	// 	padding: u(rem($padding-wrap-lg)); 
+	// }
+}
+
+.sidebar__widget {
+	overflow: hidden;
+}
+
+.sidebar__grid {
+	margin-bottom: 2%;
+	border: u(rem(1)) solid $tertiary-light;
+	@include column(1/2, $cycle: 2);
+}
+ 
+.sidebar__title {
+	display: table;
+	margin: u(rem(15)) 0;
+	padding: 0 u(rem(10));
+	width: 100%;
+	border-collapse: separate;
+	white-space: nowrap;
+	text-align: center;
+	font-family: $serif-heading;
+	color: $tertiary-lighter;
+	&:after, &:before {
+		border-bottom: u(rem(3)) solid $tertiary-lighter;
+		border-top: u(rem(3)) solid $tertiary-lighter; 
+		content: '';
+		display: table-cell;
+		width: 35%;
+	}
+	&:after {
+		transform: scaleY(.5) translateX(.5em);
+	}
+	&:before {
+		transform: scaleY(.5) translateX(-.5em);
+	}
+}
+
+.sidebar__link {
+	display: inline-block;
+	padding: 0 u(rem(5));
+	margin: 0 0 u(rem(6));
+	// border-radius: u(rem($border-radius));
+	background-color: $bg-color;
+	color: $secondary-light;
+}
+
+// .sidebar__input {
+// 	@extend %span-3-4;
+// 	text-align: left;
+// 	// -- Min Width @ $tablet
+// 	// @media #{$tablet} {
+// 	// 	width: auto;	
+// 	// }
+// }
+
+// .sidebar__button {
+// 	@extend %span-1-4;
+// }
+
+
+// .sidebar {
+// 	@extend %clearfix;
+// 	width: 100%;
+// 	float: left;
+// 	// @include rem(margin-top, 50px);
+// 	// -- Min Width @ $tablet
+// 	@media #{$tablet} {
+// 		width: 28%;
+// 		margin-left: 3%; 
+// 		margin-top: 0;
+// 	}
+// }
+
+// .sidebar__list {
+// 	@extend .list-ui;
+// 	// @include rem(padding-top, 40px);
+// }
+
+// .sidebar__list__item {
+// 	// background-color: $tertiary-med-2;
+// 	// @include rem(border-radius, 5px);
+// 	// @include rem(margin-bottom, 15px);
+
+// 	a {
+// 		display: block;
+// 		width: 100%;
+// 		color: $white;
+// 		// @include rem(padding, 10px);
+// 		&:hover {
+// 			color: inherit;
+// 		}
+// 	}
+// }
+
+// .sidebar__widget {
+// 	position: relative;
+//     background-size: 100%;
+//     text-align: center;
+//     border-bottom: 2px solid $secondary;
+//     // @include rem(margin,60px 0);
+//     // @include rem(padding-bottom, 10px);
+//     &:after {
+//     	content: '';
+//     	position: absolute;
+//     	display: block;
+//     	width: 100%;
+//     	background: $secondary;
+//     	z-index: -99;
+//     	// @include rem(height, 2px);
+//     	// @include rem(top, 14px);
+//     }
+//     &:last-of-type {
+//     	margin-bottom: 0;
+//     }
+//     // -- Min Width @ $tablet
+//     @media #{$tablet} {
+//     	background: url('../../images/sd_border_element.svg') no-repeat 0 -2px;
+// 	    border-bottom: 2px solid $secondary;
+//     	&:after {
+//     		display: none;
+//     	}
+//     }
+// }
+
+// .sidebar__title {
+// 	display: inline-block;
+// 	margin: 0;
+// 	color: $primary;
+// 	// font-family: $serif-heading;
+// 	@include retina("whitey.png", 250, 250);     
+// 	// @include rem(padding, 0 10px 0 11px);
+// }
+
+// .sidebar__inner {
+// 	// @include rem(padding, 10px 0 15px 0); 
+// }
+
+// .sidebar__social {
+// 	width: 25%;  
+// }
+
+// .sidebar__tout {
+// 	// @extend .sidebar__inner; 
+// 	// @include flexbox-display-flex;
+// 	// @include flex-direction;
+// 	// @include flex-wrap(wrap);
+// 	// @include flex-justify-content(space-between);
+// }
+
+// .sidebar__tout__item {
+// 	width: 33%;
+// 	margin-bottom: .5%;
+// 	// -- Min Width @ $tablet
+// 	@media #{$tablet} {
+	
+// 		margin-bottom: 2%;
+// 	}
+
+// 	img {
+// 		display: block;
+// 	}
+// }

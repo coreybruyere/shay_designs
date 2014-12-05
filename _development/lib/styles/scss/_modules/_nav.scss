@@ -1,0 +1,129 @@
+// -------------------------------------
+//   Navigation Modules
+// -------------------------------------
+// ----- Styles for Navigations
+// -------------------------------------
+
+// -- USAGE: <nav class="nav" role="navigation"></nav>
+.nav {
+  @extend %clearfix; 
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  max-height: 0;
+  background-color: $secondary-lighter;
+  transition: max-height .5s ease-in-out;
+  text-align: center;
+  // -- Min Width @ $tablet
+  @media #{$tablet} {
+    float: right;
+    width: auto;
+    max-height: none;
+    padding-right: u(rem($padding-wrap-sm));
+    background-color: transparent;
+    line-height: 1;
+  }
+}
+
+.nav__item {
+  display: block;
+  border-bottom: u(rem(1)) solid $tertiary-lighter;
+  &:last-of-type {
+    border: 0;
+  }
+  // -- Min Width @ $tablet
+  @media #{$tablet} {
+    display: inline-block;
+    float: left;
+    border: 0;
+  }
+}
+
+.nav__link {
+  display: block;
+  padding: u(rem($padding-wrap-sm));
+  color: $tertiary-lighter;
+  transition: background-color .5s ease-in-out, color .5s ease-in-out;
+  @include font-size(20);
+  &:hover, &:active {
+    color: $tertiary-light;
+    background-color: $primary-light;
+  }
+  // -- Min Width @ $tablet
+  @media #{$tablet} {
+    padding: u(rem(45)) u(rem($padding-wrap-sm)) u(rem(45));
+    // &:hover, &:active {
+    //   &[href*="shop"]:after {
+    //     border: 0;
+    //   }
+    // }
+    // -- Shop specific link
+    &[href*="shop"] {
+      color: $tertiary-light; 
+      // position: relative; 
+      // &:after {
+      //   content: '';
+      //   position: absolute;
+      //   left: 0;
+      //   top: 30%;
+      //   width: u(rem(72));
+      //   height: u(rem(45));
+      //   box-shadow: 0 0 u(rem(2)) u(rem(.5)) $focus-gray, $focus-gray 0 0 u(rem(3)) inset; 
+      //   border: u(rem(1)) dashed $l-gray;    
+      //   border-radius: u(rem($border-radius)); 
+      // }
+    }
+  }
+}
+
+.nav--menu {
+  float: right;
+}
+
+.nav--menu__link {
+  @extend .float-l;
+  display: block;
+  margin-left: u(rem(15));
+  color: $tertiary-light;
+  fill: $tertiary-light;
+  &:hover, &:active {
+    color: $primary;
+    fill: $primary;
+  }
+}
+
+.nav--menu__icon {
+  @extend %icon-small;
+  display: inline-block;
+  transition: none;
+  fill: inherit;
+  &:hover, &:active {
+    fill: inherit;
+  }
+}
+
+.nav--footer {
+  @extend %section;
+}
+
+.nav--footer__item {
+  display: inline-block;
+  padding: 0 u(rem($padding)); 
+  color: $tertiary-lighter;
+  &:hover, &:active {
+    color: $tertiary;
+  }
+}
+
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+.is-active-nav {
+  max-height: u(rem(500));
+  // -- Min Width @ $tablet
+  @media #{$tablet} {
+    background-color: transparent;
+  }
+}

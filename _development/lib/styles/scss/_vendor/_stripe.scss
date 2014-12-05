@@ -1,0 +1,31 @@
+// -------------------------------------
+//   Stripe Styles Over Ride
+// -------------------------------------
+// ----- 
+// -------------------------------------
+
+[class*="payment_method_"] {
+	p {
+		margin-bottom: u(rem(10));
+	}
+	img {
+		width: u(rem(200)); 
+		margin-top: u(rem(5));
+	}
+	fieldset {
+		padding: u(rem(15));
+		margin: 0;
+		background-color: $tertiary-lighter;
+	}
+	.payment_box {
+		margin: u(rem(25)) 0;
+	}
+}
+
+#payment input[type="radio"] {
+	visibility: hidden;
+}
+
+.woocommerce-error {
+	@extend .error;
+}

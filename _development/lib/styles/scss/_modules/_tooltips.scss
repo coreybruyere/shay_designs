@@ -1,0 +1,449 @@
+// -------------------------------------
+// --  Tooltips Bits
+// -------------------------------------
+// ----- Tooltip module
+// -------------------------------------
+
+// -- tooltip's default height
+$tooltipHeight: 22;
+
+// -- tooltip's default arrow size
+$arrowSize: 6;
+
+// -- tooltip's default box color
+$tooltipColor: $bg-color;
+
+// -- tooltip's default text color
+$tooltipTextColor: $tertiary;
+
+// -- diverse color variables
+$c-success: #62c462;
+$c-info: #5bc0de;
+$c-danger: #e74c3c;
+$c-warning: #e67e22;
+
+// / Customize CSS Output //
+
+// No need to delete or comment out code.
+// Simply set any features you don't want to compile to false to
+// reduce the CSS output to only what you need.
+
+// Positioning
+$left-positioning: false !default;
+$right-positioning: false !default;
+$top-positioning: true !default;
+$bottom-positioning: false !default;
+
+// Half Arrows
+$half-arrows: false !default;
+
+// Extra Features
+$movable: false !default;
+$soft-edge: false !default;
+$fade-effect: false !default;
+$multiline: false !default;
+
+// Diverse Colors
+$coloring: false !default;
+
+// / Mixins /
+// -- generate custom colors for tooltip's box and the texts. we use it without argumant for default color
+@mixin applyColor($color: $tooltipColor, $textColor: $tooltipTextColor) {
+    @each $position in top, bottom, left, right {
+        &.tooltip--#{$position} {
+            &:before {
+                border-#{$position}-color: $color;
+            }
+            &:after {
+                background-color: $color;
+                color: $textColor;
+            }
+        }
+    }
+    @each $position in top, bottom {
+        &.tooltip--#{$position} {
+            &.half-arrow {
+                &:before {
+                    border-right: u(rem($arrowSize + 1)) solid $color;
+                }
+            }
+        }
+    }
+}
+
+//generate multiline tooltips
+@mixin multiline($width: 150, $align: left) { 
+    height: auto;
+    width: u(rem($width));
+    padding: u(rem($tooltipHeight / 2));
+    line-height: u(rem($tooltipHeight - 3));
+    white-space: normal;
+    text-align: $align;
+}
+
+// Core //
+.tooltip {
+    position: relative;
+    display: inline-block;
+    &:before, &:after {
+        position: absolute;
+        visibility: hidden;
+        opacity: 0;
+        z-index: 999999;
+        // Force Hardware Acceleration in WebKit with translate3d - Refrence: http://davidwalsh.name/translate3d
+        transform: translate3d(0, 0, 0);
+        transition: opacity .5s ease-in-out;
+    }
+    // -- tooltip arrow
+    &:before {
+        content: '';
+        border: u(rem($arrowSize)) solid transparent;
+    }
+    // -- tooltip box
+    &:after {
+        // height: u(rem($tooltipHeight));
+        padding: u(rem($tooltipHeight / 3)); 
+        line-height: u(rem($tooltipHeight / 2));
+        content: attr(data-tooltip);
+        white-space: nowrap;
+        @include font-size(12);
+    }
+    @include applyColor;
+    &:hover, &:focus {
+        background-color: transparent;
+        &:before, &:after {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+// Position //
+
+// -- Left & Right Silent Classes
+%shared--left-and-right {
+    &:before, &:after {
+        bottom: 50%;
+    }
+    &:before {
+        margin-bottom: u(rem($arrowSize / -1 + 1));
+    }
+    &:after {
+        margin-bottom: u(rem($tooltipHeight / -1.5));
+    }
+    @if $half-arrows == true {
+        &.half-arrow {
+            &:before {
+                bottom: u(rem(16));
+                border-style: none;
+                border-top: u(rem($arrowSize + 1)) solid transparent;
+            }
+        }
+    }
+    @if $multiline == true {
+        &.tooltip__multiline {
+            &:before, &:after {
+                filter: blur(0px);
+                margin-bottom: 0;
+                transform: translateY(50%);
+            }
+            &:before {
+                margin-bottom: 0;
+            }
+            @if $half-arrows == true {
+                &.half-arrow { 
+                    &:before {
+                        margin-bottom: u(rem(-2));
+                    }
+                }
+            }
+        }
+    }
+}
+
+// -- End: Silent Classes
+// -- Right Position Styling
+@if $right-positioning == true {
+    .tooltip--right {
+        @extend %shared--left-and-right;
+        &:before,&:after {
+            left: 100%;
+        }
+        &:before {
+            margin-left: u(rem(-2));
+        }
+        &:after {
+            margin-left: u(rem(10));
+        }
+        @if $movable == true {
+            &.tooltip__movable {
+                &:before {
+                    margin-left: u(rem(-10));
+                }
+                &:after {
+                    margin-left: u(rem(-2));
+                }
+                &:hover {
+                    &:before, &:after {
+                      transform: translateX(u(rem(10)));
+                    }
+                }
+                @if $half-arrows == true {
+                    &.half-arrow:before {
+                        margin-left: u(rem(-5));
+                    }
+                }
+                @if $multiline == true {
+                    // -- here here here
+                    &.tooltip__multiline {
+                        &:hover {
+                            &:before, &:after {
+                              transform: translateX(u(rem(10)), 50%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @if $half-arrows == true {
+            &.half-arrow {
+                &:before {
+                    margin-left: u(rem(3));
+                    border-right: u(rem($arrowSize + 1)) solid $tooltipColor;
+                }
+            }
+        }
+    }
+}
+
+// -- Left Position Styling
+@if $left-positioning == true {
+    .tooltip--left {
+        @extend %shared--left-and-right;
+        &:before,&:after {
+            right: 100%;
+        }
+        &:before {
+            margin-right: u(rem(-2));
+        }
+        &:after {
+            margin-right: u(rem(10));
+        }
+        @if $movable == true {
+            &.tooltip__movable {
+                &:before {
+                    margin-right: u(rem(-10));
+                }
+                &:after {
+                    margin-right: u(rem(2));
+                }
+                &:hover {
+                    &:before, &:after {
+                        @include transform(translateX(u(rem(-10))));
+                    }
+                }
+                @if $half-arrows == true {
+                    &.half-arrow:before {
+                        margin-right: u(rem(-5));
+                    }
+                }
+                @if $multiline == true {
+                    // -- here here here
+                    &.tooltip__multiline {
+                        &:hover {
+                            &:before, &:after {
+                                @include transform(translate(u(rem(-10)), 50%));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @if $half-arrows == true {
+            &.half-arrow {
+                &:before {
+                    margin-right: u(rem(3));
+                    border-left: u(rem($arrowSize + 1)) solid $tooltipColor;
+                }
+            }
+        }
+    }
+}
+
+// -- Top & Bottom Silent Classes 
+%shared--top-and-bottom {
+    &:before, &:after {
+        left: 50%;
+        transform: translateX(-50%); 
+    }
+    &:after {
+        width: auto;
+    }
+    @if $half-arrows == true {
+        &.half-arrow {
+            &:before {
+                border-style: none;
+                border-right: u(rem($arrowSize + 1)) solid $tooltipColor;
+            }
+        }
+    }
+}
+
+// -- End: Silent Classes 
+// -- Bottom Position Styling
+@if $bottom-positioning == true {
+    .tooltip--bottom {
+        @extend %shared--top-and-bottom;
+        &:before, &:after {
+            top: 100%;
+        }
+        &:before {
+            margin-top: u(rem($arrowSize / -1 + 1));
+        }
+        &:after {
+            margin-top: u(rem(7));
+        }
+        &:hover {
+            &:before, &:after {
+                @include transform(translate(-50%, 0));
+            }
+        }
+        @if $movable == true {
+            &.tooltip__movable {
+                &:before {
+                    margin-top: u(rem(-15));
+                }
+                &:after {
+                    margin-top: u(rem(-3));
+                }
+                &:hover {
+                    &:before, &:after {
+                        @include transform(translate(-50%, u(rem(10))));
+                    }
+                }
+                @if $half-arrows == true {
+                    &.half-arrow {
+                        &:before {
+                            margin-top: u(rem(-10));
+                        }
+                    }
+                }
+            }
+        }
+        @if $half-arrows == true {
+            &.half-arrow {
+                &:before {
+                    margin-top: 0;
+                    border-top: u(rem($arrowSize + 1)) solid transparent;
+                } 
+            }
+        }
+    }
+}
+
+// -- Top Position Styling
+@if $top-positioning == true {
+    .tooltip--top {
+        @extend %shared--top-and-bottom;
+        &:before, &:after {
+            bottom: 100%;
+        }
+        &:before {
+            margin-bottom: u(rem($arrowSize / -1 + 1));
+        }
+        &:after {
+            margin-bottom: u(rem(7));
+        }
+        &:hover {
+            &:before, &:after {
+              transform: translate(-50%, 0);
+            }
+        }
+        @if $movable == true {
+            &.tooltip__movable {
+                &:before {
+                    margin-bottom: u(rem(-15));
+                }
+                &:after {
+                    margin-bottom: u(rem(-3));
+                }
+                &:hover {
+                    &:before, &:after {
+                      transform: translate(-50%, u(rem(-10)));
+                    }
+                }
+                @if $half-arrows == true {
+                    &.half-arrow {
+                        &:before {
+                            margin-bottom: u(rem(-10));
+                        }
+                    }
+                }
+            }
+        }
+        @if $half-arrows == true {
+            &.half-arrow {
+                &:before {
+                    margin-bottom: 0;
+                    border-bottom: u(rem($arrowSize + 1)) solid transparent;
+                }
+            }
+        }
+    }
+}
+
+// Features //
+// -- animate movement on hover
+@if $movable == true {
+    .tooltip__movable {
+        &:before, &:after {
+          transition: all .1s linear;
+        }
+    }
+}
+
+// -- soft edge
+@if $soft-edge == true {
+    .tooltip__smooth {
+        &:after {
+            border-radius: u(rem(4));        }
+    }
+}
+
+// -- fade effect
+@if $fade-effect == true {
+    .tooltip__fade {
+        &:before, &:after {
+            transition: opacity .2s linear, visibility .2s linear;
+        }
+    }
+}
+
+// -- multiline tooltip
+@if $multiline == true {
+    .tooltip__multiline {
+        &:after {
+            @include multiline;
+        }
+    }
+}
+
+// Diverse Colors //
+@if $coloring == true {
+    .tooltip__success {
+        @include applyColor($c-success);
+    }
+    .tooltip__info {
+        @include applyColor($c-info);
+    }
+    .tooltip__danger {
+        @include applyColor($c-danger);
+    }
+    .tooltip__warning {
+        @include applyColor($c-warning);
+    }
+}
+
+// --  -------------------------------------
+// --    Tooltip States
+// --  -------------------------------------

@@ -1,0 +1,23 @@
+// -------------------------------------
+//   Order Module
+// -------------------------------------
+// ----- Styles for Orders
+// -------------------------------------
+
+.order {
+	@extend %clearfix;
+	margin: u(rem(20)) 0;
+	list-style: none; 
+}
+
+.order__item {
+	padding-right: u(rem(10));
+	margin-right: u(rem(10));
+	border-right: u(rem(1)) solid $alt-gray;
+	float: left;
+}
+
+
+// -------------------------------------
+//   States
+// -------------------------------------

@@ -1,0 +1,30 @@
+/* 
+* @include arrow within a pseudo element and add positioning properties (ie. top, left)
+* $direction: up, down, left, right
+*/
+@mixin arrow($direction, $size: 6, $color: #222){
+  content: '';
+  display: block;
+  position: absolute; 
+  height: 0; width: 0;
+  @if ($direction == 'up'){  
+    border-bottom: u(rem($size)) solid $color;
+    border-left: u(rem(1/2*$size)) solid transparent;
+    border-right: u(rem(1/2*$size)) solid transparent;
+  }
+  @else if ($direction == 'down'){  
+    border-top: u(rem($size)) solid $color;
+    border-left: u(rem(1/2*$size)) solid transparent;
+    border-right: u(rem(1/2*$size)) solid transparent;
+  }
+  @else if ($direction == 'left'){
+    border-top: u(rem(1/2*$size)) solid transparent;
+    border-bottom: u(rem(1/2*$size)) solid transparent;
+    border-right: u(rem($size)) solid $color;
+  }
+  @else if ($direction == 'right'){
+    border-top: u(rem(1/2*$size)) solid transparent;
+    border-bottom: u(rem(1/2*$size)) solid transparent;
+    border-left: u(rem($size)) solid $color;
+  }
+}

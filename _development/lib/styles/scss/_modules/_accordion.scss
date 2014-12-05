@@ -1,0 +1,80 @@
+// -------------------------------------
+//   Accordion Module
+// -------------------------------------
+// ----- Styles for accordion module
+// -------------------------------------
+
+.accordion {
+	@extend %section; 
+}
+
+.accordion__item {
+	margin-bottom: u(rem(10));
+	color: $white;
+  	transition: all .5s ease-in-out;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+
+.accordion__input {
+	display: none;
+	&:checked + .accordion__label {
+		margin-bottom: 0;
+		border-bottom-right-radius: 0;
+		border-bottom-left-radius: 0;
+		background-color: $primary;
+		.accordion__icon {
+			transform: rotate(180deg);  
+		}
+	}
+	&:checked ~ .accordion__article {
+		height: auto;
+		margin-bottom: u(rem(10));
+		padding: u(rem(10));
+		border-bottom-right-radius: u(rem($border-radius));
+		border-bottom-left-radius: u(rem($border-radius));
+	}
+}
+
+.accordion__label {
+	z-index: 20;
+	display: block;
+	padding: u(rem(5)) u(rem(10));
+	color: $white;
+	border-radius: u(rem($border-radius)); 
+	background-color: $primary-light;
+	cursor: pointer;
+    transition: background-color .5s ease-in-out;
+	&:hover, &:active {
+		background-color: $primary;
+	}
+	&:after, &:before {
+		display: none !important;
+	}
+}
+
+.accordion__icon {
+	float: right;
+	width: u(rem(20));
+	height: u(rem(20));
+	@extend .icon-svg;
+
+	fill: $white;
+	&:hover, &:active {
+		fill: $white;
+	}
+}
+
+.accordion__article {
+	z-index: 10;
+	overflow: hidden;
+	height: 0;
+	color: $primary;
+	background: $secondary-lighter;
+}
+
+
+// -------------------------------------
+//   States
+// -------------------------------------
