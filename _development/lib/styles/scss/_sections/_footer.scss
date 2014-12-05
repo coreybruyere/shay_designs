@@ -13,8 +13,8 @@
 	color: $tertiary-lighter;
 	background-color: $primary;
 	background-image: url('../../images/min/footer_bg.png'); 
-	background-repeat: no-repeat;
-	background-position: 0 185%;  
+	background-repeat: no-repeat; 
+	background-position: 0 150%;  
 	&:before {
 		position: absolute;
 		top: u(rem(-4));

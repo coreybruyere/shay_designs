@@ -3082,7 +3082,7 @@ strong {
   background-color: #efb6c2;
   background-image: url("../../images/min/footer_bg.png");
   background-repeat: no-repeat;
-  background-position: 0 185%;
+  background-position: 0 150%;
 }
 .footer[role="contentinfo"]:before {
   position: absolute;
