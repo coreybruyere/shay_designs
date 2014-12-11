@@ -15,7 +15,7 @@
 	}
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
-		margin-top: u(rem(15));
+		margin-top: u(rem(5));
 	}
 }
 
@@ -43,12 +43,12 @@
 	z-index: 100;
 	display: inline-block;
 	width: u(rem(115));
-	margin: 0;
+	margin: 0; 
 	margin-top: u(rem(15)); 
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
-		width: u(rem(225)); 
-		margin-top: u(rem(-28)); 
+		width: u(rem(250)); 
+		margin-top: u(rem(-35)); 
 	}
 	// width: u(rem(210)); 
 	// margin-top: u(rem(-30)); 
@@ -56,11 +56,12 @@
 	// background-image: url('../../images/svg/header-logo.svg'); 
 }
 
-.header__text {
-	@extend %site-icon; 
-	@extend %section;
-	display: block;
-	@include font-size(34); 
+// -- Top Header Menu Bar 
+.header--menu {
+	@extend %island;
+	@extend %clearfix;
+	position: relative;  
+	z-index: 100;
 }
 
 

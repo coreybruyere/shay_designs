@@ -145,8 +145,9 @@ label {
     padding-left: u(rem(6));
     padding-right: u(rem(6));
     text-align: left;
-    + * {
+    + * { 
         @extend %no-radius-l;
+        text-align: center;  
         margin-left: u(rem(-1));
         border-left: 0;
     }

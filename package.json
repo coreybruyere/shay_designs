@@ -20,6 +20,7 @@
     "grunt-perfbudget": "^0.1.2",
     "grunt-svgstore": "^0.3.3",
     "grunt-sync": "^0.1.1",
+    "grunt-version": "^0.3.0",
     "load-grunt-config": "^0.8.0"
   }
 }

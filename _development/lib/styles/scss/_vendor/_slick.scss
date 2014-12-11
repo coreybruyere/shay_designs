@@ -182,10 +182,10 @@ $opacity-not-active: .25;
     -moz-osx-font-smoothing: grayscale;
 }
 .slick-prev {
-    left: u(rem(-25));
+    left: u(rem(15));
     [dir="rtl"] & {
         left:  auto;
-        right: u(rem(-25));
+        right: u(rem(15));
     }
     &:before {
         content: $slick-prev-character;
@@ -195,9 +195,9 @@ $opacity-not-active: .25;
     }
 }
 .slick-next {
-    right: u(rem(-25));
+    right: u(rem(15));
     [dir="rtl"] & {
-        left:  u(rem(-25));
+        left:  u(rem(15));
         right: auto;
     }
     &:before {
@@ -214,8 +214,8 @@ $opacity-not-active: .25;
     // margin-bottom: u(rem(30));
 }
 .slick-dots {
-    // position: absolute;
-    // bottom: u(rem(-45));
+    position: absolute;
+    bottom: 0;
     // margin-bottom: u(rem(5));
     list-style: none;
     display: block;

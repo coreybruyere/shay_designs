@@ -16,13 +16,13 @@ TO DO
 */
 
 'use strict';
-module.exports = function(grunt) {
+module.exports = function(grunt) { 
 
   // Tasks are configured in partials located in grunt/
   require('load-grunt-config')(grunt);
 
   // Register default task
-  grunt.registerTask('default', ['connect:dev','watch', 'copy']);   
+  grunt.registerTask('default', ['version', 'connect:dev','watch', 'copy']);   
   
   // Let's process things for production
   grunt.registerTask('process', ['concat', 'uglify', 'sass', 'autoprefixer', 'cssmin', 'modernizr', 'imagemin']);

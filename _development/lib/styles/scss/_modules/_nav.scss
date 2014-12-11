@@ -52,45 +52,53 @@
   // -- Min Width @ $tablet
   @media #{$tablet} {
     padding: u(rem(45)) u(rem($padding-wrap-sm)) u(rem(45));
-    // &:hover, &:active {
-    //   &[href*="shop"]:after {
-    //     border: 0;
-    //   }
-    // }
     // -- Shop specific link
     &[href*="shop"] {
-      color: $tertiary-light; 
-      // position: relative; 
-      // &:after {
-      //   content: '';
-      //   position: absolute;
-      //   left: 0;
-      //   top: 30%;
-      //   width: u(rem(72));
-      //   height: u(rem(45));
-      //   box-shadow: 0 0 u(rem(2)) u(rem(.5)) $focus-gray, $focus-gray 0 0 u(rem(3)) inset; 
-      //   border: u(rem(1)) dashed $l-gray;    
-      //   border-radius: u(rem($border-radius)); 
-      // }
+      // color: $tertiary-light; 
+      position: relative; 
+      &:before, &:after {
+        font-family: $serif-heading;
+      }
+      &:before {
+        content: '{'; 
+      }
+      &:after {
+        content: '}'
+      }
     }
   }
 }
 
 .nav--menu {
-  float: right;
+  float: right;  
 }
 
 .nav--menu__link {
-  @extend .float-l;
+  @extend .float-l; 
+  position: relative;
   display: block;
-  margin-left: u(rem(15));
+  margin-left: u(rem(15)); 
   color: $tertiary-light;
-  fill: $tertiary-light;
-  &:hover, &:active {
-    color: $primary;
+  fill: $tertiary-light; 
+  &:hover, &:active { 
+    color: $primary; 
     fill: $primary;
+  } 
+  // -- Cart Data Counter
+  &[data-cart] {
+    &:after {
+      position: absolute;
+      top: u(rem(-10));
+      left: u(rem(10));
+      display: inline-block; 
+      color: $secondary;
+      content: attr(data-cart);    
+      @include font-size(10);
+    } 
   }
 }
+
+
 
 .nav--menu__icon {
   @extend %icon-small;

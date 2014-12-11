@@ -45,7 +45,7 @@
 
 // -- Secondary button
 .button--secondary {
-	@include button($l-gray, $secondary, $secondary, 16);  
+	@include button(transparent, $secondary, $secondary, 16);  
 	&:hover, &:active {
 		background-color: $secondary-lighter;
 		border-color: $secondary-lighter; 

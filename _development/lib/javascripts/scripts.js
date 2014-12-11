@@ -4,18 +4,19 @@
  
 jQuery(document).ready(function($) {
 	  
-  
- 	// -------------------------------------
+   
+ 	// -------------------------------------         
  	//   Carousels 
  	// -------------------------------------
 
-	$('#carousel').slick({ 
+	$('.js-slide').slick({  
 		dots: true,
+		arrows: true,
 		infinite: true, 
-		autoplay: true,
+		autoplay: true, 
 		speed: 500,
 		fade: true,
-		slide: 'div',
+		slide: '.js-slide-item',
 		cssEase: 'linear'
 	});
 

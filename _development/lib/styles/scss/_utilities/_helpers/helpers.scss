@@ -83,28 +83,40 @@
     }
 }
 
-%site-icon {
-    @extend %clean-link;
-    margin: 0;
-    color: $tertiary-lighter;
-    font-family: $serif-heading;
-    font-weight: bold;
-    transition: all .5s ease-in-out;
-    &:after {
-        content: '';
-        display: inline-block;
-        width: u(rem(40));
-        height: u(rem(50));
-        margin-left: u(rem(6));
-        vertical-align: middle;
-        background: url($svg + "sd_heading_flower.svg") no-repeat;
-        background-size: u(rem(37));
-        transform: scale(1.45) rotate(13deg);
-    }
-    &:hover, &:active {
-        opacity: .75;
-    }
+%product-caption {
+    position: absolute;
+    bottom: 100%;   
+    left: 0;
+    padding: u(rem(10));  
+    width: 100%;
+    color: $tertiary; 
+    text-align: center; 
+    transition: transform .35s, background-color .5s ease-in-out; 
+    transform: translate3d(0,0,0);
 }
+
+// %site-icon {
+//     @extend %clean-link;
+//     margin: 0;
+//     color: $tertiary-lighter;
+//     font-family: $serif-heading;
+//     font-weight: bold;
+//     transition: all .5s ease-in-out;
+//     &:after {
+//         content: '';
+//         display: inline-block;
+//         width: u(rem(40));
+//         height: u(rem(50));
+//         margin-left: u(rem(6));
+//         vertical-align: middle;
+//         background: url($svg + "sd_heading_flower.svg") no-repeat;
+//         background-size: u(rem(37));
+//         transform: scale(1.45) rotate(13deg);
+//     }
+//     &:hover, &:active {
+//         opacity: .75;
+//     }
+// }
 
 %span-1-4 {
     @include span(1 / 4);
@@ -187,6 +199,13 @@
 .text-center--mobile {
     text-align: center !important;
     width: 100% !important;
+    > * {
+        width: 100% !important;
+        // -- Min Width @ $mobile
+        @media #{$mobile} {
+            width: auto !important;
+        }
+    }
     // -- Min Width @ $mobile
     @media #{$mobile} {
         text-align: inherit !important;
@@ -269,16 +288,17 @@
 
 .grid__respond {
     // @include column(1, $cycle: 1);
-    // -- Min Width @ $small-mobile
-    @media #{$small-mobile} { 
-        @include column(1 / 2, $cycle: 2);
+    // -- Min Width @ $med-mobile
+    @media #{$med-mobile} { 
+        // @include column(1, $cycle: 1); 
+        @include column(1 / 2, $cycle: 2); 
     } 
-    // -- Min Width @ $tablet
-    @media #{$tablet} { 
+    // -- Min Width @ $mobile
+    @media #{$mobile} { 
         @include column(1 / 3, $uncycle: 2, $cycle: 3);
     }
-    // -- Min Width @ $desktop
-    @media #{$desktop} {
+    // -- Min Width @ $tablet 
+    @media #{$tablet} {
         @include column(1 / 4, $uncycle: 3, $cycle: 4);
     }
 }

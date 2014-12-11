@@ -7,16 +7,16 @@
 .footer[role="contentinfo"] {
 	position: relative;
 	margin-top: u(rem(4));
-	padding-top: u(rem(30));
+	padding-top: u(rem(20));
 	padding-bottom: u(rem(30 * 2));
 	text-align: center;
 	color: $tertiary-lighter;
 	background-color: $primary;
 	background-image: url('../../images/min/footer_bg.png'); 
 	background-repeat: no-repeat; 
-	background-position: 0 150%;  
+	background-position: 0 245%;   
 	&:before {
-		position: absolute;
+		position: absolute; 
 		top: u(rem(-4));
 		left: 0;
 		content: '';
@@ -26,9 +26,10 @@
 	}
 }
 
-.footer__text {
-	@extend %site-icon;
-	@include font-size(36);
+.footer__logo {
+	z-index: 100;
+	display: inline-block;
+	width: u(rem(195));
+	margin-left: u(rem(25));  
 }
-
 

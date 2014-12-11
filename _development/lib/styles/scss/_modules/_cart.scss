@@ -144,8 +144,11 @@
 
 .cart--total {
     width: auto;
-    min-width: u(rem(420));
     text-align: left;
+    // -- Min Width @ $tablet
+    @media #{$tablet} {
+        min-width: u(rem(420));
+    }
 }
 
 // -------------------------------------

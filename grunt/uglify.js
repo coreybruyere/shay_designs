@@ -1,6 +1,6 @@
 module.exports = {
   build: {
-    src: '_development/lib//javascripts/production/global.js',
+    src:  '_development/lib//javascripts/production/global.js',
     dest: '_development/lib//javascripts/production/global-min.js'
   },
   ecom: {

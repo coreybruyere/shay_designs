@@ -27,16 +27,17 @@ table {
 	width: 100%;
 	text-align: left;
 	font-weight: bold;
-	border: u(rem(1)) solid $alt-gray;
+	// border: u(rem(1)) solid $alt-gray;
 
 	td, th {
 		padding: u(rem(5));
+		border-bottom: u(rem(1)) solid $alt-gray;
 	}
 
 	tr {
-		background-color: rgba(255, 250, 250 ,.2);
-		border: u(rem(1)) solid $alt-gray;
-		border-top: 0;
+		background-color: rgba(255, 250, 250 ,.2); 
+		// border: u(rem(1)) solid $alt-gray;
+		// border-top: 0;
 	}
 
 	thead {
