@@ -8,6 +8,8 @@
 	@extend %clearfix;  
 	@extend %dotted-border;
 	position: relative; 
+	height: u(rem(110)); 
+	max-height: u(rem(110));
 	background-color: $primary;
 	@include fadeInDown;
 	&:after {

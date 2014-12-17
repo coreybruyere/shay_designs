@@ -95,15 +95,12 @@
 .cart--count {
     position: relative;
     display: inline-block;
+    float: left; 
+    margin: 0 u(rem(10)) 0 0;
     width: u(rem(60));
     margin-bottom: u(rem(-5));
     overflow: hidden;
     zoom: 1;
-    // -- Min Width @ $mobile
-    @media #{$mobile} {
-        margin: 0 auto;
-        float: right; 
-    }
 }
 
 .cart--count__qty {
