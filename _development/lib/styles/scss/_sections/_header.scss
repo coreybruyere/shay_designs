@@ -8,16 +8,15 @@
 	@extend %clearfix;  
 	@extend %dotted-border;
 	position: relative; 
-	height: u(rem(110)); 
-	max-height: u(rem(110));
+	height: u(rem(50)); 
+	max-height: u(rem(50));
 	background-color: $primary;
-	@include fadeInDown;
 	&:after {
-		top: u(rem(106));
+		top: u(rem(46.15));
 	}
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
-		margin-top: u(rem(5));
+		margin-top: u(rem(15));     
 	}
 }
 
@@ -36,26 +35,6 @@
 
 .header__burger-icon {
 	@include burger();  
-}
-
-.header__logo {
-	@extend %wrapper;
-	@extend .float-l;
-	position: absolute;
-	z-index: 100;
-	display: inline-block;
-	width: u(rem(115));
-	margin: 0; 
-	margin-top: u(rem(15)); 
-	// -- Min Width @ $tablet
-	@media #{$tablet} {
-		width: u(rem(250)); 
-		margin-top: u(rem(-35)); 
-	}
-	// width: u(rem(210)); 
-	// margin-top: u(rem(-30)); 
-	// color: $tertiary-lighter; 
-	// background-image: url('../../images/svg/header-logo.svg'); 
 }
 
 // -- Top Header Menu Bar 

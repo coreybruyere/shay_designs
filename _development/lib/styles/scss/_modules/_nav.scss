@@ -44,14 +44,14 @@
   padding: u(rem($padding-wrap-sm));
   color: $tertiary-lighter;
   transition: background-color .5s ease-in-out, color .5s ease-in-out;
-  @include font-size(20);
+  @include font-size(18); 
   &:hover, &:active {
     color: $tertiary-light;
     background-color: $primary-light;
   }
   // -- Min Width @ $tablet
   @media #{$tablet} {
-    padding: u(rem(45)) u(rem($padding-wrap-sm)) u(rem(45));
+    padding: u(rem(15)) u(rem($padding-wrap-sm)) u(rem(15));
     // -- Shop specific link
     &[href*="shop"] {
       // color: $tertiary-light; 

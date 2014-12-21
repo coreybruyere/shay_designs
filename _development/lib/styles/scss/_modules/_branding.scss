@@ -1,0 +1,23 @@
+// -------------------------------------
+//   Branding
+// -------------------------------------
+// ----- Styles for branding
+// -------------------------------------
+
+
+.branding {
+	// @extend %wrapper; 
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: u(rem(10)); 
+	z-index: 999; 
+	display: inline-block;   
+	width: u(rem(160));  
+	margin: 0 auto;   
+	@include fadeInDown;
+	// width: u(rem(210)); 
+	// margin-top: u(rem(-30)); 
+	// color: $tertiary-lighter; 
+	// background-image: url('../../images/svg/header-logo.svg'); 
+}

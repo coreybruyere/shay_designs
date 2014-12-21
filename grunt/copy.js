@@ -24,6 +24,18 @@ module.exports = {
         }
       ]
     },
+    js_lib: {
+      files: [
+        {
+          // Move JS files from _development to _production
+          expand: true,
+          flatten: true,
+          src: ['_development/lib//bower_components/share-button/build/share.min.js'],
+          dest: '_production/wp-content/themes/530Press/lib/javascripts/',
+          filter: 'isFile'
+        }
+      ]
+    },
     dev_css: {
       files: [
         {

@@ -107,13 +107,16 @@ small {
   }
 }
 
-.large {
-  @include font-size(24); 
-} 
-
-.large--color {
-  @extend .large;
+.title--large {
   color: $link-hover;
+  @include font-size(24); 
+}
+
+.title--small {
+  margin-bottom: u(rem(5));   
+  color: $secondary;
+  font-family: $serif-heading;  
+  @include font-size(12);  
 }
 
 

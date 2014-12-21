@@ -2121,7 +2121,7 @@
 // -------------------------------------
  
 jQuery(document).ready(function($) {
-	  
+	   
    
  	// -------------------------------------         
  	//   Carousels 
@@ -2262,6 +2262,22 @@ jQuery(document).ready(function($) {
 	});
 
 
+
+
+	// ------------------------------------- 
+	//   Social Media
+	// -------------------------------------
+
+	new Share('#js-social-share', {
+	  networks: { 
+	    facebook: {
+	      app_id: "abc123"
+	    }
+	  },
+	  ui: {
+	  	flyout: "middle right",
+	  },
+	});
 	
 
 

@@ -38,6 +38,7 @@ input[type="radio"], input[type="checkbox"] {
 
 textarea {
     resize: none;
+    width: 100%;
     min-height: u(rem(100));
 }
 
@@ -189,7 +190,7 @@ label {
 .form--signup {
     @extend %dotted-border;
     position: relative;
-    margin-top: u(rem($margin-top));
+    margin-top: u(rem(20));
     padding: u(rem(5)) 0;
     background-color: $secondary-lighter;
     color: $tertiary-lighter;
