@@ -1,0 +1,132 @@
+*** WooCommerce Print Invoice/Packaging List Changelog ***
+
+2014.09.07 - version 2.4.4
+ * Misc - WooCommerce 2.2 Compatibility
+
+2014.05.28 - version 2.4.3
+ * Fix - Compatibility with subscriptions: new invoice number generated for renewal orders
+
+2014.04.25 - version 2.4.2
+ * Fix - Fix invalid HTML in body template, props Kirk
+
+2014.03.15 - version 2.4.1
+ * Fix - Fix fatal error when printing invoices for orders that have multiple shipping addresses
+ * Fix - Fix potential javascript error when uploading an invoice logo
+
+2014.01.20 - version 2.4
+ * Fix - Tweaked priority of translation action
+ * WooCommerce 2.1 Compatibility
+
+2013.12.13 - version 2.3.2
+ * Fix - Incompatibility with certain plugins which caused the WordPress Admin bar to be displayed across the top of the Invoice/Packing Lists
+
+2013.11.09 - version 2.3.1
+ * Fix - Gracefully handle order items for deleted products/variations
+ * Fix - Gracefully handle product variation order items for orders added through the admin
+ * Tweak - Individual tax items are shown on invoice instead of only showing the total tax. Tax all the things!
+ * Tweak - The total weight for line items is now properly displayed
+ * Localization - Improved localization capability/compatibility
+
+2013.09.10 - version 2.3
+* Changed action buttons to use icons
+* Added functionality to resend invoice manually
+
+2013.05.23 - version 2.2.11
+* Added support for Ship to Multiple Addresses plugin
+
+2013.05.23 - version 2.2.10
+* Fixed shipping not hidden when shipping is disabled
+
+2013.05.23 - version 2.2.9
+* Fixed order number repeat bug in bulk printing
+
+2013.04.27 - version 2.2.8
+* Added order fees to output
+
+2013.03.03 - version 2.2.7
+* Fixed problem in loading custom templates
+* Fixed two notice bugs
+
+2013.02.16 - version 2.2.6
+* Better layout/styling for product variations.
+* Added hooks for manual order completion from on-hold and failed statuses.
+* Added empty folder for translations.
+
+2013.02.15 - version 2.2.5
+* Removed unfinished weight calculation code that was in last release.
+
+2013.02.08 - version 2.2.4
+* Fix for extra blank page in IE. This time fix actually works :)
+
+2013.01.21 - version 2.2.3
+* Fix for extra blank page in IE
+
+2013.01.09 - version 2.2.2
+* Another small updater fix
+
+2013.01.09 - version 2.2.1
+* Fixed updater code
+
+2013.01.08 - version 2.2
+* Refactorings and general code improvements
+
+2012.10.28 - version 2.1
+* Media upload implementation uses WP 3.5 media handling.
+* Fixed plugin script loading only to needed admin pages.
+* Tested with WooCommerce 1.6.6 and WooCommerce 2.0.
+
+2012.12.04 - version 2.0.1
+* New updater
+
+2012.10.20 - version 2.0
+ * Major rewrite of the template system to support bulk printing.
+
+2012.09.16 - version 1.3.6
+ * Fix for issue with email background color with Gmail.
+
+2012.08.30 - version 1.3.5
+ * Fixed order item meta
+
+2012.07.11 - version 1.3.4
+ * Fixed unescaping fields
+
+2012.06.25 - version 1.3.3
+ * Added support for shipment tracking extension
+ * Change payment_method to payment_method_title
+
+2012.06.07 - version 1.3.2
+ * Fix template directory check
+
+2012.05.26 - version 1.3.1
+ * Fix invoice number display
+
+2012.05.26 - version 1.3
+ * This version only works with WooCommerce 1.5.3 or newer
+ * Support for WC_Order::get_order_number()
+
+2012.04.22 - version 1.2
+ * Added customer order notes to the print
+ * Implemented invoice emailing functionality
+ * Added support for VAT number
+
+2012.03.14 - version 1.1.2
+ * Added jQuery to script dependencies
+ * Changed view permission to manage_woocommerce_orders
+
+2012.03.14 - version 1.1.1
+ * Changed permission check to manage_woocommerce
+
+2012.03.14 - version 1.1
+ * Added contiguous invoice numbering
+ * Added invoice numbering reset functionality
+ * Added prefix and suffix for invoice numbering
+ * Added custom logo functionality
+ * Added support for custom template
+ * Fixed textdomain issues
+ * Improved the built-in template
+
+2012.03.08 - version 1.0.1
+ * Fixed issue where same order was showing up in print
+
+2012.02.28 - version 1.0
+ * First release
