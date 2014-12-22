@@ -71,15 +71,17 @@
     &:after, &:before {
         content: '';
         position: absolute;
-        top: u(rem(3));
+        // top: u(rem(3));
+        bottom: 100%;
         width: 100%;
+        margin-bottom: u(rem(-4));
         border-bottom: u(rem(1)) dashed $tertiary-lighter;
         opacity: .5;
         z-index: 99;
     }
     &:after {
-        top: auto;
-        bottom: u(rem(3));
+        top: 100%;
+        margin-top: u(rem(-4));
     }
 }
 
@@ -162,6 +164,12 @@
 
 .no-margin {
     margin: 0 !important;
+}
+
+.no-select {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
 }
 
 .inline {

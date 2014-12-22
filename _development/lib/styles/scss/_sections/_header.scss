@@ -7,24 +7,28 @@
 .header[role="banner"] {
 	@extend %clearfix;  
 	@extend %dotted-border;
-	position: relative; 
-	height: u(rem(50)); 
-	max-height: u(rem(50));
+	position: relative;  
 	background-color: $primary;
 	&:after {
-		top: u(rem(46.15));
+		top: u(rem(81));
+		margin: 0;
+		// -- Min Width @ $tablet
+		@media #{$tablet} {
+			top: u(rem(46)); 
+		}
 	}
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
-		margin-top: u(rem(15));     
+		height: u(rem(50)); 
+		max-height: u(rem(50));   
 	}
 }
 
 .header__burger {
 	@extend %padding-mq;
 	@extend .float-r;
-	padding-top: u(rem(42));
-	padding-bottom: u(rem(42));
+	padding-top: u(rem(30));
+	padding-bottom: u(rem(30));
 	cursor: pointer;
 	vertical-align: middle;
 	// -- Min Width @ $tablet
@@ -43,6 +47,10 @@
 	@extend %clearfix;
 	position: relative;  
 	z-index: 100;
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		padding-top: u(rem(30));
+	}
 }
 
 

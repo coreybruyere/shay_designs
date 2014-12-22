@@ -35,12 +35,14 @@
 
   <!-- Above the fold styles -->
   <style>
+
     #body {
       background-image: url(<?php echo get_bloginfo('template_directory');?>/lib/images/min/head_bg.png);
       background-size: 100%;
       background-repeat: no-repeat;
       background-position: 0 -7%;
     }
+
   </style>
 
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">

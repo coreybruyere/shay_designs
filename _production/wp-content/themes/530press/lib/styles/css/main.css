@@ -159,15 +159,16 @@ p {
 .form--signup:after, .header[role="banner"]:after, .form--signup:before, .header[role="banner"]:before {
   content: '';
   position: absolute;
-  top: 0.1875rem;
+  bottom: 100%;
   width: 100%;
+  margin-bottom: -0.25rem;
   border-bottom: 0.0625rem dashed white;
   opacity: .5;
   z-index: 99;
 }
 .form--signup:after, .header[role="banner"]:after {
-  top: auto;
-  bottom: 0.1875rem;
+  top: 100%;
+  margin-top: -0.25rem;
 }
 
 .product__caption, .product__caption-title {
@@ -259,6 +260,12 @@ abbr[title] {
 
 .no-margin {
   margin: 0 !important;
+}
+
+.no-select {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }
 
 .inline {
@@ -1335,19 +1342,27 @@ th {
 
 *, *:before, *:after {
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html {
   font-family: "Gabriela", "Georgia", serif;
+  background-color: #e7e8e9;
   font-size: 16px;
   font-size: 1rem;
+  background-image: url("../../images/min/whitey.png");
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  html {
+    background-image: url("../../images/min/whitey@2x.png");
+    background-size: 18.75rem 18.75rem;
+  }
 }
 
 body {
   min-height: 100%;
   overflow: auto;
   color: #7f8282;
-  background-color: #e7e8e9;
   line-height: 1.375;
   font-weight: 700;
   font-family: "Gabriela", "Georgia", serif;
@@ -1355,13 +1370,6 @@ body {
   text-size-adjust: 100%;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  background-image: url("../../images/min/whitey.png");
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
-  body {
-    background-image: url("../../images/min/whitey@2x.png");
-    background-size: 18.75rem 18.75rem;
-  }
 }
 
 hr {
@@ -1892,8 +1900,8 @@ h6 {
 a {
   color: #74b5c4;
   text-decoration: none;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  -webkit-transition: color .5s ease-in-out;
+  transition: color .5s ease-in-out;
 }
 a:hover, a:active {
   color: #50a2b5;
@@ -2143,15 +2151,11 @@ strong {
   }
 }
 
-.branding {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0.625rem;
-  z-index: 999;
+.branding, .branding--footer {
   display: inline-block;
-  width: 10rem;
+  width: 5.9375rem;
   margin: 0 auto;
+  padding-left: 0.625rem;
   -webkit-animation-name: fadeInDown;
   -ms-animation-name: fadeInDown;
   animation-name: fadeInDown;
@@ -2171,6 +2175,20 @@ strong {
   -ms-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+@media only screen and (min-width: 45.625rem) {
+  .branding, .branding--footer {
+    width: 10rem;
+    right: 0;
+    top: 0.625rem;
+  }
+}
+
+.branding {
+  position: absolute;
+  left: 0;
+  top: 3.75rem;
+  z-index: 999;
 }
 
 .post {
@@ -3491,22 +3509,27 @@ strong {
 
 .header[role="banner"] {
   position: relative;
-  height: 3.125rem;
-  max-height: 3.125rem;
   background-color: #efb6c2;
 }
 .header[role="banner"]:after {
-  top: 2.88438rem;
+  top: 5.0625rem;
+  margin: 0;
+}
+@media only screen and (min-width: 45.625rem) {
+  .header[role="banner"]:after {
+    top: 2.875rem;
+  }
 }
 @media only screen and (min-width: 45.625rem) {
   .header[role="banner"] {
-    margin-top: 0.9375rem;
+    height: 3.125rem;
+    max-height: 3.125rem;
   }
 }
 
 .header__burger {
-  padding-top: 2.625rem;
-  padding-bottom: 2.625rem;
+  padding-top: 1.875rem;
+  padding-bottom: 1.875rem;
   cursor: pointer;
   vertical-align: middle;
 }
@@ -3548,6 +3571,11 @@ strong {
 .header--menu {
   position: relative;
   z-index: 100;
+}
+@media only screen and (min-width: 45.625rem) {
+  .header--menu {
+    padding-top: 1.875rem;
+  }
 }
 
 .is-active-icon {

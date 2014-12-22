@@ -63,9 +63,9 @@ h6, %h6 {
 a {
   color: $link-color;
   text-decoration: none;
-  transition: all .5s ease-in-out; 
+  transition: color .5s ease-in-out; 
   &:hover, &:active {
-    color: $link-hover;
+    color: $link-hover; 
   }
 }
 

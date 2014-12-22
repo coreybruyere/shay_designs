@@ -6,25 +6,26 @@
 
 *, *:before, *:after {
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
     font-family: $serif;
+    background-color: $l-gray; 
     @include font-size($base-font-size);
+    @include retina("whitey", png, 300, 300); 
 }
 
 body {
     min-height: 100%;
     overflow: auto;
     color: $text-color;
-    background-color: $l-gray; 
     line-height: $body-line-height;
     font-weight: 700;
     font-family: $serif;
     text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-    @include retina(whitey,png, 300, 300); 
+    -webkit-font-smoothing: antialiased; 
 }
 
 img {
