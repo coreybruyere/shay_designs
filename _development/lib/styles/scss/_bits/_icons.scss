@@ -40,6 +40,11 @@
   }
 }
 
+.icon-svg--color {
+  @extend .icon-svg;
+  fill: $primary;
+}
+
 .icon-svg--lrg {
   @extend %icon-large;
   position: relative;

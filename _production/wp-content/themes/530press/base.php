@@ -19,9 +19,9 @@
   <div class="wrapper" role="document">
   <?php endif; ?>
     <main class="main" role="main" itemprop="mainContentOfPage">
-    <!-- <?php echo basename( get_page_template() ) ; ?> -->
+     <!-- <?php echo basename( get_page_template() ) ; ?>  -->
 
-    <?php if( !is_product() && is_single() || is_author() ): ?>
+    <?php if( !is_product() && is_single() || is_author() || is_home() ): ?>
       <div class="post">
         <?php include roots_template_path(); ?>
       </div>

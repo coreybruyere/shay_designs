@@ -6,25 +6,30 @@
 
 %branding {
 	display: inline-block;   
-	width: u(rem(95));   
+	width: u(rem(90));   
 	margin: 0 auto;   
 	padding-left: u(rem($padding-wrap-sm));
 	@include fadeInDown;
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
 		width: u(rem(170));   
-		right: 0;
-		top: u(rem(5));
 	}
-}
+} 
 
 
 .branding {
 	@extend %branding; 
 	position: absolute;
 	left: 0;
-	top: u(rem(60)); 
-	z-index: 999; 
+	top: u(rem(10)); 
+	z-index: 100; 
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		right: 0;
+		top: auto; 
+		bottom: -50%; 
+		padding: 0;
+	}
 }
 
 .branding--footer {  

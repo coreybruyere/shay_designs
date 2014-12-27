@@ -12,8 +12,11 @@
   width: 100%;
   max-height: 0;
   background-color: $secondary-lighter;
-  transition: max-height .5s ease-in-out;
   text-align: center;
+  transition: max-height .3s ease;
+  transform: translate3d(0,0,0);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d; 
   // -- Min Width @ $tablet
   @media #{$tablet} {
     float: right;
@@ -71,6 +74,8 @@
 
 .nav--menu {
   float: right;  
+  line-height: 1.6;
+  @include font-size(14);
 }
 
 .nav--menu__link {
@@ -103,7 +108,7 @@
 .nav--menu__icon {
   @extend %icon-small;
   display: inline-block;
-  transition: none;
+  transition: fill .5s ease-in-out;
   fill: inherit;
   &:hover, &:active {
     fill: inherit;
@@ -129,9 +134,10 @@
 // -------------------------------------
 
 .is-active-nav {
-  max-height: u(rem(500));
+  max-height: u(rem(200));  
+  -webkit-transform-style: preserve-3d; 
   // -- Min Width @ $tablet
   @media #{$tablet} {
-    background-color: transparent;
+    background-color: transparent; 
   }
 }

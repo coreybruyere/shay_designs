@@ -98,7 +98,7 @@
         -ms-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
         -o-transform: translateY($burger-gutter + $burger-height) rotate(45deg);
         transform: translateY($burger-gutter + $burger-height) rotate(45deg);
-        background-color: $white;
+        background-color: $focus-gray;
     }
     &:after {
         -webkit-transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
@@ -106,6 +106,6 @@
         -ms-transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
         -o-transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
         transform: translateY(-($burger-gutter + $burger-height)) rotate(-45deg);
-        background-color: $tertiary-lighter;
+        background-color: $focus-gray;
     }
 }

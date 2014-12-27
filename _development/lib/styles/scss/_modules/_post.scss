@@ -12,6 +12,10 @@
 	}
 }
 
+.post__article {
+	margin-bottom: u(rem(40)); 
+}
+
 .post__title {
 	color: $secondary;
 }
@@ -19,7 +23,7 @@
 .post__time {
 	@extend %clearfix;
 	display: block;
-	margin-bottom: u(rem(10));
+	margin-bottom: u(rem(5));
 	color: $tertiary-lighter;
 	@include font-size(10);
 }

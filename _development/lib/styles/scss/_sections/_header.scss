@@ -37,9 +37,14 @@
 	}
 }
 
-.header__burger-icon {
-	@include burger();  
+.header__burger-icon { 
+	@include burger(); 
+	@include burger-middle {
+		transition: none; 
+	} 
 }
+
+
 
 // -- Top Header Menu Bar 
 .header--menu {

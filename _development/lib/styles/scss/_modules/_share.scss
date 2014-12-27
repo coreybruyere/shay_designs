@@ -1,0 +1,29 @@
+// -------------------------------------
+//   Share pop out
+// -------------------------------------
+// ----- Styles for share
+// -------------------------------------
+
+.share {
+    @extend %list-ui;
+    display: none;
+    padding: u(rem(5)) u(rem(10));
+    margin-top: u(rem(-1));
+    @include fadeInRight; 
+}
+
+.share__item {
+    display: inline-block;
+    margin-right: u(rem(10));
+    &:last-of-type {
+        margin-right: 0;
+    }
+}
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+.is-active-share {
+    display: inline-block;
+}

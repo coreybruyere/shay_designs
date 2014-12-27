@@ -5,17 +5,17 @@
 // -------------------------------------
 
 *, *:before, *:after {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box; 
 }
 
 html {
     font-family: $serif;
+    font-size: 16px;
     background-color: $l-gray; 
-    @include font-size($base-font-size);
-    @include retina("whitey", png, 300, 300); 
-}
-
+    background-image: url(../../images/min/whitey.png);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+ }
+ 
 body {
     min-height: 100%;
     overflow: auto;

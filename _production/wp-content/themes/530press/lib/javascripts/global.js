@@ -2268,17 +2268,13 @@ jQuery(document).ready(function($) {
 	//   Social Media
 	// -------------------------------------
 
-	new Share('#js-social-share', {
-	  networks: { 
-	    facebook: {
-	      app_id: "abc123"
-	    }
-	  },
-	  ui: {
-	  	flyout: "middle right",
-	  },
+	$shareBtn = $('#js-social-share');
+	$shareMenu = $('#js-share-menu');
+
+	$shareBtn.click(function() { 
+		// alert("hi"); 
+		$shareMenu.addClass('is-active-share');
 	});
-	
 
 
 

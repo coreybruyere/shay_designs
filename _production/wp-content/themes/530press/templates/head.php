@@ -38,9 +38,9 @@
 
     #body {
       background-image: url(<?php echo get_bloginfo('template_directory');?>/lib/images/min/head_bg.png);
-      background-size: 100%;
+      background-size: 1200px;
       background-repeat: no-repeat;
-      background-position: 0 -7%;
+      background-position: 50% -7%;
     }
 
   </style>
