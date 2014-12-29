@@ -30,10 +30,6 @@
 	max-height: u(rem(35)); 
 	line-height: 1.25;
 	@include font-size(18);
-	// -- Min Width @ $desktop
-	@media #{$desktop} {
-		@include font-size(24);  
-	}
 }
 
 .product__sub-title {

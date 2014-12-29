@@ -411,7 +411,7 @@
 
 			});
 
-		$form.trigger( 'wc_variation_form' );
+		$form.trigger( 'wc_variation_form' ); 
 
 		return $form;
 	};

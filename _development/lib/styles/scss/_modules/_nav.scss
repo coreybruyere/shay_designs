@@ -10,19 +10,23 @@
   display: block;
   overflow: hidden;
   width: 100%;
+  height: 0;
   max-height: 0;
+  opacity: 0;
   background-color: $secondary-lighter;
   text-align: center;
-  transition: max-height .3s ease;
+  transition: opacity .5s ease; 
   transform: translate3d(0,0,0);
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d; 
   // -- Min Width @ $tablet
   @media #{$tablet} {
-    float: right;
+    float: right; 
     width: auto;
+    height: auto;
     max-height: none;
     padding-right: u(rem($padding-wrap-sm));
+    opacity: 1;
     background-color: transparent;
     line-height: 1;
   }
@@ -134,7 +138,9 @@
 // -------------------------------------
 
 .is-active-nav {
-  max-height: u(rem(200));  
+  height: auto;
+  max-height: u(rem(200)); 
+  opacity: 1;  
   -webkit-transform-style: preserve-3d; 
   // -- Min Width @ $tablet
   @media #{$tablet} {

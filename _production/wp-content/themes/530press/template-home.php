@@ -10,7 +10,7 @@ Template Name: Home Page Template
 	
 	  <div class="tout">
 
-	    <div class="tout" role="row">
+	    <div class="tout">
 
 	      <div class="tout__col--large">
 
@@ -25,7 +25,9 @@ Template Name: Home Page Template
 		          <?php $large_banner_text = get_sub_field('large_banner_title'); ?>
 
 		          <a href="<?php echo $large_banner_link ?>" class="js-slide-item">
+		          	<?php if( $large_banner_text ): ?>
 		          	<h2 class="tout__text"><?php echo $large_banner_text; ?></h2>
+		          	<?php endif; ?>
 		          	<img class="tout__image" src="<?php echo $large_banner['url']; ?>" alt="<?php echo $large_banner['alt']; ?>">
 		          </a> 
 
@@ -46,7 +48,9 @@ Template Name: Home Page Template
 	          <?php $top_right_text = get_field('top_right_title'); ?>
 
 	          <a href="<?php echo $top_right_link ?>">
+		      <?php if( $top_right_text ): ?>
 	          <h2 class="tout__text"><?php echo $top_right_text; ?></h2>
+	      	  <?php endif; ?>
 	          <img class="tout__image" src="<?php echo $top_right['url']; ?>" alt="<?php echo $top_right['alt']; ?>">
 	          </a>
 
@@ -59,7 +63,9 @@ Template Name: Home Page Template
 	          <?php $middle_right_text = get_field('middle_right_title'); ?>
 
 	          <a href="<?php echo $middle_right_link ?>">
+		      <?php if( $middle_right_text ): ?>
 	          <h2 class="tout__text"><?php echo $middle_right_text; ?></h2>
+	      	  <?php endif; ?>
 	          <img class="tout__image" src="<?php echo $middle_right['url']; ?>" alt="<?php echo $middle_right['alt']; ?>">
 	          </a>
 
@@ -69,7 +75,7 @@ Template Name: Home Page Template
 
 	    </div><!-- end tout[row] -->
 
-	    <div class="tout" role="row">
+	    <div class="tout">
 
 	      <div class="tout__col">
 
@@ -80,7 +86,9 @@ Template Name: Home Page Template
 	          <?php $bottom_left_text = get_field('bottom_left_title'); ?>
 
 	          <a href="<?php echo $bottom_left_link ?>">
+		      <?php if( $bottom_left_text ): ?>
 	          <h2 class="tout__text"><?php echo $bottom_left_text; ?></h2>
+	      	  <?php endif; ?>
 	          <img class="tout__image" src="<?php echo $bottom_left['url']; ?>" alt="<?php echo $bottom_left['alt']; ?>">
 	          </a>
 
@@ -97,7 +105,9 @@ Template Name: Home Page Template
 	          <?php $bottom_middle_text = get_field('bottom_middle_title'); ?>
 
 	          <a href="<?php echo $bottom_middle_link ?>">
+		      <?php if( $bottom_middle_text ): ?>
 	          <h2 class="tout__text"><?php echo $bottom_middle_text; ?></h2>
+	          <?php endif; ?>
 	          <img class="tout__image" src="<?php echo $bottom_middle['url']; ?>" alt="<?php echo $bottom_middle['alt']; ?>">
 	          </a>
 
@@ -114,7 +124,9 @@ Template Name: Home Page Template
 	          <?php $bottom_right_text = get_field('bottom_right_title'); ?>
 
 	          <a href="<?php echo $bottom_right_link ?>">
+		      <?php if( $bottom_right_text ): ?>
 	          <h2 class="tout__text"><?php echo $bottom_right_text; ?></h2>
+	          <?php endif; ?>
 	          <img class="tout__image" src="<?php echo $bottom_right['url']; ?>" alt="<?php echo $bottom_right['alt']; ?>">
 	          </a>
 
@@ -134,9 +146,10 @@ Template Name: Home Page Template
 
 	    <h5>Sign Up for the Shay Designs Newsletter!</h5>
 
-	    <form action="" class="form--group" role="form">
+	    <form class="form--group" role="form">
 
-	      <input type="email" class="form--group__item  input--inline" placeholder="Email">
+		  <label for="newsletter" class="is-visually-hidden">Sign Up for Newsletter</label> 
+	      <input type="email" class="form--group__item  input--inline" placeholder="Email" id="newsletter">
 	      <button type="submit" class="form--group__item">Send</button>
 
 	    </form><!-- end wrapper[form] -->

@@ -33,10 +33,10 @@ function custom_woo() {
 			wp_dequeue_script( 'woocommerce' );
 			wp_dequeue_script( 'prettyPhoto' );
 			wp_dequeue_script( 'prettyPhoto-init' );
-			wp_dequeue_script( 'jquery-blockui' );
-			wp_dequeue_script( 'jquery-placeholder' );
 			wp_dequeue_script( 'fancybox' );
-			wp_dequeue_script( 'jqueryui' );
+			// wp_dequeue_script( 'jquery-blockui' );
+			// wp_dequeue_script( 'jquery-placeholder' );
+			// wp_dequeue_script( 'jqueryui' );
 		}
 	}
 }
@@ -58,16 +58,16 @@ function init() {
 	$frontend_script_path = $assets_path . 'javascripts/frontend/';
 
 	// Register any scripts for later use, or used as dependencies
-	// wp_register_script( 'chosen', $assets_path . 'javascripts/chosen/chosen.jquery' . $suffix . '.js', array( 'jquery' ), '1.0.0', true );
-	// wp_register_script( 'jquery-blockui', $assets_path . 'javascripts/jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.60', true );
-	// wp_register_script( 'jquery-payment', $assets_path . 'javascripts/jquery-payment/jquery.payment' . $suffix . '.js', array( 'jquery' ), '1.0.2', true );
-	// wp_register_script( 'wc-credit-card-form', $assets_path . 'javascripts/frontend/credit-card-form' . $suffix . '.js', array( 'jquery', 'jquery-payment' ), WC_VERSION, true );
+	wp_register_script( 'chosen', $assets_path . 'chosen/chosen.jquery' . $suffix . '.js', array( 'jquery' ), '1.0.0', true );
+	// wp_register_script( 'jquery-blockui', $assets_path . 'jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.60', true );
+	// wp_register_script( 'jquery-payment', $assets_path . 'jquery-payment/jquery.payment' . $suffix . '.js', array( 'jquery' ), '1.0.2', true );
+	wp_register_script( 'wc-credit-card-form', $assets_path . 'frontend/credit-card-form' . $suffix . '.js', array( 'jquery', 'jquery-payment' ), WC_VERSION, true );
 
-	// wp_register_script( 'wc-add-to-cart-variation', $frontend_script_path . 'add-to-cart-variation' . $suffix . '.js', array( 'jquery' ), WC_VERSION, true );
-	// wp_register_script( 'wc-single-product', $frontend_script_path . 'single-product' . $suffix . '.js', array( 'jquery' ), WC_VERSION, true );
-	// wp_register_script( 'wc-country-select', $frontend_script_path . 'country-select' . $suffix . '.js', array( 'jquery' ), WC_VERSION, true );
-	// wp_register_script( 'wc-address-i18n', $frontend_script_path . 'address-i18n' . $suffix . '.js', array( 'jquery' ), WC_VERSION, true );
-	// wp_register_script( 'jquery-cookie', $assets_path . 'javascripts/jquery-cookie/jquery.cookie' . $suffix . '.js', array( 'jquery' ), '1.3.1', true );
+	wp_register_script( 'wc-add-to-cart-variation', $frontend_script_path . 'add-to-cart-variation' . $suffix . '.js', array( 'jquery' ), WC_VERSION, true );
+	wp_register_script( 'wc-single-product', $frontend_script_path . 'single-product' . $suffix . '.js', array( 'jquery' ), WC_VERSION, true );
+	wp_register_script( 'wc-country-select', $frontend_script_path . 'country-select' . $suffix . '.js', array( 'jquery' ), WC_VERSION, true );
+	wp_register_script( 'wc-address-i18n', $frontend_script_path . 'address-i18n' . $suffix . '.js', array( 'jquery' ), WC_VERSION, true );
+	// wp_register_script( 'jquery-cookie', $assets_path . 'jquery-cookie/jquery.cookie' . $suffix . '.js', array( 'jquery' ), '1.3.1', true );
 
 	// Queue frontend scripts conditionally
 	if ( $ajax_cart_en )
@@ -164,7 +164,7 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
     <a href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('Cart','woothemes'); ?>" class="nav--menu__link  js-cart" role="menuitem" data-cart="<?php echo sprintf(_n('%d', '%d', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?>">
       <span class="nav--menu__icon">
         <svg viewBox="0 0 32 32">
-          <g filter="">
+          <g filter=""> 
             <use xlink:href="#trolley"></use>
           </g>
         </svg>
@@ -177,7 +177,9 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 }
 
 
-
+/**
+ * Add Breadcrumbs
+ */
 add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
 function jk_woocommerce_breadcrumbs() {
     return array(
@@ -191,6 +193,14 @@ function jk_woocommerce_breadcrumbs() {
 }
 
 
+/**
+ * Add Cart Variation Fix
+ */
+function mv_my_theme_scripts() {
 
+wp_enqueue_script('add-to-cart-variation', get_template_directory_uri() . '/lib/javascripts/frontend/add-to-cart-variation.js',array('jquery'),'1.0',true);
+}
+
+add_action('wp_enqueue_scripts','mv_my_theme_scripts');
 
 

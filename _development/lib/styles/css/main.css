@@ -348,6 +348,17 @@ abbr[title] {
   display: none !important;
 }
 
+.is-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 0.0625rem;
+  margin: -0.0625rem;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 0.0625rem;
+}
+
 .error, .woocommerce-error {
   padding: 0.3125rem 0;
   margin: 0.3125rem 0;
@@ -1046,84 +1057,6 @@ th {
   padding: 0;
 }
 
-/**
-
-  @print
---------------------------------------------------------
-  base/_print.scss
---------------------------------------------------------
-
-  Print Stylesheet from http://h5bp.com/r
-
------------------------------------------------------  */
-/* ==========================================================================
-   Print styles.
-   Inlined to avoid required HTTP connection: h5bp.com/r
-   CREDIT: HTML5 Boilerplate
-   ========================================================================== */
-@media print {
-  * {
-    background: transparent !important;
-    color: #000 !important;
-    /* Black prints faster: h5bp.com/s */
-    box-shadow: none !important;
-    text-shadow: none !important;
-  }
-
-  a,
-  a:visited {
-    text-decoration: underline;
-  }
-
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
-
-  abbr[title]:after {
-    content: " (" attr(title) ")";
-  }
-
-  .ir a:after,
-  a[href^="javascript:"]:after,
-  a[href^="#"]:after {
-    content: "";
-  }
-
-  pre,
-  blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid;
-  }
-
-  thead {
-    display: table-header-group;
-    /* h5bp.com/t */
-  }
-
-  tr,
-  img {
-    page-break-inside: avoid;
-  }
-
-  img {
-    max-width: 100% !important;
-  }
-
-  @page {
-    margin: 0.5cm;
-  }
-  p,
-  h2,
-  h3 {
-    orphans: 3;
-    widows: 3;
-  }
-
-  h2,
-  h3 {
-    page-break-after: avoid;
-  }
-}
 /* Slider */
 .slick-slider {
   position: relative;
@@ -1431,7 +1364,6 @@ html {
   font-size: 16px;
   background-color: #e7e8e9;
   background-image: url(../../images/min/whitey.png);
-  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -1494,8 +1426,9 @@ mark {
   text-decoration: none;
   font: inherit;
   font-weight: bold;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  cursor: pointer;
+  -webkit-transition: background-color .5s ease-in-out,color .5s ease-in-out,border .5s ease-in-out;
+  transition: background-color .5s ease-in-out,color .5s ease-in-out,border .5s ease-in-out;
   font-size: 16px;
   font-size: 1rem;
 }
@@ -1521,8 +1454,9 @@ mark {
   text-decoration: none;
   font: inherit;
   font-weight: bold;
-  -webkit-transition: all .5s ease-in-out;
-  transition: all .5s ease-in-out;
+  cursor: pointer;
+  -webkit-transition: background-color .5s ease-in-out,color .5s ease-in-out,border .5s ease-in-out;
+  transition: background-color .5s ease-in-out,color .5s ease-in-out,border .5s ease-in-out;
   font-size: 16px;
   font-size: 1rem;
 }
@@ -1659,6 +1593,10 @@ textarea {
   -moz-appearance: none;
   appearance: none;
   text-align: left;
+}
+
+input[type="number"] {
+  text-align: center;
 }
 
 textarea {
@@ -2057,11 +1995,13 @@ strong {
   display: block;
   overflow: hidden;
   width: 100%;
+  height: 0;
   max-height: 0;
+  opacity: 0;
   background-color: #98c8d3;
   text-align: center;
-  -webkit-transition: max-height .3s ease;
-  transition: max-height .3s ease;
+  -webkit-transition: opacity .5s ease;
+  transition: opacity .5s ease;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
@@ -2071,8 +2011,10 @@ strong {
   .nav {
     float: right;
     width: auto;
+    height: auto;
     max-height: none;
     padding-right: 0.625rem;
+    opacity: 1;
     background-color: transparent;
     line-height: 1;
   }
@@ -2173,7 +2115,9 @@ strong {
 }
 
 .is-active-nav {
+  height: auto;
   max-height: 12.5rem;
+  opacity: 1;
   -webkit-transform-style: preserve-3d;
 }
 @media only screen and (min-width: 45.625rem) {
@@ -2581,7 +2525,7 @@ strong {
   padding: 0 0.625rem;
   text-align: center;
   font-family: "PepitaScript2Regular", "Brush Script MT", cursive;
-  color: white;
+  color: #7f8282;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
@@ -2615,12 +2559,6 @@ strong {
   line-height: 1.25;
   font-size: 18px;
   font-size: 1.125rem;
-}
-@media only screen and (min-width: 75rem) {
-  .product__title {
-    font-size: 24px;
-    font-size: 1.5rem;
-  }
 }
 
 .product__sub-title {

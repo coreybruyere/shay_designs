@@ -145,7 +145,6 @@
     color: $alert-red;
 }
 
-
 .img {
     display: inline-block;
     margin: u(rem(10));
@@ -248,6 +247,17 @@
 .is-hidden {
     display: none !important;
 }
+
+.is-visually-hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: u(rem(1));
+    margin: u(rem(-1));
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: u(rem(1));  
+} 
 
 .error {
     padding: u(rem(5)) 0; 

@@ -23,7 +23,8 @@
 		text-decoration: none;
 		font: inherit;
 		font-weight: bold;
-		transition: all .5s ease-in-out;
+		cursor: pointer;
+		transition: background-color .5s ease-in-out,color .5s ease-in-out,border .5s ease-in-out;
 		@include font-size($btn-font-size);
 		&:hover {
 			color: $btn-text-color;  

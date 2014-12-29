@@ -9,6 +9,4 @@ jQuery( function( $ ) {
 			$( '.wc-credit-card-form-card-expiry' ).payment( 'formatCardExpiry' );
 			$( '.wc-credit-card-form-card-cvc' ).payment( 'formatCardCVC' );
 		});
-
-		
 } );

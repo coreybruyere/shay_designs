@@ -6,7 +6,7 @@
           <?php $permalink = get_permalink($post->ID); ?>
           <?php $title = get_the_title(); ?>
           <?php $desc = $post->post_excerpt; ?>
-          <button class="button--secondary  float-l" id="js-social-share">
+          <span id="js-social-share" style="cursor: pointer;">
           	<span class="icon-svg--color">
 	            <svg viewBox="0 0 32 32" title="Share">
 	              <g filter="">
@@ -15,7 +15,7 @@
 	            </svg>
             </span>
             <span>Share</span>
-          </button> <!-- icon-svg -->
+          </span> <!-- button-secondary --> 
 
           <ul class="share" role="menu" id="js-share-menu">
           	<li role="presentation" class="share__item">

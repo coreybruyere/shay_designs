@@ -2242,7 +2242,7 @@ jQuery(document).ready(function($) {
 
 
 	// ------------------------------------- 
-	//   Remove Alert
+	//   Add custom inputs to radio and checkbox
 	// -------------------------------------
 
 	$('input[type=radio').each(function() {
@@ -2271,10 +2271,12 @@ jQuery(document).ready(function($) {
 	$shareBtn = $('#js-social-share');
 	$shareMenu = $('#js-share-menu');
 
-	$shareBtn.click(function() { 
-		// alert("hi"); 
-		$shareMenu.addClass('is-active-share');
-	});
+	$shareBtn.click(function() {
+	    $shareMenu.toggleClass('is-active-share');
+		alert("wtf"); 
+	  	return false;
+	});   
+
 
 
 

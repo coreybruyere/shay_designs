@@ -115,7 +115,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 	<div id="payment">
 		<?php if ( WC()->cart->needs_payment() ) : ?>
-		<ul class="payment_methods methodsd">
+		<ul class="payment_methods methods">
 			<?php
 				$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
 				if ( ! empty( $available_gateways ) ) {

@@ -12,7 +12,8 @@
         else $fb = "http://$fb";
       ?>
       <a href="<?php echo $fb; ?>" class="icon-svg" role="menuitem" target="_blank">
-        <svg viewBox="0 0 32 32" title="Facebook">
+        <svg viewBox="0 0 32 32" role="img" aria-labelledby="fb-title-head">
+          <title id="fb-title-head">Facebook Icon</title>
           <g filter="">
             <use xlink:href="#facebook"></use>
           </g>
@@ -30,7 +31,8 @@
         else $pin = "http://$pin";
       ?>
       <a href="<?php echo $pin; ?>" class="icon-svg" role="menuitem" target="_blank">
-        <svg viewBox="0 0 32 32" title="Pinterest">
+        <svg viewBox="0 0 32 32" role="img" aria-labelledby="pin-title-head">
+          <title id="pin-title-head">Pinterest Icon</title>
           <g filter="">
             <use xlink:href="#pinterest"></use>
           </g>
@@ -48,7 +50,8 @@
         else $ig = "http://$ig";
       ?>
       <a href="<?php echo $ig; ?>" class="icon-svg" role="menuitem" target="_blank">
-        <svg viewBox="0 0 32 32" title="Instagram">
+        <svg viewBox="0 0 32 32" role="img" aria-labelledby="ig-title-head">
+          <title id="ig-title-head">Instagram Icon</title>
           <g filter="">
             <use xlink:href="#instagram"></use>
           </g>

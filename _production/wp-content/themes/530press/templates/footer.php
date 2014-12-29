@@ -52,8 +52,9 @@
 
         <span class="tooltip  tooltip--top" data-tooltip="Facebook">
 
-          <a href="<?php echo $fb; ?>" class="icon-svg--lrg" role="menuitem" target="_blank" alt="Facebook">
-            <svg viewBox="0 0 32 32">
+          <a href="<?php echo $fb; ?>" class="icon-svg--lrg" role="menuitem" target="_blank">
+            <svg viewBox="0 0 32 32" role="img" aria-labelledby="fb-title-foot">
+              <title id="fb-title-foot">Facebook Icon</title>
               <g filter="">
                 <use xlink:href="#facebook"></use>
               </g>
@@ -76,8 +77,9 @@
 
         <span class="tooltip  tooltip--top" data-tooltip="Pinterest"> 
 
-          <a href="<?php echo $pin; ?>" class="icon-svg--lrg" role="menuitem" target="_blank" alt="Pinterest">
-            <svg viewBox="0 0 32 32">
+          <a href="<?php echo $pin; ?>" class="icon-svg--lrg" role="menuitem" target="_blank">
+            <svg viewBox="0 0 32 32" role="img" aria-labelledby="pin-title-foot">
+              <title id="pin-title-foot">Pinterest Icon</title>
               <g filter="">
                 <use xlink:href="#pinterest"></use>
               </g>
@@ -98,10 +100,11 @@
           else $ig = "http://$ig";
         ?>
 
-        <span class="tooltip  tooltip--top" data-tooltip="Instagram">
+        <span class="tooltip  tooltip--top" data-tooltip="Instagram" aria-hidden="true">
 
-          <a href="<?php echo $ig; ?>" class="icon-svg--lrg" role="menuitem" target="_blank" alt="Instagram">
-            <svg viewBox="0 0 32 32">
+          <a href="<?php echo $ig; ?>" class="icon-svg--lrg" role="menuitem" target="_blank">
+            <svg viewBox="0 0 32 32" role="img" aria-labelledby="ig-title-foot">
+              <title id="ig-title-foot">Instagram Icon</title>
               <g filter="">
                 <use xlink:href="#instagram"></use>
               </g>
