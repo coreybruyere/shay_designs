@@ -56,9 +56,10 @@ function init() {
 	$ajax_cart_en         = get_option( 'woocommerce_enable_ajax_add_to_cart' ) == 'yes' ? true : false;
 	$assets_path          = str_replace( array( 'http:', 'https:' ), '', get_bloginfo( 'stylesheet_directory' ) ) . '/lib/';
 	$frontend_script_path = $assets_path . 'javascripts/frontend/';
+	$chosen_script_path = $assets_path . 'javascripts/chosen/';
 
 	// Register any scripts for later use, or used as dependencies
-	wp_register_script( 'chosen', $assets_path . 'chosen/chosen.jquery' . $suffix . '.js', array( 'jquery' ), '1.0.0', true );
+	wp_register_script( 'chosen', $chosen_script_path . 'chosen.jquery' . $suffix . '.js', array( 'jquery' ), '1.0.0', true );
 	// wp_register_script( 'jquery-blockui', $assets_path . 'jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.60', true );
 	// wp_register_script( 'jquery-payment', $assets_path . 'jquery-payment/jquery.payment' . $suffix . '.js', array( 'jquery' ), '1.0.2', true );
 	wp_register_script( 'wc-credit-card-form', $assets_path . 'frontend/credit-card-form' . $suffix . '.js', array( 'jquery', 'jquery-payment' ), WC_VERSION, true );

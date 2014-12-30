@@ -22,6 +22,7 @@ if ( get_option( 'woocommerce_enable_shipping_calc' ) === 'no' || ! WC()->cart->
 	<section class="shipping-calculator-form  section">
 
 		<p class="form-row form-row-wide">
+			<label class="title--small" for="calc_shipping_country">Country</label>
 			<select name="calc_shipping_country" id="calc_shipping_country" class="country_to_state" rel="calc_shipping_state">
 				<option value=""><?php _e( 'Select a country&hellip;', 'woocommerce' ); ?></option>
 				<?php
@@ -46,6 +47,7 @@ if ( get_option( 'woocommerce_enable_shipping_calc' ) === 'no' || ! WC()->cart->
 				} elseif ( is_array( $states ) ) {
 
 					?><span>
+						<label class="title--small" for="calc_shipping_state">State</label>
 						<select name="calc_shipping_state" id="calc_shipping_state" placeholder="<?php _e( 'State / county', 'woocommerce' ); ?>">
 							<option value=""><?php _e( 'Select a state&hellip;', 'woocommerce' ); ?></option>
 							<?php
@@ -75,6 +77,7 @@ if ( get_option( 'woocommerce_enable_shipping_calc' ) === 'no' || ! WC()->cart->
 		<?php if ( apply_filters( 'woocommerce_shipping_calculator_enable_postcode', true ) ) : ?>
 
 			<p class="form-row form-row-wide">
+				<label class="title--small" for="calc_shipping_postcode">Zip Code</label>
 				<input type="text" class="input-text" value="<?php echo esc_attr( WC()->customer->get_shipping_postcode() ); ?>" placeholder="<?php _e( 'Postcode / Zip', 'woocommerce' ); ?>" name="calc_shipping_postcode" id="calc_shipping_postcode" />
 			</p>
 

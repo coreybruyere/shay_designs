@@ -21,6 +21,7 @@
     color: $tertiary;
     border-radius: u(rem(2));
     border: u(rem(1)) solid $tertiary-light; 
+    @include fadeIn;
     &:focus, &:active {
         border-color: $tertiary-light;
     }
@@ -95,7 +96,7 @@
 .cart--count {
     position: relative;
     display: inline-block;
-    float: left; 
+    // float: left; 
     margin: 0 u(rem(10)) 0 0;
     width: u(rem(60));
     margin-bottom: u(rem(-5));
