@@ -1351,10 +1351,6 @@ th {
   margin: 25px 0;
 }
 
-#payment input[type="radio"] {
-  visibility: hidden;
-}
-
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -1578,10 +1574,6 @@ select {
   cursor: pointer;
 }
 
-input[type="radio"], input[type="checkbox"] {
-  visibility: hidden;
-}
-
 input[type="text"],
 input[type="email"],
 input[type="number"],
@@ -1608,6 +1600,37 @@ textarea {
 label {
   display: block;
   color: #7f8282;
+}
+
+input[type="radio"] {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  min-height: 0;
+  margin-right: 3px;
+  background-color: white;
+  border-radius: 18px;
+  border: 3px solid white;
+  box-shadow: 0 0 0 1px #cdcece;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="radio"]:checked {
+  background-color: #86bfcc;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  min-height: 0;
+  margin-right: 4px;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #cdcece;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .input-text {
@@ -1654,7 +1677,7 @@ label {
   margin-right: 3px;
   margin-bottom: -1px;
   background-color: white;
-  border-radius: 16px;
+  border-radius: 18px;
   border: 1px solid #cdcece;
 }
 
@@ -1883,7 +1906,7 @@ h6:first-child {
 h1 {
   margin-top: 40px;
   margin-bottom: 20px;
-  line-height: 0.78571;
+  line-height: 1;
   font-size: 28px;
   font-size: 1.75rem;
 }
@@ -2557,8 +2580,8 @@ strong {
   min-height: 35px;
   max-height: 35px;
   line-height: 1.25;
-  font-size: 18px;
-  font-size: 1.125rem;
+  font-size: 17px;
+  font-size: 1.0625rem;
 }
 
 .product__sub-title {
@@ -2639,8 +2662,9 @@ strong {
   border-radius: 4px;
 }
 
-.alert__icon {
+.alert__icon, .alert--success__icon, .alert--important__icon {
   position: absolute;
+  right: 10px;
   width: 22px;
   height: 22px;
   padding-left: 1px;
@@ -2665,6 +2689,13 @@ strong {
 }
 .alert__icon:hover, .alert__icon:active {
   background-color: #cf6f83;
+}
+
+.alert__msg {
+  padding-right: 15px;
+}
+.alert__msg .button {
+  margin-bottom: 5px;
 }
 
 .alert--success {
@@ -2794,11 +2825,15 @@ strong {
 .cart--count {
   position: relative;
   display: inline-block;
+  float: left;
   margin: 0 10px 0 0;
   width: 60px;
   margin-bottom: -5px;
   overflow: hidden;
   zoom: 1;
+}
+.cart__item .cart--count {
+  float: none;
 }
 
 .cart--count__qty {
@@ -3167,7 +3202,7 @@ strong {
 }
 
 @media only screen and (min-width: 730px) {
-  .tab__panel {
+  .tab__panel:last-of-type {
     border: 2px solid #98c8d3;
   }
 }

@@ -58,7 +58,6 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		?>
 
 		
-      	<?php get_template_part('templates/social'); ?>
 
 	</div><!-- grid__half -->
 

@@ -34,7 +34,7 @@ select {
 }
 
 input[type="radio"], input[type="checkbox"] {
-    visibility: hidden;
+    // visibility: hidden;
 }
 
 input[type="text"],
@@ -72,6 +72,37 @@ select {
 label {
     display: block;
     color: $d-gray;
+}
+
+input[type="radio"] {
+    display: inline-block;
+    width: u(rem(18));
+    height: u(rem(18));
+    min-height: 0;
+    margin-right: u(rem(3));  
+    background-color: $tertiary-lighter; 
+    border-radius: u(rem(18)); 
+    border: u(rem(3)) solid $tertiary-lighter; 
+    box-shadow: 0 0 0 u(rem(1)) $alt-gray;
+    -webkit-appearance: none; 
+    appearance: none;
+}
+
+input[type="radio"]:checked {
+    background-color: $secondary-light;
+}
+
+input[type="checkbox"] {
+    display: inline-block;
+    width: u(rem(18));
+    height: u(rem(18));
+    min-height: 0;
+    margin-right: u(rem(4));
+    background-color: $tertiary-lighter;
+    border-radius: u(rem($border-radius));
+    border: u(rem(1)) solid $alt-gray;
+    -webkit-appearance: none;
+    appearance: none;
 }
 
 .input-text {
@@ -114,7 +145,7 @@ label {
     margin-right: u(rem(3));
     margin-bottom: u(rem(-1));
     background-color: $tertiary-lighter;
-    border-radius: u(rem(16)); 
+    border-radius: u(rem(18)); 
     border: u(rem(1)) solid $alt-gray; 
 }
 

@@ -39,6 +39,7 @@ if ( ! empty( $tabs ) ) : ?>
 			<div class="tab__panel">
 				<div class="panel entry-content  tab__article" id="tab-<?php echo $key ?>">
 				<?php call_user_func( $tab['callback'], $key, $tab ) ?>
+      			<?php get_template_part('templates/social'); ?>
 				</div>
 			</div>
 

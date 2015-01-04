@@ -17,7 +17,8 @@
 }
 
 %alert-icon {
-	position: absolute;
+	position: absolute; 
+	right: u(rem(10));  
 	width: u(rem(22));
 	height: u(rem(22));
 	padding-left: u(rem(1));
@@ -45,7 +46,10 @@
 }
 
 .alert__msg {
-	
+	padding-right: u(rem(15));
+	.button {
+		margin-bottom: u(rem(5));       
+	}
 }
 
 .alert--success {
@@ -53,6 +57,7 @@
 }
 
 .alert--success__icon {
+	@extend %alert-icon;
 	background-color: $alert-green;
 	&:hover, &:active {
 		background-color: lighten($alert-green, 5%)
@@ -64,6 +69,7 @@
 }
 
 .alert--important__icon {  
+	@extend %alert-icon;
 	border-color: $alert-blue;
 }
 

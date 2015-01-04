@@ -62,9 +62,11 @@
 .tab__panel {
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
-		border: u(rem(2)) solid $secondary-lighter;
+		&:last-of-type {
+			border: u(rem(2)) solid $secondary-lighter;
 		// border-top-left-radius: 0;
-		// background-color: $secondary-lighter; 
+		// background-color: $secondary-lighter;
+		}
 	}
 }
 

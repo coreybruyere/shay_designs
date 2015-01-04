@@ -62,7 +62,7 @@ function init() {
 	wp_register_script( 'chosen', $chosen_script_path . 'chosen.jquery' . $suffix . '.js', array( 'jquery' ), '1.0.0', true );
 	// wp_register_script( 'jquery-blockui', $assets_path . 'jquery-blockui/jquery.blockUI' . $suffix . '.js', array( 'jquery' ), '2.60', true );
 	// wp_register_script( 'jquery-payment', $assets_path . 'jquery-payment/jquery.payment' . $suffix . '.js', array( 'jquery' ), '1.0.2', true );
-	wp_register_script( 'wc-credit-card-form', $assets_path . 'frontend/credit-card-form' . $suffix . '.js', array( 'jquery', 'jquery-payment' ), WC_VERSION, true );
+	wp_register_script( 'wc-credit-card-form', $frontend_script_path . 'credit-card-form' . $suffix . '.js', array( 'jquery', 'jquery-payment' ), WC_VERSION, true );
 
 	wp_register_script( 'wc-add-to-cart-variation', $frontend_script_path . 'add-to-cart-variation' . $suffix . '.js', array( 'jquery' ), WC_VERSION, true );
 	wp_register_script( 'wc-single-product', $frontend_script_path . 'single-product' . $suffix . '.js', array( 'jquery' ), WC_VERSION, true );
@@ -85,7 +85,7 @@ function init() {
 			wp_enqueue_style( 'woocommerce_chosen_styles', $assets_path . 'styles/css/chosen.css' );
 		}
 
-		wp_enqueue_script( 'wc-checkout', $frontend_script_path . 'checkout' . $suffix . '.js', array('jquery'), WC_VERSION, true );
+		// wp_enqueue_script( 'wc-checkout', $frontend_script_path . 'checkout' . $suffix . '.js', array('jquery'), WC_VERSION, true );
 	}
 
 	if ( is_page( get_option( 'woocommerce_myaccount_page_id' ) ) ) {
@@ -131,7 +131,7 @@ function woocommerce_support() {
 /**
  * Remove Woo Theme Assets
  */
-remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 ); 
+// remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 ); 
 add_filter( 'woocommerce_show_page_title', '__return_false' ); 
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );
 add_filter( 'woocommerce_product_tabs', 'wcs_woo_remove_reviews_tab', 98 );
@@ -197,11 +197,62 @@ function jk_woocommerce_breadcrumbs() {
 /**
  * Add Cart Variation Fix
  */
-function mv_my_theme_scripts() {
+// function mv_my_theme_scripts() {
 
-wp_enqueue_script('add-to-cart-variation', get_template_directory_uri() . '/lib/javascripts/frontend/add-to-cart-variation.js',array('jquery'),'1.0',true);
+// wp_enqueue_script('add-to-cart-variation', get_template_directory_uri() . '/lib/javascripts/frontend/add-to-cart-variation.js',array('jquery'),'1.0',true);
+// }
+
+// add_action('wp_enqueue_scripts','mv_my_theme_scripts');
+
+function add_to_cart_script(){
+  if(is_product()){
+    wp_enqueue_script('wc-add-to-cart-variation', get_template_directory_uri() . '/lib/javascripts/frontend/add-to-cart-variation.js',array('jquery'),'1.0',true);
+  }
+}
+add_action('wp_head','add_to_cart_script');
+
+
+/**
+ * Update Price
+ */
+add_filter( 'woocommerce_variation_option_name', 'display_price_in_variation_option_name' );
+
+function display_price_in_variation_option_name( $term ) {
+    global $wpdb, $product;
+
+    $result = $wpdb->get_col( "SELECT slug FROM {$wpdb->prefix}terms WHERE name = '$term'" );
+
+    $term_slug = ( !empty( $result ) ) ? $result[0] : $term;
+
+
+    $query = "SELECT postmeta.post_id AS product_id
+                FROM {$wpdb->prefix}postmeta AS postmeta
+                    LEFT JOIN {$wpdb->prefix}posts AS products ON ( products.ID = postmeta.post_id )
+                WHERE postmeta.meta_key LIKE 'attribute_%'
+                    AND postmeta.meta_value = '$term_slug'
+                    AND products.post_parent = $product->id";
+
+    $variation_id = $wpdb->get_col( $query );
+
+    $parent = wp_get_post_parent_id( $variation_id[0] );
+
+    if ( $parent > 0 ) {
+        $_product = new WC_Product_Variation( $variation_id[0] );
+        return $term . ' (' . woocommerce_price( $_product->get_price() ) . ')';
+    }
+    return $term;
+
 }
 
-add_action('wp_enqueue_scripts','mv_my_theme_scripts');
+
+/**
+* Returns min price for variably priced products
+**/
+// add_filter('woocommerce_variable_price_html', 'custom_variation_price', 10, 2);
+// function custom_variation_price( $price, $product ) {
+// $price = '';
+// $price .= woocommerce_price($product->min_variation_price);
+// return $price;
+// }
 
 
