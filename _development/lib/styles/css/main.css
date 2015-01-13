@@ -1353,15 +1353,45 @@ th {
   margin: 1.5625rem 0;
 }
 
+.gform_wrapper li {
+  margin-bottom: 0.8125rem;
+}
 .gform_wrapper form {
   margin-bottom: 0;
 }
 .gform_wrapper .gfield_required {
   padding-left: 0.0625rem;
 }
+.gform_wrapper .gform_hidden .gfield_label {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+.gform_wrapper .gfield_label {
+  margin-bottom: 0.3125rem;
+  font-size: 13px;
+  font-size: 0.8125rem;
+}
+.gform_wrapper .gfield_description {
+  margin-top: 0.3125rem;
+  font-size: 12px;
+  font-size: 0.75rem;
+}
 
 .ginput_container textarea {
-  height: auto;
+  height: 0.625rem;
+  width: 0.625rem;
+}
+.ginput_container .ginput_total {
+  color: #7f8282;
+}
+.ginput_container .ginput_total.formattedTotalPrice {
+  color: #96c8a2;
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+.ginput_container .ginput_total.formattedTotalPrice:after {
+  content: 'hi';
+  display: block;
 }
 
 *, *:before, *:after {

@@ -6,16 +6,34 @@
  
     li {
         @extend %required; 
+        margin-bottom: u(rem(13));
     } 
  
     form {           
         margin-bottom: 0;
-    }
- 
+    } 
+  
     .gfield_required {
         @extend %required;
         padding-left: u(rem(1));
     }
+
+    .gform_hidden {
+        .gfield_label {
+            @include font-size(20); 
+        }
+    }
+
+    .gfield_label {
+        margin-bottom: u(rem(5));
+        @include font-size(13)
+    }
+
+    .gfield_description {
+        margin-top: u(rem(5)); 
+        @include font-size(12);
+    }
+
 }
  
 .ginput_container {
@@ -27,7 +45,20 @@
     }
  
     textarea {
-      height: auto;
+      height: u(rem(10));
+      width: u(rem(10));
+    }
+
+    .ginput_total { 
+        color: $text-color;
+        &.formattedTotalPrice {
+            color: $alert-green;
+            @include font-size(20);
+            &:after {
+                content: 'hi';
+                display: block;
+            }
+        }
     }
 }
  
