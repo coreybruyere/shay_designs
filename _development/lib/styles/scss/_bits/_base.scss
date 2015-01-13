@@ -12,7 +12,8 @@ html {
     font-family: $serif;
     font-size: 16px;
     background-color: $l-gray; 
-    background-image: url(../../images/min/whitey.png);
+    @include retina(whitey, png, 200, 200);     
+    // background-image: url(../../images/min/whitey.png);
     // -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
  }
  
@@ -68,6 +69,11 @@ abbr[title] {
 
 mark {
     background-color: $alert-yellow;
+}
+
+svg {
+    max-height: 100%;
+    max-width: 100%;
 }
 
 // -------------------------------------

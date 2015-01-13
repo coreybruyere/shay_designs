@@ -30,13 +30,20 @@ if ( is_user_logged_in() )
 
 	<?php do_action( 'woocommerce_login_form' ); ?>
 
-	<p class="form-row">
+	<p class="form-row table">
+		<span class="tr">
 		<?php wp_nonce_field( 'woocommerce-login' ); ?>
+		<span class="td no-pad">
 		<input type="submit" class="button" name="login" value="<?php _e( 'Login', 'woocommerce' ); ?>" />
+		</span>
 		<input type="hidden" name="redirect" value="<?php echo esc_url( $redirect ) ?>" />
+		<span class="td">
+		<input name="rememberme" type="checkbox" id="rememberme" value="forever" /> 
 		<label for="rememberme" class="inline">
-			<input name="rememberme" type="checkbox" id="rememberme" value="forever" /> <?php _e( 'Remember me', 'woocommerce' ); ?>
+		<?php _e( 'Remember me', 'woocommerce' ); ?>
 		</label>
+		</span>
+		</span>
 	</p>
 	<p class="lost_password">
 		<a href="<?php echo esc_url( wc_lostpassword_url() ); ?>"><?php _e( 'Lost your password?', 'woocommerce' ); ?></a>

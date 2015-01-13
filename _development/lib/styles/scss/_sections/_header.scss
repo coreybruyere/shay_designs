@@ -27,10 +27,20 @@
 .header__burger {
 	@extend %padding-mq;
 	@extend .float-r;
+	position: relative;
 	padding-top: u(rem(30));
 	padding-bottom: u(rem(30));
 	cursor: pointer;
 	vertical-align: middle;
+	&:before {
+		position: absolute;
+		top: u(rem(15));
+		display: block; 
+		width: u(rem(40));
+		text-align: center; 
+		content: 'menu';
+		@include font-size(10);
+	} 
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
 		display: none;
@@ -50,6 +60,7 @@
 .header--menu {
 	@extend %island;
 	@extend %clearfix;
+	@extend %wrapper; 
 	position: relative;  
 	z-index: 100;
 	// -- Min Width @ $tablet
@@ -67,4 +78,10 @@
 
 .is-active-icon {
 	@include burger-to-cross;  
+}
+
+.is-active-burger {
+	&:before {
+		content: 'close';
+	}
 }

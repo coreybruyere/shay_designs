@@ -112,9 +112,13 @@ table {
 	@extend %section;
 	tfoot {
 		tr {
-			&:last-of-type {
-				border: u(rem(1)) solid $secondary;
-				border-top: u(rem(2)) solid $secondary;
+			&:last-of-type { 
+				// border: u(rem(1)) solid $secondary;
+				border-top: u(rem(1)) solid $secondary;
+				th, td {
+					border-top: u(rem(2)) solid $secondary; 
+					border-bottom: u(rem(1)) solid $secondary;
+				} 
 			}
 		}
 	}

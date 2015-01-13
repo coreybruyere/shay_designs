@@ -79,7 +79,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 		
 
 		<?php $prod_title = get_the_title(); ?>
-		<h3 title="<?php echo $prod_title; ?>" class="product__title"><?php echo mb_strimwidth($prod_title, 0, 26, '...'); ?></h3>
+		<h3 title="<?php echo $prod_title; ?>" class="product__title"><?php echo mb_strimwidth($prod_title, 0, 35, '...'); ?></h3>
 
 		<?php
 			/**

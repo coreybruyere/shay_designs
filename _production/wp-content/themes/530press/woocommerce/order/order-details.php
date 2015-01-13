@@ -109,7 +109,7 @@ $order = wc_get_order( $order_id );
 
 <div class="col2-set  addresses  grid">
 
-	<div class="col-1  grid__half">
+	<div class="col-1  grid__half  section">
 
 <?php endif; ?>
 
@@ -126,7 +126,7 @@ $order = wc_get_order( $order_id );
 
 	</div><!-- /.col-1 -->
 
-	<div class="col-2  grid__half">
+	<div class="col-2  grid__half  section">
 
 		<header class="title">
 			<h3><?php _e( 'Shipping Address', 'woocommerce' ); ?></h3>

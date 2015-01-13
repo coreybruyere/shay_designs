@@ -16,7 +16,7 @@ function custom_woo() {
 	//first check that woo exists to prevent fatal errors
 	if ( function_exists( 'is_woocommerce' ) ) {
 		//dequeue scripts and styles
-		if ( !is_woocommerce() && !is_cart() && !is_checkout() ) {
+		if ( ! is_woocommerce() && ! is_cart() && ! is_checkout() ) {
 			wp_dequeue_style( 'woocommerce_frontend_styles' );
 			wp_dequeue_style( 'woocommerce_fancybox_styles' );
 			wp_dequeue_style( 'woocommerce_chosen_styles' );
@@ -34,9 +34,9 @@ function custom_woo() {
 			wp_dequeue_script( 'prettyPhoto' );
 			wp_dequeue_script( 'prettyPhoto-init' );
 			wp_dequeue_script( 'fancybox' );
-			// wp_dequeue_script( 'jquery-blockui' );
-			// wp_dequeue_script( 'jquery-placeholder' );
-			// wp_dequeue_script( 'jqueryui' );
+			wp_dequeue_script( 'jquery-blockui' );
+			wp_dequeue_script( 'jquery-placeholder' );
+			wp_dequeue_script( 'jqueryui' );
 		}
 	}
 }
@@ -117,7 +117,6 @@ function init() {
 }
 
 
-
 /**
  * Make theme compatible with WC
  */
@@ -134,11 +133,22 @@ function woocommerce_support() {
 // remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 ); 
 add_filter( 'woocommerce_show_page_title', '__return_false' ); 
 add_filter( 'woocommerce_enqueue_styles', '__return_false' );
-add_filter( 'woocommerce_product_tabs', 'wcs_woo_remove_reviews_tab', 98 );
-function wcs_woo_remove_reviews_tab($tabs) {
-	unset($tabs['reviews']);
-	return $tabs;
+// add_filter( 'woocommerce_product_tabs', 'wcs_woo_remove_reviews_tab', 98 );
+// function wcs_woo_remove_reviews_tab($tabs) {
+// 	unset($tabs['reviews']);
+// 	return $tabs;
+// }
+
+
+/**
+ * Add Back Cart variation js
+ */
+function add_to_cart_script(){
+  if(is_product()){
+    wp_enqueue_script('wc-add-to-cart-variation', get_template_directory_uri() . '/lib/javascripts/frontend/add-to-cart-variation.js',array('jquery'),'1.0',true);
+  }
 }
+add_action('wp_head','add_to_cart_script');
 
 
 /**
@@ -154,10 +164,15 @@ add_filter( 'woocommerce_output_related_products_args', 'jk_related_products_arg
 
 
 /**
+* Change number of products per page
+**/
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 );
+
+
+/**
  * Change number of related products on pdp
  */
 add_filter('add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
-
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
     global $woocommerce;
     ob_start(); ?>
@@ -184,65 +199,60 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 add_filter( 'woocommerce_breadcrumb_defaults', 'jk_woocommerce_breadcrumbs' );
 function jk_woocommerce_breadcrumbs() {
     return array(
-            'delimiter'   => ' / ',
-            'wrap_before' => '<nav class="woocommerce-breadcrumb" itemprop="breadcrumb">',
-            'wrap_after'  => '</nav>',
-            'before'      => '',
-            'after'       => '',
-            'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
-        );
+        'delimiter'   => '', 
+        'wrap_before' => '<nav class="breadcrumbs" itemprop="breadcrumb"><ol class="breadcrumbs__list">',
+        'wrap_after'  => '</ol></nav>',
+        'before'      => '<li class="breadcrumbs__item">',
+        'after'       => '</li>',   
+        'home'        => _x( 'Home', 'breadcrumb', 'woocommerce' ),
+    );
 }
 
 
 /**
- * Add Cart Variation Fix
+ * Gravity From HTML stripping
  */
-// function mv_my_theme_scripts() {
-
-// wp_enqueue_script('add-to-cart-variation', get_template_directory_uri() . '/lib/javascripts/frontend/add-to-cart-variation.js',array('jquery'),'1.0',true);
+// add_filter( 'woocommerce_gforms_strip_meta_html', 'configure_woo_gforms_strip_meta_html' );
+// function configure_woo_gforms_strip_meta_html($strip_html) {
+// 	$strip_html = false;
+// 	return $strip_html;
 // }
 
-// add_action('wp_enqueue_scripts','mv_my_theme_scripts');
-
-function add_to_cart_script(){
-  if(is_product()){
-    wp_enqueue_script('wc-add-to-cart-variation', get_template_directory_uri() . '/lib/javascripts/frontend/add-to-cart-variation.js',array('jquery'),'1.0',true);
-  }
-}
-add_action('wp_head','add_to_cart_script');
 
 
 /**
  * Update Price
  */
-add_filter( 'woocommerce_variation_option_name', 'display_price_in_variation_option_name' );
+// add_filter( 'woocommerce_variation_option_name', 'display_price_in_variation_option_name' );
 
-function display_price_in_variation_option_name( $term ) {
-    global $wpdb, $product;
+// function display_price_in_variation_option_name( $term ) {
+//     global $wpdb, $product;
 
-    $result = $wpdb->get_col( "SELECT slug FROM {$wpdb->prefix}terms WHERE name = '$term'" );
+//     $result = $wpdb->get_col( "SELECT slug FROM {$wpdb->prefix}terms WHERE name = '$term'" );
 
-    $term_slug = ( !empty( $result ) ) ? $result[0] : $term;
+//     $term_slug = ( !empty( $result ) ) ? $result[0] : $term;
 
 
-    $query = "SELECT postmeta.post_id AS product_id
-                FROM {$wpdb->prefix}postmeta AS postmeta
-                    LEFT JOIN {$wpdb->prefix}posts AS products ON ( products.ID = postmeta.post_id )
-                WHERE postmeta.meta_key LIKE 'attribute_%'
-                    AND postmeta.meta_value = '$term_slug'
-                    AND products.post_parent = $product->id";
+//     $query = "SELECT postmeta.post_id AS product_id
+//                 FROM {$wpdb->prefix}postmeta AS postmeta
+//                     LEFT JOIN {$wpdb->prefix}posts AS products ON ( products.ID = postmeta.post_id )
+//                 WHERE postmeta.meta_key LIKE 'attribute_%'
+//                     AND postmeta.meta_value = '$term_slug'
+//                     AND products.post_parent = $product->id";
 
-    $variation_id = $wpdb->get_col( $query );
+//     $variation_id = $wpdb->get_col( $query );
 
-    $parent = wp_get_post_parent_id( $variation_id[0] );
+//     $parent = wp_get_post_parent_id( $variation_id[0] );
 
-    if ( $parent > 0 ) {
-        $_product = new WC_Product_Variation( $variation_id[0] );
-        return $term . ' (' . woocommerce_price( $_product->get_price() ) . ')';
-    }
-    return $term;
+//     if ( $parent > 0 ) {
+//         $_product = new WC_Product_Variation( $variation_id[0] );
+//         return $term . ' (' . woocommerce_price( $_product->get_price() ) . ')';
+//     }
+//     return $term;
 
-}
+// }
+
+
 
 
 /**

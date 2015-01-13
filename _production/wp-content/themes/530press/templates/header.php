@@ -116,7 +116,7 @@
 
   <div class="wrapper--bare">
 
-    <div class="header__burger" id="js-nav-toggle" role="button" data-target=".nav">
+    <div class="header__burger" id="js-nav-toggle" role="button" data-target=".nav" aria-pressed="false">
       <span class="header__burger-icon" id="js-nav-icon"></span>
     </div> <!-- end header__burger -->
 

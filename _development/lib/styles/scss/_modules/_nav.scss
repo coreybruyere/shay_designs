@@ -53,26 +53,33 @@
   transition: background-color .5s ease-in-out, color .5s ease-in-out;
   @include font-size(18); 
   &:hover, &:active {
-    color: $tertiary-light;
-    background-color: $primary-light;
+    // color: $tertiary-light;
+    background-color: $secondary-light;
+    // -- Min Width @ $tablet
+    @media #{$tablet} {
+      background-color: $primary;  
+      color: $tertiary;  
+    } 
   }
   // -- Min Width @ $tablet
   @media #{$tablet} {
-    padding: u(rem(15)) u(rem($padding-wrap-sm)) u(rem(15));
+    padding: u(rem(16)) u(rem(16)) u(rem(16)); 
     // -- Shop specific link
-    &[href*="shop"] {
-      // color: $tertiary-light; 
-      position: relative; 
-      &:before, &:after {
-        font-family: $serif-heading;
-      }
-      &:before {
-        content: '{'; 
-      }
-      &:after {
-        content: '}'
-      }
-    }
+    // &[href*="shop"] {
+    //   // color: $tertiary-light; 
+    //   position: relative; 
+    //   &:before, &:after { 
+    //     position: absolute;
+    //     font-family: $serif-heading;  
+    //   }
+    //   &:before {
+    //     left: u(rem(6));
+    //     content: '{'; 
+    //   }
+    //   &:after {
+    //     content: '}'
+    //   }
+    // }
   }
 }
 

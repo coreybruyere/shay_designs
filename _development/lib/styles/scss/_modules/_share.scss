@@ -5,11 +5,35 @@
 // -------------------------------------
 
 .share {
-    @extend %list-ui;
-    display: none;
-    padding: u(rem(5)) u(rem(10));
-    margin-top: u(rem(-1));
-    @include fadeInRight; 
+    // @extend %list-ui;
+    // display: none;
+    margin-top: u(rem(3));
+    padding: 0 u(rem(10));
+    text-align: center; 
+    @include fadeIn; 
+}
+
+.share__heading {
+    position: relative;
+    display: inline-block;
+    font-family: $serif-heading;
+    color: $tertiary-light;
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        top: u(rem(10));
+        display: block;
+        width: u(rem(40));
+        border-top: u(rem(1)) solid $tertiary-light; 
+    }
+    &:before {
+        right: 100%; 
+        margin-right: u(rem(10)); 
+    }
+    &:after {
+        left: 100%;
+        margin-left: u(rem(10));
+    }
 }
 
 .share__item {

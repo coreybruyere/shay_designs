@@ -5,8 +5,8 @@
 // -------------------------------------
 
 %icon-small {
-  width: u(rem(22));
-  height: u(rem(22));
+  width: u(rem(24));
+  height: u(rem(24));
   vertical-align: top;
 }
 
@@ -20,7 +20,7 @@
   @extend %icon-small;
   position: relative;
   display: inline-block;
-  margin-right: u(rem(5));
+  margin-right: u(rem(6));
   float: left;
   fill: $tertiary-light; 
   transition: all .5s ease-in-out; 

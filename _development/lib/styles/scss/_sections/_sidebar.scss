@@ -31,6 +31,24 @@
 
 .sidebar__widget {
 	overflow: hidden;
+	// ul specific styling 
+	ul:not(.product_list_widget) {  
+		@extend %list-ui;
+		padding-left: u(rem(20)); 
+		list-style-type: circle;
+		text-align: left;
+	}
+	// product list widget
+	.product_list_widget {
+		@extend %list-ui;
+		> li {
+			margin-bottom: u(rem(15));  
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+		}
+	}
+
 }
 
 .sidebar__grid {

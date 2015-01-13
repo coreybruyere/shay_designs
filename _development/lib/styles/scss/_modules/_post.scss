@@ -23,7 +23,7 @@
 .post__time {
 	@extend %clearfix;
 	display: block;
-	margin-bottom: u(rem(5));
+	margin-bottom: u(rem(13));
 	color: $tertiary-lighter;
 	@include font-size(10);
 }

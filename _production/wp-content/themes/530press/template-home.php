@@ -26,7 +26,7 @@ Template Name: Home Page Template
 
 		          <a href="<?php echo $large_banner_link ?>" class="js-slide-item">
 		          	<?php if( $large_banner_text ): ?>
-		          	<h2 class="tout__text"><?php echo $large_banner_text; ?></h2>
+		          	<h1 class="tout__text"><?php echo $large_banner_text; ?></h1>
 		          	<?php endif; ?>
 		          	<img class="tout__image" src="<?php echo $large_banner['url']; ?>" alt="<?php echo $large_banner['alt']; ?>">
 		          </a> 

@@ -1,0 +1,92 @@
+// -------------------------------------
+//   Breadcrumbs
+// -------------------------------------
+// ----- Styles for breadcrumbs
+// -------------------------------------
+
+.breadcrumbs {
+	@include font-size(9);
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		@include font-size(10);
+	} 
+}
+
+.breadcrumbs__list {
+	@extend %clearfix; 
+	padding: 0;  
+	counter-reset: my-counter;
+	list-style-type: none;  
+}
+
+.breadcrumbs__item {
+	position: relative;  
+	display: inline-block; 
+	height: u(rem(30));
+	padding: u(rem(9)) 0 u(rem(4.5)) u(rem(20));  
+	float: left;  
+	&:after {
+		content: ''; 
+		position: absolute;
+		top: 0;
+		left: 100%;    
+		width: 0; 
+		height: 0; 
+		border-top: u(rem(15)) solid transparent;
+		border-bottom: u(rem(15)) solid transparent;  
+	}
+	&:first-of-type {
+		padding-left: u(rem(10)); 
+		border-top-left-radius: u(rem($border-radius));
+		border-bottom-left-radius: u(rem($border-radius));
+	}
+	&:last-of-type {
+		padding-right: u(rem(10));  
+		background-color: $bg-color;
+		border-top-right-radius: u(rem($border-radius)); 
+		border-bottom-right-radius: u(rem($border-radius));
+		&:after {
+			display: none;  
+		}
+	}
+	// Breadcrumb item color hue
+	$count: 8;
+	$color: $primary;
+	@for $i from 0 through $count {
+		$bread-color: lighten($color, $i * 3);     
+		&:nth-child(#{$i}) {
+			&:not(:last-child) {
+			background-color: $bread-color;  
+				&:after {
+					border-left: u(rem(15)) solid $bread-color;
+					z-index: $i + 1;   
+				} 
+			}
+		} 
+   	}
+   	> a {
+   		display: inline-block;
+   		width: u(rem(20));
+   		height: u(rem(15));  
+   		overflow: hidden;
+   		color: $tertiary-light; 
+   		white-space: nowrap; 
+   		counter-increment: my-counter;
+   		&:before {
+   		    content: " { " counters(my-counter, "") " } ";  
+   		    // -- Min Width @ $tablet
+   		    @media #{$tablet} {
+   		    	display: none;
+   		    }
+   		}
+   		&:hover, &:active {
+   			color: $secondary;       
+   		}  
+   		// -- Min Width @ $tablet
+   		@media #{$tablet} {
+   			width: auto;
+   			height: auto;
+   		}
+   	}
+}
+

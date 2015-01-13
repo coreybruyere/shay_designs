@@ -35,13 +35,25 @@
 
   <!-- Above the fold styles -->
   <style>
+    /* BG pattern */
+    html {
+      background-image: url(<?php echo get_bloginfo('template_directory');?>/lib/images/min/whitey.png);
+    }
 
+    /* BG body head pattern */ 
     #body {
       background-image: url(<?php echo get_bloginfo('template_directory');?>/lib/images/min/head_bg.png);
       background-size: 1200px;
       background-repeat: no-repeat;
       background-position: 50% -7%;
     }
+
+    /* Header BG pattern */
+    .bg {
+      background-image: url(<?php echo get_bloginfo('template_directory');?>/lib/images/min/cloth_alike@2x.png);
+      background-size: 85px;
+    }
+
 
   </style>
 

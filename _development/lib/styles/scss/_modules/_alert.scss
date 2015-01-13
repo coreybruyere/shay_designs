@@ -46,9 +46,20 @@
 }
 
 .alert__msg {
-	padding-right: u(rem(15));
-	.button {
-		margin-bottom: u(rem(5));       
+	// -- Min Width @ $mobile
+	@media #{$mobile} {
+		display: inline-block;
+		padding-right: u(rem(25));
+	}
+	> .button {
+		display: block;
+		margin: u(rem(35)) 0 u(rem(10)); 
+		margin-bottom: u(rem(5)); 
+		// -- Min Width @ $mobile
+		@media #{$mobile} {
+			display: inline-block;
+			margin: 0; 
+		}      
 	}
 }
 

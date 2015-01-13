@@ -3,7 +3,7 @@
  * Clean up the_excerpt()
  */
 function roots_excerpt_more($more) {
-  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'roots') . '</a>';
+  return ' <a href="' . get_permalink() . '">' . __('[ &hellip; ]', 'roots') . '</a>';
 }
 add_filter('excerpt_more', 'roots_excerpt_more');
 

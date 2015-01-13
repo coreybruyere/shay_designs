@@ -11,18 +11,18 @@
     margin: 0;
 }
 
-// ol {
-//     counter-reset: my-counter;
-//     list-style-type: none;
-//     padding-left: u(rem(20));
-//     li {
-//         counter-increment: my-counter;
-//         &:before {
-//             content: "[" counters(my-counter, "") "] ";
-//             padding-right: u(rem(5));
-//         }
-//     }
-// }
+%counter {
+    counter-reset: my-counter;
+    list-style-type: none;
+    padding-left: u(rem(20));
+    li {
+        counter-increment: my-counter;
+        &:before {
+            content: " { " counters(my-counter, "") " } ";  
+            padding-right: u(rem(5));
+        }
+    }
+}
 
 .list-ui {
     @extend %list-ui;

@@ -50,14 +50,16 @@ textarea {
     text-align: left;
 }
 
-input[type="number"] {
+input[type="number"],
+input[type="submit"] {
     text-align: center;
 }
 
 textarea {
-    resize: none;
-    width: 100%;
+    width: auto;
+    min-width: u(rem(300));
     min-height: u(rem(100));
+    resize: none;
 }
 
 select {
@@ -84,6 +86,7 @@ input[type="radio"] {
     border-radius: u(rem(18)); 
     border: u(rem(3)) solid $tertiary-lighter; 
     box-shadow: 0 0 0 u(rem(1)) $alt-gray;
+    cursor: pointer;
     -webkit-appearance: none; 
     appearance: none;
 }
@@ -101,6 +104,7 @@ input[type="checkbox"] {
     background-color: $tertiary-lighter;
     border-radius: u(rem($border-radius));
     border: u(rem(1)) solid $alt-gray;
+    cursor: pointer;
     -webkit-appearance: none;
     appearance: none;
 }

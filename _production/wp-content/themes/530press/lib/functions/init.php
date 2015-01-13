@@ -44,6 +44,7 @@ function roots_widgets_init() {
     'after_widget'  => '</div></div>',
     'before_title'  => '<h5 class="sidebar__title">',
     'after_title'   => '</h5>',
+    'class'         => 'list-ui',
   ));
 
   register_sidebar(array(
@@ -53,6 +54,7 @@ function roots_widgets_init() {
     'after_widget'  => '</div></div>',
     'before_title'  => '<h5 class="sidebar__title">',
     'after_title'   => '</h5>',
+    'class'         => 'list-ui',
   ));
 }
 add_action('widgets_init', 'roots_widgets_init');

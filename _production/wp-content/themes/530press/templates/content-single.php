@@ -8,7 +8,6 @@
       <?php the_content(); ?>
     </div>
     <footer class="section-region">
-      <?php get_template_part('templates/social'); ?>
 
       <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>
     </footer>
