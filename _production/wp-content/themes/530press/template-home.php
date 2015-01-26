@@ -26,7 +26,7 @@ Template Name: Home Page Template
 
 		          <a href="<?php echo $large_banner_link ?>" class="js-slide-item">
 		          	<?php if( $large_banner_text ): ?>
-		          	<h1 class="tout__text"><?php echo $large_banner_text; ?></h1>
+		          	<h1 class="tout__text tout__text--large"><?php echo $large_banner_text; ?></h1> 
 		          	<?php endif; ?>
 		          	<img class="tout__image" src="<?php echo $large_banner['url']; ?>" alt="<?php echo $large_banner['alt']; ?>">
 		          </a> 
@@ -145,6 +145,7 @@ Template Name: Home Page Template
 	  <div class="island">
 
 	    <form class="form--group" role="form">
+
 		  <label class="form--signup__label" for="newsletter">Sign Up for the Shay Designs Newsletter!</label> 
 		  <input type="email" class="form--group__item  input--inline" placeholder="Email" id="newsletter">
 		  <button type="submit" class="form--group__item">Send</button>

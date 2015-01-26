@@ -7,6 +7,11 @@
 %tout-item {
 	position: relative;
 	margin-bottom: 3%;
+	&:hover, &:active {
+		.tout__image {
+			opacity: .6;  
+		}
+	}
 }
 
 .tout {
@@ -53,18 +58,45 @@
 
 .tout__image {
 	border-radius: u(rem(5));
+	transition: opacity .35s ease;  
 }
 
 .tout__text {
 	position: absolute;
 	top: 50%;
-	width: 100%;
-	padding: 0 u(rem(10));
+	left: 50%;
+	margin: 0; 
+	padding: u(rem(9.5));  
 	text-align: center;
 	font-family: $serif-heading; 
 	color: $tertiary-lighter;
-	transform: translateY(-50%); 
+	background-color: $tertiary-trans;
+	transform: translate(-50%, -50%);   
 	z-index: 5;
+	// Ribbon effect
+	&:after, &:before { 
+		content: "";
+		position: absolute;
+		bottom: 0;
+		display: block;
+		width: u(rem(50));
+		border: u(rem(20)) solid $tertiary-trans;       
+		z-index: -2; 
+	}
+	&:before {
+		left: u(rem(-50)); 
+		border-right-width: u(rem(15));
+		border-left-color: transparent;
+	}
+	&:after {
+		right: u(rem(-50));
+		border-left-width: u(rem(15)); 
+		border-right-color: transparent; 
+	}
+} 
+
+.tout__text--large {
+	padding: u(rem(6)); 
 }
 
 

@@ -2550,6 +2550,9 @@ strong {
   position: relative;
   margin-bottom: 3%;
 }
+.tout__item:hover .tout__image, .tout__item--side:hover .tout__image, .tout__item:active .tout__image, .tout__item--side:active .tout__image {
+  opacity: .6;
+}
 
 .tout {
   *zoom: 1;
@@ -2742,20 +2745,47 @@ strong {
 
 .tout__image {
   border-radius: 5px;
+  -webkit-transition: opacity .35s ease;
+  transition: opacity .35s ease;
 }
 
 .tout__text {
   position: absolute;
   top: 50%;
-  width: 100%;
-  padding: 0 10px;
+  left: 50%;
+  margin: 0;
+  padding: 9.5px;
   text-align: center;
   font-family: "PepitaScript2Regular", "Brush Script MT", cursive;
   color: white;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+  background-color: rgba(127, 130, 130, 0.35);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   z-index: 5;
+}
+.tout__text:after, .tout__text:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 50px;
+  border: 20px solid rgba(127, 130, 130, 0.35);
+  z-index: -2;
+}
+.tout__text:before {
+  left: -50px;
+  border-right-width: 15px;
+  border-left-color: transparent;
+}
+.tout__text:after {
+  right: -50px;
+  border-left-width: 15px;
+  border-right-color: transparent;
+}
+
+.tout__text--large {
+  padding: 6px;
 }
 
 .product {
