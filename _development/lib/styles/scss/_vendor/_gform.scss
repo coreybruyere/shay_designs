@@ -32,6 +32,14 @@
     .gfield_description {
         margin-top: u(rem(5)); 
         @include font-size(12);
+    }  
+
+    .product_totals {
+        .gfield {
+            &:last-of-type {
+                margin: u(rem(25)) 0;
+            }
+        }
     }
 
 }
@@ -52,12 +60,21 @@
     .ginput_total { 
         color: $text-color;
         &.formattedTotalPrice {
+            position: relative;
             color: $alert-green;
             @include font-size(20);
             &:after {
-                content: 'hi';
+                content: '';
+                position: absolute;
+                bottom: u(rem(-45));
+                left: u(rem(-30));
                 display: block;
-            }
+                width: u(rem(135));
+                height: u(rem(115));
+                background-image: url('../../images/min/circle.png');  
+                background-repeat: no-repeat;
+                background-size: 100%; 
+            } 
         }
     }
 }
@@ -84,7 +101,7 @@
  
 .validation_error {
     @extend .alert;
-    @extend .alert--important;
+    // @extend .alert--danger;
 }
  
 #gforms_confirmation_message {

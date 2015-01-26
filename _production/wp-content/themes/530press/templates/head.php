@@ -1,10 +1,10 @@
 <!doctype html>
-<html class="no-js" <?php html_tag_schema(); ?> <?php language_attributes(); ?>>
+<html class="no-js">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title itemprop="name"><?php wp_title('|', true, 'right'); ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title itemprop="name"><?php wp_title('|', true, 'right'); ?></title>
 
   <!-- DNS prefetch -->
   <link href="//www.google-analytics.com" rel="dns-prefetch">
@@ -36,26 +36,27 @@
   <!-- Above the fold styles -->
   <style>
     /* BG pattern */
-    html {
+/*    html {
       background-image: url(<?php echo get_bloginfo('template_directory');?>/lib/images/min/whitey.png);
-    }
+    }*/
 
     /* BG body head pattern */ 
-    #body {
+/*    #body {
       background-image: url(<?php echo get_bloginfo('template_directory');?>/lib/images/min/head_bg.png);
       background-size: 1200px;
       background-repeat: no-repeat;
       background-position: 50% -7%;
-    }
+    }*/
 
     /* Header BG pattern */
-    .bg {
+/*    .bg {
       background-image: url(<?php echo get_bloginfo('template_directory');?>/lib/images/min/cloth_alike@2x.png);
       background-size: 85px;
-    }
+    }*/
 
 
   </style>
 
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">
+
 </head>

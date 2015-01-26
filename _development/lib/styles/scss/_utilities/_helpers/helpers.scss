@@ -97,6 +97,12 @@
     transform: translate3d(0,0,0);
 }
 
+%no-select {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -webkit-user-drag: none;
+}
+
 // %site-icon {
 //     @extend %clean-link;
 //     margin: 0;
@@ -135,8 +141,8 @@
 .bg,
 %bg {   
     // background-image: url('../../images/min/cloth_alike.png');
-    box-shadow: 0 u(rem(1)) u(rem(6)) $alt-gray;  
-    @include retina(cloth_alike, png, 104, 56);         
+    // box-shadow: 0 u(rem(1)) u(rem(6)) $alt-gray;  
+    // @include retina(cloth_alike, png, 104, 56);         
 }   
 
 .required,
@@ -167,12 +173,6 @@
 
 .no-margin--t {
     margin-top: 0 !important;
-}
-
-.no-select {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
 }
 
 .inline {

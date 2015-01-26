@@ -41,9 +41,13 @@
 
 .main {
 	@extend %clearfix;
-	padding-top: u(rem(35));
 	padding-bottom: u(rem(35));
+	padding-top: u(rem(20));
 }
+
+.site {
+	// border-top: u(rem(3)) double $alt-gray;
+} 
 
 .section { 
 	@extend %section;
@@ -71,6 +75,8 @@
 	@extend %wrapper;
 	padding: 0;
 }
+
+
 
 
 

@@ -14,8 +14,9 @@
 	$btn-border-size: 1,
 	$btn-border-radius: $border-radius) {
 		display: inline-block; 
+    	min-height: u(rem(35));
 		padding: u(rem($btn-padding)) u(rem($btn-padding - 1)) u(rem($btn-padding - 1));
-		background-color: $btn-color;
+		background-color: $btn-color; 
 		color: $btn-text-color;
 		border: u(rem($btn-border-size)) solid $btn-border-color;
 		border-radius: u(rem($btn-border-radius));

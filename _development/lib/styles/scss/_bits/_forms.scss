@@ -247,9 +247,16 @@ input[type="checkbox"] {
     position: relative;
     margin-top: u(rem(20));
     padding: u(rem(5)) 0;
-    background-color: $secondary-lighter;
-    color: $tertiary-lighter;
+    background-color: $primary-trans; 
+    color: $tertiary-light;
 }
+
+.form--signup__label {
+    display: block;  
+    margin-bottom: u(rem(10));
+    color: $tertiary-light; 
+}
+
 
 // -- Placeholder text
 @include placeholder { font-style:italic; color: $alt-gray; font-weight:100; }

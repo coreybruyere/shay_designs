@@ -5,8 +5,8 @@
 // -------------------------------------
 
 %icon-small {
-  width: u(rem(24));
-  height: u(rem(24));
+  width: u(rem(20));
+  height: u(rem(20));
   vertical-align: top;
 }
 
@@ -55,12 +55,12 @@
   &:hover, &:active {
     fill: $primary;
   }
-  .footer & {
-    fill: $tertiary-lighter;
-    &:hover, &:active {
-      opacity: .75;
-    }
-  }
+  // .footer & {
+  //   fill: $tertiary-lighter;
+  //   &:hover, &:active {
+  //     opacity: .75;
+  //   }
+  // }
 }
 
 

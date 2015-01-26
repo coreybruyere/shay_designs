@@ -144,13 +144,10 @@ Template Name: Home Page Template
 
 	  <div class="island">
 
-	    <h5>Sign Up for the Shay Designs Newsletter!</h5>
-
 	    <form class="form--group" role="form">
-
-		  <label for="newsletter" class="is-visually-hidden">Sign Up for Newsletter</label> 
-	      <input type="email" class="form--group__item  input--inline" placeholder="Email" id="newsletter">
-	      <button type="submit" class="form--group__item">Send</button>
+		  <label class="form--signup__label" for="newsletter">Sign Up for the Shay Designs Newsletter!</label> 
+		  <input type="email" class="form--group__item  input--inline" placeholder="Email" id="newsletter">
+		  <button type="submit" class="form--group__item">Send</button>
 
 	    </form><!-- end wrapper[form] -->
 

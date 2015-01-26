@@ -6,22 +6,11 @@
 
 .header[role="banner"] {
 	@extend %clearfix;  
-	@extend %dotted-border;
 	position: relative;  
-	background-color: $primary;
-	&:after {
-		top: u(rem(81));
-		margin: 0;
-		// -- Min Width @ $tablet
-		@media #{$tablet} {
-			top: u(rem(46)); 
-		}
-	}
-	// -- Min Width @ $tablet
-	@media #{$tablet} {
-		height: u(rem(50)); 
-		max-height: u(rem(50));   
-	}
+	margin: auto;
+	border-top: u(rem(3)) double $focus-gray; 
+	border-bottom: u(rem(3)) double $focus-gray;   
+	text-align: center; 
 }
 
 .header__burger {
@@ -63,9 +52,10 @@
 	@extend %wrapper; 
 	position: relative;  
 	z-index: 100;
+	// border-bottom: u(rem(3)) double $alt-gray;
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
-		padding-top: u(rem(30));
+		padding-bottom: u(rem(10)); 
 	}
 }
 

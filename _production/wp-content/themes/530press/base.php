@@ -16,7 +16,7 @@
   <?php if( is_front_page() ): ?>
   <div role="document">
   <?php else: ?>
-  <div class="wrapper" role="document">
+  <div class="wrapper site" role="document">
   <?php endif; ?>
     <main class="main" role="main" itemprop="mainContentOfPage">
      <!-- <?php echo basename( get_page_template() ) ; ?>  -->

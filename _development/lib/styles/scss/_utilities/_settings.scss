@@ -46,13 +46,15 @@ $m-gray:			#000;
 $l-gray:			#e7e8e9;
 $alt-gray:			#cdcece;  
 $focus-gray:		#f3f3f3;
-
+ 
 $primary:         	$pink;
 $primary-light:   	lighten($primary, 5%);
 $primary-lighter:   lighten($primary, 10%);
+$primary-trans:		rgba($primary, .35); 
 $secondary:       	$blue; 
 $secondary-light: 	lighten($secondary, 5%);
 $secondary-lighter: lighten($secondary, 10%);
+$secondary-trans:	rgba($secondary, .35); 
 $tertiary:			$d-gray;
 $tertiary-light:	lighten($tertiary, 15%);
 $tertiary-lighter:	$white;  

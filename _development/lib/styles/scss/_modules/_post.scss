@@ -31,10 +31,11 @@
 .post__date {
 	padding: u(rem(3)) u(rem(6));
 	float: left;
-	background-color: rgba($primary, .5);
+	color: $tertiary-light;  
+	background-color: $primary-trans;
 	&:last-of-type {
 		border-left: u(rem(1));
-		background-color: rgba($secondary, .5);
+		background-color: $secondary-trans; 
 	}
 }
 

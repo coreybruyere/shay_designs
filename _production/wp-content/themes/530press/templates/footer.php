@@ -7,7 +7,7 @@
 
         <div class="branding--footer" itemscope itemtype="http://schema.org/Organization">
           <a href="<?php echo esc_url(home_url('/')); ?>" itemprop="url">
-            <img src="<?php echo get_bloginfo('template_directory');?>/lib/images/svg/footer-logo.svg" alt="<?php bloginfo('name'); ?>" itemprop="logo" onerror="this.src='<?php echo get_bloginfo('template_directory');?>/lib/images/min/footer_logo.png'" class="no-select">  
+            <img src="<?php echo get_bloginfo('template_directory');?>/lib/images/svg/header-logo--dark.svg" alt="<?php bloginfo('name'); ?>" itemprop="logo" onerror="this.src='<?php echo get_bloginfo('template_directory');?>/lib/images/min/head_logo.png'" class="no-select">  
           </a>
         </div><!-- end branding-footer -->  
 

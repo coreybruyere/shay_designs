@@ -10,20 +10,22 @@
 	padding-top: u(rem(20));
 	padding-bottom: u(rem(30 * 2));
 	text-align: center;
-	color: $tertiary-lighter;
-	background-color: $primary;
-	background-image: url('../../images/min/footer_bg.png'); 
-	background-repeat: no-repeat; 
-	background-position: 50% 245%;    
-	&:before {
-		position: absolute; 
-		top: u(rem(-4));
-		left: 0;
-		content: '';
-		width: 100%;
-		height: u(rem(2));
-		background-color: $primary;
-	}
+	color: $tertiary;  
+	background-color: $focus-gray;
+	border-top: u(rem(3)) double $l-gray;
+
+	// background-image: url('../../images/min/footer_bg.png'); 
+	// background-repeat: no-repeat; 
+	// background-position: 50% 245%;    
+	// &:before {
+	// 	position: absolute; 
+	// 	top: u(rem(-4));
+	// 	left: 0;
+	// 	content: '';
+	// 	width: 100%;
+	// 	height: u(rem(2));
+	// 	background-color: $primary;
+	// }
 }
 
 .footer__logo {

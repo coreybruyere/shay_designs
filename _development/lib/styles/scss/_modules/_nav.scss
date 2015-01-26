@@ -7,25 +7,25 @@
 // -- USAGE: <nav class="nav" role="navigation"></nav>
 .nav {
   @extend %clearfix; 
-  display: block;
+  display: inline-block;
   overflow: hidden;
   width: 100%;
-  height: 0;
+  height: 100%;
   max-height: 0;
   opacity: 0;
   background-color: $secondary-lighter;
   text-align: center;
+  vertical-align: bottom;
   transition: opacity .5s ease; 
   transform: translate3d(0,0,0);
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d; 
   // -- Min Width @ $tablet
   @media #{$tablet} {
-    float: right; 
     width: auto;
     height: auto;
     max-height: none;
-    padding-right: u(rem($padding-wrap-sm));
+    margin-right: u(rem(60)); 
     opacity: 1;
     background-color: transparent;
     line-height: 1;
@@ -35,35 +35,38 @@
 .nav__item {
   display: block;
   border-bottom: u(rem(1)) solid $tertiary-lighter;
-  &:last-of-type {
-    border: 0;
-  }
+  // &:last-of-type {
+  //   border: 0;
+  // }
   // -- Min Width @ $tablet
   @media #{$tablet} {
     display: inline-block;
     float: left;
-    border: 0;
+    border-bottom: 0;   
+    &:after {
+      content: '';
+      display: inline;
+      border-right: u(rem(1)) solid $primary-trans;   
+    }
+    &:last-of-type {
+      &:after {
+        border-right: 0; 
+      }
+    }
   }
 }
 
 .nav__link {
   display: block;
   padding: u(rem($padding-wrap-sm));
-  color: $tertiary-lighter;
-  transition: background-color .5s ease-in-out, color .5s ease-in-out;
-  @include font-size(18); 
-  &:hover, &:active {
-    // color: $tertiary-light;
-    background-color: $secondary-light;
-    // -- Min Width @ $tablet
-    @media #{$tablet} {
-      background-color: $primary;  
-      color: $tertiary;  
-    } 
-  }
+  color: $tertiary;
+  transition: color .5s ease-in-out;
+  @include font-size(16); 
   // -- Min Width @ $tablet
   @media #{$tablet} {
-    padding: u(rem(16)) u(rem(16)) u(rem(16)); 
+    display: inline-block;  
+    padding: u(rem(10)) u(rem(15));   
+    line-height: 1.25; 
     // -- Shop specific link
     // &[href*="shop"] {
     //   // color: $tertiary-light; 
@@ -80,6 +83,14 @@
     //     content: '}'
     //   }
     // }
+  }
+}
+
+.nav--secondary {
+  // -- Min Width @ $tablet 
+  @media #{$tablet} {
+    margin-right: 0;
+    margin-left: u(rem(60));
   }
 }
 
@@ -114,8 +125,6 @@
   }
 }
 
-
-
 .nav--menu__icon {
   @extend %icon-small;
   display: inline-block;
@@ -133,9 +142,9 @@
 .nav--footer__item {
   display: inline-block;
   padding: 0 u(rem($padding)); 
-  color: $tertiary-lighter;
+  color: $tertiary;
   &:hover, &:active {
-    color: $tertiary;
+    color: $link-hover; 
   }
 }
 

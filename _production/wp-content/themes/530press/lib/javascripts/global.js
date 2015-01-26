@@ -2181,21 +2181,21 @@ jQuery(document).ready(function($) {
 	//   Add custom inputs to radio and checkbox
 	// -------------------------------------
 
-	$('input[type="radio"').each(function() {
+	// $('input[type=radio').each(function() {
 
-	    if( !$(this).hasClass('input--radio') ) {
-	    	$(this).addClass('input--radio');
-	    }
+	//     if( !$(this).hasClass('input--radio') ) {
+	//     	$(this).addClass('input--radio');
+	//     }
 
-	});
+	// });
 
-	$('input[type="checkbox"').each(function() {
+	// $('input[type=checkbox').each(function() {
  
-	    if( !$(this).hasClass('input--checkbox') ) {
-	    	$(this).addClass('input--checkbox');
-	    }
+	//     if( !$(this).hasClass('input--checkbox') ) {
+	//     	$(this).addClass('input--checkbox');
+	//     }
 
-	});
+	// });
 
 
 

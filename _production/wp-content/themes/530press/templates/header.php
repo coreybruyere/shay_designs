@@ -89,6 +89,7 @@
     if ( $cart_contents_count > 0 ) {
       $cart_number = $cart_contents_count;
     }
+    // echo $cart_number;
     ?>
 
     <a href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('Cart','woothemes'); ?>" class="nav--menu__link  js-cart" role="menuitem" data-cart="<?php echo sprintf(_n('%d', '%d', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?>">
@@ -106,13 +107,9 @@
 
 </div><!-- end role[menubar] -->
 
-<header class="header  bg" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
-  <div class="branding" itemscope itemtype="http://schema.org/Organization">
-    <a href="<?php echo esc_url(home_url('/')); ?>" itemprop="url">
-      <img src="<?php echo get_bloginfo('template_directory');?>/lib/images/svg/header-logo.svg" alt="<?php bloginfo('name'); ?>" itemprop="logo" onerror="this.src='<?php echo get_bloginfo('template_directory');?>/lib/images/min/head_logo.png'" class="no-select">
-    </a>
-  </div><!-- end branding -->
+
+<header class="header  bg" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
   <div class="wrapper--bare">
 
@@ -120,9 +117,33 @@
       <span class="header__burger-icon" id="js-nav-icon"></span>
     </div> <!-- end header__burger -->
 
-
+    <div class="branding" itemscope itemtype="http://schema.org/Organization">
+      <a href="<?php echo esc_url(home_url('/')); ?>" itemprop="url">
+        <img src="<?php echo get_bloginfo('template_directory');?>/lib/images/svg/header-logo--dark.svg" alt="<?php bloginfo('name'); ?>" itemprop="logo" onerror="this.src='<?php echo get_bloginfo('template_directory');?>/lib/images/min/head_logo.png'" class="no-select branding__img">
+      </a>
+    </div><!-- end branding --> 
 
     <nav class="nav" id="js-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+
+      <!-- <ul class="list-ui" role="menu"> -->
+
+        <?php
+          if (has_nav_menu('primary_navigation')) :
+            wp_nav_menu(array(
+              'theme_location' => 'primary_navigation',
+              'menu_class' => 'list-ui',
+              'container' => false,                           // class of container 
+              'menu' => __( 'Header Menu' ),                  // nav name
+              'depth' => 0,                                   // limit the depth of the nav
+              'items_wrap'=> '<ul class="list-ui" role="menu">%3$s</ul>',
+              'walker' => new Roots_Nav_Walker                  // build walker 
+            ));
+          endif;
+        ?>
+
+    </nav><!-- end nav -->
+
+    <nav class="nav  nav--secondary" id="js-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 
       <!-- <ul class="list-ui" role="menu"> -->
 
