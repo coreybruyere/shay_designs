@@ -8,23 +8,23 @@
   position: absolute;
   height: 0; width: 0;
   @if ($direction == 'up'){ 
-    border-bottom: $size solid $color;
-    border-left: 1/2*$size solid transparent;
-    border-right: 1/2*$size solid transparent;
+    border-bottom: $size solid $color !important;
+    border-left: 1/2*$size solid transparent !important;
+    border-right: 1/2*$size solid transparent !important;
   }
   @else if ($direction == 'down'){ 
-    border-top: $size solid $color;
-    border-left: 1/2*$size solid transparent;
-    border-right: 1/2*$size solid transparent;
+    border-top: $size solid $color !important;
+    border-left: 1/2*$size solid transparent !important;
+    border-right: 1/2*$size solid transparent !important;
   }
   @else if ($direction == 'left'){
-    border-top: 1/2*$size solid transparent;
-    border-bottom: 1/2*$size solid transparent;
-    border-right: $size solid $color;
+    border-top: 1/2*$size solid transparent !important;
+    border-bottom: 1/2*$size solid transparent !important;
+    border-right: $size solid $color !important;
   }
   @else if ($direction == 'right'){
-    border-top: 1/2*$size solid transparent;
-    border-bottom: 1/2*$size solid transparent;
-    border-left: $size solid $color;
+    border-top: 1/2*$size solid transparent !important;
+    border-bottom: 1/2*$size solid transparent !important;
+    border-left: $size solid $color !important;
   }
 }

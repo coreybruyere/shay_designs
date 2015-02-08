@@ -7,56 +7,80 @@
 .header[role="banner"] {
 	@extend %clearfix;  
 	position: relative;  
+	min-height: u(rem(92));        
 	margin: auto;
-	border-top: u(rem(3)) double $focus-gray; 
-	border-bottom: u(rem(3)) double $focus-gray;   
-	text-align: center; 
+	background-color: $tertiary-trans; 
+	text-align: center;  
+	// -- Min Width @ $tablet 
+	@media #{$tablet} {
+		height: u(rem(45));   
+		min-height: 0;    
+		background-color: transparent; 
+		border-top: u(rem(3)) double $focus-gray; 
+		border-bottom: u(rem(3)) double $focus-gray; 
+	}
 }
 
-.header__burger {
-	@extend %padding-mq;
-	@extend .float-r;
-	position: relative;
-	padding-top: u(rem(30));
-	padding-bottom: u(rem(30));
-	cursor: pointer;
-	vertical-align: middle;
-	&:before {
-		position: absolute;
-		top: u(rem(15));
-		display: block; 
-		width: u(rem(40));
-		text-align: center; 
-		content: 'menu';
-		@include font-size(10);
-	} 
+.header__toggle {
+	position: absolute;
+	top: 0;
+	right: 0;
+	display: inline-block;
+	margin-top: u(rem(25)); 
+	margin-right: u(rem(11));
+	padding: u(rem(10));
+	cursor: pointer; 
+	border: u(rem(1)) solid $tertiary-light;
+	border-radius: u(rem($border-radius));
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
 		display: none;
 	}
 }
 
-.header__burger-icon { 
-	@include burger(); 
-	@include burger-middle {
-		transition: none; 
-	} 
-}
+// .header__burger {
+// 	@extend %padding-mq;
+// 	@extend .float-r;
+// 	position: relative;
+// 	padding-top: u(rem(30));
+// 	padding-bottom: u(rem(20));
+// 	cursor: pointer;
+// 	vertical-align: middle;
+// 	&:before {
+// 		position: absolute;
+// 		top: u(rem(15));
+// 		display: block; 
+// 		width: u(rem(40));
+// 		text-align: center; 
+// 		content: 'menu';
+// 		@include font-size(10);
+// 	} 
+// 	// -- Min Width @ $tablet
+// 	@media #{$tablet} {
+// 		display: none;
+// 	}
+// }
 
+// .header__burger-icon { 
+// 	@include burger(); 
+// 	@include burger-middle {
+// 		transition: none; 
+// 	} 
+// }
 
 
 // -- Top Header Menu Bar 
 .header--menu {
-	@extend %island;
+	// @extend %island;  
 	@extend %clearfix;
 	@extend %wrapper; 
 	position: relative;  
 	z-index: 100;
 	// border-bottom: u(rem(3)) double $alt-gray;
-	// -- Min Width @ $tablet
-	@media #{$tablet} {
-		padding-bottom: u(rem(10)); 
-	}
+	// // -- Min Width @ $tablet
+	// @media #{$tablet} {
+	// 	padding-bottom: u(rem(10));    
+	// }
 }
 
 
@@ -66,12 +90,15 @@
 //   States 
 // -------------------------------------
 
-.is-active-icon {
-	@include burger-to-cross;  
-}
+// .is-active-icon {
+// 	@include burger-to-cross;  
+// }
 
-.is-active-burger {
-	&:before {
-		content: 'close';
-	}
+// .is-active-burger {
+// 	&:before {
+// 		content: 'close';
+// 	}
+// }
+.is-active-btn {
+	box-shadow: inset 0 u(rem(2)) u(rem(4)) u(rem(1)) $tertiary-trans; 
 }

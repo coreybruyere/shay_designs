@@ -38,6 +38,9 @@
     </main><!-- /.main -->
   </div><!-- /.wrap -->
 
+  <div class="to-top" id="js-to-top"></div>
+
+
   <?php get_template_part('templates/footer'); ?>
 
   <?php wp_footer(); ?>

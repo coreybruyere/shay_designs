@@ -4,52 +4,86 @@
 // ----- Search-Form Styles using form elements from bits/_forms.scss
 // -------------------------------------
 
-%search-form__icon{
-	@extend .icon-svg;
-	width: u(rem(20));
-	height: u(rem(20));
-}
 
 .search-form[role="search"] {
+	@extend %clearfix;
 	position: relative;
+	padding: u(rem(9)) 0; 
 	@include fadeIn;
+	// header specific search
+	.header--menu & {
+		float: left; 
+	}
+} 
 
-}
-
-.search-form__field {
+.search-form__input {
+	position: relative;
 	width: 100%;
-	border-top: 0;
-	border-left: 0;
-	border-right: 0;
-	border-radius: 0;
-}
-
-.search-form__group {
-	position: absolute;
-	top: 0;
-	right: 0;
-	padding-right: u(rem(10)); 
-}
-
-.search-form__button {
-	padding: u(rem(10)) 0 u(rem(10)) u(rem(5));
-	border: 0;
-	background-color: transparent;
-	&:hover, &:active {
-		background-color: transparent;
+	color: $alt-gray;
+	transition: max-width .5s ease-in, padding .5s ease-in, border-color .95s ease-in;   
+	&:focus {
+		color: $tertiary;  
+		// remove background from svg
+		+ .search-form__prop {
+			.icon-svg {
+				background-color: transparent;
+			}
+		}  
+	}  
+	// header specific search
+	.header--menu & {
+		max-width: 0; 
+		padding: 0;
+		border-color: transparent;
 	}
 }
 
-.search-form__dismiss {
-	@extend %search-form__icon;
-	width: u(rem(19));
-	height: u(rem(19));
-	fill: $primary-lighter;
+.search-form__prop {
+	position: absolute;  
+	top: u(rem(10)); 
+	right: 0;
+	transition: margin .15s ease-in;  
+	// header specific search
+	.header--menu & {
+		margin-right: u(rem(-25)); 
+	}
 }
 
-.search-form__submit {
-	@extend %search-form__icon;
+.search-form__button {
+	background-color: transparent;  
+	border: 0; 
+	z-index: 10; 
+	&:hover, &:active {
+		background-color: transparent;
+		border-color: transparent;  
+	}
+	> .icon-svg {
+		background-color: $tertiary-lighter; 
+	}
+	// header specific search
+	.header--menu & {
+		cursor: pointer;   
+	}
 }
+
+.search-form__close {
+	// header specific search
+	.header--menu & {
+		position: absolute;
+		top: u(rem(15));
+		left: 100%;
+		max-width: 0;
+		overflow: hidden; 
+		border-bottom-right-radius: u(rem($border-radius));
+		border-top-right-radius: u(rem($border-radius));    
+		background-color: $alt-gray;
+		opacity: 0;
+		cursor: pointer;   
+		transition: opacity .95s ease-in;  
+		@include font-size(10);
+	}
+}
+
 
 
 // -------------------------------------
@@ -57,13 +91,19 @@
 // -------------------------------------
 
 .is-active-search {
-	top: 0;
-	background-color: $secondary-light;
-	color: $white;
-	// -- Min Width @ $tablet
-	@media #{$tablet} {
-		background-color: $secondary-lighter;
-		color: $primary;
-	}
+	max-width: u(rem(140)) !important;
+  padding: u(rem(6)) u(rem(6)) u(rem(5)) !important;     
+  border-color: $alt-gray !important;
+  // -- Min Width @ $mobile
+  @media #{$mobile} {
+     max-width: u(rem(320)) !important; 
+  }   
 }
+
+.is-visible-close {      
+	max-width: u(rem(30)) !important;
+	padding: 0 u(rem(4)) 0 u(rem(3)) !important; 
+	opacity: 1 !important;
+}
+
 

@@ -10,97 +10,97 @@
 
 // -- Image Replacement
 %ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    /* IE 6/7 fallback */
-    *text-indent: -9999px;
+	background-color: transparent;
+	border: 0;
+	overflow: hidden;
+	/* IE 6/7 fallback */
+	*text-indent: -9999px;
 }
 
 %ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 150%;
+	content: "";
+	display: block;
+	width: 0;
+	height: 150%;
 }
 
 // -- Clearfix
 %clearfix, .clearfix {
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
 }
 
 %no-radius-r {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
 }
 
 %no-radius-l {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
 }
 
 %bare-style {
-    padding: 0;
-    margin: 0;
-    margin-bottom: u(rem(20));
+	padding: 0;
+	margin: 0;
+	margin-bottom: u(rem(20));
 }
 
 %clean-link {
-    color: inherit;
-    text-decoration: none;
-    &:hover, &:active {
-        color: inherit;
-    }
+	color: inherit;
+	text-decoration: none;
+	&:hover, &:active {
+		color: inherit;
+	}
 }
 
 %padding-mq {
-    padding-left: u(rem($padding-wrap-sm));
-    padding-right: u(rem($padding-wrap-sm));
-    // -- Min Width @ $tablet
-    @media #{$tablet} {
-        padding-left: u(rem($padding-wrap-lg));
-        padding-right: u(rem($padding-wrap-lg));
-    }
+	padding-left: u(rem($padding-wrap-sm));
+	padding-right: u(rem($padding-wrap-sm));
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		padding-left: u(rem($padding-wrap-lg));
+		padding-right: u(rem($padding-wrap-lg));
+	}
 }
 
 %dotted-border {
-    &:after, &:before {
-        content: '';
-        position: absolute;
-        // top: u(rem(3));
-        bottom: 100%;
-        width: 100%;
-        margin-bottom: u(rem(-4));
-        border-bottom: u(rem(1)) dashed $tertiary-lighter;
-        opacity: .5;
-        z-index: 99;
-    }
-    &:after {
-        top: 100%;
-        margin-top: u(rem(-4));
-    }
+	&:after, &:before {
+		content: '';
+		position: absolute;
+		// top: u(rem(3));
+		bottom: 100%;
+		width: 100%;
+		margin-bottom: u(rem(-4));
+		border-bottom: u(rem(1)) dashed $tertiary-lighter;
+		opacity: .5;
+		z-index: 99;
+	}
+	&:after {
+		top: 100%;
+		margin-top: u(rem(-4));
+	}
 }
 
 %product-caption {
-    position: absolute;
-    bottom: 100%;   
-    left: 0;
-    padding: u(rem(10));  
-    width: 100%;
-    color: $tertiary; 
-    text-align: center; 
-    transition: transform .35s, background-color .5s ease-in-out; 
-    transform: translate3d(0,0,0);
+	position: absolute;
+	bottom: 100%;   
+	left: 0;
+	padding: u(rem(10));  
+	width: 100%;
+	color: $tertiary; 
+	text-align: center; 
+	transition: transform .35s, background-color .5s ease-in-out; 
+	transform: translate3d(0,0,0);
 }
 
 %no-select {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -webkit-user-drag: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-webkit-user-drag: none;
 }
 
 // %site-icon {
@@ -127,11 +127,11 @@
 // }
 
 %span-1-4 {
-    @include span(1 / 4);
+	@include span(1 / 4);
 }
 
 %span-3-4 {
-    @include span(3 / 4);
+	@include span(3 / 4);
 }
 
 // -------------------------------------
@@ -140,197 +140,209 @@
 
 .bg,
 %bg {   
-    // background-image: url('../../images/min/cloth_alike.png');
-    // box-shadow: 0 u(rem(1)) u(rem(6)) $alt-gray;  
-    // @include retina(cloth_alike, png, 104, 56);         
+	// background-image: url('../../images/min/cloth_alike.png');
+	// box-shadow: 0 u(rem(1)) u(rem(6)) $alt-gray;  
+	// @include retina(cloth_alike, png, 104, 56);         
 }   
 
 .required,
 %required {
-    border: 0 !important;  
-    color: $alert-red; 
+	border: 0 !important;  
+	color: $alert-red; 
+}
+
+.error,
+%error { 
+	padding: u(rem(5)) 0; 
+	margin: u(rem(5)) 0;
+	list-style-type: none;
+	color: $alert-red;
 }
 
 .img {
-    display: inline-block;
-    margin: u(rem(10));
+	display: inline-block;
+	margin: u(rem(10));
 }
 
 .img--responsive {
-    display: block;
-    height: auto;
-    width: 100%;
-    max-width: 100%;
+	display: block;
+	height: auto;
+	width: 100%;
+	max-width: 100%;
+}
+
+.img--circle {
+	height: auto;
+	width: auto;
+	border-radius: 100%; 
 }
 
 .no-pad {
-    padding: 0 !important;
+	padding: 0 !important;
 }
 
 .no-margin {
-    margin: 0 !important;
+	margin: 0 !important;
 }
 
 .no-margin--t {
-    margin-top: 0 !important;
+	margin-top: 0 !important;
 }
 
 .inline {
-    display: inline-block !important;
+	display: inline-block !important;
 }
 
 .float-l {
-    float: left !important;
+	float: left !important;
 }
 
 .float-r {
-    float: right !important;
+	float: right !important;
 }
 
 .clear-both {
-    clear: both !important;
+	clear: both !important;
 }
 
 .clear {
-    margin: 0 !important;
+	margin: 0 !important;
 }
 
 .text-r {
-    text-align: right !important;
+	text-align: right !important;
 }
 
 .text-l {
-    text-align: left !important;
+	text-align: left !important;
 }
 
 .text-center {
-    text-align: center !important;
+	text-align: center !important;
 } 
 
 .text-center--mobile {
-    text-align: center !important;
-    width: 100% !important;
-    > * {
-        width: 100% !important;
-        // -- Min Width @ $mobile
-        @media #{$mobile} {
-            width: auto !important;
-        }
-    }
-    // -- Min Width @ $mobile
-    @media #{$mobile} {
-        text-align: inherit !important;
-        width: auto !important;  
-    }
+	text-align: center !important;
+	width: 100% !important;
+	> * {
+		width: 100% !important;
+		// -- Min Width @ $mobile
+		@media #{$mobile} {
+			width: auto !important;
+		}
+	}
+	// -- Min Width @ $mobile
+	@media #{$mobile} {
+		text-align: inherit !important;
+		width: auto !important;  
+	}
 }
 
 .owl--top > * + * {
-    margin-top: u(rem($margin-top)); 
+	margin-top: u(rem($margin-top)); 
 }
 
 .owl--mobile > * + * {
-    margin-top: u(rem($margin-top));
-    // -- Min Width @ $tablet
-    @media #{$tablet} {
-        margin-top: 0;
-    }
+	margin-top: u(rem($margin-top));
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		margin-top: 0;
+	}
 }
 
 .stack > * {
-    margin-bottom: u(rem(20)); 
+	margin-bottom: u(rem(20)); 
 }
 
 .is-active {
-    display: block !important;
+	display: block !important;
 }
 
 .is-hidden {
-    display: none !important;
+	display: none !important;
 }
 
 .is-visually-hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: u(rem(1));
-    margin: u(rem(-1));
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: u(rem(1));  
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: u(rem(1));
+	margin: u(rem(-1));
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: u(rem(1));  
 } 
 
-.error {
-    padding: u(rem(5)) 0; 
-    margin: u(rem(5)) 0;
-    list-style-type: none;
-    color: $alert-red;
+.flex-center {
+	@include flexbox();
+	@include justify-content(center);    
 }
 
 .span-1-4 {
-    @extend %span-1-4;
+	@extend %span-1-4;
 }
 
 .span-3-4 {
-    @extend %span-3-4;
+	@extend %span-3-4;
 }
 
 // -- Grid Helpers
 
 .grid {
-    @include center(u(rem(1200)));
+	@include center(u(rem(1200)));
 }
 
 .grid__fourth {
-    // @include column(1 / 2, $cycle: 2);
-    // -- Min Width @ $tablet
-    // @media #{$tablet} {
-        @include column(1 / 4); 
-    // } 
+	// @include column(1 / 2, $cycle: 2);
+	// -- Min Width @ $tablet
+	// @media #{$tablet} {
+		@include column(1 / 4); 
+	// } 
 }
 
 .grid__third {
-    @include column(1);
-    // -- Min Width @ $tablet
-    @media #{$tablet} {
-        @include column(1 / 3, $cycle: 3); 
-    }
+	@include column(1);
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		@include column(1 / 3, $cycle: 3); 
+	}
 }
 
 .grid__two-third {
-    @include column(1); 
-    // -- Min Width @ $tablet
-    @media #{$tablet} {
-        @include column(2 / 3, $cycle: 3);
-    }
+	@include column(1); 
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		@include column(2 / 3, $cycle: 3);
+	}
 }
 
 .grid__half {
-    @include column(1, $cycle: 1);
-    // -- Min Width @ $tablet
-    @media #{$tablet} {
-        @include column(1 / 2, $uncycle: 1, $cycle: 2);
-    }
+	@include column(1, $cycle: 1);
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		@include column(1 / 2, $uncycle: 1, $cycle: 2);
+	}
 }
 
 .grid__full {
-    @include column(1); 
+	@include column(1); 
 }
 
 .grid__respond {
-    // @include column(1, $cycle: 1);
-    // -- Min Width @ $med-mobile
-    @media #{$med-mobile} { 
-        // @include column(1, $cycle: 1); 
-        @include column(1 / 2, $cycle: 2); 
-    } 
-    // -- Min Width @ $mobile
-    @media #{$mobile} { 
-        @include column(1 / 3, $uncycle: 2, $cycle: 3);
-    }
-    // -- Min Width @ $tablet 
-    @media #{$tablet} {
-        @include column(1 / 4, $uncycle: 3, $cycle: 4);
-    }
+	// @include column(1, $cycle: 1);
+	// -- Min Width @ $med-mobile
+	@media #{$med-mobile} { 
+		// @include column(1, $cycle: 1); 
+		@include column(1 / 2, $cycle: 2); 
+	} 
+	// -- Min Width @ $mobile
+	@media #{$mobile} { 
+		@include column(1 / 3, $uncycle: 2, $cycle: 3);
+	}
+	// -- Min Width @ $tablet 
+	@media #{$tablet} {
+		@include column(1 / 4, $uncycle: 3, $cycle: 4);
+	}
 }
 
  

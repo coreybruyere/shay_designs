@@ -6,8 +6,8 @@
 
 // -- Button Mixin
 @mixin button(
-	$btn-color: $secondary,
-	$btn-border-color: $secondary,
+	$btn-color: $secondary-light,
+	$btn-border-color: $secondary-light,
 	$btn-text-color: $tertiary-lighter,
 	$btn-font-size: 16,
 	$btn-padding: 6,
@@ -29,8 +29,8 @@
 		@include font-size($btn-font-size);
 		&:hover {
 			color: $btn-text-color;  
-			background-color: $secondary-light; 
-			border-color: $secondary-light;
+			background-color: $secondary; 
+			border-color: $secondary;
 		}
 		&:focus, &:active {
 			outline: 0;

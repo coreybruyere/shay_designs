@@ -1,66 +1,7 @@
 
-<div class="header--menu" role="menubar">
+<div class="header--menu" id="js-header-menu" role="menubar"> 
 
-  <div role="menu">
-
-    <?php if(get_field('facebook', 'option')): ?>
-
-      <?php $fb = get_field('facebook', 'option'); ?>
-
-      <?php 
-        if((substr_compare($fb,"http://",0,7)) === 0) $fb = $fb;
-        else $fb = "http://$fb";
-      ?>
-      <a href="<?php echo $fb; ?>" class="icon-svg" role="menuitem" target="_blank">
-        <svg viewBox="0 0 32 32" role="img" aria-labelledby="fb-title-head">
-          <title id="fb-title-head">Facebook Icon</title>
-          <g filter="">
-            <use xlink:href="#facebook"></use>
-          </g>
-        </svg>
-      </a> <!-- icon-svg -->
-    <?php endif; ?>
-
-
-    <?php if(get_field('pinterest', 'option')): ?>
-
-      <?php $pin = get_field('pinterest', 'option'); ?>
-
-      <?php 
-        if((substr_compare($pin,"http://",0,7)) === 0) $pin = $pin;
-        else $pin = "http://$pin";
-      ?>
-      <a href="<?php echo $pin; ?>" class="icon-svg" role="menuitem" target="_blank">
-        <svg viewBox="0 0 32 32" role="img" aria-labelledby="pin-title-head">
-          <title id="pin-title-head">Pinterest Icon</title>
-          <g filter="">
-            <use xlink:href="#pinterest"></use>
-          </g>
-        </svg>
-      </a> <!-- icon-svg -->
-    <?php endif; ?>
-
-
-    <?php if(get_field('instagram', 'option')): ?>
-
-      <?php $ig = get_field('instagram', 'option'); ?>
-
-      <?php 
-        if((substr_compare($ig,"http://",0,7)) === 0) $ig = $ig;
-        else $ig = "http://$ig";
-      ?>
-      <a href="<?php echo $ig; ?>" class="icon-svg" role="menuitem" target="_blank">
-        <svg viewBox="0 0 32 32" role="img" aria-labelledby="ig-title-head">
-          <title id="ig-title-head">Instagram Icon</title>
-          <g filter="">
-            <use xlink:href="#instagram"></use>
-          </g>
-        </svg>
-      </a> <!-- icon-svg -->
-    <?php endif; ?>
-
-
-  </div><!-- end role[menu] -->
+  <?php get_template_part('templates/searchform'); ?> 
 
   <div class="nav--menu" role="menu">
 
@@ -111,24 +52,24 @@
 
 <header class="header  bg" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
-  <div class="wrapper--bare">
+  <div class="wrapper--bare flex-center">
 
-    <div class="header__burger" id="js-nav-toggle" role="button" data-target=".nav" aria-pressed="false">
-      <span class="header__burger-icon" id="js-nav-icon"></span>
+    <div class="header__toggle" id="js-nav-toggle" role="button" aria-pressed="false">
+      <span>menu</span>
     </div> <!-- end header__burger -->
 
     <div class="branding" itemscope itemtype="http://schema.org/Organization">
       <a href="<?php echo esc_url(home_url('/')); ?>" itemprop="url">
-        <img src="<?php echo get_bloginfo('template_directory');?>/lib/images/svg/header-logo--dark.svg" alt="<?php bloginfo('name'); ?>" itemprop="logo" onerror="this.src='<?php echo get_bloginfo('template_directory');?>/lib/images/min/head_logo.png'" class="no-select branding__img">
+        <img src="<?php echo get_bloginfo('template_directory');?>/lib/images/svg/header-logo.svg" onerror="this.src=<?php echo get_bloginfo('template_directory');?>/lib/images/min/main-logo--white.png" alt="<?php bloginfo('name'); ?>" class="no-select branding__img">
       </a>
     </div><!-- end branding --> 
 
-    <nav class="nav" id="js-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <nav class="nav js-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 
       <!-- <ul class="list-ui" role="menu"> -->
 
         <?php
-          if (has_nav_menu('primary_navigation')) :
+          if (has_nav_menu('primary_navigation')) : 
             wp_nav_menu(array(
               'theme_location' => 'primary_navigation',
               'menu_class' => 'list-ui',
@@ -143,14 +84,14 @@
 
     </nav><!-- end nav -->
 
-    <nav class="nav  nav--secondary" id="js-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+    <nav class="nav  nav--secondary js-nav" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">    
 
       <!-- <ul class="list-ui" role="menu"> -->
 
         <?php
-          if (has_nav_menu('primary_navigation')) :
+          if (has_nav_menu('secondary_navigation')) : 
             wp_nav_menu(array(
-              'theme_location' => 'primary_navigation',
+              'theme_location' => 'secondary_navigation',
               'menu_class' => 'list-ui',
               'container' => false,                           // class of container 
               'menu' => __( 'Header Menu' ),                  // nav name

@@ -22,8 +22,8 @@
   display: inline-block;
   margin-right: u(rem(6));
   float: left;
-  fill: $tertiary-light; 
-  transition: all .5s ease-in-out; 
+  fill: $primary-light; 
+  transition: fill .5s ease-in-out;  
   &:hover, &:active {
     fill: $primary; 
   }
@@ -42,18 +42,18 @@
 
 .icon-svg--color {
   @extend .icon-svg;
-  fill: $primary;
+  fill: $primary-light;
 }
 
 .icon-svg--lrg {
   @extend %icon-large;
   position: relative;
   display: inline-block;
-  margin: 0 u(rem(5));
-  fill: $tertiary;  
-  transition: all .5s ease-in-out; 
+  margin: 0 u(rem(5)); 
+  fill: $primary-light;  
+  transition: fill .5s ease-in-out;  
   &:hover, &:active {
-    fill: $primary;
+    fill: $primary;  
   }
   // .footer & {
   //   fill: $tertiary-lighter;

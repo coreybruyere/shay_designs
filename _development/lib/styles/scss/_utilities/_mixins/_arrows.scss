@@ -8,23 +8,23 @@
   position: absolute; 
   height: 0; width: 0;
   @if ($direction == 'up'){  
-    border-bottom: u(rem($size)) solid $color;
-    border-left: u(rem(1/2*$size)) solid transparent;
-    border-right: u(rem(1/2*$size)) solid transparent;
+    border-bottom: u(rem($size)) solid $color !important; 
+    border-left: u(rem($size - 1)) solid transparent !important;  
+    border-right: u(rem($size - 1)) solid transparent !important;   
   }
   @else if ($direction == 'down'){  
-    border-top: u(rem($size)) solid $color;
-    border-left: u(rem(1/2*$size)) solid transparent;
-    border-right: u(rem(1/2*$size)) solid transparent;
+    border-top: u(rem($size)) solid $color !important;
+    border-left: u(rem($size - 1)) solid transparent !important; 
+    border-right: u(rem($size - 1)) solid transparent !important; 
   }
   @else if ($direction == 'left'){
-    border-top: u(rem(1/2*$size)) solid transparent;
-    border-bottom: u(rem(1/2*$size)) solid transparent;
-    border-right: u(rem($size)) solid $color;
+    border-top: u(rem($size - 1)) solid transparent !important; 
+    border-bottom: u(rem($size - 1)) solid transparent !important; 
+    border-right: u(rem($size)) solid $color !important;
   }
   @else if ($direction == 'right'){
-    border-top: u(rem(1/2*$size)) solid transparent;
-    border-bottom: u(rem(1/2*$size)) solid transparent;
-    border-left: u(rem($size)) solid $color;
+    border-top: u(rem($size - 1)) solid transparent !important; 
+    border-bottom: u(rem($size - 1)) solid transparent !important; 
+    border-left: u(rem($size)) solid $color !important;
   }
 }

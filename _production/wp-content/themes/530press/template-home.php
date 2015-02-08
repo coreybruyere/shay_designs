@@ -26,7 +26,7 @@ Template Name: Home Page Template
 
 		          <a href="<?php echo $large_banner_link ?>" class="js-slide-item">
 		          	<?php if( $large_banner_text ): ?>
-		          	<h1 class="tout__text tout__text--large"><?php echo $large_banner_text; ?></h1> 
+		          	<h1 class="tout__text"><?php echo $large_banner_text; ?></h1> 
 		          	<?php endif; ?>
 		          	<img class="tout__image" src="<?php echo $large_banner['url']; ?>" alt="<?php echo $large_banner['alt']; ?>">
 		          </a> 
@@ -140,17 +140,29 @@ Template Name: Home Page Template
 
 	</section><!-- end wrapper -->
 
-	<section class="form--signup  bg" id="[#FORM]">
+	<section class="form--signup" id="[#FORM]">
 
 	  <div class="island">
+		  
+			<div id="mc_embed_signup">
+				<form action="//shaydesigns.us7.list-manage.com/subscribe/post?u=cf7cf4f1a1ddfaa76f72cc8fc&amp;id=563d2cf888" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="form--group validate" target="_blank" role="form" novalidate>
+				    <div id="mc_embed_signup_scroll">
+				  	
+					  	<div class="mc-field-group">
+						  	<label class="form--signup__label" for="mce-EMAIL">Sign Up for the Shay Designs Newsletter!</label> 
+						  	<input type="email" class="form--group__item  input--inline" name="EMAIL"id="mce-EMAIL">
+						  	<button type="submit" class="form--group__item" name="subscribe" id="mc-embedded-subscribe" >Send</button>
+					  	</div>
 
-	    <form class="form--group" role="form">
+					  	<div id="mce-responses" class="clear">
+					  		<div class="response" id="mce-error-response" style="display:none"></div>
+					  		<div class="response" id="mce-success-response" style="display:none"></div>
+					  	</div>
 
-		  <label class="form--signup__label" for="newsletter">Sign Up for the Shay Designs Newsletter!</label> 
-		  <input type="email" class="form--group__item  input--inline" placeholder="Email" id="newsletter">
-		  <button type="submit" class="form--group__item">Send</button>
-
-	    </form><!-- end wrapper[form] -->
+				    </div>
+				</form>
+			</div>
+			<!--End mc_embed_signup-->
 
 	  </div><!-- end island -->
 

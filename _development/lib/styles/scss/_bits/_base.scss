@@ -26,17 +26,17 @@ body {
     font-family: $serif;
     text-size-adjust: 100%;
     -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased; 
+    -webkit-font-smoothing: antialiased;  
 }
 
 img {
-    @extend .img--responsive;
+    @extend .img--responsive; 
 }
 
 hr {
     margin: u(rem(25)) 20%;
     border: 0;
-    border-top: u(rem(1)) solid $primary-lighter; 
+    border-top: u(rem(1)) solid $l-gray; 
     text-align: center;
     &:after {
         position: relative;

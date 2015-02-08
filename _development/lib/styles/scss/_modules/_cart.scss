@@ -146,9 +146,27 @@
 .cart--total {
     width: auto;
     text-align: left;
+    // float: right; 
     // -- Min Width @ $tablet
     @media #{$tablet} {
         min-width: u(rem(420));
+        margin-bottom: u(rem(15));
+    }
+}
+
+.cart--total__order {
+    color: $alert-green;
+    @include font-size(19);
+    > * {
+        padding: u(rem(15)) u(rem(5));
+    }
+}
+
+.cart--col {
+    // -- Min Width @ $tablet
+    @media #{$tablet} {
+        width: 65%;
+        // float: right;
     }
 }
 

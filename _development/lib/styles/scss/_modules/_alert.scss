@@ -11,8 +11,8 @@
 	margin: u(rem($margin-top)) 0 u(rem($margin-bottom * 2));
 	padding: u(rem($padding-wrap-sm));
 	background-color: $tertiary-lighter;
-	border-top-width: u(rem(3));
-	border-top-style: solid;
+	border-width: u(rem(3));
+	border-style: solid;
 	border-radius: u(rem($border-radius));
 }
 
@@ -64,7 +64,7 @@
 }
 
 .alert--success {
-	border-color: $alert-green;
+	border-color: $alert-green; 
 }
 
 .alert--success__icon {

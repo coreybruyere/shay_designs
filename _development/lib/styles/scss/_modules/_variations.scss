@@ -4,7 +4,12 @@
 // ----- variations on cart page
 // -------------------------------------
 
-
+.variation {
+	@include font-size(13px);
+	> dt {
+		color: $tertiary-light;
+	}
+}
 
 // -------------------------------------
 //   States

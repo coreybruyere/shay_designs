@@ -35,7 +35,7 @@ function roots_scripts() {
       'css'       => '/lib/styles/css/main-min.css?' . $assets['lib/styles/css/main-min.css']['hash'],
       'print'     => '/lib/styles/css/print-min.css',
       'js'        => '/lib/javascripts/global-min.js?' . $assets['lib/javascripts/global-min.js']['hash'],
-      'modernizr' => '/lib/javascripts/modernizr-min.js',
+      'modernizr' => '/lib/javascripts/modernizr-min.js', 
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
       // 'migrate'   => '/lib/javascripts/jquery-migrate.js',
     );
@@ -59,8 +59,8 @@ function roots_scripts() {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('modernizr', get_template_directory_uri() . $assets['modernizr'], array(), null, true);
-  wp_enqueue_script('jquery'); 
+  wp_enqueue_script('modernizr', get_template_directory_uri() . $assets['modernizr'], array(), null, true); 
+  wp_enqueue_script('jquery');  
   // wp_enqueue_script('jquery_migrate', get_template_directory_uri() . $assets['migrate'], array(), null, true);
   wp_enqueue_script('roots_js', get_template_directory_uri() . $assets['js'], array(), null, true);
 }

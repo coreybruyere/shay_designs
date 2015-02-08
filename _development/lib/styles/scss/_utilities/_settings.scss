@@ -36,29 +36,29 @@ $border-radius:     4;
 
 $black:             #000;
 $white:             #fff;
-$red:				#C95C73;
-$yellow:			#FFF395;
-$green:				#96C8A2; 
-$blue:				#74b5c4;
-$pink:				#efb6c2;
-$d-gray:			#7f8282;
-$m-gray:			#000;
-$l-gray:			#e7e8e9;
-$alt-gray:			#cdcece;  
-$focus-gray:		#f3f3f3;
+$red:								#C95C73;
+$yellow:						#FFF395;
+$green:							#96C8A2; 
+$blue:							#74b5c4;
+$pink:							#efb6c2;
+$d-gray:						#7f8282;
+$m-gray:						#000;
+$l-gray:						#e7e8e9;
+$alt-gray:					#cdcece;  
+$focus-gray:				#f3f3f3;
  
 $primary:         	$pink;
-$primary-light:   	lighten($primary, 5%);
+$primary-light:   	lighten($primary, 4%);
 $primary-lighter:   lighten($primary, 10%);
-$primary-trans:		rgba($primary, .35); 
+$primary-trans:			rgba($primary, .45); 
 $secondary:       	$blue; 
 $secondary-light: 	lighten($secondary, 5%);
 $secondary-lighter: lighten($secondary, 10%);
-$secondary-trans:	rgba($secondary, .35); 
-$tertiary:			$d-gray;
-$tertiary-light:	lighten($tertiary, 15%);
+$secondary-trans:		rgba($secondary, .45);  
+$tertiary:					$d-gray;
+$tertiary-light:		lighten($tertiary, 15%);
 $tertiary-lighter:	$white;  
-$tertiary-trans:	rgba($tertiary, .35); 
+$tertiary-trans:		rgba($tertiary-light, .10);   
 
 $alert-yellow:      $yellow;
 $alert-red:         $red;
@@ -68,14 +68,14 @@ $alert-blue:        $blue;
 $link-color:      	$secondary;
 $link-hover:      	darken($secondary, 10%);
 $text-color:      	$tertiary;
-$bg-color:			$l-gray;
+$bg-color:					$l-gray;
 
 
 // -- Type 
 
 $sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif:             "Gabriela", "Georgia", serif;
-$serif-heading:		"PepitaScript2Regular", "Brush Script MT", cursive;
+$serif-heading:			"PepitaScript2Regular", "Brush Script MT", cursive;
 $reg-font:          "";
 $bold-font:         "";
 $italic-font:       "";
@@ -138,7 +138,7 @@ $h6-margin-bottom: 1 * $h6-line;
 
 // -- Folders
 
-$images :           "../../images/min/";
+$images :     "../../images/min/";
 $svg	: 			"../../images/svg/";
 
 

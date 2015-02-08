@@ -48,6 +48,7 @@ textarea {
     -moz-appearance: none;
     appearance: none;
     text-align: left;
+    text-indent: u(rem(2));
 }
 
 input[type="number"],
@@ -204,7 +205,7 @@ input[type="checkbox"] {
         @extend %no-radius-l;
         // width: auto;
         text-align: center;  
-        margin-left: u(rem(-2));  
+        margin-left: u(rem(-5));       
         border-left: 0;
     }
 }

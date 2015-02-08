@@ -7,25 +7,31 @@
 // -- USAGE: <nav class="nav" role="navigation"></nav>
 .nav {
   @extend %clearfix; 
-  display: inline-block;
+  right: 50%;
+  display: block;  
   overflow: hidden;
   width: 100%;
   height: 100%;
   max-height: 0;
   opacity: 0;
-  background-color: $secondary-lighter;
-  text-align: center;
+  background-color: $tertiary-trans;      
+  text-align: left;
   vertical-align: bottom;
   transition: opacity .5s ease; 
   transform: translate3d(0,0,0);
+  z-index: 4;  
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d; 
   // -- Min Width @ $tablet
   @media #{$tablet} {
+    position: absolute;
+    display: inline-block; 
     width: auto;
     height: auto;
+    overflow: visible;    
     max-height: none;
     margin-right: u(rem(60)); 
+    text-align: center; 
     opacity: 1;
     background-color: transparent;
     line-height: 1;
@@ -33,20 +39,18 @@
 }
 
 .nav__item {
+  position: relative; 
   display: block;
-  border-bottom: u(rem(1)) solid $tertiary-lighter;
-  // &:last-of-type {
-  //   border: 0;
-  // }
+  border-bottom: u(rem(1)) solid $tertiary-lighter; 
   // -- Min Width @ $tablet
-  @media #{$tablet} {
+  @media #{$tablet} { 
     display: inline-block;
     float: left;
     border-bottom: 0;   
     &:after {
       content: '';
       display: inline;
-      border-right: u(rem(1)) solid $primary-trans;   
+      border-right: u(rem(1)) solid $secondary-trans;      
     }
     &:last-of-type {
       &:after {
@@ -58,10 +62,15 @@
 
 .nav__link {
   display: block;
-  padding: u(rem($padding-wrap-sm));
+  padding: u(rem($padding-wrap-sm)) u(rem(15));  
   color: $tertiary;
   transition: color .5s ease-in-out;
   @include font-size(16); 
+  // sub item parent
+  .nav__sub-item & {
+    padding-left: u(rem(25));
+    @include font-size(15);       
+  }
   // -- Min Width @ $tablet
   @media #{$tablet} {
     display: inline-block;  
@@ -89,8 +98,10 @@
 .nav--secondary {
   // -- Min Width @ $tablet 
   @media #{$tablet} {
+    right: auto;
+    left: 50%;
     margin-right: 0;
-    margin-left: u(rem(60));
+    margin-left: u(rem(60));  
   }
 }
 
@@ -104,18 +115,21 @@
   @extend .float-l; 
   position: relative;
   display: block;
+  padding: u(rem(15)) 0;
   margin-left: u(rem(15)); 
-  color: $tertiary-light;
-  fill: $tertiary-light; 
+  color: $text-color;
+  fill: $text-color; 
   &:hover, &:active { 
-    color: $primary; 
-    fill: $primary;
+    color: $primary;    
+    .nav--menu__icon {
+      fill: $primary;  
+    }
   } 
   // -- Cart Data Counter
   &[data-cart] {
     &:after {
       position: absolute;
-      top: u(rem(-10));
+      top: u(rem(5)); 
       left: u(rem(10));
       display: inline-block; 
       color: $secondary;
@@ -129,9 +143,9 @@
   @extend %icon-small;
   display: inline-block;
   transition: fill .5s ease-in-out;
-  fill: inherit;
+  fill: $primary-light;
   &:hover, &:active {
-    fill: inherit;
+    fill: inherit;  
   }
 }
 
@@ -155,9 +169,12 @@
 
 .is-active-nav {
   height: auto;
-  max-height: u(rem(200)); 
+  max-height: u(rem(280));  
   opacity: 1;  
   -webkit-transform-style: preserve-3d; 
+  &:first-of-type {
+    border-top: u(rem(1)) solid $tertiary-lighter; 
+  }
   // -- Min Width @ $tablet
   @media #{$tablet} {
     background-color: transparent; 

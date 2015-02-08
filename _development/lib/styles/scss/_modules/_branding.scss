@@ -19,16 +19,25 @@
 
 .branding {
 	@extend %branding; 
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 60%;
-	display: inline-block;  
-	margin: auto; 
+	display: inline-block;     
+	margin: u(rem(10));
 	padding: 0;
-	background-color: $tertiary-lighter; 
+	float: left;  
 	z-index: 100; 
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		position: absolute;
+		top: u(rem(-30));
+		left: 0;
+		right: 0; 
+		width: u(rem(100));
+		height: u(rem(80));
+		margin: u(rem(3)) auto 0; 
+		padding: 0; 
+		background-color: $tertiary-lighter;   
+		float: none;
+		// background-color: $tertiary-lighter;   
+	}
 }
 
 .branding__img {
