@@ -27,10 +27,10 @@
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
 		position: absolute;
-		top: u(rem(-30));
+		top: u(rem(-40)); 
 		left: 0;
 		right: 0; 
-		width: u(rem(100));
+		width: u(rem(130));
 		height: u(rem(80));
 		margin: u(rem(3)) auto 0; 
 		padding: 0; 
@@ -42,13 +42,7 @@
 
 .branding__img {
 	@extend %no-select; 
-	width: u(rem(90));
 	@include fadeInDown; 
-	// -- Min Width @ $tablet
-	@media #{$tablet} { 
-		width: auto;
-		max-width: 100%;
-	}
 }
 
 .branding--footer {  

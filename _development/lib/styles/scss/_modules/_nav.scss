@@ -69,7 +69,11 @@
   // sub item parent
   .nav__sub-item & {
     padding-left: u(rem(25));
-    @include font-size(15);       
+    @include font-size(15); 
+    // -- Min Width @ $tablet
+    @media #{$tablet} {
+      padding-left: u(rem(15));
+    }      
   }
   // -- Min Width @ $tablet
   @media #{$tablet} {

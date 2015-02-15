@@ -82,7 +82,7 @@
 	@extend %product-caption; 
 	bottom: 100%;
 	padding-top: u(rem(15)); 
-	height: u(rem(40)); 
+	// height: u(rem(40));      
 	background-color: rgba(255, 255, 255, 1);
 	@include font-size(11); 
 }

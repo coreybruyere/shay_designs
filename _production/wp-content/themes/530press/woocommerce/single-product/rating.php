@@ -24,8 +24,8 @@ if ( $count > 0 ) : ?>
 			<span style="width:<?php echo ( ( $average / 5 ) * 100 ); ?>%">
 				<strong itemprop="ratingValue" class="rating"><?php echo esc_html( $average ); ?></strong> <?php _e( 'out of 5', 'woocommerce' ); ?>
 			</span>
-		</div>
-		<a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $count, 'woocommerce' ), '<span itemprop="ratingCount" class="count">' . $count . '</span>' ); ?>)</a>
+		</div> 
+		<!-- <a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<?php printf( _n( '%s customer review', '%s customer reviews', $count, 'woocommerce' ), '<span itemprop="ratingCount" class="count">' . $count . '</span>' ); ?>)</a> -->
 	</div>
 
 <?php endif; ?>

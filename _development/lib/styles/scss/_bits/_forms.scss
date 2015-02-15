@@ -143,7 +143,7 @@ input[type="checkbox"] {
 .input--radio + label::before {
     content: '';
     position: relative;
-    top: u(rem(1));
+    top: 0;
     display: inline-block;
     width: u(rem(18));
     height: u(rem(18));

@@ -84,12 +84,14 @@
 	padding: u(rem(7.5));  
 	text-align: center;
 	font-family: $serif-heading; 
+	font-weight: bold;
 	line-height: 1; 
 	color: $tertiary-lighter;
 	background-color: rgba($primary, .75);   
 	transform: translate(-50%, -50%); 
 	transition: background-color .35s ease;  
 	z-index: 5;
+	-webkit-font-smoothing: antialiased;
 	@include font-size(21);
 	@include fadeIn;  
 	// Ribbon effect

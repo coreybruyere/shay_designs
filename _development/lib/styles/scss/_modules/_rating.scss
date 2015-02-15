@@ -1,0 +1,209 @@
+// -------------------------------------
+//   Ratings
+// -------------------------------------
+// ----- Styles for rating stars
+// -------------------------------------
+
+/**
+     * Star ratings
+     */
+    .star-rating {
+        float: right;
+        overflow: hidden;
+        position: relative;
+        height: 1em;
+        line-height: 1;
+        font-size: 1em;
+        width: 5.4em;
+        font-family: 'star';
+
+        &:before {
+            content: "\73\73\73\73\73";
+            color: darken( $secondary, 10% );
+            float: left;
+            top: 0;
+            left: 0;
+            position: absolute;
+        }
+
+        span {
+            overflow: hidden;
+            float: left;
+            top: 0;
+            left: 0;
+            position: absolute;
+            padding-top: 1.5em;
+        }
+
+        span:before {
+            content: "\53\53\53\53\53";
+            top: 0;
+            position: absolute;
+            left: 0;
+        }
+    }
+
+    .woocommerce-product-rating {
+        @extend %clearfix; 
+        line-height: 2;
+        display: block;
+
+        .star-rating {
+            margin: .5em 4px 0 0;
+            float: left;
+        }
+    }
+
+    .products {
+        .star-rating {
+            display: block;
+            margin: 0 0 .5em;
+            float: none;
+        }
+    }
+
+    .hreview-aggregate { 
+        .star-rating {
+            margin: 10px 0 0 0;
+        }
+    }
+
+    #review_form {
+        #respond {
+            @extend %clearfix; 
+            position: static;
+            margin: 0;
+            width: auto;
+            padding: 0 0 0;
+            background: transparent none;
+            border: 0;
+
+            p {
+                margin: 0 0 10px;
+            }
+
+            .form-submit {
+                input {
+                    left: auto;
+                }
+            }
+
+            textarea {
+                width: 100%;
+            }
+        }
+    }
+
+    p.stars {
+        position: relative;
+        font-size: 1em;
+
+        a {
+            display: inline-block;
+            font-weight: 700;
+            margin-right: 1em;
+            text-indent: -9999px;
+            position: relative;
+            border-bottom: 0 !important;
+            outline: 0;
+
+            &:last-child {
+                border-right: 0;
+            }
+
+            &.star-1,
+            &.star-2,
+            &.star-3,
+            &.star-4,
+            &.star-5 {
+                border-right: 1px solid #ccc;
+
+                &:after {
+                    font-family: "WooCommerce";
+                    text-indent: 0;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+
+            }
+
+            &.star-1 {
+                width: 2em;
+
+                &:after {
+                    content: "\e021";
+                }
+
+                &:hover:after,
+                &.active:after {
+                    content: "\e020"
+                }
+            }
+
+            &.star-2 {
+                width: 3em;
+
+                &:after {
+                    content: "\e021\e021";
+                }
+
+                &:hover:after,
+                &.active:after {
+                    content: "\e020\e020"
+                }
+            }
+
+            &.star-3 {
+                width: 4em;
+
+                &:after {
+                    content: "\e021\e021\e021";
+                }
+
+                &:hover:after,
+                &.active:after {
+                    content: "\e020\e020\e020"
+                }
+            }
+
+            &.star-4 {
+                width: 5em;
+
+                &:after {
+                    content: "\e021\e021\e021\e021";
+                }
+
+                &:hover:after,
+                &.active:after {
+                    content: "\e020\e020\e020\e020"
+                }
+            }
+
+            &.star-5 {
+                width: 6em;
+                border: 0;
+
+                &:after {
+                    content: "\e021\e021\e021\e021\e021";
+                }
+
+                &:hover:after,
+                &.active:after {
+                    content: "\e020\e020\e020\e020\e020"
+                }
+            }
+        }
+    }
+
+
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+.is-active-top {
+    visibility:visible;
+    cursor:pointer;
+    opacity: 1;
+}

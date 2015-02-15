@@ -21,16 +21,15 @@
 	@media #{$tablet} {
 		&:after {
 			content: '';   
-			right: 0; 
+			right: 0;   
 			top: 35%; 
 			@include arrow(down, 6, $alt-gray);    
 		} 
 	}
 }
 
-.dropdown__menu {
-	width: 100%;   
-	margin: 0;
+.dropdown__menu {    
+	margin: 0; 
 	padding: 0;
 	list-style-type: none; 
 	text-align: left;
@@ -49,9 +48,8 @@
 		&:before {     
 			// overide triangle width    
 			bottom: 100%;
-			left: 0;
+			left: u(rem(15)); 
 			right: 0;
-			margin: auto;  
 			@include arrow(up, 6, $alt-gray);              
 		}
 	}

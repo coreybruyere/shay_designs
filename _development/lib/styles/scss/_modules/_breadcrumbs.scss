@@ -23,7 +23,7 @@
 	position: relative;  
 	display: inline-block; 
 	height: u(rem(30));
-	padding: u(rem(9)) 0 u(rem(4.5)) u(rem(20));  
+	padding: u(rem(8)) 0 u(rem(4.5)) u(rem(20));     
 	float: left;  
 	&:after {
 		content: ''; 
@@ -65,8 +65,8 @@
 		} 
    	}
    	> a {
-   		display: inline-block;
-   		width: u(rem(20));
+   		display: inline-block; 
+   		width: u(rem(17)); 
    		height: u(rem(15));  
    		overflow: hidden;
    		color: $tertiary-light; 

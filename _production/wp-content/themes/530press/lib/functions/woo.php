@@ -166,7 +166,7 @@ add_filter( 'woocommerce_output_related_products_args', 'jk_related_products_arg
 /**
 * Change number of products per page
 **/
-add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 );
+add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 ); 
 
 
 /**

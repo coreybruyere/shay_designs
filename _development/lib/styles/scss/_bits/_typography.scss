@@ -88,7 +88,7 @@ p {
 em {
 
 }
-
+ 
 strong {
 
 }
@@ -108,14 +108,16 @@ small {
 }
 
 .title--large {
-  color: $link-hover;
+  color: $link-hover; 
   @include font-size(24); 
 }
 
 .title--small {
   margin-bottom: u(rem(5));   
   color: $secondary;
-  font-family: $serif-heading;  
+  font-family: $serif-heading; 
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased; 
   @include font-size(12);  
 }
 

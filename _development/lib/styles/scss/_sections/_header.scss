@@ -74,7 +74,8 @@
 	// @extend %island;  
 	@extend %clearfix;
 	@extend %wrapper; 
-	position: relative;  
+	position: relative; 
+	// padding-bottom: u(rem(10)); 
 	z-index: 100;
 	// border-bottom: u(rem(3)) double $alt-gray;
 	// // -- Min Width @ $tablet

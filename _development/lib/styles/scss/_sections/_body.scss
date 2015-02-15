@@ -41,7 +41,8 @@
 
 .main {
 	@extend %clearfix;
-	padding-bottom: u(rem(20));
+	min-height: u(rem(800)); 
+	padding-bottom: u(rem(30));   
 	padding-top: u(rem(30));
 }
 

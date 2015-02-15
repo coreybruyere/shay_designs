@@ -113,8 +113,9 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 	<?php do_action( 'woocommerce_review_order_before_payment' ); ?>
 
-	<div class="section" id="payment">
+	<div class="section island bg" id="payment">
 		<?php if ( WC()->cart->needs_payment() ) : ?>
+		<h3>Payment Options</h3>
 		<ul class="payment_methods methods list-ui" id="js-payment">
 			<?php
 				$available_gateways = WC()->payment_gateways->get_available_payment_gateways();
@@ -135,7 +136,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 							<input id="payment_method_<?php echo $gateway->id; ?>" type="radio" class="input--radio" name="payment_method" value="<?php echo esc_attr( $gateway->id ); ?>" <?php checked( $gateway->chosen, true ); ?> data-order_button_text="<?php echo esc_attr( $gateway->order_button_text ); ?>" />
 							<label for="payment_method_<?php echo $gateway->id; ?>"><span><?php echo $gateway->get_title(); ?>
 							<?php //echo $gateway->get_icon(); ?>
-							<img src="<?php bloginfo('template_url'); ?>/lib/images/min/credit-cards.png" alt="">
+ 							<img src="<?php bloginfo('template_url'); ?>/lib/images/min/<?php echo $gateway->id; ?>.png" alt="Payment Options">
 							</span></label>
 							
 							<?php
@@ -181,7 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 				?>
 				<p class="form-row terms">
 					<label for="terms" class="checkbox"><?php printf( __( 'I&rsquo;ve read and accept the <a href="%s" target="_blank">terms &amp; conditions</a>', 'woocommerce' ), esc_url( get_permalink( wc_get_page_id( 'terms' ) ) ) ); ?></label>
-					<input type="checkbox" class="input-checkbox" name="terms" <?php checked( $terms_is_checked, true ); ?> id="terms" />
+					<input type="checkbox" class="input-checkbox input--checkbox" name="terms" <?php checked( $terms_is_checked, true ); ?> id="terms" />
 				</p>
 			<?php } ?>
 

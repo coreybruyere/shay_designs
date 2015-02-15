@@ -9,12 +9,12 @@
 	$btn-color: $secondary-light,
 	$btn-border-color: $secondary-light,
 	$btn-text-color: $tertiary-lighter,
-	$btn-font-size: 16,
+	$btn-font-size: 16,  
 	$btn-padding: 6,
 	$btn-border-size: 1,
 	$btn-border-radius: $border-radius) {
 		display: inline-block; 
-    	min-height: u(rem(35));
+    min-height: u(rem(35));
 		padding: u(rem($btn-padding)) u(rem($btn-padding - 1)) u(rem($btn-padding - 1));
 		background-color: $btn-color; 
 		color: $btn-text-color;
@@ -23,7 +23,7 @@
 		text-align: center;
 		text-decoration: none;
 		font: inherit;
-		font-weight: bold;
+		font-weight: 500;   
 		cursor: pointer;
 		transition: background-color .5s ease-in-out,color .5s ease-in-out,border .5s ease-in-out;
 		@include font-size($btn-font-size);

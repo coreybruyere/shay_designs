@@ -126,12 +126,6 @@ function short_title($after = '', $length) {
 
 
 /*
-*  Retina responsive images
-*/
-
-
-
-/*
 *  Clean WP head
 */
 add_action('after_setup_theme','start_cleanup');

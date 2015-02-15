@@ -8,7 +8,8 @@
 .search-form[role="search"] {
 	@extend %clearfix;
 	position: relative;
-	padding: u(rem(9)) 0; 
+	max-width: u(rem(400));  
+	padding: u(rem(7)) 0 0;  
 	@include fadeIn;
 	// header specific search
 	.header--menu & {
@@ -33,14 +34,15 @@
 	// header specific search
 	.header--menu & {
 		max-width: 0; 
-		padding: 0;
+		padding-left: 0;
+		padding-right: 0;  
 		border-color: transparent;
 	}
 }
 
 .search-form__prop {
 	position: absolute;  
-	top: u(rem(10)); 
+	top: u(rem(7)); 
 	right: 0;
 	transition: margin .15s ease-in;  
 	// header specific search
@@ -51,6 +53,8 @@
 
 .search-form__button {
 	background-color: transparent;  
+	padding-top: u(rem(10));
+	padding-bottom: u(rem(7));
 	border: 0; 
 	z-index: 10; 
 	&:hover, &:active {
@@ -67,11 +71,13 @@
 }
 
 .search-form__close {
+	display: none;
 	// header specific search
 	.header--menu & {
 		position: absolute;
 		top: u(rem(15));
 		left: 100%;
+		display: block; 
 		max-width: 0;
 		overflow: hidden; 
 		border-bottom-right-radius: u(rem($border-radius));
@@ -92,7 +98,7 @@
 
 .is-active-search {
 	max-width: u(rem(140)) !important;
-  padding: u(rem(6)) u(rem(6)) u(rem(5)) !important;     
+  padding: u(rem(6)) u(rem(25)) u(rem(5)) u(rem(6)) !important;     
   border-color: $alt-gray !important;
   // -- Min Width @ $mobile
   @media #{$mobile} {

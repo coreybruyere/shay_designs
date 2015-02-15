@@ -62,7 +62,7 @@ function roots_display_sidebar() {
     array(
       'template-custom.php',
       'content-single-product.php',
-      'single-product.php'
+      'single-product.php',
     )
   );
 

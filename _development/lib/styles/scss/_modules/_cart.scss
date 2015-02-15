@@ -8,7 +8,7 @@
     position: absolute;
     display: block;
     width: u(rem(20));
-    height: u(rem(18)); 
+    height: u(rem(19));  
     min-height: 0;
     padding: 0; 
     padding-left: u(rem(2));
@@ -109,10 +109,10 @@
 
 .cart--count__qty {
     margin: 0;
-    padding: 0;
+    // padding: 0;
     vertical-align: middle;
     width: u(rem(40));
-    height: u(rem(35));
+    height: u(rem(38));   
     min-height: 0;
     float: left; 
     text-align: center;

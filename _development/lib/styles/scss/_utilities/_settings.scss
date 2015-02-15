@@ -13,9 +13,23 @@
 @font-face {
   font-family: 'PepitaScript2Regular';
   src: url("../../fonts/PepitaScript2-webfont.eot");
-  src: url("../../fonts/PepitaScript2-webfont.eot?#iefix") format("embedded-opentype"), url("../../fonts/PepitaScript2-webfont.woff") format("woff"), url("../../fonts/PepitaScript2-webfont.ttf") format("truetype"), url("../../fonts/PepitaScript2-webfont.svg#PepitaScript2Regular") format("svg");
+  src: url("../../fonts/PepitaScript2-webfont.eot?#iefix") format("embedded-opentype"), 
+  		 url("../../fonts/PepitaScript2-webfont.woff") format("woff"), 
+  		 url("../../fonts/PepitaScript2-webfont.ttf") format("truetype"), 
+  		 url("../../fonts/PepitaScript2-webfont.svg#PepitaScript2Regular") format("svg");
   font-weight: normal;
   font-style: normal;
+}
+
+@font-face {
+  font-family:'PaymentFont';
+  src: url('../../fonts/paymentfont-webfont.eot');
+  src: url('../../fonts/paymentfont-webfont.eot?#iefix') format('embedded-opentype'),
+       url('../../fonts/paymentfont-webfont.woff') format('woff'),
+       url('../../fonts/paymentfont-webfont.ttf') format('truetype'),
+       url('../../fonts/paymentfont-webfont.svg#paymentfont-webfont') format('svg');
+  font-weight:normal;
+  font-style:normal;
 }
 
 
@@ -84,7 +98,7 @@ $italic-font:       "";
 // -- Vertical Rythm
 
 $base-font-size: 16;
-$base-line-height: 22;
+$base-line-height: 25;   
 
 $body-line-height: $base-line-height/$base-font-size;
 

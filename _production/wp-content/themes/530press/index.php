@@ -1,9 +1,12 @@
 
 <?php if (!have_posts()) : ?>
-  <div class="alert alert-warning">
-    <?php _e('Sorry, no results were found.', 'roots'); ?>
+  <div class="post">
+    <div class="alert alert-warning">
+      <?php _e('Sorry, no results were found.', 'roots'); ?>
+    </div>
+    <h4><?php _e('Try searching again..', 'roots'); ?></h4>
+    <?php get_search_form(); ?>
   </div>
-  <?php get_search_form(); ?>
 <?php endif; ?>
 
 <?php while (have_posts()) : the_post(); ?>
