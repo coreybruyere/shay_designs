@@ -2,12 +2,15 @@
 
 // ----- Normalize ----- //
 @import "_normalize";
+
+// ----- Owl ----- //
+@import "_owl/owl.theme.default";  
   
 // ----- Slick ----- //
-@import "_slick";
+// @import "_slick"; 
  
 // ----- Chosen ----- //
-@import "_chosen";
+@import "_chosen";  
 
 // ----- Stripe ----- //
 @import "_stripe";

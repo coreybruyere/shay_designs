@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		</tfoot>
 	</table>
 
-	<div id="payment">
+	<div class="section island bg" id="payment">
 		<?php if ( $order->needs_payment() ) : ?>
 		<h3><?php _e( 'Payment', 'woocommerce' ); ?></h3>
 		<ul class="payment_methods methods">
@@ -61,7 +61,10 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 						?>
 						<li class="payment_method_<?php echo $gateway->id; ?>">
 							<input id="payment_method_<?php echo $gateway->id; ?>" type="radio" class="input-radio" name="payment_method" value="<?php echo esc_attr( $gateway->id ); ?>" <?php checked( $gateway->chosen, true ); ?> data-order_button_text="<?php echo esc_attr( $gateway->order_button_text ); ?>" />
-							<label for="payment_method_<?php echo $gateway->id; ?>">d<?php echo $gateway->get_title(); ?> <?php echo $gateway->get_icon(); ?></label>
+							<label for="payment_method_<?php echo $gateway->id; ?>">
+							<?php echo $gateway->get_title(); ?>
+							<?php echo $gateway->get_icon(); ?>
+							</label>
 							<?php
 								if ( $gateway->has_fields() || $gateway->get_description() ) {
 									echo '<div class="payment_box payment_method_' . $gateway->id . '" style="display:none;">';

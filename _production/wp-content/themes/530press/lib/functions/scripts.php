@@ -42,7 +42,7 @@ function roots_scripts() {
   }
 
   wp_enqueue_style('roots_css', get_template_directory_uri() . $assets['css'], false, null);
-  wp_enqueue_style('roots_print', get_template_directory_uri() . $assets['print'], false, null); 
+  wp_enqueue_style('roots_print', get_template_directory_uri() . $assets['print'], false, null, 'print'); 
 
   /**
    * jQuery is loaded using the same method from HTML5 Boilerplate:
@@ -82,6 +82,44 @@ function roots_jquery_local_fallback($src, $handle = null) {
   return $src;
 }
 add_action('wp_head', 'roots_jquery_local_fallback');
+
+
+
+/**
+ * Incline Pip JS
+ * 
+ */
+
+function woo_pip_client_js() { ?>
+
+<script>
+  (function($){ 
+
+    "use strict";
+
+    $('.html-invoice').click(function (event){
+
+      var url = $(this).attr("href");
+      if ($.browser.webkit) {
+        window.open(url, "Print", "width=800, height=600");
+      } else {
+        window.open(url, "Print", "scrollbars=1, width=800, height=600");
+      }
+
+      event.preventDefault();
+
+      return false;
+
+    });
+
+  })(jQuery);
+
+</script>
+
+<?php } 
+add_action('wp_footer', 'woo_pip_client_js', 100);
+
+
 
 /**
  * Google Analytics snippet from HTML5 Boilerplate

@@ -9,6 +9,10 @@
 }
 
 html {
+    position: relative;
+    // height: 100%;
+    min-height: 100%; 
+    min-height: 100vh;
     font-family: $serif;
     font-size: 16px;
     background-color: $white;  
@@ -18,19 +22,30 @@ html {
  }
  
 body {
-    min-height: 100%;
+    // @extend %flexbox;
+    // height: 100%; 
+    // min-height: 100%; 
+    // min-height: 100vh;
+    margin-bottom: u(rem(420));
     overflow: auto;
     color: $text-color;
     line-height: $body-line-height;
     font-weight: 500;
     font-family: $serif;
     -webkit-text-size-adjust: 100%;
+    // @include flex-direction(column)
     // -moz-osx-font-smoothing: grayscale;   
     // -webkit-font-smoothing: antialiased;     
 }
 
 img {
-    @extend .img--responsive; 
+    @extend .img--responsive;
+    .js & {
+        &.lazy {
+            opacity: 0;
+            transition: opacity .3s ease-in; 
+        } 
+    }
 }
 
 hr {

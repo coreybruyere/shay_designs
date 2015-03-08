@@ -23,12 +23,16 @@
 	.payment_box {
 		margin: u(rem(5)) 0 u(rem(25)) 0; 
 	}
+	.button {
+		@extend .button--secondary;  
+	}
+	.woocommerce_error {
+		@extend %list-ui; 
+		@extend %error;
+	}
 }
 
 // #payment input[type="radio"] {
 // 	visibility: hidden;
 // }
 
-.woocommerce-error {
-	@extend .error;
-}

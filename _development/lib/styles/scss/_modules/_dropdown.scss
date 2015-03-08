@@ -17,6 +17,13 @@
 }
 
 .dropdown {
+	&:hover {       
+		cursor: pointer;  
+		// hover state for dropdown 
+		> .dropdown__menu {
+			@extend %drop-hover; 
+		}
+	}
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
 		&:after {
@@ -62,12 +69,6 @@
 		.dropdown & {
 			padding-bottom: u(rem(20));  
 		} 
-	}
-	&:hover {       
-		// hover state for dropdown 
-		+ .dropdown__menu {
-			@extend %drop-hover; 
-		}
 	}
 }
 

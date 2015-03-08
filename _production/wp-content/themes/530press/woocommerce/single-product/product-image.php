@@ -14,6 +14,8 @@ global $post, $woocommerce, $product;
 ?>
 <div class="grid__third">
 
+	<h1 itemprop="name" class="product_title entry-title is-hidden--desk"><?php the_title(); ?></h1>
+
 	<?php
 		if ( has_post_thumbnail() ) {
 

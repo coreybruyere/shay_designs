@@ -5,20 +5,63 @@
 jQuery(document).ready(function($) {
 	   
    
+
  	// -------------------------------------         
  	//   Carousels 
  	// -------------------------------------
 
-	$('.js-slide').slick({  
-		dots: true,
-		arrows: true,
-		infinite: true, 
-		autoplay: true, 
-		speed: 500,
-		fade: true,
-		slide: '.js-slide-item',
-		cssEase: 'linear'
+	// $('.js-slide').slick({  
+	// 	dots: true,
+	// 	arrows: true,
+	// 	infinite: true, 
+	// 	autoplay: true, 
+	// 	speed: 500,
+	// 	fade: true,
+	// 	slide: '.js-slide-item',
+	// 	lazyLoad: 'ondemand', 
+	// 	centerMode: true,
+	// 	cssEase: 'linear'
+	// });
+
+	// $('.js-slide').owlCarousel({   
+	// 	items: 1,
+	// 	lazyLoad: true,
+	// 	loop: true,
+	// 	autoHeight: true, 
+	// }); 
+	
+	var $carousel = $('.js-slide');
+	var $carouselPrev = $('.js-slide-prev');
+	var $carouselNext = $('.js-slide-next');
+
+	$carousel.owlCarousel({
+	  singleItem: true,
+    items: 1, 
+    lazyLoad: true,
+    loop: true,
+    transitionStyle: "fade"
 	});
+
+	$carouselNext.click(function() {
+	    $carousel.trigger('next.owl.carousel');
+	});
+
+	$carouselPrev.click(function() {
+	    $carousel.trigger('prev.owl.carousel');
+	});
+
+
+
+	// -------------------------------------         
+	//   Unveil - Retina and lazy load
+	// -------------------------------------
+	$img = $('img'); 
+
+	$img.unveil(200, function() {
+	  $(this).load(function() {
+	    this.style.opacity = 1;
+	  });
+	});     
 
 
 
@@ -115,7 +158,7 @@ jQuery(document).ready(function($) {
 	var $alert = $('.js-error');
 
 	$removeAlert.click(function() { 
-		// alert("hi"); 
+		alert("hi"); 
 		$(this).closest($alert).remove();
 	});
 

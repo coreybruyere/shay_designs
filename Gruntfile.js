@@ -36,4 +36,7 @@ module.exports = function(grunt) {
   // Turn those SVGs into a sprite
   grunt.registerTask('svg', ['svgstore']);
 
+  // Critical CSS
+  grunt.registerTask('critical', ['criticalcss']);
+
 };

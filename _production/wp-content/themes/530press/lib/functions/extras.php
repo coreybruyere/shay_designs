@@ -54,8 +54,8 @@ function browser_body_class($classes) {
 
 
 /*
-*  Change the Options Page menu to 'Theme Options'
-*/
+ *  Change the Options Page menu to 'Theme Options'
+ */
 
 if( function_exists('acf_set_options_page_title') )
 {
@@ -64,8 +64,8 @@ if( function_exists('acf_set_options_page_title') )
 
 
 /*
-*  Change the Options Page menu to 'Extra'
-*/
+ *  Change the Options Page menu to 'Extra'
+ */
 
 if( function_exists('acf_set_options_page_menu') )
 {
@@ -74,8 +74,8 @@ if( function_exists('acf_set_options_page_menu') )
 
 
 /*
-*  Add Schema for SEO
-*/
+ *  Add Schema for SEO
+ */
 
 function html_tag_schema() {
     $schema = 'http://schema.org/';
@@ -110,8 +110,8 @@ function html_tag_schema() {
 
 
 /*
-*  Custom Title Length
-*/  
+ *  Custom Title Length
+ */  
 function short_title($after = '', $length) {
     $mytitle = explode(' ', get_the_title(), $length);
     if (count($mytitle)>=$length) {
@@ -126,15 +126,52 @@ function short_title($after = '', $length) {
 
 
 /*
-*  Clean WP head
-*/
+ * Manage google fonts of load_google_font()
+ * set GOOGLE_FONTS constant in config.php
+ */
+add_action( 'wp_head', 'load_google_fonts' , 1);
+function load_google_fonts() {
+  if( ! defined( 'GOOGLE_FONTS' ) ) return;
+  echo '<link href="http://fonts.googleapis.com/css?family=' . GOOGLE_FONTS . '" rel="stylesheet" type="text/css" />'."\n"; 
+}
+
+
+
+/*
+ * Clean WP head
+ */
 add_action('after_setup_theme','start_cleanup');
 function start_cleanup() {
   // Initialize the cleanup
   add_action('init', 'cleanup_head');
 } 
 
-// WordPress cleanup function
+
+
+/*
+ * Add thumbnail sizes
+ */
+if ( function_exists( 'add_image_size' ) ) { 
+  add_image_size( 'lrg-home-tout@x2', 1600, 1000, true ); //(cropped)
+  // add_image_size( 'lrg-home-tout', 800, 500, true ); //(cropped) 
+  add_image_size( 'sm-home-tout@x2', 650, 400, true ); //(cropped)
+  // add_image_size( 'sm-home-tout', 650, 400, true ); //(cropped)   
+}
+
+
+/*
+ * Remove query strings
+ */
+function ewp_remove_script_version( $src ){
+  return remove_query_arg( 'ver', $src );
+}
+add_filter( 'script_loader_src', 'ewp_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', 'ewp_remove_script_version', 15, 1 );
+
+
+/*
+ * WordPress cleanup function
+ */ 
 function cleanup_head() {
     
   // EditURI link

@@ -65,7 +65,8 @@ class WC_AJAX {
 			'term_ordering'                                    => false,
 			'product_ordering'                                 => false,
 			'refund_line_items'                                => false,
-			'delete_refund'                                    => false
+			'delete_refund'                                    => false,
+			'rated'                                            => false
 		);
 
 		foreach ( $ajax_events as $ajax_event => $nopriv ) {
@@ -1528,7 +1529,7 @@ class WC_AJAX {
 	 * @param string $x (default: '')
 	 * @param string $post_types (default: array('product'))
 	 */
-	public static function json_search_products( $x = '', $post_types = array('product') ) {
+	public static function json_search_products( $x = '', $post_types = array( 'product' ) ) {
 		ob_start();
 
 		check_ajax_referer( 'search-products', 'security' );
@@ -1607,7 +1608,7 @@ class WC_AJAX {
 			foreach ( $posts as $post ) {
 				$product = wc_get_product( $post );
 
-				$found_products[ $post ] = $product->get_formatted_name();
+				$found_products[ $post ] = rawurldecode( $product->get_formatted_name() );
 			}
 		}
 
@@ -1625,7 +1626,7 @@ class WC_AJAX {
 	 * @see WC_AJAX::json_search_products()
 	 */
 	public static function json_search_products_and_variations() {
-		self::json_search_products( '', array('product', 'product_variation') );
+		self::json_search_products( '', array( 'product', 'product_variation' ) );
 	}
 
 	/**
@@ -1878,20 +1879,6 @@ class WC_AJAX {
 			}
 			foreach ( $line_item_qtys as $item_id => $qty ) {
 				$line_items[ $item_id ]['qty'] = max( $qty, 0 );
-
-				if ( $restock_refunded_items && $qty && isset( $order_items[ $item_id ] ) ) {
-					$order_item = $order_items[ $item_id ];
-					$_product   = $order->get_product_from_item( $order_item );
-
-					if ( $_product && $_product->exists() && $_product->managing_stock() ) {
-						$old_stock    = $_product->stock;
-						$new_quantity = $_product->increase_stock( $qty );
-
-						$order->add_order_note( sprintf( __( 'Item #%s stock increased from %s to %s.', 'woocommerce' ), $order_item['product_id'], $old_stock, $new_quantity ) );
-
-						do_action( 'woocommerce_restock_refunded_item', $_product->id, $old_stock, $new_quantity, $order );
-					}
-				}
 			}
 			foreach ( $line_item_totals as $item_id => $total ) {
 				$line_items[ $item_id ]['refund_total'] = wc_format_decimal( $total );
@@ -1930,6 +1917,23 @@ class WC_AJAX {
 				}
 			}
 
+			// restock items
+			foreach ( $line_item_qtys as $item_id => $qty ) {
+				if ( $restock_refunded_items && $qty && isset( $order_items[ $item_id ] ) ) {
+					$order_item = $order_items[ $item_id ];
+					$_product   = $order->get_product_from_item( $order_item );
+
+					if ( $_product && $_product->exists() && $_product->managing_stock() ) {
+						$old_stock    = wc_stock_amount( $_product->stock );
+						$new_quantity = $_product->increase_stock( $qty );
+
+						$order->add_order_note( sprintf( __( 'Item #%s stock increased from %s to %s.', 'woocommerce' ), $order_item['product_id'], $old_stock, $new_quantity ) );
+
+						do_action( 'woocommerce_restock_refunded_item', $_product->id, $old_stock, $new_quantity, $order );
+					}
+				}
+			}
+
 			if ( $refund_amount == $max_refund ) {
 				$order->update_status( 'refunded' );
 				$response_data['status'] = 'fully_refunded';
@@ -1964,6 +1968,14 @@ class WC_AJAX {
 			wp_delete_post( $refund_id );
 		}
 
+		die();
+	}
+
+	/**
+	 * Triggered when clicking the rating footer.
+	 */
+	public static function rated() {
+		update_option( 'woocommerce_admin_footer_text_rated', 1 );
 		die();
 	}
 }

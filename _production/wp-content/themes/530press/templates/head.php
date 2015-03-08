@@ -11,21 +11,42 @@
   <link href="//ajax.googleapis.com" rel="dns-prefetch">
 
   <!-- Bookmark Icons -->
-  <link rel="apple-touch-icon" sizes="57x57" href="lib/images/favicons/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="lib/images/favicons/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="lib/images/favicons/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="lib/images/favicons/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="lib/images/favicons/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="lib/images/favicons/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="lib/images/favicons/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="lib/images/favicons/apple-touch-icon-152x152.png">
-  <link rel="icon" type="image/png" href="lib/images/favicons/favicon-196x196.png" sizes="196x196">
-  <link rel="icon" type="image/png" href="lib/images/favicons/favicon-160x160.png" sizes="160x160">
-  <link rel="icon" type="image/png" href="lib/images/favicons/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="lib/images/favicons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="lib/images/favicons/favicon-32x32.png" sizes="32x32">
-  <meta name="msapplication-TileColor" content="#000000">
-  <meta name="msapplication-TileImage" content="lib/images/favicons/mstile-144x144.png">
+  <link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/apple-touch-icon-57x57.png">
+
+  <link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/apple-touch-icon-60x60.png">
+
+  <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/apple-touch-icon-72x72.png">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/apple-touch-icon-76x76.png">
+
+  <link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/apple-touch-icon-114x114.png">
+
+  <link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/apple-touch-icon-120x120.png">
+
+  <link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/apple-touch-icon-144x144.png">
+
+  <link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/apple-touch-icon-152x152.png">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/apple-touch-icon-180x180.png">
+
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/favicon-32x32.png" sizes="32x32">
+
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/favicon-194x194.png" sizes="194x194">
+
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/favicon-96x96.png" sizes="96x96">
+
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/android-chrome-192x192.png" sizes="192x192">
+
+  <link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/favicon-16x16.png" sizes="16x16">
+
+  <link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/manifest.json">
+
+  <meta name="msapplication-TileColor" content="#00aba9">
+
+  <meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/lib/images/favicons/mstile-144x144.png">
+
+  <meta name="theme-color" content="#ffffff">
+
 
   <?php wp_head(); ?>
 
@@ -33,30 +54,7 @@
     <link rel="stylesheet" href="lib/styles/css/ie-min.css" />
   <![endif]-->
 
-  <!-- Above the fold styles -->
-  <style>
-    /* BG pattern */
-/*    html {
-      background-image: url(<?php echo get_bloginfo('template_directory');?>/lib/images/min/whitey.png);
-    }*/
-
-    /* BG body head pattern */ 
-/*    #body {
-      background-image: url(<?php echo get_bloginfo('template_directory');?>/lib/images/min/head_bg.png);
-      background-size: 1200px;
-      background-repeat: no-repeat;
-      background-position: 50% -7%;
-    }*/
-
-    /* Header BG pattern */
-/*    .bg {
-      background-image: url(<?php echo get_bloginfo('template_directory');?>/lib/images/min/cloth_alike@2x.png);
-      background-size: 85px;
-    }*/
-
-
-  </style>
-
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">
+
 
 </head>

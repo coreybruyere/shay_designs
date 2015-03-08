@@ -8,10 +8,7 @@
 	position: relative;
 	margin-bottom: 3%;
 	&:hover, &:active {
-		.tout__image {
-			opacity: 1;  
-		}
-		.tout__text {
+		.tout__text {  
 			// Ribbon effect
 			background-color: rgba($tertiary, .45);
 			&:before, &:after {
@@ -29,7 +26,7 @@
 }
 
 .tout {
-	@include column(1);
+	@include column(1); 
 	@include fadeIn; 
 }
 
@@ -41,7 +38,7 @@
 	}
 }
 
-.tout__col--large {
+.tout__col--large {  
 	@include column(1);
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
@@ -51,7 +48,7 @@
 
 .tout__col--side {
 	@include column(1);
-	// -- Min Width @ $tablet
+	// -- Min Width @ $tablet 
 	@media #{$tablet} {
 		// margin-bottom: 6%;
 	  @include column(1/3); 
@@ -60,6 +57,7 @@
 
 .tout__item {
 	@extend %tout-item;
+	@include fadeIn;   
 }
 
 .tout__item--side {
@@ -70,10 +68,13 @@
 	}
 }
 
-.tout__image {
-	border-radius: u(rem(5));
-	opacity: .75;
-	transition: opacity .35s ease;  
+.tout__image { 
+	width: auto;
+	margin: auto;
+	// border-radius: u(rem(5));     
+	// overide lazy load
+	opacity: .75 !important;
+	// transition: opacity .35s ease;   
 }
 
 .tout__text {
@@ -93,7 +94,7 @@
 	z-index: 5;
 	-webkit-font-smoothing: antialiased;
 	@include font-size(21);
-	@include fadeIn;  
+	@include fadeIn(1.5s, .65s);             
 	// Ribbon effect
 	&:after, &:before { 
 		content: "";
@@ -101,7 +102,7 @@
 		bottom: 0;
 		display: block;
 		width: u(rem(50));
-		border: u(rem(18)) solid rgba($primary, .75);           
+		border: u(rem(18)) solid rgba($primary, .75);            
 		transition: border .35s ease;      
 		z-index: -2; 
 	}

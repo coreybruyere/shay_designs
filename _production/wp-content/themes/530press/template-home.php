@@ -12,23 +12,27 @@ Template Name: Home Page Template
 
 	    <div class="tout">
 
-	      <div class="tout__col--large">
+	      <div class="tout__col--large carousel">
 
-	        <div class="tout__item  js-slide">
+	        <div class="tout__item owl-carousel js-slide">
 
 	          <?php if( have_rows('banner_slide') ): ?>
   
-			  	<?php while ( have_rows('banner_slide') ) : the_row(); ?>
+			  		<?php while( have_rows('banner_slide') ) : the_row(); ?>
   
 		          <?php $large_banner = get_sub_field('large_banner'); ?>
 		          <?php $large_banner_link = get_sub_field('large_banner_link'); ?>
 		          <?php $large_banner_text = get_sub_field('large_banner_title'); ?>
+		          <?php $large_banner_id = $large_banner['id']; ?>
 
-		          <a href="<?php echo $large_banner_link ?>" class="js-slide-item">
+		          <a href="<?php echo $large_banner_link ?>" class="js-slide-item" title="<?php echo $large_banner['alt']; ?>">
 		          	<?php if( $large_banner_text ): ?>
 		          	<h1 class="tout__text"><?php echo $large_banner_text; ?></h1> 
-		          	<?php endif; ?>
-		          	<img class="tout__image" src="<?php echo $large_banner['url']; ?>" alt="<?php echo $large_banner['alt']; ?>">
+		          	<?php endif; ?>  
+		          	<img class="tout__image owl-lazy" src="<?php echo get_template_directory_uri(); ?>/lib/images/svg/hearts.svg" <?php echo tevkori_get_srcset_string( $large_banner_id, 'lrg-home-tout@x2' ); ?> data-src="<?php echo $large_banner['sizes']['lrg-home-tout']; ?>" data-src-retina="<?php echo $large_banner['sizes']['lrg-home-tout@x2']; ?>" alt="<?php echo $large_banner['alt']; ?>" width="<?php echo $large_banner['sizes']['lrg-home-tout-width']; ?>" height="<?php echo $large_banner['sizes']['lrg-home-tout-height']; ?>" />  
+		          	<noscript>
+		          		<img src="<?php echo $large_banner['sizes']['lrg-home-tout']; ?>" alt="<?php echo $large_banner['alt']; ?>" width="<?php echo $large_banner['sizes']['lrg-home-tout-width']; ?>" height="<?php echo $large_banner['sizes']['lrg-home-tout-height']; ?>" />
+		          	</noscript>
 		          </a> 
 
 	      		<?php endwhile; ?>
@@ -36,6 +40,10 @@ Template Name: Home Page Template
 	      	  <?php endif; ?>
 
 	        </div><!-- end tout__item -->
+
+	        <div class="carousel__prev js-slide-prev" title="Previous"></div>
+
+	        <div class="carousel__next js-slide-next" title="Next"></div>
 
 	      </div><!-- end tout__col-large -->
 
@@ -46,12 +54,16 @@ Template Name: Home Page Template
 	          <?php $top_right = get_field('top_right_tout'); ?>
 	          <?php $top_right_link = get_field('top_right_link'); ?>
 	          <?php $top_right_text = get_field('top_right_title'); ?>
+		        <?php $top_right_id = $top_right['id']; ?>
 
-	          <a href="<?php echo $top_right_link ?>">
-		      <?php if( $top_right_text ): ?>
-	          <h2 class="tout__text"><?php echo $top_right_text; ?></h2>
-	      	  <?php endif; ?>
-	          <img class="tout__image" src="<?php echo $top_right['url']; ?>" alt="<?php echo $top_right['alt']; ?>">
+	          <a href="<?php echo $top_right_link ?>" title="<?php echo $top_right['alt']; ?>">
+		      		<?php if( $top_right_text ): ?>
+	          	<h2 class="tout__text"><?php echo $top_right_text; ?></h2>
+	      	  	<?php endif; ?>
+	          	<img class="tout__image" src="<?php echo get_template_directory_uri(); ?>/lib/images/svg/hearts.svg" <?php echo tevkori_get_srcset_string( $top_right_id, 'sm-home-tout@x2' ); ?> data-src="<?php echo $top_right['sizes']['sm-home-tout']; ?>" data-src-retina="<?php echo $top_right['sizes']['sm-home-tout@x2']; ?>" alt="<?php echo $top_right['alt']; ?>" width="<?php echo $top_right['sizes']['sm-home-tout-width']; ?>" height="<?php echo $top_right['sizes']['sm-home-tout-height']; ?>">  
+	          	<noscript>
+	          		<img src="<?php echo $top_right['sizes']['sm-home-tout']; ?>" alt="<?php echo $top_right['alt']; ?>" width="<?php echo $top_right['sizes']['sm-home-tout-width']; ?>" height="<?php echo $top_right['sizes']['sm-home-tout-height']; ?>">
+	          	</noscript>
 	          </a>
 
 	        </div><!-- end tout__item-side -->
@@ -61,12 +73,16 @@ Template Name: Home Page Template
 	          <?php $middle_right = get_field('middle_right_tout'); ?>
 	          <?php $middle_right_link = get_field('middle_right_link'); ?>
 	          <?php $middle_right_text = get_field('middle_right_title'); ?>
+		        <?php $middle_right_id = $middle_right['id']; ?>
 
 	          <a href="<?php echo $middle_right_link ?>">
-		      <?php if( $middle_right_text ): ?>
-	          <h2 class="tout__text"><?php echo $middle_right_text; ?></h2>
-	      	  <?php endif; ?>
-	          <img class="tout__image" src="<?php echo $middle_right['url']; ?>" alt="<?php echo $middle_right['alt']; ?>">
+		      		<?php if( $middle_right_text ): ?>
+	          	<h2 class="tout__text"><?php echo $middle_right_text; ?></h2>
+	      	  	<?php endif; ?>
+	      	  	<img class="tout__image" src="<?php echo get_template_directory_uri(); ?>/lib/images/svg/hearts.svg" <?php echo tevkori_get_srcset_string( $middle_right_id, 'sm-home-tout@x2' ); ?> data-src="<?php echo $middle_right['sizes']['sm-home-tout']; ?>" data-src-retina="<?php echo $middle_right['sizes']['sm-home-tout@x2']; ?>" alt="<?php echo $middle_right['alt']; ?>" width="<?php echo $middle_right['sizes']['sm-home-tout-width']; ?>" height="<?php echo $middle_right['sizes']['sm-home-tout-height']; ?>">  
+	      	  	<noscript>
+	      	  		<img src="<?php echo $middle_right['sizes']['sm-home-tout']; ?>" alt="<?php echo $middle_right['alt']; ?>" width="<?php echo $middle_right['sizes']['sm-home-tout-width']; ?>" height="<?php echo $middle_right['sizes']['sm-home-tout-height']; ?>">
+	      	  	</noscript>
 	          </a>
 
 	        </div><!-- end tout__item-side -->
@@ -84,12 +100,16 @@ Template Name: Home Page Template
 	          <?php $bottom_left = get_field('bottom_left_tout'); ?>
 	          <?php $bottom_left_link = get_field('bottom_left_link'); ?>
 	          <?php $bottom_left_text = get_field('bottom_left_title'); ?>
+		        <?php $bottom_left_id = $bottom_left['id']; ?>
 
 	          <a href="<?php echo $bottom_left_link ?>">
-		      <?php if( $bottom_left_text ): ?>
+		      	<?php if( $bottom_left_text ): ?>
 	          <h2 class="tout__text"><?php echo $bottom_left_text; ?></h2>
 	      	  <?php endif; ?>
-	          <img class="tout__image" src="<?php echo $bottom_left['url']; ?>" alt="<?php echo $bottom_left['alt']; ?>">
+	      	  <img class="tout__image" src="<?php echo get_template_directory_uri(); ?>/lib/images/svg/hearts.svg" <?php echo tevkori_get_srcset_string( $bottom_left_id, 'sm-home-tout@x2' ); ?> data-src="<?php echo $bottom_left['sizes']['sm-home-tout']; ?>" data-src-retina="<?php echo $bottom_left['sizes']['sm-home-tout@x2']; ?>" alt="<?php echo $bottom_left['alt']; ?>" width="<?php echo $bottom_left['sizes']['sm-home-tout-width']; ?>" height="<?php echo $bottom_left['sizes']['sm-home-tout-height']; ?>">  
+	      	  <noscript>
+	      	  	<img src="<?php echo $bottom_left['sizes']['sm-home-tout']; ?>" alt="<?php echo $bottom_left['alt']; ?>" width="<?php echo $bottom_left['sizes']['sm-home-tout-width']; ?>" height="<?php echo $bottom_left['sizes']['sm-home-tout-height']; ?>">
+	      	  </noscript>
 	          </a>
 
 	        </div><!-- end tout__item -->
@@ -103,12 +123,16 @@ Template Name: Home Page Template
 	          <?php $bottom_middle = get_field('bottom_middle_tout'); ?>
 	          <?php $bottom_middle_link = get_field('bottom_middle_link'); ?>
 	          <?php $bottom_middle_text = get_field('bottom_middle_title'); ?>
+		        <?php $bottom_middle_id = $bottom_middle['id']; ?>
 
 	          <a href="<?php echo $bottom_middle_link ?>">
-		      <?php if( $bottom_middle_text ): ?>
+		      	<?php if( $bottom_middle_text ): ?>
 	          <h2 class="tout__text"><?php echo $bottom_middle_text; ?></h2>
 	          <?php endif; ?>
-	          <img class="tout__image" src="<?php echo $bottom_middle['url']; ?>" alt="<?php echo $bottom_middle['alt']; ?>">
+	          <img class="tout__image" src="<?php echo get_template_directory_uri(); ?>/lib/images/svg/hearts.svg" <?php echo tevkori_get_srcset_string( $bottom_middle_id, 'sm-home-tout@x2' ); ?> data-src="<?php echo $bottom_middle['sizes']['sm-home-tout']; ?>" data-src-retina="<?php echo $bottom_middle['sizes']['sm-home-tout@x2']; ?>" alt="<?php echo $bottom_middle['alt']; ?>" width="<?php echo $bottom_middle['sizes']['sm-home-tout-width']; ?>" height="<?php echo $bottom_middle['sizes']['sm-home-tout-height']; ?>">  
+	          <noscript>
+	          	<img src="<?php echo $bottom_middle['sizes']['sm-home-tout']; ?>" alt="<?php echo $bottom_middle['alt']; ?>" width="<?php echo $bottom_middle['sizes']['sm-home-tout-width']; ?>" height="<?php echo $bottom_middle['sizes']['sm-home-tout-height']; ?>">
+	          </noscript>
 	          </a>
 
 	        </div><!-- end tout__item -->
@@ -122,12 +146,16 @@ Template Name: Home Page Template
 	          <?php $bottom_right = get_field('bottom_right_tout'); ?>
 	          <?php $bottom_right_link = get_field('bottom_right_link'); ?>
 	          <?php $bottom_right_text = get_field('bottom_right_title'); ?>
+		        <?php $bottom_right_id = $bottom_middle['id']; ?>
 
 	          <a href="<?php echo $bottom_right_link ?>">
-		      <?php if( $bottom_right_text ): ?>
+		        <?php if( $bottom_right_text ): ?>
 	          <h2 class="tout__text"><?php echo $bottom_right_text; ?></h2>
 	          <?php endif; ?>
-	          <img class="tout__image" src="<?php echo $bottom_right['url']; ?>" alt="<?php echo $bottom_right['alt']; ?>">
+	          <img class="tout__image" src="<?php echo get_template_directory_uri(); ?>/lib/images/svg/hearts.svg" <?php echo tevkori_get_srcset_string( $bottom_right_id, 'sm-home-tout@x2' ); ?> data-src="<?php echo $bottom_right['sizes']['sm-home-tout']; ?>" data-src-retina="<?php echo $bottom_right['sizes']['sm-home-tout@x2']; ?>" alt="<?php echo $bottom_right['alt']; ?>" width="<?php echo $bottom_right['sizes']['sm-home-tout-width']; ?>" height="<?php echo $bottom_right['sizes']['sm-home-tout-height']; ?>">  
+	          <noscript>
+	          	<img src="<?php echo $bottom_right['sizes']['sm-home-tout']; ?>" alt="<?php echo $bottom_right['alt']; ?>" width="<?php echo $bottom_right['sizes']['sm-home-tout-width']; ?>" height="<?php echo $bottom_right['sizes']['sm-home-tout-height']; ?>">
+	          </noscript>
 	          </a>
 
 	        </div><!-- end tout__item -->

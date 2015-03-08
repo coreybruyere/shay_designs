@@ -266,6 +266,21 @@
 	display: none !important;
 }
 
+.is-hidden--mobile {
+	display: none;
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		display: block;
+	}
+}
+
+.is-hidden--desk {
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		display: none;
+	}
+}
+
 .is-visually-hidden {
 	border: 0;
 	clip: rect(0 0 0 0);
@@ -306,16 +321,16 @@
 
 .grid__third {
 	@include column(1);
-	// -- Min Width @ $tablet
-	@media #{$tablet} {
+	// -- Min Width @ $mobile
+	@media #{$mobile} { 
 		@include column(1 / 3, $cycle: 3); 
 	}
 }
 
 .grid__two-third {
 	@include column(1); 
-	// -- Min Width @ $tablet
-	@media #{$tablet} {
+	// -- Min Width @ $mobile
+	@media #{$mobile} {
 		@include column(2 / 3, $cycle: 3);
 	}
 }

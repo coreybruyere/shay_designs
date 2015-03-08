@@ -131,7 +131,7 @@ class WC_Emails {
 		$this->emails = apply_filters( 'woocommerce_email_classes', $this->emails );
 
 		// include css inliner
-		if ( ! class_exists( 'Emogrifier' ) ) {
+		if ( ! class_exists( 'Emogrifier' ) && class_exists( 'DOMDocument' ) ) {
 			include_once( 'libraries/class-emogrifier.php' );
 		}
 	}
@@ -338,7 +338,7 @@ class WC_Emails {
 
 			if ( $plain_text ) {
 
-				echo $heading . "\n\n";
+				echo strtoupper( $heading ) . "\n\n";
 
 				foreach ( $fields as $field ) {
 					if ( isset( $field['label'] ) && isset( $field['value'] ) && $field['value'] ) {
@@ -367,7 +367,11 @@ class WC_Emails {
 	 * @return void
 	 */
 	public function email_addresses( $order, $sent_to_admin = false, $plain_text = false ) {
-		wc_get_template( 'emails/email-addresses.php', array( 'order' => $order ) );
+		if ( $plain_text ) {
+			wc_get_template( 'emails/plain/email-addresses.php', array( 'order' => $order ) );
+		} else {
+			wc_get_template( 'emails/email-addresses.php', array( 'order' => $order ) );
+		}
 	}
 
 	/**

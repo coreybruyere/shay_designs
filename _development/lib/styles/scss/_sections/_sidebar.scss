@@ -6,7 +6,7 @@
 
 .sidebar[role="complementary"] { 
 	padding: u(rem(2));
-	border: u(rem(2)) solid $primary-lighter;   
+	border: u(rem(2)) solid $primary-trans;        
 	border-radius: u(rem($border-radius + 3));
 	@include column(1);
 	@include fadeInRight;    
@@ -21,7 +21,7 @@
 	margin: 0 u(rem(2));  
 	padding: u(rem($padding)); 
 	text-align: center;
-	background-color: $primary-trans; 
+	background-color: $focus-gray;  
 	border-radius: u(rem($border-radius));
 	// // -- Min Width @ $tablet
 	// @media #{$tablet} {

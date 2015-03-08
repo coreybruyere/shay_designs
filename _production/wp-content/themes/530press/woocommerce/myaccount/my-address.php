@@ -31,7 +31,7 @@ $col = 1;
 
 <h2><?php echo $page_title; ?></h2>
 
-<p class="myaccount_address">
+<p class="myaccount_address section-region"> 
 	<?php echo apply_filters( 'woocommerce_my_account_my_address_description', __( 'The following addresses will be used on the checkout page by default.', 'woocommerce' ) ); ?>
 </p>
 

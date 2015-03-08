@@ -31,6 +31,8 @@ input, select, textarea {
 
 select {
     cursor: pointer;
+    max-width: u(rem(240));
+    background-color: $tertiary-lighter;
 }
 
 input[type="radio"], input[type="checkbox"] {
@@ -57,10 +59,14 @@ input[type="submit"] {
 }
 
 textarea {
-    width: auto;
+    width: 100%;
     min-width: u(rem(300));
     min-height: u(rem(100));
     resize: none;
+    // -- Min Width @ $tablet
+    @media #{$tablet} {
+        width: auto;   
+    }
 }
 
 select {
@@ -248,14 +254,14 @@ input[type="checkbox"] {
     position: relative;
     margin-top: u(rem(20));
     padding: u(rem(5)) 0;
-    background-color: $primary-trans; 
+    background-color: $primary-trans;  
     color: $tertiary-light;
 }
 
 .form--signup__label {
     display: block;  
     margin-bottom: u(rem(10));
-    color: $tertiary-light; 
+    color: $tertiary-light;  
 }
 
 

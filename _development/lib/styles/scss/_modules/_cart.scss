@@ -11,7 +11,7 @@
     height: u(rem(19));  
     min-height: 0;
     padding: 0; 
-    padding-left: u(rem(2));
+    // padding-left: u(rem(2));
     text-align: center;
     line-height: .75;
     vertical-align: text-top;
@@ -162,12 +162,12 @@
     }
 }
 
-.cart--col {
-    // -- Min Width @ $tablet
-    @media #{$tablet} {
-        width: 65%;
-        // float: right;
-    }
+.cart--col { 
+    // // -- Min Width @ $tablet
+    // @media #{$tablet} {
+    //     width: 65%;
+    //     // float: right;
+    // }
 }
 
 // -------------------------------------

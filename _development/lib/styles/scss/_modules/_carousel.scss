@@ -4,6 +4,51 @@
 // ----- Styles for carousels
 // -------------------------------------
 
+%carousel-arrow {
+	position: absolute;
+	top: 55%;  
+	transform: translateY(-100%); 
+	cursor: pointer; 
+	z-index: 99; 
+	@include fadeIn(1.5s, .45s);  
+	&:before {
+		font-family: slick;
+		color: $tertiary-lighter;
+		transition: opacity .35s ease;   
+		@include font-size(19); 
+	}   
+	&:hover {
+		&:before {
+			opacity: .5; 
+		}
+	}  
+}
+
+.carousel {
+	position: relative; 
+	// prevent blur from translate
+	// transform-style: preserve-3d;
+}
+
+.carousel__prev {
+	@extend %carousel-arrow;
+	left: 0;
+	padding-left: u(rem(20));
+	&:before {
+		content: '\2190'
+	}     
+}
+
+.carousel__next {
+	@extend %carousel-arrow;
+	right: 0;
+	padding-right: u(rem(20));
+	&:before {
+		content: '\2192'
+	}    
+}
+
+
 
 // -------------------------------------
 //   Carousel States

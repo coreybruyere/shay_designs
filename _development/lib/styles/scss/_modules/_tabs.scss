@@ -6,7 +6,8 @@
 
 .tab {
 	@extend %clearfix;
-	@extend %section-region;
+	// @extend %section-region;
+	margin-top: u(rem(40)); 
 }
 
 .tab__list {
@@ -53,7 +54,7 @@
 	}
 	&:hover, &:active {
 		background-color: $secondary-light;
-		color: $secondary-light;
+		color: $focus-gray;   
 	}
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
@@ -62,6 +63,7 @@
 }
 
 .tab__panel { 
+	margin-bottom: u(rem(50));    
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
 		display: none;

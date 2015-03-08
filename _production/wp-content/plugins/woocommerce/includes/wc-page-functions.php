@@ -21,6 +21,7 @@ function wc_page_endpoint_title( $title ) {
 		if ( $endpoint_title = WC()->query->get_endpoint_title( $endpoint ) ) {
 			$title = $endpoint_title;
 		}
+		remove_filter( 'the_title', 'wc_page_endpoint_title' );
 	}
 	return $title;
 }
@@ -48,6 +49,18 @@ function wc_get_page_id( $page ) {
 	$page = apply_filters( 'woocommerce_get_' . $page . '_page_id', get_option('woocommerce_' . $page . '_page_id' ) );
 
 	return $page ? absint( $page ) : -1;
+}
+
+/**
+ * Retrieve page permalink
+ *
+ * @param string $page
+ * @return string
+ */
+function wc_get_page_permalink( $page ) {
+	$permalink = get_permalink( wc_get_page_id( $page ) );
+
+	return apply_filters( 'woocommerce_get_' . $page . '_page_permalink', $permalink );
 }
 
 /**
@@ -112,7 +125,7 @@ function wc_edit_address_i18n( $id, $flip = false ) {
  * @return string
  */
 function wc_lostpassword_url() {
-    return wc_get_endpoint_url( 'lost-password', '', get_permalink( wc_get_page_id( 'myaccount' ) ) );
+    return wc_get_endpoint_url( 'lost-password', '', wc_get_page_permalink( 'myaccount' ) );
 }
 add_filter( 'lostpassword_url',  'wc_lostpassword_url', 10, 0 );
 
@@ -123,7 +136,7 @@ add_filter( 'lostpassword_url',  'wc_lostpassword_url', 10, 0 );
  * @return string
  */
 function wc_customer_edit_account_url() {
-	$edit_account_url = wc_get_endpoint_url( 'edit-account', '', get_permalink( wc_get_page_id( 'myaccount' ) ) );
+	$edit_account_url = wc_get_endpoint_url( 'edit-account', '', wc_get_page_permalink( 'myaccount' ) );
 
 	return apply_filters( 'woocommerce_customer_edit_account_url', $edit_account_url );
 }

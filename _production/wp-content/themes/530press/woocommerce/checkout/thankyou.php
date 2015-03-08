@@ -16,7 +16,7 @@ if ( $order ) : ?>
 		<p><?php _e( 'Unfortunately your order cannot be processed as the originating bank/merchant has declined your transaction.', 'woocommerce' ); ?></p>
 
 		<p><?php
-			if ( is_user_logged_in() )
+			if ( is_user_logged_in() ) 
 				_e( 'Please attempt your purchase again or go to your account page.', 'woocommerce' );
 			else
 				_e( 'Please attempt your purchase again.', 'woocommerce' );
@@ -33,7 +33,7 @@ if ( $order ) : ?>
 
 		<p class="success"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
 
-		<ul class="order_details  order">
+		<ul class="order_details order section-region">
 			<li class="order- order__item">
 				<small><?php _e( 'Order:', 'woocommerce' ); ?></small>
 				<div><strong><?php echo $order->get_order_number(); ?></strong></div>

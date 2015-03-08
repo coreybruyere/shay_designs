@@ -14,20 +14,22 @@
     get_template_part('templates/header');
   ?>
   <?php if( is_front_page() ): ?>
-  <div role="document">
+  <div class="site" role="document">
   <?php else: ?>
   <div class="wrapper site" role="document">
   <?php endif; ?>
-    <main class="main" role="main" itemprop="mainContentOfPage">
-     <!-- <?php echo basename( get_page_template() ) ; ?>  -->
 
-    <?php if( !is_product() && is_single() || is_author() || is_home() ): ?>
+    <main class="main" role="main" itemprop="mainContentOfPage">
+    <!-- <?php echo basename( get_page_template() ) ; ?>  -->
+
+    <?php if( !is_product() && is_single() || is_author() || is_home() || is_search() ): ?>
       <div class="post">
         <?php include roots_template_path(); ?>
       </div>
     <?php else: ?>
       <?php include roots_template_path(); ?>
     <?php endif; ?>
+
     <?php if (roots_display_sidebar()) : ?>
       <aside class="sidebar" role="complementary">
         <div class="sidebar__inner">
@@ -35,6 +37,7 @@
         </div>
       </aside><!-- /.sidebar -->
     <?php endif; ?>
+
     </main><!-- /.main -->
   </div><!-- /.wrap -->
 

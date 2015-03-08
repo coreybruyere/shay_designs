@@ -19,13 +19,36 @@
 
 // -- Fonts imported in _typography
 
+// -- Payment Box
+
+.pf--box {
+  position: relative;
+  display: block;
+  width: auto;
+  margin: u(rem(15)) 0;  
+  padding: u(rem(8)) u(rem(5)) u(rem(3));  
+  border: u(rem(1)) solid $tertiary;
+  border-radius: u(rem($border-radius));
+}
+
+.pf--box__title {
+  position: absolute;
+  top: 0;
+  max-height: u(rem(16));
+  margin-top: u(rem(-10));
+  padding: 0 u(rem(5));
+  color: lighten($tertiary, 5%);
+  @include font-size(15);    
+}
+
 .pf {
   display:inline-block;
   font:normal normal normal 14px/1 PaymentFont;
   font-size:inherit;
   text-rendering:auto;
   -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;}
+  -moz-osx-font-smoothing:grayscale;
+}
 
 .pf-amazon:before {
   content: "\f000";

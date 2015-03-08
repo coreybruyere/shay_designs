@@ -41,13 +41,13 @@
 
 .main {
 	@extend %clearfix;
-	min-height: u(rem(800)); 
+	// min-height: u(rem(900));    
 	padding-bottom: u(rem(30));   
 	padding-top: u(rem(30));
 }
 
 .site {
-	// border-top: u(rem(3)) double $alt-gray;
+	// @include flex(1);
 } 
 
 .section { 

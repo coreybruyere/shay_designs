@@ -55,6 +55,10 @@
 	}
 }
 
+.button--xl {
+	padding: u(rem(15)) u(rem(20));
+}
+
 // -- Bottom arrow on button 
 // .button--arrow {
 //   @include arrow("down", $primary-light, $primary, u(rem(8)));  

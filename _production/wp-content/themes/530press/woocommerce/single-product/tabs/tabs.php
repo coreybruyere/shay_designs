@@ -29,7 +29,7 @@ if ( ! empty( $tabs ) ) : ?>
 			<?php foreach ( $tabs as $key => $tab ) : ?>
 
 				<li class="<?php echo $key ?>_tab  tab__item  js-tab-item" role="tab" data-tab="tab-<?php echo $index; ?>">
-					<a href="#tab-<?php echo $key ?>" class="clean-link"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', $tab['title'], $key ) ?></a>
+					<a href="#tab-<?php echo $key ?>" class="clean-link"><?php echo apply_filters( 'woocommerce_product_' . $key . '_tab_title', $tab['title'], $key ) ?></a>  
 				</li>
 				<?php $index++; ?>
 

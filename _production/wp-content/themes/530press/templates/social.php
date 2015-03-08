@@ -1,4 +1,4 @@
-      <div class="section">
+      <div class="section-region">
         <div class="clearfix">
   
           <?php global $post; ?>

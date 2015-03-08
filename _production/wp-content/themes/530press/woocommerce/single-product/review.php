@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 $rating = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
 ?>
-<li itemprop="reviews" itemscope itemtype="http://schema.org/Review" <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
+<li itemprop="reviews" itemscope itemtype="http://schema.org/Review" <?php comment_class('section'); ?> id="li-comment-<?php comment_ID() ?>">
 
 	<div id="comment-<?php comment_ID(); ?>" class="flag--top comment_container">
 
@@ -25,9 +25,13 @@ $rating = intval( get_comment_meta( $comment->comment_ID, 'rating', true ) );
 
 			<?php if ( $rating && get_option( 'woocommerce_enable_review_rating' ) == 'yes' ) : ?>
 
-				<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="star-rating" title="<?php echo sprintf( __( 'Rated %d out of 5', 'woocommerce' ), $rating ) ?>">
-					<span style="width:<?php echo ( $rating / 5 ) * 100; ?>%"><strong itemprop="ratingValue"><?php echo $rating; ?></strong> <?php _e( 'out of 5', 'woocommerce' ); ?></span>
-				</div>
+				<div itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating" class="rating" title="<?php echo sprintf( __( 'Rated %d out of 5', 'woocommerce' ), $rating ) ?>">
+					<span class="rating__value" style="width:<?php echo ( $rating / 5 ) * 100; ?>%">
+						<span class="rating__info">
+							<strong itemprop="ratingValue"><?php echo $rating; ?></strong> <?php _e( 'out of 5', 'woocommerce' ); ?>
+						</span>
+					</span>
+				</div> 
 
 			<?php endif; ?>
 
