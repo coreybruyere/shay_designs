@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<input type="submit" class="button" name="login" value="<?php _e( 'Login', 'woocommerce' ); ?>" /> 
 				</div>
 				<div class="td">
-					<input name="rememberme" type="checkbox" id="rememberme" value="forever" />
+					<input name="rememberme" type="checkbox" id="rememberme" class="input--checkbox" value="forever" />
 					<label for="rememberme"> <?php _e( 'Remember me', 'woocommerce' ); ?></label>
 				</div>
 				</div>

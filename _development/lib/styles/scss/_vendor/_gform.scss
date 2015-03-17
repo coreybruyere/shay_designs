@@ -23,6 +23,11 @@
             @include font-size(20); 
         }
     }
+    
+    // override shitty plugin
+    .gform_button {
+        display: block !important;
+    }
 
     .gfield_label {
         margin-bottom: u(rem(5));
@@ -101,7 +106,16 @@
  
 .validation_error {
     @extend .alert;
+    color: $red;
     // @extend .alert--danger;
+}
+
+.validaiton_message {
+    @include font-size(18);
+    &:before {
+        content: '\2191'; 
+        display: inline-block;
+    }
 }
  
 #gforms_confirmation_message {

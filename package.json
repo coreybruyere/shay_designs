@@ -15,8 +15,6 @@
     "grunt-contrib-uglify": "^0.4.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-copy-changed": "^0.1.4",
-    "grunt-critical": "^0.1.1",
-    "grunt-criticalcss": "^0.5.0",
     "grunt-modernizr": "^0.5.2",
     "grunt-newer": "^0.7.0",
     "grunt-perfbudget": "^0.1.2",

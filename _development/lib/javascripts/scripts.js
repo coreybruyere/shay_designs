@@ -37,7 +37,7 @@ jQuery(document).ready(function($) {
 	$carousel.owlCarousel({
 	  singleItem: true,
     items: 1, 
-    lazyLoad: true,
+    lazyLoad: true, 
     loop: true,
     transitionStyle: "fade"
 	});
@@ -54,14 +54,18 @@ jQuery(document).ready(function($) {
 
 	// -------------------------------------         
 	//   Unveil - Retina and lazy load
-	// -------------------------------------
-	$img = $('img'); 
+	// -------------------------------------  
 
-	$img.unveil(200, function() {
-	  $(this).load(function() {
-	    this.style.opacity = 1;
-	  });
-	});     
+	// $img.unveil(200, function() {
+	//   $(this).load(function() {
+	//     this.style.opacity = 1; 
+	//   });
+	// });       
+	// (function($, dpr) {
+	//   if (dpr>1)
+	//     $.lazyLoadXT.srcAttr = 'data-src-' + (dpr > 2 ? '3x' : (dpr > 1.5 ? '2x' : '1.5x'));
+	// })(jQuery, window.devicePixelRatio || 1);
+	// $.lazyLoadXT.onload.addClass = 'fadeIn';     
 
 
 
@@ -158,7 +162,6 @@ jQuery(document).ready(function($) {
 	var $alert = $('.js-error');
 
 	$removeAlert.click(function() { 
-		alert("hi"); 
 		$(this).closest($alert).remove();
 	});
 
@@ -168,7 +171,7 @@ jQuery(document).ready(function($) {
 	//   Add custom inputs to radio and checkbox
 	// -------------------------------------
 
-	$('input[type=radio').not('.js-skip').each(function() {
+	$('input[type=radio').each(function() {
 
 	    if( !$(this).hasClass('input--radio') ) { 
 	    	$(this).addClass('input--radio');
@@ -176,7 +179,7 @@ jQuery(document).ready(function($) {
 
 	});
 
-	$('input[type=checkbox').not('.js-skip').each(function() {
+	$('input[type=checkbox').each(function() {
  
 	    if( !$(this).hasClass('input--checkbox') ) {
 	    	$(this).addClass('input--checkbox');

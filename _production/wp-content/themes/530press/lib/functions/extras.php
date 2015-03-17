@@ -153,9 +153,11 @@ function start_cleanup() {
  */
 if ( function_exists( 'add_image_size' ) ) { 
   add_image_size( 'lrg-home-tout@x2', 1600, 1000, true ); //(cropped)
-  // add_image_size( 'lrg-home-tout', 800, 500, true ); //(cropped) 
+  add_image_size( 'lrg-home-tout', 800, 500, true ); //(cropped) 
+  add_image_size( 'lrg-home-tout@low', 400, 250, true ); //(cropped) 
   add_image_size( 'sm-home-tout@x2', 650, 400, true ); //(cropped)
-  // add_image_size( 'sm-home-tout', 650, 400, true ); //(cropped)   
+  add_image_size( 'sm-home-tout', 450, 200, true ); //(cropped)  
+  add_image_size( 'sm-home-tout@low', 325, 200, true ); //(cropped)   
 }
 
 

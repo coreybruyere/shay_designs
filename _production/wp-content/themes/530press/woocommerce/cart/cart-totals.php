@@ -4,11 +4,11 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.3.0
+ * @version     2.3.6
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;
 }
 
 ?>
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<table cellspacing="0">
 
 			<tr class="cart-subtotal">
-				<th><?php _e( 'Cart Subtotal', 'woocommerce' ); ?></th>
+				<th><?php _e( 'Subtotal', 'woocommerce' ); ?></th>
 				<td><?php wc_cart_totals_subtotal_html(); ?></td>
 			</tr>
 
@@ -41,6 +41,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<?php wc_cart_totals_shipping_html(); ?>
 
 				<?php do_action( 'woocommerce_cart_totals_after_shipping' ); ?>
+
+			<?php elseif ( WC()->cart->needs_shipping() ) : ?>
+
+				<tr class="shipping">
+					<th><?php _e( 'Shipping', 'woocommerce' ); ?></th>
+					<td><?php woocommerce_shipping_calculator(); ?></td>
+				</tr>
 
 			<?php endif; ?>
 
@@ -70,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php do_action( 'woocommerce_cart_totals_before_order_total' ); ?>
 
 			<tr class="order-total">
-				<th class="tfoot"><?php _e( 'Order Total', 'woocommerce' ); ?></th>  
+				<th class="tfoot"><?php _e( 'Total', 'woocommerce' ); ?></th>
 				<td class="tfoot"><?php wc_cart_totals_order_total_html(); ?></td>
 			</tr>
 
@@ -78,10 +85,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		</table>
 
-	</div>
+	</div><!-- end section-region -->
 
 	<?php if ( WC()->cart->get_cart_tax() ) : ?>
-		<p class="required"><small><?php 
+		<p class="required"><small><?php
 
 			$estimated_text = WC()->customer->is_customer_outside_base() && ! WC()->customer->has_calculated_shipping()
 				? sprintf( ' ' . __( ' (taxes estimated for %s)', 'woocommerce' ), WC()->countries->estimated_for_prefix() . __( WC()->countries->countries[ WC()->countries->get_base_country() ], 'woocommerce' ) )
@@ -92,7 +99,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		?></small></p>
 	<?php endif; ?>
 
-	<div class="wc-proceed-to-checkout section text-r">
+	<div class="wc-proceed-to-checkout clearfix">
 
 		<?php //do_action( 'woocommerce_proceed_to_checkout' ); ?>
 		<?php woo_custom_cart_button_text(); ?>

@@ -3,29 +3,35 @@ defined('ABSPATH') or die("No script kiddies please!");
 /**
  * @link              https://github.com/ResponsiveImagesCG/wp-tevko-responsive-images
  * @since             2.0.0
- * @package           http://web-design-weekly.com/2015/01/20/ricg-responsive-images-plugin/
+ * @package           http://www.smashingmagazine.com/2015/02/24/ricg-responsive-images-for-wordpress/
  *
  * @wordpress-plugin
  * Plugin Name:       RICG Responsive Images
- * Plugin URI:        http://web-design-weekly.com/2015/01/20/ricg-responsive-images-plugin/
+ * Plugin URI:        http://www.smashingmagazine.com/2015/02/24/ricg-responsive-images-for-wordpress/
  * Description:       Bringing automatic default responsive images to wordpress
- * Version:           2.1.0
- * Author:            Tim Evko
- * Author URI:        http://timevko.com/
+ * Version:           2.1.1
+ * Author:            The RICG
+ * Author URI:        http://responsiveimages.org/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
 
 
-
-// First we queue the polyfill
+/**
+ * Enqueue bundled version of the Picturefill library
+ */
 function tevkori_get_picturefill() {
 	wp_enqueue_script( 'picturefill', plugins_url( 'js/picturefill.js', __FILE__ ), array(), '2.2.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'tevkori_get_picturefill' );
 
-//return an array of srcset values
-
+/**
+ * Get an array of image sources candidates for use in a 'srcset' attribute.
+ *
+ * @param int $id 			Image attacment ID.
+ * @param string $size	Optional. Name of image size. Default value: 'thumbnail'.
+ * @return array|bool 	An array of of srcset values or false.
+ */
 function tevkori_get_srcset_array( $id, $size ) {
 	$arr = array();
 
@@ -56,7 +62,8 @@ function tevkori_get_srcset_array( $id, $size ) {
 		// calculate the height we would expect if this is a soft crop given the size width
 		$soft_height = (int) round( $image_size['width'] * $img_height / $img_width );
 
-		if( $image_size['height'] !== $soft_height ) {
+		// If image height varies more than 1px over the expected, throw it out.
+		if ( $image_size['height'] <= $soft_height - 2 || $image_size['height'] >= $soft_height + 2  ) {
 			unset( $default_sizes[$key] );
 		}
 	}
@@ -76,8 +83,13 @@ function tevkori_get_srcset_array( $id, $size ) {
 	return $arr;
 }
 
-//return a full srcset string
-
+/**
+ * Create a 'srcset' attribute.
+ *
+ * @param int $id 			Image attacment ID.
+ * @param string $size	Optional. Name of image size. Default value: 'thumbnail'.
+ * @return string|bool 	A full 'srcset' string or false.
+ */
 function tevkori_get_srcset_string( $id, $size ) {
 	$srcset_array = tevkori_get_srcset_array( $id, $size );
 	if ( empty( $srcset_array ) ) {
@@ -86,18 +98,26 @@ function tevkori_get_srcset_string( $id, $size ) {
 	return 'srcset="' . implode( ', ', $srcset_array ) . '"';
 }
 
-//Backwards compatibility for older plugin function
-
 /**
-*	WARNING - THIS FUNCTION IS NOW DEPRECIATED AND ME BE SUBJECT TO REMOVAL IN LATER VERSIONS
-**/
-
+ * Create a 'srcset' attribute.
+ *
+ * @deprecated 2.1.0
+ * @deprecated Use tevkori_get_srcset_string
+ * @see tevkori_get_srcset_string
+ *
+ * @param int $id 			Image attacment ID.
+ * @return string|bool 	A full 'srcset' string or false.
+ */
 function tevkori_get_src_sizes($id, $size) {
 	return tevkori_get_srcset_string( $id, $size );
 }
 
-//extend image tag to include srcset attribute
-
+/**
+ * Filter for extending image tag to include srcset attribute
+ *
+ * @see 'images_send_to_editor'
+ * @return string HTML for image.
+ */
 function tevkori_extend_image_tag( $html, $id, $caption, $title, $align, $url, $size, $alt ) {
 	add_filter( 'editor_max_image_size', 'tevkori_editor_image_size' );
 	$srcset = tevkori_get_srcset_string( $id, $size );
@@ -107,7 +127,12 @@ function tevkori_extend_image_tag( $html, $id, $caption, $title, $align, $url, $
 }
 add_filter( 'image_send_to_editor', 'tevkori_extend_image_tag', 0, 8 );
 
-// filter post_thumbnail_html to add srcset attributes to post_thumbnails
+/**
+ * Filter to add srcset attributes to post_thumbnails
+ *
+ * @see 'post_thumbnail_html'
+ * @return string HTML for image.
+ */
 function tevkori_filter_post_thumbnail_html( $html, $post_id, $post_thumbnail_id, $size, $attr ) {
 	// if the HTML is empty, short circuit
 	if ( '' === $html ) {
@@ -120,7 +145,6 @@ function tevkori_filter_post_thumbnail_html( $html, $post_id, $post_thumbnail_id
 }
 add_filter( 'post_thumbnail_html', 'tevkori_filter_post_thumbnail_html', 0, 5);
 
-
 /**
  * Disable the editor size constraint applied for images in TinyMCE.
  *
@@ -131,6 +155,11 @@ function tevkori_editor_image_size( $max_image_size ){
 	return array( 99999, 99999 );
 }
 
+/**
+ * Load admin scripts
+ *
+ * @param string $hook Admin page file name.
+ */
 function tevkori_load_admin_scripts( $hook ) {
 	if ($hook == 'post.php' || $hook == 'post-new.php') {
 		wp_enqueue_script( 'wp-tevko-responsive-images', plugin_dir_url( __FILE__ ) . 'js/wp-tevko-responsive-images.js', array('wp-backbone'), '2.0.0', true );

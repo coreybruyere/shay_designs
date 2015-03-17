@@ -38,6 +38,9 @@
 		padding-right: 0;  
 		border-color: transparent;
 	}
+	.no-js & {
+		max-width: none;
+	}
 }
 
 .search-form__prop {

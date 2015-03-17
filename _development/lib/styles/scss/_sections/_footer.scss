@@ -5,13 +5,13 @@
 // -------------------------------------
 
 .footer[role="contentinfo"] {
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	height: u(rem(420));
-	width: 100%; 
+	// position: absolute;
+	// left: 0;
+	// bottom: 0;
+	// height: u(rem(420));
+	width: 100%;  
 	margin-top: u(rem(4));
-	padding-top: u(rem(20));
+	padding-top: u(rem(20)); 
 	padding-bottom: u(rem(30 * 2));
 	text-align: center;
 	color: $tertiary;  

@@ -22,7 +22,7 @@ function roots_scripts() {
   if (WP_ENV === 'development') {  
     $assets = array( 
       'css'       => '/lib/styles/css/main.css',
-      'print'     => '/lib/styles/css/print-min.css', 
+      // 'print'     => '/lib/styles/css/print-min.css', 
       'js'        => '/lib/javascripts/global.js',
       'modernizr' => '/lib/javascripts/modernizr-min.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js',
@@ -33,7 +33,7 @@ function roots_scripts() {
     $assets     = json_decode($get_assets, true);
     $assets     = array(
       'css'       => '/lib/styles/css/main-min.css?' . $assets['lib/styles/css/main-min.css']['hash'],
-      'print'     => '/lib/styles/css/print-min.css',
+      // 'print'     => '/lib/styles/css/print-min.css',
       'js'        => '/lib/javascripts/global-min.js?' . $assets['lib/javascripts/global-min.js']['hash'],
       'modernizr' => '/lib/javascripts/modernizr-min.js', 
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
@@ -42,7 +42,7 @@ function roots_scripts() {
   }
 
   wp_enqueue_style('roots_css', get_template_directory_uri() . $assets['css'], false, null);
-  wp_enqueue_style('roots_print', get_template_directory_uri() . $assets['print'], false, null, 'print'); 
+  // wp_enqueue_style('roots_print', get_template_directory_uri() . $assets['print'], false, null, 'print'); 
 
   /**
    * jQuery is loaded using the same method from HTML5 Boilerplate:

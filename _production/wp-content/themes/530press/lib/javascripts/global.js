@@ -1,62 +1,4 @@
 /**
- * jQuery Unveil
- * A very lightweight jQuery plugin to lazy load images
- * http://luis-almeida.github.com/unveil
- *
- * Licensed under the MIT license.
- * Copyright 2013 Luís Almeida
- * https://github.com/luis-almeida
- */
-
-;(function($) {
-
-  $.fn.unveil = function(threshold, callback) {
-
-    var $w = $(window),
-        th = threshold || 0,
-        retina = window.devicePixelRatio > 1,
-        attrib = retina? "data-src-retina" : "data-src",
-        images = this,
-        loaded;
-
-    this.one("unveil", function() {
-      var source = this.getAttribute(attrib);
-      source = source || this.getAttribute("data-src");
-      if (source) {
-        this.setAttribute("src", source);
-        if (typeof callback === "function") callback.call(this);
-      }
-    });
-
-    function unveil() {
-      var inview = images.filter(function() {
-        var $e = $(this);
-        if ($e.is(":hidden")) return;
-
-        var wt = $w.scrollTop(),
-            wb = wt + $w.height(),
-            et = $e.offset().top,
-            eb = et + $e.height();
-
-        return eb >= wt - th && et <= wb + th;
-      });
-
-      loaded = inview.trigger("unveil");
-      images = images.not(loaded);
-    }
-
-    $w.scroll(unveil);
-    $w.resize(unveil);
-
-    unveil();
-
-    return this;
-
-  };
-
-})(window.jQuery || window.Zepto);
-
-/**
  * Owl carousel
  * @version 2.0.0
  * @author Bartosz Wojciechowski
@@ -3321,7 +3263,7 @@ jQuery(document).ready(function($) {
 	$carousel.owlCarousel({
 	  singleItem: true,
     items: 1, 
-    lazyLoad: true,
+    lazyLoad: true, 
     loop: true,
     transitionStyle: "fade"
 	});
@@ -3338,14 +3280,18 @@ jQuery(document).ready(function($) {
 
 	// -------------------------------------         
 	//   Unveil - Retina and lazy load
-	// -------------------------------------
-	$img = $('img'); 
+	// -------------------------------------  
 
-	$img.unveil(200, function() {
-	  $(this).load(function() {
-	    this.style.opacity = 1;
-	  });
-	});     
+	// $img.unveil(200, function() {
+	//   $(this).load(function() {
+	//     this.style.opacity = 1; 
+	//   });
+	// });       
+	// (function($, dpr) {
+	//   if (dpr>1)
+	//     $.lazyLoadXT.srcAttr = 'data-src-' + (dpr > 2 ? '3x' : (dpr > 1.5 ? '2x' : '1.5x'));
+	// })(jQuery, window.devicePixelRatio || 1);
+	// $.lazyLoadXT.onload.addClass = 'fadeIn';     
 
 
 
@@ -3442,7 +3388,6 @@ jQuery(document).ready(function($) {
 	var $alert = $('.js-error');
 
 	$removeAlert.click(function() { 
-		alert("hi"); 
 		$(this).closest($alert).remove();
 	});
 
@@ -3452,7 +3397,7 @@ jQuery(document).ready(function($) {
 	//   Add custom inputs to radio and checkbox
 	// -------------------------------------
 
-	$('input[type=radio').not('.js-skip').each(function() {
+	$('input[type=radio').each(function() {
 
 	    if( !$(this).hasClass('input--radio') ) { 
 	    	$(this).addClass('input--radio');
@@ -3460,7 +3405,7 @@ jQuery(document).ready(function($) {
 
 	});
 
-	$('input[type=checkbox').not('.js-skip').each(function() {
+	$('input[type=checkbox').each(function() {
  
 	    if( !$(this).hasClass('input--checkbox') ) {
 	    	$(this).addClass('input--checkbox');

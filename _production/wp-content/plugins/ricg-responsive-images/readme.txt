@@ -4,7 +4,7 @@ Donate link: https://app.etapestry.com/hosted/BoweryResidentsCommittee/OnlineDon
 Tags: Responsive, Images, Responsive Images, SRCSET, Picturefill
 Requires at least: 4.1
 Tested up to: 4.1
-Stable tag: 2.1.0
+Stable tag: 2.1.1
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
 
@@ -32,6 +32,10 @@ ex.)
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Changelog ==
+= 2.1.1 =
+* Adding in wp-tevko-responsive-images.js after file not found to be in wordpress repository
+* Adjusts the aspect ratio check in tevkori_get_srcset_array() to account for rounding variance
+
 = 2.1.0 =
  * **This version introduces a breaking change** - there are now two functions. One returns an array of srcset values, and the other returns a string with the `srcset=".."` html needed to generate the responsive image. To retrieve the srcset array, us `tevkori_get_srcset_array( $id, $size )`
  * When the image size is changed in the post editor, the srcset values will adjust to match the change.

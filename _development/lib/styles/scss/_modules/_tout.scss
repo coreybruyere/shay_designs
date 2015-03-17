@@ -44,6 +44,10 @@
 	@media #{$tablet} {
 	  @include column(66.66/100);  
 	}
+	.no-js & {
+		height: u(rem(300));
+		overflow: auto; 
+	}
 }
 
 .tout__col--side {
@@ -64,7 +68,7 @@
 	@extend %tout-item;
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
-		margin-bottom: 6%;
+		margin-bottom: 6%; 
 	}
 }
 
@@ -74,7 +78,10 @@
 	// border-radius: u(rem(5));     
 	// overide lazy load
 	opacity: .75 !important;
-	// transition: opacity .35s ease;   
+	// transition: opacity .35s ease;  
+	.no-js & {
+		display: none; 
+	} 
 }
 
 .tout__text {

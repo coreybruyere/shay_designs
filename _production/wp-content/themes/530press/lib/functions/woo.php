@@ -30,10 +30,10 @@ function custom_woo() {
 			wp_dequeue_script( 'wc-single-product' );
 			wp_dequeue_script( 'wc-cart' );
 			wp_dequeue_script( 'wc-chosen' );
-			wp_dequeue_script( 'wc-select-2' );
 			wp_dequeue_script( 'woocommerce' );
 			wp_dequeue_script( 'prettyPhoto' );
 			wp_dequeue_script( 'prettyPhoto-init' );
+			wp_dequeue_script( 'select2' );
 			wp_dequeue_script( 'fancybox' );
 			// wp_dequeue_script( 'jquery-blockui' );
 			wp_dequeue_script( 'jquery-placeholder' );
