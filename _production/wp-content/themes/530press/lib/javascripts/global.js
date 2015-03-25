@@ -3274,24 +3274,7 @@ jQuery(document).ready(function($) {
 
 	$carouselPrev.click(function() {
 	    $carousel.trigger('prev.owl.carousel');
-	});
-
-
-
-	// -------------------------------------         
-	//   Unveil - Retina and lazy load
-	// -------------------------------------  
-
-	// $img.unveil(200, function() {
-	//   $(this).load(function() {
-	//     this.style.opacity = 1; 
-	//   });
-	// });       
-	// (function($, dpr) {
-	//   if (dpr>1)
-	//     $.lazyLoadXT.srcAttr = 'data-src-' + (dpr > 2 ? '3x' : (dpr > 1.5 ? '2x' : '1.5x'));
-	// })(jQuery, window.devicePixelRatio || 1);
-	// $.lazyLoadXT.onload.addClass = 'fadeIn';     
+	});  
 
 
 
@@ -3299,32 +3282,39 @@ jQuery(document).ready(function($) {
 	//   Header Search Form
 	// -------------------------------------
 
-	var $searchBtn = $('#js-header-menu #js-search-form-btn');
-	var $searchProp = $('#js-header-menu #js-search-form-prop');
-	var $searchField = $('#js-search-form-field');   
-	var $searchClose = $('#js-search-form-close');
+	var $searchProp = $('#js-header-menu .js-search-form-prop');
+	var $searchBox = $('#js-header-menu .js-search-form-box'); 
+	var $searchInput = $('#js-header-menu .js-search-form-input');    
 
-	$searchBtn.addClass('disabled');
+	// $searchProp.bind("click keydown", function(e) {
+	// 	if (e.type == "keydown" && e.which == 39 || e.type == "click") 
+	// 		$(this).toggleClass('is-toggled-search');  
+	// 		$searchBox.toggleClass('is-active-search');
+	// 		$searchInput.toggleClass('is-active-input'); 
+	// });
 
-	$searchProp.click(function(event) {
-		if ($searchBtn.hasClass('disabled')) { 
-			event.stopImmediatePropagation();
-			$searchClose.addClass('is-visible-close');  
-			$searchField.addClass('is-active-search');  
-			$searchProp.addClass('no-margin');
-			$searchBtn.removeClass('disabled'); 
-			return(false);  
-		} else {
-			$searchBtn.addClass('disabled');
-		}
-	});
+	$searchProp.focus(function(e) {
+ 		$(this).toggleClass('is-toggled-search');   
+ 		$searchBox.toggleClass('is-active-search');
+ 		$searchInput.toggleClass('is-active-input');  
+ 		$searchInput.focus();   
+	});  
 
-	$searchClose.click(function() {
-		$(this).removeClass('is-visible-close');
-		$searchBtn.addClass('disabled');
-		$searchField.removeClass('is-active-search');
-		$searchProp.removeClass('no-margin'); 
-	});
+
+
+	// $searchClose.click(function() {
+	// 	$(this).removeClass('is-visible-close');
+	// 	$searchBtn.addClass('disabled');
+	// 	$searchField.removeClass('is-active-search');
+	// 	$searchProp.removeClass('no-margin'); 
+	// });
+
+	// Accesibility focus and blur for header only
+	// $searchInput.focus(function() {
+	// 		$searchForm.addClass('is-focused-form');  
+	// }).blur(function() { 
+	// 		$searchForm.removeClass('is-focused-form');      
+	// });
 
 
 
@@ -3354,7 +3344,7 @@ jQuery(document).ready(function($) {
 
 
 	// ------------------------------------- 
-	//   Remove Alert
+	//   To Top
 	// -------------------------------------
 
 	var $toTop = $('#js-to-top');
@@ -3368,7 +3358,7 @@ jQuery(document).ready(function($) {
 		}
 	});
 	 
-	$toTop.on('click', scrollToTop);
+	$toTop.on('click touchstart', scrollToTop);  
 
 	function scrollToTop() {
 		verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
@@ -3390,6 +3380,18 @@ jQuery(document).ready(function($) {
 	$removeAlert.click(function() { 
 		$(this).closest($alert).remove();
 	});
+
+
+
+	// ------------------------------------- 
+	//   Touch Screen Hover Fix
+	// -------------------------------------
+
+	// $('a').on('click touchend', function(e) {
+	//     var el = $(this);
+	//     var link = el.attr('href');
+	//     window.location = link;  
+	// }); 
 
 
 

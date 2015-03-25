@@ -41,12 +41,22 @@
 	// product list widget
 	.product_list_widget {
 		@extend %list-ui;
+		@extend %flexbox;
+		@include flex-wrap(wrap);
+		@include justify-content(space-between);
 		> li {
+			width: 48%;
+			float: left; 
 			margin-bottom: u(rem(15));  
 			&:last-of-type {
 				margin-bottom: 0;
 			}
 		}
+		// a link 
+		a {
+			display: block;
+		}
+
 	}
 
 }

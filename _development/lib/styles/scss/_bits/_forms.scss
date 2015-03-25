@@ -203,53 +203,43 @@ input[type="checkbox"] {
     border-radius: u(rem(10));
 }
 
-.input--inline {
-    @extend %no-radius-r;
-    // width: auto; 
-    padding-left: u(rem(6));
-    padding-right: u(rem(6));
-    text-align: left;
-    + * { 
-        @extend %no-radius-l;
-        // width: auto;
-        text-align: center;  
-        margin-left: u(rem(-5));       
-        border-left: 0;
-    }
-}
- 
-// -- Form classes
-
-.form {}
-
-.form__item {
-    margin-bottom: u(rem(15));
-    // -- Min Width @ $tablet
-    @media #{$tablet} {
-        margin: 0;
-    }
-}
-
-// .form--input {
-//   @extend %no-radius-r;
-//   width: 75%;
-//   // -- Min Width @ $tablet
-//   @media #{$tablet} {
-//     width: auto;
-//   }
-// }
-
-.form--group {
+// -- Usage: http://yago.github.io/Cortana-example/components_-_input_groups.html
+.input--group {
     position: relative;
-    width: 100%;
     display: table;
     border-collapse: separate;
 }
 
-.form--group__item {
-    display: inline-block;
+.input--group__text {
+    position: relative; 
+    display: table-cell;
     width: auto; 
+    margin-bottom: 0; 
+    float: left; 
+    z-index: 2; 
+    &:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
 }
+
+.input--group__button {
+    @extend %clearfix;   
+    position: relative;
+    display: table-cell;
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+    font-size: 0;
+    &:last-child {
+        > .button {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+    }
+}
+ 
+// -- Form classes
 
 .form--signup {
     @extend %dotted-border;

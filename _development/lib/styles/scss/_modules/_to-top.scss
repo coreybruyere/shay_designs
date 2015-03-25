@@ -13,11 +13,12 @@
     z-index: 99999999;
     right: u(rem(30));
     bottom: u(rem(30)); 
+    padding: u(rem(5)) u(rem(10));
     transform: rotate(-90deg);
     transition: all .35s ease-in-out;
     &:before {
         content: "\2192";
-        font-family: "slick";
+        font-family: 'Slick';
         color: rgba($tertiary, .75);
         @include font-size(40);  
     }

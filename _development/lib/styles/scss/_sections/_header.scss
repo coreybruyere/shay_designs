@@ -77,13 +77,9 @@
 	@extend %wrapper; 
 	position: relative; 
 	width: 100%;
-	// padding-bottom: u(rem(10)); 
+	padding-top: u(rem(5));  
+	padding-bottom: u(rem(5));
 	z-index: 100;
-	// border-bottom: u(rem(3)) double $alt-gray;
-	// // -- Min Width @ $tablet
-	// @media #{$tablet} {
-	// 	padding-bottom: u(rem(10));    
-	// }
 }
 
 

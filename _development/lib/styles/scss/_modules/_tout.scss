@@ -86,10 +86,10 @@
 
 .tout__text {
 	position: absolute;
-	top: 50%;
+	top: 20%;
 	left: 50%;
 	margin: 0; 
-	padding: u(rem(7.5));  
+	padding: u(rem(7.5)) 0;   
 	text-align: center;
 	font-family: $serif-heading; 
 	font-weight: bold;
@@ -122,6 +122,10 @@
 		right: u(rem(-50));
 		border-left-width: u(rem(15)); 
 		border-right-color: transparent; 
+	}
+	// center large tout
+	.tout__col--large & {
+		top: 50%;
 	}
 } 
 

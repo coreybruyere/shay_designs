@@ -21,6 +21,7 @@
   font-style: normal;
 }
 
+// -- Icon Fonts
 @font-face {
   font-family:'PaymentFont';
   src: url('../../fonts/paymentfont-webfont.eot');
@@ -41,6 +42,17 @@
        url('../../fonts/star.svg#paymentfont-webfont') format('svg');
   font-weight:normal;
   font-style:normal;
+}
+
+@font-face {
+  font-family: 'Slick';
+  src: url("../../fonts/slick.eot");
+  src: url("../../fonts/slick.eot?#iefix") format("embedded-opentype"), 
+       url("../../fonts/slick.woff") format("woff"), 
+       url("../../fonts/slick.ttf") format("truetype"), 
+       url("../../fonts/slick.svg#Slick") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 
 

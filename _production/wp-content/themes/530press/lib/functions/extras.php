@@ -162,6 +162,17 @@ if ( function_exists( 'add_image_size' ) ) {
 
 
 /*
+ * Async for Picfill
+ */
+add_filter( 'script_loader_tag', function ( $tag, $handle ) {
+    if ( 'picfill' !== $handle )
+        return $tag;
+
+    return str_replace( ' src', ' async src', $tag );
+}, 10, 2 );
+
+
+/*
  * Remove query strings
  */
 function ewp_remove_script_version( $src ){

@@ -19,10 +19,11 @@
   <div class="wrapper site" role="document">
   <?php endif; ?>
 
-    <main class="main" role="main" itemprop="mainContentOfPage">
+    <main class="main" id="content" role="main" itemprop="mainContentOfPage">
     <!-- <?php echo basename( get_page_template() ) ; ?>  -->
 
-    <?php if( !is_product() && is_single() || is_author() || is_home() || is_search() ): ?>
+    <?php // Only set post class to Author Archive, Blog Page, and Blog Single ?>
+    <?php if( !is_product() && is_single() || is_author() || is_home() ): ?> 
       <div class="post">
         <?php include roots_template_path(); ?>
       </div>
@@ -42,7 +43,6 @@
   </div><!-- /.wrap -->
 
   <div class="to-top" id="js-to-top"></div>
-
 
   <?php get_template_part('templates/footer'); ?>
 

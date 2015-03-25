@@ -233,7 +233,7 @@ if ( ! function_exists( 'woocommerce_button_proceed_to_checkout' ) ) {
 		$checkout_url = WC()->cart->get_checkout_url();
 
 		?>
-		<a href="<?php echo $checkout_url; ?>" class="checkout-button button button--xl alt wc-forward"><?php _e( 'Proceed to Checkout', 'woocommerce' ); ?></a>
+		<a href="<?php echo $checkout_url; ?>" class="checkout-button button button--xl float-r alt wc-forward"><?php _e( 'Proceed to Checkout', 'woocommerce' ); ?></a>
 		<?php
 	}
 }
@@ -263,6 +263,20 @@ function rename_enquiry_tab( $variable ) {
 add_filter( 'product_enquiry_heading', 'rename_enquiry_heading');
 function rename_enquiry_heading( $variable ) {
 	return "Ask a Question";  
+}
+
+
+/**
+ * Set search results to display only 'product' post type results
+ */
+add_filter('pre_get_posts','searchfilter');
+function searchfilter($query) {
+
+	  if ($query->is_search && !is_admin() ) {
+	      $query->set('post_type',array('product'));
+	  }
+	  
+		return $query; 
 }
 
 

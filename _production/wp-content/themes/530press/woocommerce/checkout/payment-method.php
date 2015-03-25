@@ -18,29 +18,29 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<?php echo $gateway->get_title(); ?> 
 		<?php $gate_name = $gateway->id; ?>
 		<?php if ($gate_name == 'paypal'): ?>
-			<div class="pf--box" aria-hidden="true">
+			<div class="pf--box">
 				<div class="pf--box__title bg">
-					<span class="pf pf-paypal"></span>
+					<span aria-hidden="true" class="pf pf-paypal"></span>
 				</div>
-				<span class="pf pf-visa"></span>
-				<span class="pf pf-mastercard"></span>
-				<span class="pf pf-american-express"></span>
-				<span class="pf pf-discover"></span>
-				<span class="pf pf-jcb"></span>
-				<span class="pf pf-diners"></span>
-				<span class="pf pf-paypal"></span>
+				<span aria-hidden="true" class="pf pf-visa"></span>
+				<span aria-hidden="true" class="pf pf-mastercard"></span>
+				<span aria-hidden="true" class="pf pf-american-express"></span>
+				<span aria-hidden="true" class="pf pf-discover"></span>
+				<span aria-hidden="true" class="pf pf-jcb"></span>
+				<span aria-hidden="true" class="pf pf-diners"></span>
+				<span aria-hidden="true" class="pf pf-paypal"></span>
 			</div>
 		<?php elseif ($gate_name == 'stripe'): ?>
-			<div class="pf--box" aria-hidden="true">
+			<div class="pf--box">
 				<div class="pf--box__title bg">
-					<span class="pf pf-stripe"></span> 
+					<span aria-hidden="true" class="pf pf-stripe"></span> 
 				</div>
-				<span class="pf pf-visa"></span>
-				<span class="pf pf-mastercard"></span>
-				<span class="pf pf-american-express"></span>
-				<span class="pf pf-jcb"></span>
-				<span class="pf pf-discover"></span>
-				<span class="pf pf-diners"></span>
+				<span aria-hidden="true" class="pf pf-visa"></span>
+				<span aria-hidden="true" class="pf pf-mastercard"></span>
+				<span aria-hidden="true" class="pf pf-american-express"></span>
+				<span aria-hidden="true" class="pf pf-jcb"></span>
+				<span aria-hidden="true" class="pf pf-discover"></span>
+				<span aria-hidden="true" class="pf pf-diners"></span>
 			</div>
 		<?php endif; ?>
 		<?php //echo $gateway->get_icon(); ?>

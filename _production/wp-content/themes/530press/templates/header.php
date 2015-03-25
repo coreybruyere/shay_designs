@@ -1,3 +1,5 @@
+<!-- Skip to Content Link -->
+<a href="#content" class="skip-to-main" id="js-skip-to">Skip to content</a>
 
 <div class="header--menu" id="js-header-menu" role="menubar"> 
 

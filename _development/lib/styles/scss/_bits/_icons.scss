@@ -16,7 +16,8 @@
   vertical-align: top;
 }
 
-.icon-svg {
+.icon-svg, 
+%icon-svg {
   @extend %icon-small;
   position: relative;
   display: inline-block;

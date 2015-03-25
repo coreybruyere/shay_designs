@@ -164,8 +164,8 @@
 }
 
 .img {
-	display: inline-block;
-	margin: u(rem(10));
+	width: auto;
+	max-width: 100%;
 }
 
 .img--responsive {
@@ -281,6 +281,7 @@
 	}
 }
 
+// -- Accessibility helpers
 .is-visually-hidden {
 	border: 0;
 	clip: rect(0 0 0 0);
@@ -291,6 +292,24 @@
 	position: absolute;
 	width: u(rem(1));  
 } 
+
+.skip-to-main {
+	position: absolute;
+	top: u(rem(-1000));
+	left: u(rem(-1000));
+	height: u(rem(1));
+	width: u(rem(1));
+	text-align: left;
+	overflow: hidden;
+	&:hover, &:focus, &:active {
+		left: u(rem(60));
+		top: u(rem(15));
+		width: auto;
+		height: auto;
+		padding: u(rem(4)) u(rem(2));
+		overflow: visible;
+	}
+}
 
 .flex-center {
 	@include flexbox();

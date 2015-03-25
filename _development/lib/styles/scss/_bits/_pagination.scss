@@ -4,13 +4,33 @@
 // ----- Styles for pagination 
 // -------------------------------------
 
+%pagination-items {
+	display: inline-block;
+}
+
 .pagination {
-	.page-numbers {
-		@extend %list-ui;   
-		> li {
-			display: inline-block; 
-		}
+	@extend %list-ui;
+	display: table;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.pagination__item {
+	@extend %pagination-items;
+}
+
+.pagination__icon {   
+	@extend %icon-svg; 
+	margin-right: 0;
+	float: none;
+	// -- Override svg color 
+	svg {
+		fill: currentColor;
 	}
+}
+
+.pagination__cap {
+	@extend %pagination-items;
 }
 
 

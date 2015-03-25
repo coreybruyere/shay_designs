@@ -15,7 +15,6 @@
 
     <div class="section-region">
 
-      <nav class="nav--footer" role="navigation">
 
         <ul class="list-ui" role="menu">
 
@@ -33,7 +32,25 @@
 
         </ul><!-- end list-ui[menu] -->
 
-      </nav><!-- end nav[navigation] -->
+        <nav class="nav--footer" role="navigation">
+
+          <!-- <ul class="list-ui" role="menu"> -->
+
+            <?php
+              if (has_nav_menu('footer_navigation')) : 
+                wp_nav_menu(array(
+                  'theme_location' => 'footer_navigation',
+                  'menu_class' => 'list-ui',
+                  'container' => false,                           // class of container 
+                  'menu' => __( 'Footer Naviation' ),                  // nav name
+                  'depth' => 0,                                   // limit the depth of the nav
+                  'items_wrap'=> '<ul class="list-ui" role="menu">%3$s</ul>',
+                  'walker' => new Roots_Nav_Walker                  // build walker 
+                ));
+              endif;
+            ?> 
+
+        </nav><!-- end nav -->
 
     </div><!-- end section-region -->
 
@@ -121,6 +138,28 @@
         <small>&copy; <?php bloginfo( 'name' ); ?> <?php echo date('Y'); ?></small>
 
       </div><!-- end section -->
+
+    </div><!-- end section-region -->
+
+    <div class="section-region">
+
+      <div class="pf--footer">
+        <div class="pf--footer__title">
+          <span aria-hidden="true" class="pf pf-stripe"></span> 
+          <span aria-hidden="true" class="pf--footer__split"></span>
+          <span aria-hidden="true" class="pf pf-paypal"></span>
+        </div>
+        <span aria-hidden="true" class="pf pf-visa"></span>
+        <span aria-hidden="true" class="pf pf-mastercard"></span>
+        <span aria-hidden="true" class="pf pf-american-express"></span>
+        <span aria-hidden="true" class="pf pf-discover"></span>
+        <span aria-hidden="true" class="pf pf-jcb"></span>
+        <span aria-hidden="true" class="pf pf-diners"></span>
+      </div><!-- end pf-footer -->
+
+      <a href="" class="footer__badge" target="_blank">
+        <img class="img" src="<?php echo get_bloginfo('template_directory');?>/lib/images/min/comodossl.png" alt="Comodo SSL Certificate Badge">
+      </a>
 
     </div><!-- end section-region -->
 

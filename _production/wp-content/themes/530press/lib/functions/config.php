@@ -52,6 +52,7 @@ function roots_display_sidebar() {
       'is_cart',
       'is_checkout',
       'is_shop',
+      'is_search',
       'is_product',
       'is_account_page'
     ),

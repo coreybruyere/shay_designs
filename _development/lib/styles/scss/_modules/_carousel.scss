@@ -12,7 +12,7 @@
 	z-index: 99; 
 	@include fadeIn(1.5s, .45s);  
 	&:before {
-		font-family: slick;
+		font-family: 'Slick';
 		color: $tertiary-lighter;
 		transition: opacity .35s ease;   
 		@include font-size(19); 

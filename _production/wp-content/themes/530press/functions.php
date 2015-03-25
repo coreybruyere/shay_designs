@@ -22,7 +22,7 @@ $roots_includes = array(
   'lib/functions/comments.php',        // Custom comments modifications
   'lib/functions/scripts.php',         // Scripts and stylesheets
   'lib/functions/extras.php',          // Custom functions
-  'lib/functions/cpt.php',             // Custom functions
+  'lib/functions/pagination.php',      // Custom Pagination
   'lib/functions/woo.php'              // WooCommerce related functions
 
 );

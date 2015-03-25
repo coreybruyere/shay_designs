@@ -26,7 +26,7 @@ function roots_scripts() {
       'js'        => '/lib/javascripts/global.js',
       'modernizr' => '/lib/javascripts/modernizr-min.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js',
-      // 'migrate'   => '/lib/javascripts/jquery-migrate.js',
+      'picfill'   => '/lib/javascripts/picturefill-min.js',
     );
   } else {
     $get_assets = file_get_contents(get_template_directory() . '/lib/manifest.json');
@@ -37,7 +37,7 @@ function roots_scripts() {
       'js'        => '/lib/javascripts/global-min.js?' . $assets['lib/javascripts/global-min.js']['hash'],
       'modernizr' => '/lib/javascripts/modernizr-min.js', 
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js',
-      // 'migrate'   => '/lib/javascripts/jquery-migrate.js',
+      'picfill'   => '/lib/javascripts/picturefill-min.js',
     );
   }
 
@@ -61,8 +61,8 @@ function roots_scripts() {
 
   wp_enqueue_script('modernizr', get_template_directory_uri() . $assets['modernizr'], array(), null, true); 
   wp_enqueue_script('jquery');  
-  // wp_enqueue_script('jquery_migrate', get_template_directory_uri() . $assets['migrate'], array(), null, true);
   wp_enqueue_script('roots_js', get_template_directory_uri() . $assets['js'], array(), null, true);
+  wp_enqueue_script('picfill', get_template_directory_uri() . $assets['picfill'], array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
 

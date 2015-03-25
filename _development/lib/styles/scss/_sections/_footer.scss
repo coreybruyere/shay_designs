@@ -5,37 +5,20 @@
 // -------------------------------------
 
 .footer[role="contentinfo"] {
-	// position: absolute;
-	// left: 0;
-	// bottom: 0;
-	// height: u(rem(420));
 	width: 100%;  
 	margin-top: u(rem(4));
 	padding-top: u(rem(20)); 
-	padding-bottom: u(rem(30 * 2));
+	padding-bottom: u(rem(20)); 
 	text-align: center;
 	color: $tertiary;  
 	background-color: $focus-gray;
 	border-top: u(rem(3)) double $l-gray;
-
-	// background-image: url('../../images/min/footer_bg.png'); 
-	// background-repeat: no-repeat; 
-	// background-position: 50% 245%;    
-	// &:before {
-	// 	position: absolute; 
-	// 	top: u(rem(-4));
-	// 	left: 0;
-	// 	content: '';
-	// 	width: 100%;
-	// 	height: u(rem(2));
-	// 	background-color: $primary;
-	// }
 }
 
-.footer__logo {
-	z-index: 100;
-	display: inline-block;
-	width: u(rem(195));
-	margin-left: u(rem(25));  
+.footer__badge {
+	display: block;  
+	margin: 0 auto;
+	max-width: u(rem(120)); 
+	opacity: .5;    
 }
 
