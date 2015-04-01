@@ -5,7 +5,7 @@
 // -------------------------------------
 
 .header[role="banner"] {
-	@extend %clearfix;  
+	@extend %clearfix;         
 	position: relative;  
 	width: 100%;
 	min-height: u(rem(92));        
@@ -14,9 +14,9 @@
 	text-align: center;  
 	// -- Min Width @ $tablet 
 	@media #{$tablet} {
-		height: u(rem(45));   
+		height: u(rem(80));   
 		min-height: 0;    
-		background-color: transparent; 
+		background-color: transparent;       
 		border-top: u(rem(3)) double $focus-gray; 
 		border-bottom: u(rem(3)) double $focus-gray; 
 	}

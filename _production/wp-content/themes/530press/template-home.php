@@ -35,7 +35,7 @@ Template Name: Home Page Template
 		          	<?php if( $large_banner_text ): ?>
 		          	<h1 class="tout__text"><?php echo $large_banner_text; ?></h1> 
 		          	<?php endif; ?>   
-		          	<img class="tout__image owl-lazy" src="<?php echo $large_banner_sm; ?>" sizes="(min-width: 730px) 66vw, 100vw" srcset="<?php echo $large_banner_lrg; ?> 1600w, <?php echo $large_banner_med; ?> 800w, <?php echo $large_banner_sm; ?> 400w" alt="<?php echo $large_banner['alt']; ?>" width="<?php echo $large_banner_w; ?>" height="<?php echo $large_banner_h; ?>" />     
+		          	<img class="tout__image owl-lazy" src="<?php echo $large_banner_sm; ?>" sizes="(min-width: 730px) 66vw, 100vw" srcset="<?php echo $large_banner_lrg; ?> 1600w, <?php echo $large_banner_med; ?> 800w, <?php echo $large_banner_sm; ?> 400w" alt="<?php echo $large_banner['alt']; ?>" width="<?php echo $large_banner_w; ?>" />     
 		          </a> 
 
 	      		<?php endwhile; ?>
@@ -69,7 +69,7 @@ Template Name: Home Page Template
 		      		<?php if( $top_right_text ): ?>
 	          	<h2 class="tout__text"><?php echo $top_right_text; ?></h2>
 	      	  	<?php endif; ?>
-	          	<img src="<?php echo $top_right_sm; ?>" sizes="(min-width: 730px) 33vw, 100vw" srcset="<?php echo $top_right_lrg; ?> 650w, <?php echo $top_right_med; ?> 450w, <?php echo $top_right_sm; ?> 325w" class="tout__image" width="<?php echo $top_right_w; ?>" height="<?php echo $top_right_h; ?>">     
+	          	<img src="<?php echo $top_right_sm; ?>" sizes="100vw" srcset="<?php echo $top_right_lrg; ?> 650w, <?php echo $top_right_med; ?> 450w, <?php echo $top_right_sm; ?> 325w" class="tout__image" width="<?php echo $top_right_w; ?>">     
 	          </a>
 
 	        </div><!-- end tout__item-side -->
@@ -91,7 +91,7 @@ Template Name: Home Page Template
 		      		<?php if( $middle_right_text ): ?>
 	          	<h2 class="tout__text"><?php echo $middle_right_text; ?></h2>
 	      	  	<?php endif; ?>
-	      	  	<img src="<?php echo $middle_right_sm; ?>" sizes="(min-width: 730px) 33vw, 100vw" srcset="<?php echo $middle_right_lrg; ?> 650w, <?php echo $middle_right_med; ?> 450w, <?php echo $middle_right_sm; ?> 325w" class="tout__image" alt="<?php echo $middle_right['alt']; ?>" width="<?php echo $middle_right_w; ?>" height="<?php echo $middle_right_h; ?>">  
+	      	  	<img src="<?php echo $middle_right_sm; ?>" sizes="100vw" srcset="<?php echo $middle_right_lrg; ?> 650w, <?php echo $middle_right_med; ?> 450w, <?php echo $middle_right_sm; ?> 325w" class="tout__image" alt="<?php echo $middle_right['alt']; ?>" width="<?php echo $middle_right_w; ?>">  
 	          </a>
 
 	        </div><!-- end tout__item-side -->
@@ -122,7 +122,7 @@ Template Name: Home Page Template
 		      	<?php if( $bottom_left_text ): ?>
 	          <h2 class="tout__text"><?php echo $bottom_left_text; ?></h2>
 	      	  <?php endif; ?>
-	      	  <img src="<?php echo $bottom_left_sm; ?>" sizes="(min-width: 730px) 33vw, 100vw" srcset="<?php echo $bottom_left_lrg; ?> 650w, <?php echo $bottom_left_med; ?> 450w, <?php echo $bottom_left_sm; ?> 325w" class="tout__image" alt="<?php echo $bottom_left['alt']; ?>" width="<?php echo $bottom_left_w; ?>" height="<?php echo $bottom_left_h; ?>">  
+	      	  <img src="<?php echo $bottom_left_sm; ?>" sizes="100vw" srcset="<?php echo $bottom_left_lrg; ?> 650w, <?php echo $bottom_left_med; ?> 450w, <?php echo $bottom_left_sm; ?> 325w" class="tout__image" alt="<?php echo $bottom_left['alt']; ?>" width="<?php echo $bottom_left_w; ?>">  
 	          </a>
 
 	        </div><!-- end tout__item -->
@@ -149,7 +149,7 @@ Template Name: Home Page Template
 		      	<?php if( $bottom_middle_text ): ?>
 	          <h2 class="tout__text"><?php echo $bottom_middle_text; ?></h2>
 	          <?php endif; ?>
-	          <img src="<?php echo $bottom_middle_sm; ?>"  sizes="(min-width: 730px) 33vw, 100vw" srcset="<?php echo $bottom_middle_lrg; ?> 650w, <?php echo $bottom_middle_med; ?> 450w, <?php echo $bottom_middle_sm; ?> 325w" class="tout__image" alt="<?php echo $bottom_middle['alt']; ?>" width="<?php echo $bottom_middle_w; ?>" height="<?php echo $bottom_middle_h; ?>">  
+	          <img src="<?php echo $bottom_middle_sm; ?>"  sizes="100vw" srcset="<?php echo $bottom_middle_lrg; ?> 650w, <?php echo $bottom_middle_med; ?> 450w, <?php echo $bottom_middle_sm; ?> 325w" class="tout__image" alt="<?php echo $bottom_middle['alt']; ?>" width="<?php echo $bottom_middle_w; ?>">  
 	          </a>
 
 	        </div><!-- end tout__item -->
@@ -176,7 +176,7 @@ Template Name: Home Page Template
 		        <?php if( $bottom_right_text ): ?>
 	          <h2 class="tout__text"><?php echo $bottom_right_text; ?></h2>
 	          <?php endif; ?>
-	          <img src="<?php echo $bottom_right_sm; ?>" sizes="(min-width: 730px) 33vw, 100vw" srcset="<?php echo $bottom_right_lrg; ?> 650w, <?php echo $bottom_right_med; ?> 450w, <?php echo $bottom_right_sm; ?> 325w" class="tout__image" alt="<?php echo $bottom_right['alt']; ?>" width="<?php echo $bottom_right_w; ?>" height="<?php echo $bottom_right_h; ?>">   
+	          <img src="<?php echo $bottom_right_sm; ?>" sizes="100vw" srcset="<?php echo $bottom_right_lrg; ?> 650w, <?php echo $bottom_right_med; ?> 450w, <?php echo $bottom_right_sm; ?> 325w" class="tout__image" alt="<?php echo $bottom_right['alt']; ?>" width="<?php echo $bottom_right_w; ?>">   
 	          </a>
 
 	        </div><!-- end tout__item -->

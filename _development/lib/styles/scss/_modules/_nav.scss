@@ -60,6 +60,29 @@
   }
 }
 
+// -- Shop Link in Header
+.nav__item--shop {
+  padding-right: u(rem(10));
+  background-color: $primary-lighter;
+  // -- Min Width @ $tablet
+  @media #{$tablet} {
+    background-color: transparent;  
+  }
+  // -- Each sub item
+  $elements: 10;
+  @for $i from 0 to $elements {
+    .nav__sub-item {
+      &:nth-child(#{$i}) { 
+        background-color: lighten($primary-lighter, $i*1.5);  
+        // -- Min Width @ $tablet
+        @media #{$tablet} {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
 .nav__link {
   display: block;
   padding: u(rem($padding-wrap-sm)) u(rem(15));  
@@ -72,13 +95,13 @@
     @include font-size(15); 
     // -- Min Width @ $tablet
     @media #{$tablet} {
-      padding-left: u(rem(15));
+      padding: u(rem(15)); 
     }      
   }
   // -- Min Width @ $tablet
   @media #{$tablet} {
     display: inline-block;  
-    padding: u(rem(10)) u(rem(15));   
+    padding: u(rem(27)) u(rem(15));      
     line-height: 1.25; 
     // -- Shop specific link
     // &[href*="shop"] {

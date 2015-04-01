@@ -1,0 +1,68 @@
+// -------------------------------------
+//   CTA Bar
+// -------------------------------------
+// ----- Styles for Different CTA Bars
+// -------------------------------------
+
+.cta-bar {
+	position: relative;
+	padding: u(rem($padding-wrap-sm)) u(rem($padding-wrap-sm));
+	text-align: center;
+	background-color: $secondary-trans; 
+	// -- Min Width @ $tablet
+	@media #{$tablet} {     
+		padding: u(rem($padding-wrap-sm)) u(rem($padding-wrap-lg));
+		padding-left: u(rem(40)); 
+	} 
+}
+
+.cta-bar__text {
+	display: block;
+	color: $white;
+	@include font-size(12);
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		display: inline-block;
+	}
+	// override WYSIWYG elements
+	> p {
+		margin: 0;
+	}
+	a {
+		color: $white;
+		text-decoration: underline; 
+	} 
+}
+
+.cta-bar__button {
+	margin: u(rem(5)) u(rem(5)) 0;
+	@include font-size(12); 
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		display: inline-block;
+		margin: 0 0 0 u(rem(5)); 
+	}   
+}
+
+.cta-bar__close { 
+	@extend %icon-svg; 
+	position: absolute;  
+	left: 0;
+	top: 0;  
+	display: none;
+	width: u(rem(40));         
+	height: u(rem(40));
+	margin: u(rem(8)) 0;
+	padding: u(rem(10)); 
+	float: none; 
+	cursor: pointer; 
+	fill: $white;
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		display: block; 
+	}    
+}
+
+// -------------------------------------
+//   Comment States
+// -------------------------------------

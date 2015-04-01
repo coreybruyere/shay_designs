@@ -11,16 +11,26 @@
 .pagination {
 	@extend %list-ui;
 	display: table;
-	margin: 0 auto;
+	margin: u(rem(50)) auto 0;
+	background-color: $focus-gray;
+	border-radius: u(rem($border-radius));
 	text-align: center;
 }
 
 .pagination__item {
-	@extend %pagination-items;
+	@extend %pagination-items; 
+	height: u(rem(30));
+	width: u(rem(30));
+	margin: 0 u(rem(4));
+	line-height: 2.25;
+	@include font-size(14); 
 }
 
 .pagination__icon {   
 	@extend %icon-svg; 
+	height: u(rem(25));
+	width: u(rem(17));
+	vertical-align: middle;
 	margin-right: 0;
 	float: none;
 	// -- Override svg color 
@@ -31,6 +41,15 @@
 
 .pagination__cap {
 	@extend %pagination-items;
+	padding: u(rem(10));
+	&.-first {
+		border-right: u(rem(1)) solid $white;
+		margin-right: u(rem(10));
+	}
+	&.-last {
+		border-left: u(rem(1)) solid $white;
+		margin-left: u(rem(10));
+	}
 }
 
 

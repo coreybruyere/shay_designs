@@ -29,7 +29,7 @@
 		&:after {
 			content: '';   
 			right: 0;   
-			top: 35%; 
+			top: 50%;  
 			@include arrow(down, 6, $alt-gray);    
 		} 
 	}

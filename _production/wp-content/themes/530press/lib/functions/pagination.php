@@ -57,7 +57,7 @@ function wp_bootstrap_pagination( $args = array() ) {
         $echo .= '<li class="pagination__cap -first"><a href="' . $firstpage . '">' . __( 'First', 'Roots' ) . '</a></li>';
 
     if ( $previous && (1 != $page) )
-        $echo .= '<li class="pagination__item"><a href="' . $previous . '"class="pagination__icon" title="' . __( 'Previous', 'Roots') . '"><svg viewBox="0 0 32 32"><g filter=""><use xlink:href="#arrow-left"></use></g></svg></a></li>';
+        $echo .= '<li class="pagination__item"><a href="' . $previous . '"class="pagination__icon" title="' . __( 'Previous', 'Roots') . '"><svg viewBox="0 0 32 32" aria-hidden="true"><g filter=""><use xlink:href="#arrow-left"></use></g></svg></a></li>';
     
     if ( !empty($min) && !empty($max) ) {
         for( $i = $min; $i <= $max; $i++ ) {
@@ -72,7 +72,7 @@ function wp_bootstrap_pagination( $args = array() ) {
     $next = intval($page) + 1;
     $next = esc_attr( get_pagenum_link($next) );
     if ($next && ($count != $page) )
-        $echo .= '<li class="pagination__item"><a href="' . $next . '"class="pagination__icon" title="' . __( 'Next', 'Roots') . '"><svg viewBox="0 0 32 32"><g filter=""><use xlink:href="#arrow-right"></use></g></svg></a></li>';
+        $echo .= '<li class="pagination__item"><a href="' . $next . '"class="pagination__icon" title="' . __( 'Next', 'Roots') . '"><svg viewBox="0 0 32 32" aria-hidden="true"><g filter=""><use xlink:href="#arrow-right"></use></g></svg></a></li>';
     
     $lastpage = esc_attr( get_pagenum_link($count) );
     if ( $lastpage ) {

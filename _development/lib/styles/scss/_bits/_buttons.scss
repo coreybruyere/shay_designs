@@ -51,8 +51,18 @@
 	&:hover, &:active {
 		background-color: $secondary-lighter;
 		border-color: $secondary-lighter; 
-		color: $tertiary-lighter;
+		color: $tertiary-lighter; 
 	}
+}
+
+// -- Tertiary button
+.button--tertiary {
+	@include button(transparent, $tertiary-lighter, $tertiary-lighter, 16);  
+	&:hover, &:active {
+		background-color: $tertiary-lighter;
+		border-color: $tertiary-lighter;  
+		color: $secondary-light;  
+	} 
 }
 
 .button--xl {

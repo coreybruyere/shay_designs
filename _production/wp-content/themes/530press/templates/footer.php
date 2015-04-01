@@ -15,23 +15,6 @@
 
     <div class="section-region">
 
-
-        <ul class="list-ui" role="menu">
-
-          <li class="nav--footer__item" role="presentation">
-            <a href="" class="clean-link" role="menuitem">Contact</a>
-          </li><!-- end nav-footer__item[presentation] -->
-
-          <li class="nav--footer__item" role="presentation">
-            <a href="" class="clean-link" role="menuitem">FAQ</a>
-          </li><!-- end nav-footer__item[presentation] -->
-
-          <li class="nav--footer__item" role="presentation">
-            <a href="" class="clean-link" role="menuitem">Policy</a>
-          </li><!-- end nav-footer__item[presentation] -->
-
-        </ul><!-- end list-ui[menu] -->
-
         <nav class="nav--footer" role="navigation">
 
           <!-- <ul class="list-ui" role="menu"> -->

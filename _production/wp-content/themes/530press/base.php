@@ -1,6 +1,6 @@
 <?php get_template_part('templates/head'); ?>
 
-<body <?php body_class(); ?> id="body">
+<body <?php body_class(); ?> id="js-body">
   <?php include_once("lib/images/svg/svg-defs.svg"); ?>
 
   <!--[if lt IE 8]>

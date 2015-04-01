@@ -1,6 +1,10 @@
 <!-- Skip to Content Link -->
 <a href="#content" class="skip-to-main" id="js-skip-to">Skip to content</a>
 
+<?php //get_template_part('templates/modal'); ?>  
+
+<?php get_template_part('templates/cta'); ?>  
+
 <div class="header--menu" id="js-header-menu" role="menubar"> 
 
   <?php get_template_part('templates/searchform'); ?> 
