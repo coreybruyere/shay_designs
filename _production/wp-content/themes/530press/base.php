@@ -36,13 +36,14 @@
         <div class="sidebar__inner">
           <?php include roots_sidebar_path(); ?>
         </div>
-      </aside><!-- /.sidebar -->
+      </aside><!-- end sidebar[complementary] -->  
     <?php endif; ?>
 
-    </main><!-- /.main -->
-  </div><!-- /.wrap -->
+    </main><!-- end main[main] -->  
+  </div><!-- end site[document] -->  
 
   <div class="to-top" id="js-to-top"></div>
+  <!-- end to-top -->
 
   <?php get_template_part('templates/footer'); ?>
 

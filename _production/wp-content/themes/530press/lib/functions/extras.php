@@ -137,6 +137,36 @@ function load_google_fonts() {
 
 
 
+/**
+ * Load a requested modal via AJAX.
+ * 
+ * @since 1.0.0
+ * 
+ * @return void
+ */
+function load_modal() {
+  
+  ob_start();
+
+  get_template_part( 'templates/modal', $_POST['modal'] );
+
+  $modal = ob_get_clean();
+  
+  if ( $modal ) {
+    echo $modal;
+  } else {
+    echo 0;
+  }
+  
+  die();
+}
+add_action( 'wp_ajax_load_modal',        'load_modal' );
+add_action( 'wp_ajax_nopriv_load_modal', 'load_modal' );
+
+// wp_localize_script( 'ajaxy', 'cb_ajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+
+
+
 /*
  * Clean WP head
  */

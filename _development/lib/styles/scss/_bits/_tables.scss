@@ -4,20 +4,23 @@
 // ----- Styles for Tables, td, tr, th, tbody and so on..
 // -------------------------------------
 
-.table {
+.table,
+%table {
 	display: table;
 	border-collapse: separate;
 	border-spacing: 2px;
 	border-color: gray
 }
 
-.tr {
+.tr,
+%tr {
 	display: table-row;
 	vertical-align: middle;
 	border-color: inherit
 }
 
-.td {
+.td,
+%td {
 	display: table-cell;
 	padding: 0 u(rem(10));
 	vertical-align: inherit

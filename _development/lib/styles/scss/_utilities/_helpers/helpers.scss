@@ -269,6 +269,13 @@
 	display: none !important;
 }
 
+.is-closed {
+	max-height: 0 !important;
+	overflow: hidden !important; 
+	padding: 0 !important;   
+	margin: 0 !important;
+}
+
 .is-hidden--mobile {
 	display: none;
 	// -- Min Width @ $tablet
@@ -282,6 +289,14 @@
 	@media #{$tablet} {
 		display: none;
 	}
+}
+
+.is-loading {   
+	color: transparent !important;   
+	background-image: url($svg + 'hearts.svg');
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 50%;
 }
 
 // -- Accessibility helpers

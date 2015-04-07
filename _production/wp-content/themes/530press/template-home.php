@@ -189,35 +189,5 @@ Template Name: Home Page Template
 
 	</section><!-- end wrapper -->
 
-	<section class="form--signup" id="[#FORM]">
-
-	  <div class="island">
-		  
-			<div id="mc_embed_signup">
-				<form action="//shaydesigns.us7.list-manage.com/subscribe/post?u=cf7cf4f1a1ddfaa76f72cc8fc&amp;id=563d2cf888" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" role="form" novalidate>
-				    <div id="mc_embed_signup_scroll">
-				  	
-						  <label class="form--signup__label" for="mce-EMAIL">Sign Up for the Shay Designs Newsletter!</label> 
-						  <span class="input--group">
-						  	<input type="email" class="input--group__text" name="EMAIL" id="mce-EMAIL">
-							  <span class="input--group__button float-l">  
-							  	<button type="submit" class="button" name="subscribe" id="mc-embedded-subscribe" >Send</button>
-							  </span><!-- end input-group_button -->
-						  </span><!-- end input-group -->
-
-					  	<div id="mce-responses">
-					  		<div class="response" id="mce-error-response" style="display:none"></div>
-					  		<div class="response" id="mce-success-response" style="display:none"></div>
-					  	</div> 
-
-				    </div>
-				</form>
-			</div>
-			<!--End mc_embed_signup-->
-
-	  </div><!-- end island -->
-
-	</section><!-- end form-signup -->
-
 
 <?php endwhile; ?>

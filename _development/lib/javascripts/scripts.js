@@ -1,7 +1,7 @@
 // -------------------------------------
 //   Start Doc Ready
 // -------------------------------------
- 
+
 jQuery(document).ready(function($) {
 	   
    
@@ -113,7 +113,7 @@ jQuery(document).ready(function($) {
 	  	  $(this).attr('aria-pressed', 'true');
 	  	}
 	  	return false;
-  	});  
+  });  
 
 
 
@@ -187,6 +187,90 @@ jQuery(document).ready(function($) {
 	    	$(this).addClass('input--checkbox');
 	    }
 
+	});
+
+
+
+	// ------------------------------------- 
+	//   AJAX Modals
+	// -------------------------------------
+	// Global JS is localized in scripts.php
+	// Template part called from extras.php
+
+	// -- Load a modal when any element with a modal specified is clicked 
+	var loadModal = function( modal ) {
+		
+		$.post(
+			cb_ajax.ajaxurl,
+			{
+				action: 'load_modal',
+				modal:  modal
+			},
+			// -- Handle response
+			function ( response ) {
+				
+				if ( 0 !== response ) {
+
+					var modalId = modal;
+
+					modal = $.parseHTML( response );
+					
+					// -- Add the modal to the body. 
+					$( 'body' ).append( modal );
+					
+					// -- Take various actions when the modal is added. 
+					$(modal).addClass('is-active-modal');
+					$(modal).attr('aria-hidden', 'false'); 
+					$(modal).attr('id', modalId);  
+					$('body').addClass('is-covered');
+				}
+				
+			}
+		);
+		
+	};
+
+	// -- Click Event
+	var $modalToggle = $('.js-modal-toggle');
+
+	$modalToggle.click(function(e) {
+
+		e.preventDefault();
+
+		// -- Button State
+		$('.js-modal-toggle').prop('disabled', true);                 
+		$modalToggle.addClass('is-loading');  
+		// $('[data-modal=' + modal + ']').focus();
+ 
+		// -- Get Modal Template
+		var modal = $(this).data('modal');
+		loadModal(modal);  
+
+	});
+
+	// -- Close Modal func
+	var closeDialog = function() {
+	  $(document).find('.js-modal').remove(); 
+		$modalToggle.prop('disabled', false).removeClass('is-loading');     
+	};
+
+	// -- Run closeDialog() on click of close button
+	$(document).on("click","#js-close-modal",function() { 
+		closeDialog();    
+	});
+	  
+	// -- Also run closeDialog() on ESC 
+	$(document).keyup(function(e) {
+	  if (e.keyCode == 27) {
+	    closeDialog();
+	  }
+	});  
+
+	// -- Close CTA Bar 
+	var $closeCTA = $('#js-close-cta');
+
+	$closeCTA.click(function() {
+		$(this).closest('#js-cta-bar').addClass('is-closed'); 
 	});
 
 

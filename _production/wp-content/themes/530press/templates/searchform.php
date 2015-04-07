@@ -13,7 +13,7 @@
 		<span class="js-search-form-box search-form__box">  
 			<span class="input--group">
 		    <input type="search" value="<?php echo get_search_query(); ?>" name="s" class="js-search-form-input input--group__text search-form__input" placeholder="<?php _e('Search...', 'roots'); ?>" id="s">
-		    <span class="input--group__button">
+		    <span class="input--group__button search-form__group">
 			    <button type="submit" class="search-form__button">
 			    	<span class="icon-svg">
 			    		<svg viewBox="0 0 32 32" role="img" aria-labelledby="search-icon" aria-hidden="true">

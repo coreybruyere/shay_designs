@@ -117,15 +117,32 @@
 		left: u(rem(-50)); 
 		border-right-width: u(rem(15));
 		border-left-color: transparent;
+		// large banner override
+		.tout__col--large & {
+			border: u(rem(25)) solid rgba($primary, .75);         
+			border-right-width: u(rem(15));
+			border-left-color: transparent; 
+		}
 	}
 	&:after {
 		right: u(rem(-50));
 		border-left-width: u(rem(15)); 
 		border-right-color: transparent; 
+		// large banner override
+		.tout__col--large & {
+			border: u(rem(25)) solid rgba($primary, .75);         
+			border-left-width: u(rem(15)); 
+			border-right-color: transparent; 
+		}
 	}
 	// center large tout
 	.tout__col--large & {
-		top: 50%;
+		top: 25%;
+		@include font-size(35);
+		// -- Min Width @ $tablet
+		@media #{$tablet} {
+			top: 11%;
+		}
 	}
 } 
 

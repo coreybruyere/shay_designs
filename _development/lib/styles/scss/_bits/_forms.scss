@@ -213,13 +213,17 @@ input[type="checkbox"] {
 .input--group__text {
     position: relative; 
     display: table-cell;
-    width: auto; 
+    width: 100%; 
     margin-bottom: 0; 
     float: left; 
     z-index: 2; 
-    &:first-child {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
+    // -- Min Width @ $tablet
+    @media #{$tablet} {
+        width: auto; 
+        &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
     }
 }
 
@@ -227,34 +231,30 @@ input[type="checkbox"] {
     @extend %clearfix;   
     position: relative;
     display: table-cell;
-    width: 1%;
+    width: 100%;
+    margin-top: u(rem(15)); 
     white-space: nowrap;
     vertical-align: middle;
     font-size: 0;
     &:last-child {
         > .button {
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
+            width: 100%;
         }
+    }
+    // -- Min Width @ $tablet
+    @media #{$tablet} { 
+        width: 1%;
+        margin-top: 0;  
+        &:last-child {
+            > .button {
+                width: auto;
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+            }
+        }  
     }
 }
  
-// -- Form classes
-
-.form--signup {
-    @extend %dotted-border;
-    position: relative;
-    margin-top: u(rem(20));
-    padding: u(rem(5)) 0;
-    background-color: $primary-trans;  
-    color: $tertiary-light;
-}
-
-.form--signup__label {
-    display: block;  
-    margin-bottom: u(rem(10));
-    color: $tertiary-light;  
-}
 
 
 // -- Placeholder text

@@ -61,8 +61,11 @@ function roots_scripts() {
 
   wp_enqueue_script('modernizr', get_template_directory_uri() . $assets['modernizr'], array(), null, true); 
   wp_enqueue_script('jquery');  
-  wp_enqueue_script('roots_js', get_template_directory_uri() . $assets['js'], array(), null, true);
   wp_enqueue_script('picfill', get_template_directory_uri() . $assets['picfill'], array(), null, true);
+  wp_enqueue_script('roots_js', get_template_directory_uri() . $assets['js'], array(), null, true);
+  wp_localize_script('roots_js', 'cb_ajax', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ));
+
+
 }
 add_action('wp_enqueue_scripts', 'roots_scripts', 100);
 
@@ -117,7 +120,7 @@ function woo_pip_client_js() { ?>
 </script>
 
 <?php } 
-add_action('wp_footer', 'woo_pip_client_js', 100);
+add_action('wp_footer', 'woo_pip_client_js', 21);
 
 
 

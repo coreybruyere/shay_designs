@@ -1,5 +1,5 @@
-<!-- Skip to Content Link -->
 <a href="#content" class="skip-to-main" id="js-skip-to">Skip to content</a>
+<!-- end accessibility skip link -->
 
 <?php //get_template_part('templates/modal'); ?>  
 
@@ -52,11 +52,11 @@
 
   </div><!-- end role[menu] -->
 
-</div><!-- end role[menubar] -->
+</div><!-- end header-menu[menubar] -->
 
 
 
-<header class="header  bg" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
   <div class="wrapper--bare flex-center">
 

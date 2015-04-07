@@ -6,6 +6,8 @@
 
 .cta-bar {
 	position: relative;
+	max-height: auto;
+	margin-bottom: u(rem(10));
 	padding: u(rem($padding-wrap-sm)) u(rem($padding-wrap-sm));
 	text-align: center;
 	background-color: $secondary-trans; 
