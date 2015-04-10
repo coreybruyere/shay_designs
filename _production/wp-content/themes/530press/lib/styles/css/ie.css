@@ -3563,6 +3563,9 @@ strong {
   display: inline-block;
   margin-top: 5px;
   padding: 0;
+  opacity: 1;
+  -webkit-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
   z-index: 100;
 }
 @media only screen and (min-width: 730px) {
@@ -3581,9 +3584,6 @@ strong {
 }
 
 .branding__img {
-  opacity: 1;
-  -webkit-transition: opacity .25s ease;
-  transition: opacity .25s ease;
   -webkit-animation-name: fadeInDown;
   -ms-animation-name: fadeInDown;
   animation-name: fadeInDown;

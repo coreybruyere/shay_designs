@@ -22,6 +22,9 @@
 	display: inline-block;     
 	margin-top: u(rem(5));
 	padding: 0;
+	// opacity for search - logo turns transparent
+	opacity: 1; 
+	transition: opacity .25s ease-in-out;  
 	// float: left;  
 	z-index: 100; 
 	// -- Min Width @ $tablet
@@ -42,9 +45,6 @@
 
 .branding__img {
 	@extend %no-select; 
-	// opacity for search - logo turns transparent
-	opacity: 1;
-  transition: opacity .25s ease; 
 	@include fadeInDown; 
 }
 

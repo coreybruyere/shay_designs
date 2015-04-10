@@ -68,7 +68,7 @@ jQuery(document).ready(function($) {
 	// 	if (e.type == "keydown" && e.which == 39 || e.type == "click") 
 	// 		$(this).toggleClass('is-toggled-search');  
 	// 		$searchBox.toggleClass('is-active-search');
-	// 		$searchInput.toggleClass('is-active-input'); 
+	// 		$searchInput.toggleClass('is-active-input');  
 	// });
 
 	$searchProp.click(function() {
@@ -89,7 +89,8 @@ jQuery(document).ready(function($) {
 		thisObj.siblings($searchBox).toggleClass('is-active-search');
 		thisObj.closest($searchHead)
 					 .find($searchInput)
-					 .toggleClass('is-active-input');
+					 .focus()
+					 .toggleClass('is-active-input');  
 					 
 
 		var $closestHead = thisObj.closest($searchHead);
