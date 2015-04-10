@@ -58,20 +58,30 @@
       }
     }
   }
-}
-
-// -- Shop Link in Header
-.nav__item--shop {
-  padding-right: u(rem(10));
-  background-color: $primary-lighter;
-  // -- Min Width @ $tablet
-  @media #{$tablet} {
-    background-color: transparent;  
+  // -- Dropdown parent 
+  &.dropdown {    
+    background-color: $primary-lighter;
+    // -- Min Width @ $tablet
+    @media #{$tablet} {
+      background-color: transparent;  
+    }
   }
-  // -- Each sub item
-  $elements: 10;
-  @for $i from 0 to $elements {
-    .nav__sub-item {
+  // -- Dropdown sub item 
+
+  .nav__sub-item {
+    position: relative;
+    &:before {
+      content:"\00b7"; 
+      position: absolute;
+      padding-left: u(rem(14));
+      @include font-size(28);
+      // -- Min Width @ $tablet
+      @media #{$tablet} {
+        display: none;
+      }
+    }
+    $elements: 10;
+    @for $i from 0 to $elements {
       &:nth-child(#{$i}) { 
         background-color: lighten($primary-lighter, $i*1.5);  
         // -- Min Width @ $tablet

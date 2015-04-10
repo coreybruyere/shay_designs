@@ -3,7 +3,8 @@ module.exports = {
     devFile: '_development/lib/bower_components/modernizr/modernizr.js',
     outputFile: '_development/lib/javascripts/production/modernizr-min.js',
     extra : {
-        cssclasses : true
+        cssclasses : true,
+        shiv : true,
     },
     files: {
       src: [

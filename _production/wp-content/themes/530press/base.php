@@ -33,7 +33,7 @@
 
     <?php if (roots_display_sidebar()) : ?>
       <aside class="sidebar" role="complementary">
-        <div class="sidebar__inner">
+        <div class="sidebar__inner s-search">
           <?php include roots_sidebar_path(); ?>
         </div>
       </aside><!-- end sidebar[complementary] -->  

@@ -9,15 +9,34 @@
 	@extend %clearfix;
 	position: relative;
 	max-width: u(rem(400));  
-	margin: u(rem(7)) 0 0;   
+	margin: u(rem(7)) 0;      
 	@include fadeIn;  
-	.header--menu & {
+	// -- Header only search
+	.s-search--head & {  
 		min-height: u(rem(38));
-		min-width: u(rem(43));    
+		min-width: u(rem(45));    
 		max-width: u(rem(225));   
 		float: left;  
 		border: u(rem(1)) solid $alt-gray;
 		border-radius: u(rem($border-radius));
+	}
+	// -- Mobile only search
+	.s-search--mobile & { 
+		position: absolute;
+		top: 0;
+		left: 0;  
+		display: table;   
+		padding-top: u(rem(1)); 
+		margin-top: u(rem(20));       
+		margin-left: u(rem(10));
+		border: u(rem(1)) solid $tertiary-light;    
+		cursor: pointer; 
+		overflow: visible; 
+		z-index: 20;
+		// -- Hide mobile search
+		@media #{$tablet} {
+			display: none;      
+		}    
 	}
 } 
 
@@ -27,12 +46,37 @@
 	left: 0;
 	padding: u(rem(9)) u(rem(11));   
 	cursor: pointer;   
-	transition: opacity .10s ease-in-out;     
+	transition: opacity .10s ease-in-out;  
+	// -- Mobile only search
+	.s-search--mobile & { 
+		padding: u(rem(13)) u(rem(12));         
+	}   
+}
+
+.is-focused {
+	border: 5px solid red;
+	width: 10px;
+	display: block;
+}
+
+.search-form__close {
+	display: none;  
+	// -- Mobile only search
+	.s-search--mobile & {
+		display: none;
+		position: absolute;
+		bottom: 100%;
+		margin-bottom: u(rem(35)); 
+		padding: u(rem(10)) u(rem(10)) u(rem(10)) u(rem(5)); 
+		cursor: pointer; 
+		z-index: 30; 
+		@include fadeInUp;  
+	}
 }
 
 .search-form__box {
 	// -- Header search form only  
-	.header--menu & {
+	.s-search--head & {
 		display: block; 
 		width: 0;
 		max-width: 0;
@@ -45,26 +89,34 @@
 		// 	max-width: none;  
 		// }
 	} 
+	// -- Mobile only search
+	.s-search--mobile & {  
+		width: u(rem(1)); 
+		padding: u(rem(3)) 0;  
+	}
 }
 
 .search-form__input {
 	position: relative;
 	width: 100%;
+	min-width: u(rem(40));
 	color: $alt-gray;
+	border-right: 0;
   transition: padding .5s ease-in-out 1s;  
 	&:focus {  
 		color: $tertiary; 
+		background-color: $white;  
 		//-- focus style for sibling + child button
 		+ * > .search-form__button {
 			border-color: $secondary;
 			// -- Header search form only  
-			.header--menu & {
+			.s-search--head & {
 				border-color: transparent; 
 			}
 		} 
 	}  
 	// -- Header search form only  
-	.header--menu & {
+	.s-search--head & {
 		padding: 0;  
 		border-color: transparent;
 	}  
@@ -76,7 +128,7 @@
 	background-color: transparent; 
 	border-color: transparent;   
 	border: u(rem(1)) solid $alt-gray;
-	border-left: 0;     
+	// border-left: 0;     
 	border-top-left-radius: 0;  
 	border-bottom-left-radius: 0;
 	z-index: 10;  
@@ -86,14 +138,15 @@
   	// border-color: transparent;    
   }
   // -- Header search form only  
-  .header--menu & {
+  .s-search--head & {
   	border-color: transparent;   
   }
-} 
+}    
 
 .search-form__group {
-	.header--menu & {
-		width: 1%;     
+	// -- Header search form only  
+	.s-search--head & {
+		width: 1%;      
 	}
 }
 
@@ -111,7 +164,7 @@
   // -- Min Width @ $mobile
   @media #{$mobile} {
     max-width: u(rem(320)) !important;  
-  }    
+  }  
 }
 
 .is-active-input {

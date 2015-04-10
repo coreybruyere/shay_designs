@@ -4,10 +4,14 @@
 <?php //get_template_part('templates/modal'); ?>  
 
 <?php get_template_part('templates/cta'); ?>  
+<!-- end cta-bar -->
 
-<div class="header--menu" id="js-header-menu" role="menubar"> 
+<div class="header--menu" role="menubar"> 
 
-  <?php get_template_part('templates/searchform'); ?> 
+  <div class="s-search--head is-hidden--mobile js-search-head ">  
+    <?php get_template_part('templates/searchform'); ?> 
+  </div>
+  <!-- end desktop search -->
 
   <div class="nav--menu" role="menu">
 
@@ -55,18 +59,22 @@
 </div><!-- end header-menu[menubar] -->
 
 
-
-<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+<header class="header js-main-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
 
   <div class="wrapper--bare flex-center">
+
+    <div class="s-search--head s-search--mobile js-search-head "> 
+      <?php get_template_part('templates/searchform'); ?> 
+    </div>
+    <!-- end mobile search -->
 
     <div class="header__toggle" id="js-nav-toggle" role="button" aria-pressed="false">
       <span>menu</span>
     </div> <!-- end header__burger -->
 
-    <div class="branding" itemscope itemtype="http://schema.org/Organization">
+    <div class="branding js-branding" itemscope itemtype="http://schema.org/Organization">
       <a href="<?php echo esc_url(home_url('/')); ?>" itemprop="url">
-        <img src="<?php echo get_bloginfo('template_directory');?>/lib/images/svg/header-logo--color.svg" onerror="this.src=<?php echo get_bloginfo('template_directory');?>/lib/images/min/main-logo--white.png" alt="<?php bloginfo('name'); ?>" class="no-select branding__img">
+        <img src="<?php echo get_bloginfo('template_directory');?>/lib/images/svg/header-logo--color.svg" onerror="this.src=<?php echo get_bloginfo('template_directory');?>/lib/images/min/main-logo--white.png" alt="<?php bloginfo('name'); ?>" class="no-select branding__img"> 
       </a>
     </div><!-- end branding --> 
 

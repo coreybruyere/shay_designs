@@ -20,9 +20,9 @@
 .branding {
 	@extend %branding; 
 	display: inline-block;     
-	margin: u(rem(10));
+	margin-top: u(rem(5));
 	padding: 0;
-	float: left;  
+	// float: left;  
 	z-index: 100; 
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
@@ -42,6 +42,9 @@
 
 .branding__img {
 	@extend %no-select; 
+	// opacity for search - logo turns transparent
+	opacity: 1;
+  transition: opacity .25s ease; 
 	@include fadeInDown; 
 }
 

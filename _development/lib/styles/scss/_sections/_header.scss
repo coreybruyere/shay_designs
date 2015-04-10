@@ -8,17 +8,16 @@
 	@extend %clearfix;         
 	position: relative;  
 	width: 100%;
-	min-height: u(rem(92));        
+	min-height: u(rem(90));      
 	margin: auto;
-	background-color: $tertiary-trans; 
+	background-color: transparent; 
+	border-top: u(rem(1)) solid $alt-gray;              
+	border-bottom: u(rem(1)) solid $alt-gray;  
 	text-align: center;  
 	// -- Min Width @ $tablet 
 	@media #{$tablet} {
 		height: u(rem(80));   
 		min-height: 0;    
-		background-color: transparent;       
-		border-top: u(rem(3)) double $focus-gray; 
-		border-bottom: u(rem(3)) double $focus-gray; 
 	}
 }
 
@@ -27,8 +26,8 @@
 	top: 0;
 	right: 0;
 	display: inline-block;
-	margin-top: u(rem(25)); 
-	margin-right: u(rem(11));
+	margin-top: u(rem(20));  
+	margin-right: u(rem(10));   
 	padding: u(rem(10));
 	cursor: pointer; 
 	border: u(rem(1)) solid $tertiary-light;
@@ -79,7 +78,7 @@
 	width: 100%;
 	padding-top: u(rem(5));  
 	padding-bottom: u(rem(5));
-	z-index: 100;
+	z-index: 10;
 }
 
 

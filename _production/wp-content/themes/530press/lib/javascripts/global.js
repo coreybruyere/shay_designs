@@ -3282,9 +3282,13 @@ jQuery(document).ready(function($) {
 	//   Header Search Form
 	// -------------------------------------
 
-	var $searchProp = $('#js-header-menu .js-search-form-prop');
-	var $searchBox = $('#js-header-menu .js-search-form-box'); 
-	var $searchInput = $('#js-header-menu .js-search-form-input');    
+	var $searchHead = $('.js-search-head');
+	var $searchProp = $('.js-search-head .js-search-form-prop'); 
+	var $searchBox = $('.js-search-head .js-search-form-box'); 
+	var $searchInput = $('.js-search-head .js-search-form-input'); 
+	var $searchClose = $('.js-search-head .js-search-form-close'); 
+	var $mainHead = $('.js-main-header');
+	var $mainBrand = $('.js-branding');    
 
 	// $searchProp.bind("click keydown", function(e) {
 	// 	if (e.type == "keydown" && e.which == 39 || e.type == "click") 
@@ -3293,12 +3297,48 @@ jQuery(document).ready(function($) {
 	// 		$searchInput.toggleClass('is-active-input'); 
 	// });
 
-	$searchProp.focus(function(e) {
- 		$(this).toggleClass('is-toggled-search');   
- 		$searchBox.toggleClass('is-active-search');
- 		$searchInput.toggleClass('is-active-input');  
- 		$searchInput.focus();   
-	});  
+	$searchProp.click(function() {
+		searchToglr( $(this) );
+	}); 
+  
+  // Enter keydown for accesibility 
+	$searchProp.keydown(function(event) {
+	  if (event.keyCode == 13) {
+	    searchToglr( $(this) ); 
+	  }
+	});
+
+
+	// function to pass to event types
+	function searchToglr(thisObj) {
+		thisObj.toggleClass('is-toggled-search');   
+		thisObj.siblings($searchBox).toggleClass('is-active-search');
+		thisObj.closest($searchHead)
+					 .find($searchInput)
+					 .toggleClass('is-active-input');
+					 
+
+		var $closestHead = thisObj.closest($searchHead);
+		if( $closestHead.hasClass('s-search--mobile') ) {
+			$mainHead 
+						 .find($mainBrand)
+						 .toggleClass('is-transparent'); 
+			$closestHead
+						 .find($searchClose)
+						 .toggleClass('is-active'); 
+		}
+	}
+
+	$searchClose.click(function() {
+		// remove all classes starting with 'is-'
+		$(this).closest($searchHead)
+					 .find( $('[class*="is-"]:not(.js-skip)') )
+					 .removeClass(function (index, css) {
+    					return (css.match (/(^|\s)is-\S+/g) || []).join(' ');
+					 });
+		$(this).closest($searchHead).find($searchInput).blur();    
+ 		$mainBrand.removeClass('is-transparent');
+	});
 
 
 
@@ -3464,8 +3504,8 @@ jQuery(document).ready(function($) {
 		e.preventDefault();
 
 		// -- Button State
-		$('.js-modal-toggle').prop('disabled', true);                 
-		$modalToggle.addClass('is-loading');  
+		$(this).prop('disabled', true);                 
+		$(this).addClass('is-loading');  
 		// $('[data-modal=' + modal + ']').focus();
  
 		// -- Get Modal Template
@@ -3496,7 +3536,7 @@ jQuery(document).ready(function($) {
 	var $closeCTA = $('#js-close-cta');
 
 	$closeCTA.click(function() {
-		$(this).closest('#js-cta-bar').addClass('is-closed'); 
+		$(this).closest('.js-cta-bar').addClass('is-closed'); 
 	});
 
 

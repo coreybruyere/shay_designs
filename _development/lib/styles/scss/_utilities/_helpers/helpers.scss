@@ -269,6 +269,10 @@
 	display: none !important;
 }
 
+.is-transparent {
+	opacity: 0 !important; 
+}
+
 .is-closed {
 	max-height: 0 !important;
 	overflow: hidden !important; 
@@ -320,7 +324,7 @@
 	text-align: left;
 	overflow: hidden;
 	&:hover, &:focus, &:active {
-		left: u(rem(60));
+		left: u(rem(75));
 		top: u(rem(15));
 		width: auto;
 		height: auto;

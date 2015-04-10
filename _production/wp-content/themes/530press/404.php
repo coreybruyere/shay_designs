@@ -10,4 +10,6 @@
   <li><?php _e('an out-of-date link', 'roots'); ?></li>
 </ul>
 
-<?php get_search_form(); ?>
+<div class="s-search">
+  <?php get_search_form(); ?>
+</div>

@@ -189,5 +189,8 @@ Template Name: Home Page Template
 
 	</section><!-- end wrapper -->
 
+	<?php //get_template_part('templates/cta-main'); ?>  
+
+
 
 <?php endwhile; ?>

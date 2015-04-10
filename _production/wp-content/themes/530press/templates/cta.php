@@ -31,7 +31,7 @@
 	<?php $newsletter_text = get_field('newsletter_text', 'option'); ?>
 	<?php $newsletter_button = get_field('newsletter_button', 'option'); ?>
 
-	<div class="cta-bar" id="js-cta-bar">
+	<div class="cta-bar js-cta-bar"> 
 	  <div class="cta-bar__text"><?php echo $newsletter_text; ?></div>
 
 	  <button class="js-modal-toggle cta-bar__button button--tertiary" data-modal="newsletter"><?php echo $newsletter_button; ?></button>  

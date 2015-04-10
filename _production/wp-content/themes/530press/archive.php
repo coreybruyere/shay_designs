@@ -13,7 +13,9 @@
   <div class="alert alert-warning">
     <?php _e('Sorry, no results were found.', 'roots'); ?>
   </div>
-  <?php get_search_form(); ?>
+  <div class="s-search">
+    <?php get_search_form(); ?>
+  </div>
 <?php endif; ?>
 
 <section class="post">

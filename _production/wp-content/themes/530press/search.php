@@ -5,7 +5,9 @@
       <?php _e('Sorry, no results were found.', 'roots'); ?>
     </div>
     <h4><?php _e('Try searching again..', 'roots'); ?></h4>
-    <?php get_search_form(); ?>
+    <div class="s-search">
+      <?php get_search_form(); ?>
+    </div>
   </div>
 <?php endif; ?>
 

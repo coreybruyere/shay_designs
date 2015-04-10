@@ -217,13 +217,14 @@ input[type="checkbox"] {
     margin-bottom: 0; 
     float: left; 
     z-index: 2; 
+    &:first-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
     // -- Min Width @ $tablet
     @media #{$tablet} {
         width: auto; 
-        &:first-child {
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-        }
+
     }
 }
 
@@ -240,6 +241,10 @@ input[type="checkbox"] {
         > .button {
             width: 100%;
         }
+    }
+    // -- Search Form Scope
+    .s-search & {
+        width: 1%;  
     }
     // -- Min Width @ $tablet
     @media #{$tablet} { 

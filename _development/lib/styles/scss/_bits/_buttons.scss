@@ -33,7 +33,7 @@
 			border-color: $secondary;
 		}
 		&:focus, &:active {
-			outline: 0;
+			// outline: 0;
 			color: $btn-text-color; 
 			border-color: $btn-border-color; 
 		}
