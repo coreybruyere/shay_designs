@@ -197,7 +197,6 @@ jQuery(document).ready(function($) {
 	});
 
 
-
 	// ------------------------------------- 
 	//   Touch Screen Hover Fix
 	// -------------------------------------
@@ -235,6 +234,17 @@ jQuery(document).ready(function($) {
 	// ------------------------------------- 
 	//   AJAX Modals
 	// -------------------------------------
+	// Global JS is localized in scripts.php
+	// Template part called from extras.php
+
+	
+
+		var $test = $('.js-test');
+		$(document).on("click",".js-test",function(e) { 
+			e.preventDefault();     
+
+	alert('hi');    
+	});   
 
 	// -- Click Event
 	var $modalToggle = $('.js-modal-toggle');
@@ -243,7 +253,7 @@ jQuery(document).ready(function($) {
 
 		alert('hi');
 
-		// e.preventDefault(); 
+		// e.preventDefault();  
 
 		// -- Button State
 		$(this).prop('disabled', true);                 
@@ -280,14 +290,12 @@ jQuery(document).ready(function($) {
 	$closeCTA.click(function() {
 		$(this).closest('.js-cta-bar').addClass('is-closed'); 
 	});
-	// Global JS is localized in scripts.php
-	// Template part called from extras.php
 
 	// -- Load a modal when any element with a modal specified is clicked 
 	var loadModal = function( modal ) {
 		
 		$.post(
-			cb_ajax.ajaxurl,
+			cb_ajax.ajaxurl, 
 			{
 				action: 'load_modal',
 				modal:  modal
@@ -314,9 +322,7 @@ jQuery(document).ready(function($) {
 			}
 		);
 		
-	};
-
-
+	}; 
 
 }); 
 // -- End Doc Ready

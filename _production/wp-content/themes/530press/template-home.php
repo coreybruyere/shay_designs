@@ -185,8 +185,6 @@ Template Name: Home Page Template
 
 	    </div><!-- end tout[row] -->
 
-
-
 	    <div class="tout tout--flex"> 
 
 	      <div class="tout__col--side tout__content -border--secondary float-l">   

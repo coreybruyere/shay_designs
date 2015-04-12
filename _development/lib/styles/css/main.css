@@ -3472,6 +3472,8 @@ strong {
   position: relative;
   width: 100%;
   min-width: 2.5rem;
+  -webkit-transition: padding .35s ease-in-out .75s;
+  transition: padding .35s ease-in-out .75s;
   color: #cdcece;
 }
 .search-form__input:focus {
@@ -3523,6 +3525,10 @@ strong {
   .is-active-search {
     max-width: 20rem !important;
   }
+}
+
+.is-active-input {
+  padding-left: 0.375rem !important;
 }
 
 .is-toggled-search {

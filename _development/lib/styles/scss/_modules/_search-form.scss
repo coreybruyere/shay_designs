@@ -88,6 +88,7 @@
 	position: relative;
 	width: 100%;
 	min-width: u(rem(40));
+  transition: padding .35s ease-in-out .75s;    
 	color: $alt-gray;
 	// border-right: 0;
 	&:focus {  
@@ -155,7 +156,7 @@
 }
 
 .is-active-input {
-	// padding-left: u(rem(6)) !important;     
+	padding-left: u(rem(6)) !important;     
 }
 
 .is-toggled-search {
