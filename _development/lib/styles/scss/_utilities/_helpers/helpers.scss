@@ -141,7 +141,17 @@
 .bg,
 %bg {   
 	background-color: lighten($bg-color, 2%);        
-}   
+}  
+
+// .bg--primary,
+// %bg--primary {
+// 	background-color: $primary-trans;
+// }
+
+// .bg--secondary,
+// %bg--secondary {
+// 	background-color: $secondary-trans; 
+// } 
 
 .required,
 %required {
@@ -209,6 +219,7 @@
 }
 
 .clear-both {
+	float: none !important;
 	clear: both !important;
 }
 

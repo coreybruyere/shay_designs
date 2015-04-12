@@ -35,7 +35,7 @@ Template Name: Home Page Template
 		          	<?php if( $large_banner_text ): ?>
 		          	<h1 class="tout__text"><?php echo $large_banner_text; ?></h1> 
 		          	<?php endif; ?>   
-		          	<img class="tout__image owl-lazy" src="<?php echo $large_banner_sm; ?>" sizes="(min-width: 730px) 66vw, 100vw" srcset="<?php echo $large_banner_lrg; ?> 1600w, <?php echo $large_banner_med; ?> 800w, <?php echo $large_banner_sm; ?> 400w" alt="<?php echo $large_banner['alt']; ?>" width="<?php echo $large_banner_w; ?>" />     
+		          	<img class="tout__image" src="<?php echo $large_banner_sm; ?>" sizes="(min-width: 730px) 66vw, 100vw" srcset="<?php echo $large_banner_lrg; ?> 1600w, <?php echo $large_banner_med; ?> 800w, <?php echo $large_banner_sm; ?> 400w" alt="<?php echo $large_banner['alt']; ?>" width="<?php echo $large_banner_w; ?>" />     
 		          </a> 
 
 	      		<?php endwhile; ?>
@@ -184,6 +184,71 @@ Template Name: Home Page Template
 	      </div><!-- end tout__col -->
 
 	    </div><!-- end tout[row] -->
+
+
+
+	    <div class="tout tout--flex"> 
+
+	      <div class="tout__col--side tout__content -border--secondary float-l">   
+
+	        <div class="tout__item--side">
+
+						<div class="section">
+							<div class="tout__text--bare -font -h1">Free</div>   
+							<div class="tout__text--bare -font -h2">Shipping</div>  
+							<div class="tout__text--bare -font -color--tertiary -h3">On orders over</div>
+							<div class="section">
+								<div class="tout__text--bare -color--secondary -h1">$100</div>  
+							</div>
+						</div>
+
+	        </div><!-- end tout__item-side -->
+
+	      </div><!-- end tout__col-side -->
+
+
+
+	      <div class="tout__col--large tout__content"> 
+
+	        <div class="tout__item">
+
+		        <div class="section" id="mc_embed_signup">
+
+		        	<hr />
+							
+							<div class="section">
+			        	<div class="tout__text--bare -color--secondary">Subscribe to our</div>
+			        	<div class="tout__text--bare -font">newsletter</div> 
+		        	</div>
+		        	<p>Join the ShayDesigns mailing list for amazing deals, new arrivals, exclusive sales, and more! Don't worry we won't spam your inbox. </p>   
+
+	 	        	<form action="//shaydesigns.us7.list-manage.com/subscribe/post?u=cf7cf4f1a1ddfaa76f72cc8fc&amp;id=563d2cf888" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" role="form" novalidate>
+		        	    <div class="modal__block" id="mc_embed_signup_scroll">
+		        			  <label class="is-visually-hidden" for="mce-EMAIL">Newsletter Email Address</label>  
+		        			  <span class="input--group">
+		        			  	<input type="email" class="input--group__text" name="EMAIL" placeholder="Enter email address..." id="mce-EMAIL">
+		        				  <span class="input--group__button float-l">  
+		        				  	<button type="submit" class="button" name="subscribe" id="mc-embedded-subscribe" >Sign Me Up!</button>
+		        				  </span><!-- end input-group_button -->
+		        			  </span><!-- end input-group -->
+		        
+		        		  	<div id="mce-responses">
+		        		  		<div class="response" id="mce-error-response" style="display:none"></div>
+		        		  		<div class="response" id="mce-success-response" style="display:none"></div>
+		        		  	</div> 
+
+		        	    </div>
+		        	</form>
+
+		        </div>
+
+	        </div><!-- end tout__item -->
+
+	      </div><!-- end tout__col-large -->
+
+	    </div><!-- end tout[row] --> 
+
+
 
 	  </div><!-- end tout -->
 

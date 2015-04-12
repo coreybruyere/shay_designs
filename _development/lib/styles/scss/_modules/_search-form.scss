@@ -1,5 +1,5 @@
 // -------------------------------------
-//   Search-Form 
+//   Search-Form - CLEAN UP! 
 // -------------------------------------
 // ----- Search-Form Styles using form elements from bits/_forms.scss
 // -------------------------------------
@@ -53,12 +53,6 @@
 	}   
 }
 
-.is-focused {
-	border: 5px solid red;
-	width: 10px;
-	display: block;
-}
-
 .search-form__close {
 	display: none;  
 	// -- Mobile only search
@@ -81,19 +75,13 @@
 		width: 0;
 		max-width: 0;
 		overflow: hidden;  
-  	transition: max-width .5s ease-in-out; 
+  	transition: max-width .35s ease-in-out; 
 		transform: translate3d(0, 0, 0);     
-		// -- No JS
-		// .no-js & { 
-		// 	width: auto;
-		// 	max-width: none;  
-		// }
 	} 
 	// -- Mobile only search
-	.s-search--mobile & {  
-		width: u(rem(1)); 
-		padding: u(rem(3)) 0;  
-	}
+	.s-search--mobile & {   
+		padding: u(rem(3)) 0;    
+	} 
 }
 
 .search-form__input {
@@ -101,11 +89,10 @@
 	width: 100%;
 	min-width: u(rem(40));
 	color: $alt-gray;
-	border-right: 0;
-  transition: padding .5s ease-in-out 1s;  
+	// border-right: 0;
 	&:focus {  
 		color: $tertiary; 
-		background-color: $white;  
+		background-color: transparent;     
 		//-- focus style for sibling + child button
 		+ * > .search-form__button {
 			border-color: $secondary;
@@ -117,25 +104,25 @@
 	}  
 	// -- Header search form only  
 	.s-search--head & {
-		padding: 0;  
+		padding: 0; 
+		padding-left: u(rem(10));   
+		min-width: 0;  
 		border-color: transparent;
-	}  
-
-}
+		background-color: transparent;     
+		transform: translate3d(0, 0, 0);        
+	}    
+} 
 
 .search-form__button { 
-	padding: u(rem(8));   
+	padding: u(rem(8)) u(rem(10));    
 	background-color: transparent; 
 	border-color: transparent;   
 	border: u(rem(1)) solid $alt-gray;
-	// border-left: 0;     
-	border-top-left-radius: 0;  
-	border-bottom-left-radius: 0;
-	z-index: 10;  
-  transition: background-color .5s ease-in-out; 
+	// border-top-left-radius: 0;  
+	// border-bottom-left-radius: 0; 
+  transition: background-color .35s ease-in-out; 
   &:hover, &:active {
   	background-color: transparent; 
-  	// border-color: transparent;    
   }
   // -- Header search form only  
   .s-search--head & {
@@ -147,7 +134,7 @@
 	// -- Header search form only  
 	.s-search--head & {
 		width: 1%;      
-	}
+	} 
 }
 
  
@@ -168,7 +155,7 @@
 }
 
 .is-active-input {
-	padding-left: u(rem(6)) !important;    
+	// padding-left: u(rem(6)) !important;     
 }
 
 .is-toggled-search {

@@ -145,20 +145,24 @@ function load_google_fonts() {
  * @return void
  */
 function load_modal() {
+
+  global $wpdb;
   
   ob_start();
 
   get_template_part( 'templates/modal', $_POST['modal'] );
 
   $modal = ob_get_clean();
+
+  echo $modal;
   
-  if ( $modal ) {
-    echo $modal;
-  } else {
-    echo 0;
-  }
+  // if ( $modal ) {
+  //   echo $modal;
+  // } else {
+  //   echo 0;
+  // }
   
-  die();
+  wp_die(); 
 }
 add_action( 'wp_ajax_load_modal',        'load_modal' );
 add_action( 'wp_ajax_nopriv_load_modal', 'load_modal' );

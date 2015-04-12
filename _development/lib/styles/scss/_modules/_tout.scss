@@ -4,9 +4,12 @@
 // ----- Styles for Shoppable product touts or banners
 // -------------------------------------
 
+// Placeholders
 %tout-item {
 	position: relative;
-	margin-bottom: 3%;
+	min-height: u(rem(70));
+	margin-bottom: 3%;    
+	// Hover effect on tout text ribbon
 	&:hover, &:active {
 		.tout__text {  
 			// Ribbon effect
@@ -23,11 +26,62 @@
 			} 
 		}
 	}
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		margin-bottom: 6%;  
+	} 
 }
+
+// Pseudo content for ribbon
+%ribbon {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	display: block;
+	width: u(rem(50));
+	border: u(rem(18)) solid rgba($primary, .75);            
+	transition: border .35s ease;      
+	z-index: -2; 
+}
+
+// Style for left side of ribbon
+%ribbon--left {
+	left: u(rem(-50)); 
+	border-right-width: u(rem(15));
+	border-left-color: transparent;
+	// large banner override
+	.tout__col--large & {
+		border: u(rem(25)) solid rgba($primary, .75);         
+		border-right-width: u(rem(15));
+		border-left-color: transparent; 
+	}
+}
+
+// Style for right side of ribbon
+%ribbon--right {
+	right: u(rem(-50));
+	border-left-width: u(rem(15)); 
+	border-right-color: transparent; 
+	// large banner override
+	.tout__col--large & {
+		border: u(rem(25)) solid rgba($primary, .75);         
+		border-left-width: u(rem(15)); 
+		border-right-color: transparent; 
+	}
+}
+
+
 
 .tout {
 	@include column(1); 
 	@include fadeIn; 
+}
+
+.tout--flex {
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		@include flexbox();  
+	}
 }
 
 .tout__col {
@@ -62,6 +116,9 @@
 .tout__item {
 	@extend %tout-item;
 	@include fadeIn;   
+	.tout__col--large & {
+		margin-bottom: 3%;   
+	}
 }
 
 .tout__item--side {
@@ -74,14 +131,10 @@
 
 .tout__image { 
 	width: auto;
-	margin: auto;
+	margin: auto; 
 	// border-radius: u(rem(5));     
-	// overide lazy load
-	opacity: .75 !important;
+	// opacity: .75 !important; 
 	// transition: opacity .35s ease;  
-	.no-js & {
-		display: none; 
-	} 
 }
 
 .tout__text {
@@ -104,41 +157,19 @@
 	@include fadeIn(1.5s, .65s);             
 	// Ribbon effect
 	&:after, &:before { 
-		content: "";
-		position: absolute;
-		bottom: 0;
-		display: block;
-		width: u(rem(50));
-		border: u(rem(18)) solid rgba($primary, .75);            
-		transition: border .35s ease;      
-		z-index: -2; 
+		@extend %ribbon;
 	}
 	&:before {
-		left: u(rem(-50)); 
-		border-right-width: u(rem(15));
-		border-left-color: transparent;
-		// large banner override
-		.tout__col--large & {
-			border: u(rem(25)) solid rgba($primary, .75);         
-			border-right-width: u(rem(15));
-			border-left-color: transparent; 
-		}
+		@extend %ribbon--left;
 	}
 	&:after {
-		right: u(rem(-50));
-		border-left-width: u(rem(15)); 
-		border-right-color: transparent; 
-		// large banner override
-		.tout__col--large & {
-			border: u(rem(25)) solid rgba($primary, .75);         
-			border-left-width: u(rem(15)); 
-			border-right-color: transparent; 
-		}
-	}
+		@extend %ribbon--right;
+	} 
 	// center large tout
 	.tout__col--large & {
 		top: 25%;
-		@include font-size(35);
+		white-space: nowrap;  
+		@include font-size(35); 
 		// -- Min Width @ $tablet
 		@media #{$tablet} {
 			top: 11%;
@@ -146,8 +177,46 @@
 	}
 } 
 
+.tout__content {
+	padding: u(rem(20));
+	border: u(rem(7)) solid $primary-trans;    
+	text-align: center;
+	// BEVM single class modifiers  
+	&.-border--secondary { 
+		border-color: $secondary-trans;
+	}
+}
 
-
+.tout__text--bare {
+	font-family: $serif-heading; 
+	line-height: 1;        
+	@include font-size(28);
+	
+	// BEVM single class modifiers  
+	&.-color--secondary { 
+		color: $secondary-light;
+	}
+	&.-color--tertiary {
+		color: $tertiary-light;
+	}
+	&.-font {
+		font-family: $serif; 
+		text-transform: uppercase;  
+	}
+	&.-h1 {
+		line-height: 1.05;
+		@include font-size(50);
+	}
+	&.-h2 {
+		line-height: 1.15;
+		@include font-size(40);
+	}
+	&.-h3 {
+		line-height: 1.25;   
+		@include font-size(30);
+	}
+}
+ 
 
 // -------------------------------------
 //   States

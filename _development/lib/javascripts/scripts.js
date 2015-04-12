@@ -32,12 +32,12 @@ jQuery(document).ready(function($) {
 	
 	var $carousel = $('.js-slide');
 	var $carouselPrev = $('.js-slide-prev');
-	var $carouselNext = $('.js-slide-next');
+	var $carouselNext = $('.js-slide-next'); 
 
 	$carousel.owlCarousel({
 	  singleItem: true,
     items: 1, 
-    lazyLoad: true, 
+    // lazyLoad: true,   
     loop: true,
     transitionStyle: "fade"
 	});
@@ -86,7 +86,7 @@ jQuery(document).ready(function($) {
 	// function to pass to event types
 	function searchToglr(thisObj) {
 		thisObj.toggleClass('is-toggled-search');   
-		thisObj.siblings($searchBox).toggleClass('is-active-search');
+		thisObj.next().toggleClass('is-active-search'); 
 		thisObj.closest($searchHead)
 					 .find($searchInput)
 					 .focus()
@@ -235,48 +235,15 @@ jQuery(document).ready(function($) {
 	// ------------------------------------- 
 	//   AJAX Modals
 	// -------------------------------------
-	// Global JS is localized in scripts.php
-	// Template part called from extras.php
-
-	// -- Load a modal when any element with a modal specified is clicked 
-	var loadModal = function( modal ) {
-		
-		$.post(
-			cb_ajax.ajaxurl,
-			{
-				action: 'load_modal',
-				modal:  modal
-			},
-			// -- Handle response
-			function ( response ) {
-				
-				if ( 0 !== response ) {
-
-					var modalId = modal;
-
-					modal = $.parseHTML( response );
-					
-					// -- Add the modal to the body. 
-					$( 'body' ).append( modal );
-					
-					// -- Take various actions when the modal is added. 
-					$(modal).addClass('is-active-modal');
-					$(modal).attr('aria-hidden', 'false'); 
-					$(modal).attr('id', modalId);  
-					$('body').addClass('is-covered');
-				}
-				
-			}
-		);
-		
-	};
 
 	// -- Click Event
 	var $modalToggle = $('.js-modal-toggle');
 
 	$modalToggle.click(function(e) {
 
-		e.preventDefault();
+		alert('hi');
+
+		// e.preventDefault(); 
 
 		// -- Button State
 		$(this).prop('disabled', true);                 
@@ -313,6 +280,41 @@ jQuery(document).ready(function($) {
 	$closeCTA.click(function() {
 		$(this).closest('.js-cta-bar').addClass('is-closed'); 
 	});
+	// Global JS is localized in scripts.php
+	// Template part called from extras.php
+
+	// -- Load a modal when any element with a modal specified is clicked 
+	var loadModal = function( modal ) {
+		
+		$.post(
+			cb_ajax.ajaxurl,
+			{
+				action: 'load_modal',
+				modal:  modal
+			},
+			// -- Handle response
+			function ( response ) {
+				
+				if ( 0 !== response ) {
+
+					var modalId = modal;
+
+					modal = $.parseHTML( response );
+					
+					// -- Add the modal to the body. 
+					$( 'body' ).append( modal );
+					
+					// -- Take various actions when the modal is added. 
+					$(modal).addClass('is-active-modal');
+					$(modal).attr('aria-hidden', 'false'); 
+					$(modal).attr('id', modalId);  
+					$('body').addClass('is-covered');
+				}
+				
+			}
+		);
+		
+	};
 
 
 
