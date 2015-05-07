@@ -4,7 +4,7 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.3.0
+ * @version     2.3.8
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,21 +13,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 wc_print_notices();
 
-do_action( 'woocommerce_before_cart' ); ?>
+//do_action( 'woocommerce_before_cart' ); ?>
 
-<form action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
+<form class="section-region" action="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" method="post">
 
 <?php do_action( 'woocommerce_before_cart_table' ); ?>
 
-<table class="shop_table cart" cellspacing="0">
+<table class="shop_table cart cart--table table--rwd" cellspacing="0">
 	<thead>
 		<tr>
-			<th class="product-remove">&nbsp;</th>
-			<th class="product-thumbnail">&nbsp;</th>
-			<th class="product-name"><?php _e( 'Product', 'woocommerce' ); ?></th>
-			<th class="product-price"><?php _e( 'Price', 'woocommerce' ); ?></th>
-			<th class="product-quantity"><?php _e( 'Quantity', 'woocommerce' ); ?></th>
-			<th class="product-subtotal"><?php _e( 'Total', 'woocommerce' ); ?></th>
+			<th class="product-remove cart--table__cell">&nbsp;</th>
+			<th class="product-thumbnail cart--table__cell">&nbsp;</th>
+			<th class="product-name cart--table__cell"><?php _e( 'Product', 'woocommerce' ); ?></th>
+			<th class="product-price cart--table__cell"><?php _e( 'Price', 'woocommerce' ); ?></th>
+			<th class="product-quantity cart--table__cell"><?php _e( 'Quantity', 'woocommerce' ); ?></th>
+			<th class="product-subtotal cart--table__cell"><?php _e( 'Total', 'woocommerce' ); ?></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -40,15 +40,15 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 			if ( $_product && $_product->exists() && $cart_item['quantity'] > 0 && apply_filters( 'woocommerce_cart_item_visible', true, $cart_item, $cart_item_key ) ) {
 				?>
-				<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart_item', $cart_item, $cart_item_key ) ); ?>">
+				<tr class="<?php echo esc_attr( apply_filters( 'woocommerce_cart_item_class', 'cart__item', $cart_item, $cart_item_key ) ); ?>">
 
-					<td class="product-remove">
+					<td class="product-remove cart--table__cell">
 						<?php
-							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove" title="%s">&times;</a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key );
+							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove cart--table__remove" title="%s">&times;</a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key );
 						?>
 					</td>
 
-					<td class="product-thumbnail">
+					<td class="product-thumbnail cart--table__cell cart--table__image">
 						<?php
 							$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 
@@ -59,7 +59,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 					</td>
 
-					<td class="product-name">
+					<td data-th="<?php _e( 'Product', 'woocommerce' ); ?>" class="product-name  cart--table__cell">
 						<?php
 							if ( ! $_product->is_visible() )
 								echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key ) . '&nbsp;';
@@ -75,13 +75,13 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 					</td>
 
-					<td class="product-price">
+					<td data-th="<?php _e( 'Price', 'woocommerce' ); ?>" class="product-price  cart--table__cell">
 						<?php
 							echo apply_filters( 'woocommerce_cart_item_price', WC()->cart->get_product_price( $_product ), $cart_item, $cart_item_key );
 						?>
 					</td>
 
-					<td class="product-quantity">
+					<td data-th="<?php _e( 'Quantity', 'woocommerce' ); ?>" class="product-quantity  cart--table__cell">
 						<?php
 							if ( $_product->is_sold_individually() ) {
 								$product_quantity = sprintf( '1 <input type="hidden" name="cart[%s][qty]" value="1" />', $cart_item_key );
@@ -98,7 +98,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 						?>
 					</td>
 
-					<td class="product-subtotal">
+					<td data-th="<?php _e( 'Total', 'woocommerce' ); ?>" class="product-subtotal  cart--table__cell">
 						<?php
 							echo apply_filters( 'woocommerce_cart_item_subtotal', WC()->cart->get_product_subtotal( $_product, $cart_item['quantity'] ), $cart_item, $cart_item_key );
 						?>
@@ -110,24 +110,26 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 		do_action( 'woocommerce_cart_contents' );
 		?>
-		<tr>
+		<tr class="text-r">
 			<td colspan="6" class="actions">
+				<div class="owl--top  island">
 
-				<?php if ( WC()->cart->coupons_enabled() ) { ?>
-					<div class="coupon">
+					<?php if ( WC()->cart->coupons_enabled() ) { ?>
+						<div class="coupon">
 
-						<label for="coupon_code"><?php _e( 'Coupon', 'woocommerce' ); ?>:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php _e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="button" name="apply_coupon" value="<?php _e( 'Apply Coupon', 'woocommerce' ); ?>" />
+							<label class="is-visually-hidden" for="coupon_code"><?php _e( 'Coupon', 'woocommerce' ); ?>:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php _e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="button" name="apply_coupon" value="<?php _e( 'Apply Coupon', 'woocommerce' ); ?>" />
 
-						<?php do_action( 'woocommerce_cart_coupon' ); ?>
+							<?php do_action( 'woocommerce_cart_coupon' ); ?>
 
-					</div>
-				<?php } ?>
+						</div>
+					<?php } ?>
 
-				<input type="submit" class="button" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" />
+					<input type="submit" class="button--secondary" name="update_cart" value="<?php _e( 'Update Cart', 'woocommerce' ); ?>" />
 
-				<?php do_action( 'woocommerce_cart_actions' ); ?>
+					<?php do_action( 'woocommerce_cart_actions' ); ?>
 
-				<?php wp_nonce_field( 'woocommerce-cart' ); ?>
+					<?php wp_nonce_field( 'woocommerce-cart' ); ?>
+				</div>
 			</td>
 		</tr>
 
@@ -140,6 +142,12 @@ do_action( 'woocommerce_before_cart' ); ?>
 </form>
 
 <div class="cart-collaterals">
+
+	<?php do_action( 'woocommerce_cart_collaterals' ); ?>
+
+</div>
+
+<div class="cart-collaterals cart--col">
 
 	<?php do_action( 'woocommerce_cart_collaterals' ); ?>
 

@@ -41,7 +41,9 @@
 
 
 // -- Default   
-.button, button {
+.button,
+%button, 
+button {
 	@include button();
 }
 

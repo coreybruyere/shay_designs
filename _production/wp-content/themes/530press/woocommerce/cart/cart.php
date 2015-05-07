@@ -4,7 +4,7 @@
  *
  * @author 		WooThemes
  * @package 	WooCommerce/Templates
- * @version     2.3.0
+ * @version     2.3.8
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -44,7 +44,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 					<td class="product-remove cart--table__cell">
 						<?php
-							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove  cart--table__remove" title="%s">&times;</a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key );
+							echo apply_filters( 'woocommerce_cart_item_remove_link', sprintf( '<a href="%s" class="remove cart--table__remove" title="%s">&times;</a>', esc_url( WC()->cart->get_remove_url( $cart_item_key ) ), __( 'Remove this item', 'woocommerce' ) ), $cart_item_key );
 						?>
 					</td>
 
@@ -62,9 +62,9 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<td data-th="<?php _e( 'Product', 'woocommerce' ); ?>" class="product-name  cart--table__cell">
 						<?php
 							if ( ! $_product->is_visible() )
-								echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key );
+								echo apply_filters( 'woocommerce_cart_item_name', $_product->get_title(), $cart_item, $cart_item_key ) . '&nbsp;';
 							else
-								echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s</a>', $_product->get_permalink( $cart_item ), $_product->get_title() ), $cart_item, $cart_item_key );
+								echo apply_filters( 'woocommerce_cart_item_name', sprintf( '<a href="%s">%s </a>', $_product->get_permalink( $cart_item ), $_product->get_title() ), $cart_item, $cart_item_key );
 
 							// Meta data
 							echo WC()->cart->get_item_data( $cart_item );
@@ -117,7 +117,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<?php if ( WC()->cart->coupons_enabled() ) { ?>
 						<div class="coupon">
 
-							<label class="is-visually-hidden" for="coupon_code"><?php _e( 'Coupon', 'woocommerce' ); ?>:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php _e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="button" name="apply_coupon" value="<?php _e( 'Apply Coupon', 'woocommerce' ); ?>" /> 
+							<label class="is-visually-hidden" for="coupon_code"><?php _e( 'Coupon', 'woocommerce' ); ?>:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php _e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="button" name="apply_coupon" value="<?php _e( 'Apply Coupon', 'woocommerce' ); ?>" />
 
 							<?php do_action( 'woocommerce_cart_coupon' ); ?>
 
@@ -129,7 +129,6 @@ do_action( 'woocommerce_before_cart' ); ?>
 					<?php do_action( 'woocommerce_cart_actions' ); ?>
 
 					<?php wp_nonce_field( 'woocommerce-cart' ); ?>
-
 				</div>
 			</td>
 		</tr>
@@ -140,11 +139,12 @@ do_action( 'woocommerce_before_cart' ); ?>
 
 <?php do_action( 'woocommerce_after_cart_table' ); ?>
 
-</form>
+</form>  
+
 
 <div class="cart-collaterals cart--col">
 
-	<?php do_action( 'woocommerce_cart_collaterals' ); ?>
+	<?php //do_action( 'woocommerce_cart_collaterals' ); ?>
 
 	<?php woocommerce_cart_totals(); ?>
 

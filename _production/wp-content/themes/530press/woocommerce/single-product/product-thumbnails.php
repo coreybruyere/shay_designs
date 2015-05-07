@@ -20,12 +20,11 @@ if ( $attachment_ids ) {
 	$columns 	= apply_filters( 'woocommerce_product_thumbnails_columns', 3 );
 	?>
 	<div class="grid  section">
-		<div class="grid__fourth">
-			<div class="thumbnails <?php echo 'columns-' . $columns; ?>"><?php
+			<div class="thumbnails <?php echo 'columns-' . $columns; ?>"><?php 
 
 			foreach ( $attachment_ids as $attachment_id ) {
 
-				$classes = array( 'zoom' );
+				$classes = array( 'zoom grid__fourth' );
 
 				if ( $loop == 0 || $loop % $columns == 0 )
 					$classes[] = 'first';
@@ -47,7 +46,6 @@ if ( $attachment_ids ) {
 				$loop++;
 			}	
 	?>	</div>
-		</div>
 	</div>
 	<?php
 }

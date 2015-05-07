@@ -21,7 +21,8 @@
 	right: u(rem(10));  
 	width: u(rem(22));
 	height: u(rem(22));
-	padding-left: u(rem(1));
+	padding: u(rem(5)); 
+	fill: $white;
 	text-align: center;
 	color: $tertiary-lighter;
 	line-height: 1;
@@ -39,9 +40,15 @@
 
 .alert__icon {
 	@extend %alert-icon;
+	padding-top: 0;  
 	background-color: $alert-red;
 	&:hover, &:active {
 		background-color: lighten($alert-red, 5%); 
+	}  
+	// svg icons 
+	> svg {
+		width: u(rem(20));
+		height: u(rem(20));    
 	}
 }
 

@@ -3423,6 +3423,7 @@ jQuery(document).ready(function($) {
 	});
 
 
+
 	// ------------------------------------- 
 	//   Touch Screen Hover Fix
 	// -------------------------------------
@@ -3431,10 +3432,36 @@ jQuery(document).ready(function($) {
 	//     var el = $(this);
 	//     var link = el.attr('href');
 	//     window.location = link;  
-	// }); 
+	// });  
 
 
 
+	// ------------------------------------- 
+	//   Social Popup Link
+	// -------------------------------------
+
+	var $socialShare = $('.js-share'); 
+	$socialShare.click(function(e) {
+	  e.preventDefault();
+
+	  windowPopup($(this).attr('href'), 500, 300);
+	});
+
+	function windowPopup(url, width, height) {
+	  // Calculate the position of the popup so
+	  // it’s centered on the screen.
+	  var left = (screen.width / 2) - (width / 2),
+	      top = (screen.height / 2) - (height / 2);
+
+	  window.open(
+	    url,
+	    "",
+	    "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,width=" + width + ",height=" + height + ",top=" + top + ",left=" + left
+	  );
+	}
+
+
+ 
 	// ------------------------------------- 
 	//   Add custom inputs to radio and checkbox
 	// -------------------------------------
@@ -3445,7 +3472,7 @@ jQuery(document).ready(function($) {
 	    	$(this).addClass('input--radio');
 	    } 
 
-	});
+	});  
 
 	$('input[type=checkbox').each(function() {
  
@@ -3453,7 +3480,7 @@ jQuery(document).ready(function($) {
 	    	$(this).addClass('input--checkbox');
 	    }
 
-	});
+	}); 
 
 
 
@@ -3463,39 +3490,29 @@ jQuery(document).ready(function($) {
 	// Global JS is localized in scripts.php
 	// Template part called from extras.php
 
-	
-
-		var $test = $('.js-test');
-		$(document).on("click",".js-test",function(e) { 
-			e.preventDefault();     
-
-	alert('hi');    
-	});   
-
 	// -- Click Event
 	var $modalToggle = $('.js-modal-toggle');
 
 	$modalToggle.click(function(e) {
 
-		alert('hi');
-
 		// e.preventDefault();  
 
-		// -- Button State
+		// -- Button State  
 		$(this).prop('disabled', true);                 
 		$(this).addClass('is-loading');  
 		// $('[data-modal=' + modal + ']').focus();
  
 		// -- Get Modal Template
 		var modal = $(this).data('modal');
-		loadModal(modal);  
+		loadModal(modal);       
 
 	});
 
 	// -- Close Modal func
 	var closeDialog = function() {
 	  $(document).find('.js-modal').remove(); 
-		$modalToggle.prop('disabled', false).removeClass('is-loading');     
+		$modalToggle.prop('disabled', false).removeClass('is-loading');    
+		$('html').removeClass('is-covered');        
 	};
 
 	// -- Run closeDialog() on click of close button
@@ -3514,8 +3531,9 @@ jQuery(document).ready(function($) {
 	var $closeCTA = $('#js-close-cta');
 
 	$closeCTA.click(function() {
-		$(this).closest('.js-cta-bar').addClass('is-closed'); 
+		$(this).closest('.js-cta-bar').addClass('is-closed');   
 	});
+
 
 	// -- Load a modal when any element with a modal specified is clicked 
 	var loadModal = function( modal ) {
@@ -3542,7 +3560,7 @@ jQuery(document).ready(function($) {
 					$(modal).addClass('is-active-modal');
 					$(modal).attr('aria-hidden', 'false'); 
 					$(modal).attr('id', modalId);  
-					$('body').addClass('is-covered');
+					$('html').addClass('is-covered');
 				}
 				
 			}

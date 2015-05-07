@@ -84,11 +84,14 @@
 .cart--table__image {
     img {
         width: auto;
+        max-width: u(rem(300));
+        margin: auto;
+        padding: u(rem(20)) 0;
         border-radius: u(rem($border-radius));
         // -- Min Width @ $mobile
         @media #{$mobile} {
             display: block;
-            width: u(rem(45));
+            width: u(rem(125));
         }
     }
 }

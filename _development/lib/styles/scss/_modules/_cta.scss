@@ -38,10 +38,11 @@
 
 .cta-bar__button {
 	margin: u(rem(5)) u(rem(5)) 0;
+	line-height: 1.85;
 	@include font-size(12); 
 	// -- Min Width @ $tablet
 	@media #{$tablet} {
-		display: inline-block;
+		display: inline-block; 
 		margin: 0 0 0 u(rem(5)); 
 	}   
 }

@@ -16,7 +16,7 @@
 	text-align: center;  
 	// -- Min Width @ $tablet 
 	@media #{$tablet} {
-		height: u(rem(80));   
+		height: u(rem(75));    
 		min-height: 0;    
 	}
 }

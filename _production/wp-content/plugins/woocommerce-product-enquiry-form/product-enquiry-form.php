@@ -158,7 +158,7 @@ if ( is_woocommerce_active() ) {
 							<?php do_action('product_enquiry_before_message'); ?>
 
 							<p class="form-row notes">
-								<label for="product_enquiry_message"><?php _e( 'Enquiry', 'wc_enquiry_form' ); ?></label>
+								<label for="product_enquiry_message"><?php _e( 'Inquiry', 'wc_enquiry_form' ); ?></label>
 								<textarea class="input-text" name="product_enquiry_message" id="product_enquiry_message" rows="5" cols="20" placeholder="<?php _e( 'What would you like to know?', 'wc_enquiry_form' ); ?>"></textarea>
 							</p>
 
@@ -190,7 +190,7 @@ if ( is_woocommerce_active() ) {
 
 							<p>
 								<input type="hidden" name="product_id" value="<?php echo $post->ID; ?>" />
-								<input type="submit" id="send_product_enquiry" value="<?php _e( 'Send Enquiry', 'wc_enquiry_form' ); ?>" class="button" />
+								<input type="submit" id="send_product_enquiry" value="<?php _e( 'Send Inquiry', 'wc_enquiry_form' ); ?>" class="button" />
 							</p>
 
 							<?php do_action( 'product_enquiry_after_form' ); ?>

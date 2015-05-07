@@ -6,7 +6,6 @@
 
 .modal {
 	position: fixed; 
-	top: 0;
 	bottom: 0;
 	right: 0;
 	left: 0;
@@ -16,16 +15,17 @@
 	opacity: 0;
 	background-color: rgba($black, .7); 
 	z-index: 999;   
-	transform: scale(1.15);
+	overflow: scroll;  
+	transform: scale(1.15); 
 	transition: transform .1s cubic-bezier(0.465, 0.183, 0.153, 0.946), opacity .1s cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
 
 .modal__box {
-	position: absolute;              
-	top: 30%;         
-	left: 50%;    
+	position: absolute;               
+	top: u(rem(200));                    
+	left: 50%;     
 	width: 85%;
-	padding: u(rem(40)) u(rem(30));               
+	padding: u(rem(40)) u(rem(30));                
 	background-color: $white;  
 	border: u(rem(3)) solid $primary;   
 	border-radius: u(rem($border-radius));

@@ -140,7 +140,7 @@
         <span aria-hidden="true" class="pf pf-diners"></span>
       </div><!-- end pf-footer -->
 
-      <a href="" class="footer__badge" target="_blank">
+      <a href="https://ssl.comodo.com/ev-ssl-certificates.php" class="footer__badge" target="_blank">
         <img class="img" src="<?php echo get_bloginfo('template_directory');?>/lib/images/min/comodossl.png" alt="Comodo SSL Certificate Badge">
       </a>
 

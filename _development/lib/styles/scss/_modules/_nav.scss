@@ -7,7 +7,6 @@
 // -- USAGE: <nav class="nav" role="navigation"></nav>
 .nav {
   @extend %clearfix; 
-  right: 50%;
   display: block;  
   overflow: hidden;
   width: 100%;
@@ -19,13 +18,15 @@
   vertical-align: bottom;
   transition: opacity .5s ease; 
   transform: translate3d(0,0,0);
-  z-index: 4;  
+  z-index: 4;   
   -webkit-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d; 
   // -- Min Width @ $tablet
   @media #{$tablet} {
-    position: absolute;
-    display: inline-block; 
+    position: absolute; 
+    right: 50%; 
+    z-index: 999;
+    display: inline-block;  
     width: auto;
     height: auto;
     overflow: visible;    
@@ -39,7 +40,7 @@
 }
 
 .nav__item {
-  position: relative; 
+  // position: relative;  
   display: block;
   border-bottom: u(rem(1)) solid $tertiary-lighter; 
   // -- Min Width @ $tablet

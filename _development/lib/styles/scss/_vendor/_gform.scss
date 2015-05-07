@@ -85,8 +85,21 @@
 }
  
 .gform_button {
-    @extend .button; 
+    @extend .button;
+    //Shitty plugin fix 
+    display: inline-block !important;   
+} 
+
+.gfield_error {
+    .gfield_label {
+        color: $alert-red;
+    }
+    .gfield_container > * {
+        border-color: $alert-red; 
+    }
 }
+
+
  
 .gform_wrapper .gfield_error {
  

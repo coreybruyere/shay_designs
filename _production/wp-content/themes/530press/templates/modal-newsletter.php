@@ -13,7 +13,7 @@
 			    <div class="modal__block" id="mc_embed_signup_scroll">
 					  <label class="is-visually-hidden" for="mce-EMAIL">Email Address</label> 
 					  <span class="input--group">
-					  	<input type="email" class="input--group__text" name="EMAIL" placeholder="Enter your email address..." id="mce-EMAIL">
+					  	<input type="email" class="input--group__text" name="EMAIL" placeholder="Enter email address..." id="mce-EMAIL">
 						  <span class="input--group__button float-l">  
 						  	<button type="submit" class="button" name="subscribe" id="mc-embedded-subscribe" >Sign Me Up!</button>
 						  </span><!-- end input-group_button -->

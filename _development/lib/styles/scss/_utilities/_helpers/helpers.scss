@@ -194,6 +194,29 @@
 	}
 }
 
+// wp base images
+.alignleft {
+  // -- Min Width @ $tablet
+  @media #{$tablet} {
+      float: left;   
+      margin-right: u(rem(20));
+  }
+}
+.alignright {
+  // -- Min Width @ $tablet
+  @media #{$tablet} {
+      float: right;
+      margin-left: u(rem(20));
+  }
+}
+.aligncenter {
+  // -- Min Width @ $tablet
+  @media #{$tablet} {
+      float: none;
+      margin: auto;
+  }
+}
+
 .no-pad {
 	padding: 0 !important;
 }
@@ -282,6 +305,10 @@
 
 .is-transparent {
 	opacity: 0 !important; 
+}
+
+.is-covered {
+	position: relative;
 }
 
 .is-closed {

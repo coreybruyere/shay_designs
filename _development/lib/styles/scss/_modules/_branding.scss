@@ -20,6 +20,7 @@
 .branding {
 	@extend %branding; 
 	display: inline-block;     
+	min-height: u(rem(70));  
 	margin-top: u(rem(5));
 	padding: 0;
 	// opacity for search - logo turns transparent

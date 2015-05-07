@@ -40,12 +40,6 @@ body {
 
 img {
     @extend .img--responsive;
-    .js & {
-        &.lazy {
-            opacity: 0;
-            transition: opacity .3s ease-in; 
-        } 
-    }
 }
 
 hr {
@@ -68,7 +62,12 @@ hr {
 }
 
 figure {
-    margin: 0;
+    margin: u(rem(10)) auto;
+}
+
+figcaption {
+    padding: u(rem(10)) 0;
+    @include font-size(12);
 }
 
 blockquote {

@@ -187,23 +187,9 @@ Template Name: Home Page Template
 
 	    <div class="tout tout--flex"> 
 
-	      <div class="tout__col--side tout__content -border--secondary float-l">   
-
-	        <div class="tout__item--side">
-
-						<div class="section">
-							<div class="tout__text--bare -font -h1">Free</div>   
-							<div class="tout__text--bare -font -h2">Shipping</div>  
-							<div class="tout__text--bare -font -color--tertiary -h3">On orders over</div>
-							<div class="section">
-								<div class="tout__text--bare -color--secondary -h1">$100</div>  
-							</div>
-						</div>
-
-	        </div><!-- end tout__item-side -->
-
+	      <div class="tout__col--side tout__content -border--secondary float-l">  
+	        <img src="<?php echo get_bloginfo('template_directory');?>/lib/images/template--promo.png" class="tout__center">     
 	      </div><!-- end tout__col-side -->
-
 
 
 	      <div class="tout__col--large tout__content"> 

@@ -60,6 +60,10 @@ input[type="submit"] {
     text-align: center;
 }
 
+input[type="submit"] {
+    @extend %button;
+}
+
 textarea {
     width: 100%;
     min-width: u(rem(300));

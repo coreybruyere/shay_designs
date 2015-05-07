@@ -21,15 +21,16 @@
 	@extend %pagination-items; 
 	height: u(rem(30));
 	width: u(rem(30));
-	margin: 0 u(rem(4));
+	margin: 0 u(rem(2)); 
 	line-height: 2.25;
-	@include font-size(14); 
+	@include font-size(14);  
 }
 
 .pagination__icon {   
 	@extend %icon-svg; 
 	height: u(rem(25));
 	width: u(rem(17));
+	padding: 0;  
 	vertical-align: middle;
 	margin-right: 0;
 	float: none;

@@ -16,6 +16,7 @@ global $wp_query;
 if ( ! woocommerce_products_will_display() )
 	return;
 ?>
+
 <div class="well clearfix text-center--mobile">
 <p class="woocommerce-result-count float-l"> 
 	<?php

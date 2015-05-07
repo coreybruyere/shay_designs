@@ -5,9 +5,14 @@
 // -------------------------------------
 
 .variation {
-	@include font-size(13px);
+	padding-left: u(rem(20));
+	@include font-size(13);
 	> dt {
 		color: $tertiary-light;
+	}
+	// -- Min Width @ $tablet
+	@media #{$tablet} {
+		padding-left: 0;
 	}
 }
 

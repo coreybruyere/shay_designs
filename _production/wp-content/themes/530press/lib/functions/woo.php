@@ -171,7 +171,7 @@ add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 )
 
 
 /**
- * Change number of related products on pdp
+ * Update nav cart count
  */
 add_filter('add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
@@ -204,6 +204,29 @@ function resolve_dupes_add_to_cart_redirect($url = false) {
      // Redirect back to the original page, without the 'add-to-cart' parameter.
      // We add the `get_bloginfo` part so it saves a redirect on https:// sites.
      return get_bloginfo('wpurl').add_query_arg(array(), remove_query_arg('add-to-cart'));
+}
+
+
+
+/**
+ * woocommerce_package_rates is a 2.1+ hook
+ */
+add_filter( 'woocommerce_package_rates', 'hide_shipping_when_free_is_available', 10, 2 );
+function hide_shipping_when_free_is_available( $rates, $package ) {
+ 	
+ 	// Only modify rates if free_shipping is present
+  	if ( isset( $rates['free_shipping'] ) ) {
+  	
+  		// To unset a single rate/method, do the following. This example unsets flat_rate shipping
+  		unset( $rates['flat_rate'] );
+  		
+  		// To unset all methods except for free_shipping, do the following
+  		$free_shipping          = $rates['free_shipping'];
+  		$rates                  = array();
+  		$rates['free_shipping'] = $free_shipping;
+	}
+	
+	return $rates;
 }
 
 
@@ -264,6 +287,7 @@ add_filter( 'product_enquiry_heading', 'rename_enquiry_heading');
 function rename_enquiry_heading( $variable ) {
 	return "Ask a Question";  
 }
+
 
 
 /**
