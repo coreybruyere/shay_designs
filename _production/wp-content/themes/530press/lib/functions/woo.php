@@ -171,7 +171,7 @@ add_filter( 'loop_shop_per_page', create_function( '$cols', 'return 12;' ), 20 )
 
 
 /**
- * Update nav cart count
+ * Change number of related products on pdp
  */
 add_filter('add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
 function woocommerce_header_add_to_cart_fragment( $fragments ) {

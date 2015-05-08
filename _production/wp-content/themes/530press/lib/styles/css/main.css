@@ -1426,7 +1426,7 @@ th {
   font-size: 1.25rem;
 }
 .gform_wrapper .gform_button {
-  display: block !important;
+  display: inline-block !important;
 }
 .gform_wrapper .gfield_label {
   margin-bottom: 0.3125rem;
@@ -3375,7 +3375,7 @@ strong {
 
 .is-active-nav {
   height: auto;
-  max-height: 17.5rem;
+  max-height: 25rem;
   opacity: 1;
   -webkit-transform-style: preserve-3d;
 }

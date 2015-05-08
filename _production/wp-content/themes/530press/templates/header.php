@@ -43,16 +43,16 @@
     // echo $cart_number;
     ?>
 
-    <a href="<?php echo $woocommerce->cart->get_cart_url(); ?>" title="<?php _e('Cart','woothemes'); ?>" class="nav--menu__link  js-cart" role="menuitem" data-cart="<?php echo sprintf(_n('%d', '%d', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?>">
+    <a href="<<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e('Cart','woothemes'); ?>" class="nav--menu__link  js-cart" role="menuitem" data-cart="<?php echo sprintf(_n('%d', '%d', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?>">
       <span class="nav--menu__icon">
         <svg viewBox="0 0 32 32">
-          <g filter="">
+          <g filter=""> 
             <use xlink:href="#trolley"></use>
           </g>
         </svg>
-      </span> <!-- icon-svg -->
+      </span>
       <span>Cart</span>
-    </a><!-- end role[menuitem] -->
+    </a>
 
   </div><!-- end role[menu] -->
 

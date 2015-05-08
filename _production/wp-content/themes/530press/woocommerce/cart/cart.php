@@ -115,7 +115,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 				<div class="owl--top  island">
 
 					<?php if ( WC()->cart->coupons_enabled() ) { ?>
-						<div class="coupon">
+						<div class="coupon  owl--top">
 
 							<label class="is-visually-hidden" for="coupon_code"><?php _e( 'Coupon', 'woocommerce' ); ?>:</label> <input type="text" name="coupon_code" class="input-text" id="coupon_code" value="" placeholder="<?php _e( 'Coupon code', 'woocommerce' ); ?>" /> <input type="submit" class="button" name="apply_coupon" value="<?php _e( 'Apply Coupon', 'woocommerce' ); ?>" />
 

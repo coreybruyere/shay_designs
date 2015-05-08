@@ -3498,7 +3498,7 @@ jQuery(document).ready(function($) {
 		// e.preventDefault();  
 
 		// -- Button State  
-		$(this).prop('disabled', true);                 
+		// $(this).prop('disabled', true);                 
 		$(this).addClass('is-loading');  
 		// $('[data-modal=' + modal + ']').focus();
  
@@ -3528,7 +3528,7 @@ jQuery(document).ready(function($) {
 	});  
 
 	// -- Close CTA Bar 
-	var $closeCTA = $('#js-close-cta');
+	var $closeCTA = $('#js-close-cta'); 
 
 	$closeCTA.click(function() {
 		$(this).closest('.js-cta-bar').addClass('is-closed');   

@@ -15,13 +15,13 @@
 		  	<a href="<?php echo $cta_btn_link; ?>" class="cta-bar__button button--tertiary"><?php echo $cta_btn_text; ?></a>  
 			<?php endif; ?>
 
-		  <a role="button" class="cta-bar__close" id="js-close-cta">
+		  <span role="button" class="cta-bar__close" id="js-close-cta">
 		    <svg aria-hidden="true" viewBox="0 0 32 32">
 		      <g filter="">
 		        <use xlink:href="#close"></use>
 		      </g>
 		    </svg>
-		  </a> 
+		  </span> 
 
 		</div>
 	<?php endif; ?>
@@ -34,15 +34,15 @@
 	<div class="cta-bar js-cta-bar"> 
 	  <div class="cta-bar__text"><?php echo $newsletter_text; ?></div>
 
-	  <a role="button" class="js-modal-toggle cta-bar__button button--tertiary" data-modal="newsletter"><?php echo $newsletter_button; ?></a>   
+	  <span role="button" class="js-modal-toggle cta-bar__button button--tertiary" data-modal="newsletter"><?php echo $newsletter_button; ?></span>   
 
-	  <a role="button" class="cta-bar__close" id="js-close-cta">
+	  <span role="button" class="cta-bar__close" id="js-close-cta">
 	    <svg aria-hidden="true" viewBox="0 0 32 32">
 	      <g filter="">
 	        <use xlink:href="#close"></use>
 	      </g>
 	    </svg>
-	  </a> 
+	  </span> 
 
 	</div>
 

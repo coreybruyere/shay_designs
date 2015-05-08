@@ -117,6 +117,9 @@ class WooThemes_Updater_Admin {
 
 			wp_safe_redirect( $redirect_url );
 			exit;
+		} else if ( isset( $_GET['woo-dismiss-renewal-notice'] ) && 'true' == $_GET['woo-dismiss-renewal-notice'] ) {
+			// Only hide it for 60 days on end, make sure future renewals will get notices as well
+			set_transient( 'woo_hide_renewal_notices', 'yes', 60 * DAY_IN_SECONDS );
 		}
 	} // End maybe_process_dismiss_link()
 
@@ -167,8 +170,8 @@ class WooThemes_Updater_Admin {
 				}
 			}
 		}
-		if ( is_array( $notices ) && 0 < count( $notices ) ) {
-			echo '<div class="update-nag"><p class="alignleft">' . implode( '<br/>', $notices ) . '</p></div>';
+		if ( is_array( $notices ) && 0 < count( $notices ) && FALSE == get_transient( 'woo_hide_renewal_notices' ) ) {
+			echo '<div class="update-nag"><p class="alignleft">' . implode( '<br/>', $notices ) . '</p><br/><a class="button primary" href="' . add_query_arg( array( 'woo-dismiss-renewal-notice' => 'true' ) ) . '">' . __( 'Don\'t remind me','woothemes-updater' ) . '</a></div>';
 		}
 	}
 
@@ -211,7 +214,7 @@ if ( jQuery( 'form[name="upgrade-themes"]' ).length ) {
 
 		add_action( 'load-' . $this->hook, array( $this, 'process_request' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-		add_action( 'admin_print_scripts-' . $this->hook, array( $this, 'enqueue_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	} // End register_settings_screen()
 
 	/**
@@ -298,7 +301,7 @@ if ( jQuery( 'form[name="upgrade-themes"]' ).length ) {
 		echo '<img src="' . esc_url( $this->assets_url . 'images/getting-started.png' ) . '" alt="' . __( 'Getting Started', 'woothemes-updater' ) . '" />' . "\n";
 		echo '<h4>' . __( 'Getting Started', 'woothemes-updater' ) . '</h4>' . "\n";
 		echo '<ul>' . $this->_generate_link_list( $links ) . "\n";
-		echo '<li><em><a href="' . esc_url( 'https://twitter.com/WooSupport/' ) . '" title="' . esc_attr__( 'Follow the WooThemes Support Twitter', 'woothemes-updater' ) . '">' . __( 'Follow the WooThemes Support Twitter', 'woothemes-updater' ) . '</a></em></li>' . "\n";
+		echo '<li><em><a href="' . esc_url( 'https://twitter.com/WooThemes/' ) . '" title="' . esc_attr__( 'Follow WooThemes on Twitter', 'woothemes-updater' ) . '">' . __( 'Follow WooThemes on Twitter', 'woothemes-updater' ) . '</a></em></li>' . "\n";
 		echo '</ul>' . "\n";
 	} // End display_general_links()
 
@@ -422,13 +425,13 @@ if ( jQuery( 'form[name="upgrade-themes"]' ).length ) {
 	 * @since   1.2.0
 	 * @return  void
 	 */
-	public function enqueue_scripts () {
+	public function enqueue_scripts ( $hook ) {
 		$screen = get_current_screen();
 		wp_enqueue_script( 'post' );
 		wp_register_script( 'woothemes-updater-admin', $this->assets_url . 'js/admin.js', array( 'jquery' ) );
 
 		// Only load script and localization on helper admin page.
-		if ( 'dashboard_page_woothemes-helper' == $screen->id ) {
+		if ( in_array( $screen->id, array( 'dashboard_page_woothemes-helper' ) ) ) {
 			wp_enqueue_script( 'woothemes-updater-admin' );
 			$localization = array(
 				'ajax_url' => admin_url( 'admin-ajax.php' ),
@@ -451,7 +454,7 @@ if ( jQuery( 'form[name="upgrade-themes"]' ).length ) {
 
 		$action = $this->get_post_or_get_action( $supported_actions );
 
-		if ( $action && in_array( $action, $supported_actions ) && check_admin_referer( 'bulk-' . 'licenses' ) ) {
+		if ( $action && in_array( $action, $supported_actions ) && check_admin_referer( 'wt-helper-activate-license', 'wt-helper-nonce' ) ) {
 			$response = false;
 			$status = 'false';
 			$type = $action;
