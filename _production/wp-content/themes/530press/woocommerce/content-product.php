@@ -53,7 +53,7 @@ if ( 0 == $woocommerce_loop['loop'] % $woocommerce_loop['columns'] )
 				 */
 				do_action( 'woocommerce_before_shop_loop_item_title' );
 			?>
-			<figcaption>
+			<figcaption class="no-pad">
 				<div class="product__caption">
 				<?php if ( $product->is_on_sale() ) : ?>
 

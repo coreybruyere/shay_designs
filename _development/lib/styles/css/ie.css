@@ -1806,7 +1806,7 @@ input[type="submit"] {
 
 textarea {
   width: 100%;
-  min-width: 300px;
+  min-width: 250px;
   min-height: 100px;
   resize: none;
 }
@@ -1968,7 +1968,6 @@ input[type="checkbox"] {
   display: table-cell;
   width: 100%;
   margin-top: 15px;
-  padding-left: 10px;
   white-space: nowrap;
   vertical-align: middle;
   font-size: 0;
@@ -1983,6 +1982,7 @@ input[type="checkbox"] {
   .input--group__button {
     width: 1%;
     margin-top: 0;
+    padding-left: 10px;
   }
   .input--group__button:last-child > .button, .input--group__button:last-child > .gform_button {
     width: auto;
@@ -2046,16 +2046,15 @@ input[type="checkbox"] {
   fill: currentColor;
 }
 
+/**/
 .pagination__cap {
-  padding: 10px;
+  padding: 10px 5px;
 }
 .pagination__cap.-first {
   border-right: 1px solid #fff;
-  margin-right: 10px;
 }
 .pagination__cap.-last {
   border-left: 1px solid #fff;
-  margin-left: 10px;
 }
 
 .pf--box {
@@ -3373,6 +3372,7 @@ strong {
   color: #50a2b5;
 }
 
+/* Nav active*/
 .is-active-nav {
   height: auto;
   max-height: 400px;

@@ -66,7 +66,7 @@ input[type="submit"] {
 
 textarea {
     width: 100%;
-    min-width: u(rem(300));
+    min-width: u(rem(250));
     min-height: u(rem(100));
     resize: none;
     // -- Min Width @ $tablet
@@ -240,7 +240,6 @@ input[type="checkbox"] {
     display: table-cell;
     width: 100%;
     margin-top: u(rem(15)); 
-    padding-left: u(rem(10)); 
     white-space: nowrap;
     vertical-align: middle;
     font-size: 0;
@@ -257,6 +256,7 @@ input[type="checkbox"] {
     @media #{$tablet} { 
         width: 1%;
         margin-top: 0;  
+        padding-left: u(rem(10)); 
         &:last-child {
             > .button {
                 width: auto;

@@ -39,17 +39,17 @@
 		fill: currentColor;
 	}
 }
-
+/**/  
 .pagination__cap {
 	@extend %pagination-items;
-	padding: u(rem(10));
+	padding: u(rem(10)) u(rem(5));
 	&.-first {
 		border-right: u(rem(1)) solid $white;
-		margin-right: u(rem(10));
+		// margin-right: u(rem(10)); 
 	}
 	&.-last {
 		border-left: u(rem(1)) solid $white;
-		margin-left: u(rem(10));
+		// margin-left: u(rem(10));
 	}
 }
 

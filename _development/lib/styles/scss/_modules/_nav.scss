@@ -203,10 +203,10 @@
 // -------------------------------------
 //   States
 // -------------------------------------
-
+/* Nav active*/  
 .is-active-nav {
   height: auto;
-  max-height: u(rem(400));   
+  max-height: u(rem(400));      
   opacity: 1;  
   -webkit-transform-style: preserve-3d; 
   &:first-of-type {

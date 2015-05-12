@@ -23,6 +23,7 @@ $roots_includes = array(
   'lib/functions/scripts.php',         // Scripts and stylesheets
   'lib/functions/extras.php',          // Custom functions
   'lib/functions/pagination.php',      // Custom Pagination
+  'lib/functions/pip.php',              // WooCommerce related functions
   'lib/functions/woo.php'              // WooCommerce related functions
 
 );
